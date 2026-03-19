@@ -1,26 +1,21 @@
 # Lessons Learned
 
-<!-- Keep entries concise. For deep dives into why a concept works, use /learning-opportunity instead. -->
+<!-- DSA-specific lessons only. Updated after mistakes or conceptual breakthroughs. -->
+<!-- Active lessons are read every session. When a lesson is internalized (user solves a problem without making that mistake), move it to Graduated. -->
 
-## What I Learned
-<!-- Add entries after each session where you learned something new -->
+## Conceptual Mistakes
+<!-- Misunderstandings about how an algorithm or pattern works -->
 
-- **XML tags in prompts are a real thing, not just hype.** All three major providers (Anthropic, OpenAI, Google) recommend XML for complex, multi-section prompts. The key insight: XML helps AI distinguish *what kind of content* a section is (rules vs templates vs examples), which markdown headers alone can't do.
-- **Hybrid approach beats all-or-nothing.** Don't replace markdown with XML - use both. Markdown headers stay for human readability, XML wraps content blocks for AI parsing. Pattern: header outside the tag, content inside.
-- **AI peer review recommendations often over-engineer.** When /ask-gpt and /ask-gemini reviewed the XML plan, they recommended namespaced tags (`tk_rules`), a formal schema file, testing rubrics, and a three-wave rollout. Most of that was unnecessary for 9 small files. Trust your gut when something feels like too much.
-- **A worktree is just a folder, a branch is just a pointer.** They're independent. Deleting a worktree folder does not delete the branch, PR, or any commits. You can always re-create a worktree from the same branch. Think of it like closing a document window vs. deleting the file.
-- **Worktree detection: `--git-dir` vs `--git-common-dir`.** To check if you're in a Git worktree, compare `git rev-parse --git-dir` with `git rev-parse --git-common-dir`. If they differ, you're in a worktree. The first attempt used `--show-toplevel` vs `--git-common-dir`, which compares a directory path to a `.git` path - they're never equal, so it always said "worktree." The review process caught this before it shipped.
 
-## Mistakes to Avoid
-<!-- Add patterns that caused problems so they don't repeat -->
+## Code Mistakes
+<!-- Bugs caused by implementation errors, not conceptual gaps -->
 
-- **Don't micro-tag individual bullets.** Tag sections, not lines. Wrapping every bullet in XML adds noise without helping parsing.
-- **Watch for tool output artifacts in reviews.** The Read tool's output wrapper (`</output>`) can look like actual file content. Always verify with raw bytes before "fixing" something that might not be broken.
-- **Review your own AI-generated code before shipping.** The initial worktree detection logic had a fundamental bug that would have broken every worktree feature. Running `/review-commands` and `/review-code` caught it. The review workflow exists for a reason - don't skip it even when the code "looks right."
-- **Skill tool expansions can serve stale command versions.** Root cause: old command files in `~/.claude/commands/` (global/home directory) override the project's `.claude/commands/` files. In our case, 9 files were manually copied to the home directory in January before setup.sh existed, then never updated. When slash commands ran, the AI used the global copies instead of the current project versions - missing Staff Engineer Check, Finding IDs, and other updates. Fix: delete global copies (commands should only live in each project folder) and setup.sh now warns if it detects conflicting global files. See issue #52.
 
-## Patterns That Work
-<!-- Add approaches and conventions that proved effective -->
+## Pattern Misidentifications
+<!-- Times the wrong pattern was chosen, or a pattern was missed -->
 
-- **Tag vocabulary for prompts:** `<rules>` (must-follow), `<procedure>` (step-by-step), `<template>` (copy-paste schemas), `<output_format>` (expected output), `<conditions>` (if-then logic), `<guidelines>` (best practices), `<reference>` (lookup tables), `<phase>` (named stages), `<examples>` (good/bad demos).
-- **Audit before converting.** Not every file needs XML. Short files, human-facing docs, and already-structured data are fine without it. Focus on files where the AI needs to distinguish content types.
+
+---
+
+## Graduated
+<!-- Lessons the user has demonstrated mastery of. Reference only, not read every session. -->

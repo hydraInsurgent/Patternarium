@@ -1,0 +1,10 @@
+{
+  "Two Sum": {
+    "patterns": ["HashMap", "Two Pointers"],
+    "approaches": {
+      "brute-force.cs": [],
+      "hashmap.cs": ["HashMap"],
+      "two-pointer.cs": ["Two Pointers"]
+    }
+  }
+}
