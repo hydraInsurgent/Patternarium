@@ -11,6 +11,10 @@ Ask these questions one at a time, waiting for the user's response before moving
 3. "What pattern did you use? Can you state it as a rule you would tell someone else?"
 4. "Is there anything that still feels unclear or fuzzy?"
 
+## Logging
+
+After the user answers the reflection questions, write their responses to the `## Reflection` section of `active-problem.md`.
+
 ## After Reflection
 
 - If the user identified a mistake worth recording, suggest updating LESSONS.md

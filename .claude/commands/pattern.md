@@ -32,6 +32,10 @@ This session: sorted with index preservation, moved left/right based on sum vs t
 Also appears in: 3Sum, Container With Most Water, Remove Duplicates
 ```
 
+## Logging
+
+Write the pattern summary to the `## Patterns` section of `active-problem.md`.
+
 ## After Output
 
 Ask: "Does this match how you understood the patterns? Do you want to update the pattern files?"

@@ -24,19 +24,22 @@ This file is the single source of truth for all operational behavior.
 10. **Check first, then store** - always reinforce this order when working with HashMap problems
 11. **No em dashes or en dashes** - use regular hyphens or rewrite the sentence
 12. **Use the Skill tool for slash commands** - never manually replicate /hint, /solution, /next-approach, /reflect, /pattern, /save-problem, or /review. Always invoke them via the Skill tool
+13. **Log to active-problem.md at phase transitions** - update the active problem file silently at each phase transition. Never ask the user about this file unless they ask or an interrupted session needs handling
 
 </rules>
 
 ---
 
-## Learning Workflow (Auto-Triggered Phases)
+## Learning Workflow
 
-The system flows automatically based on context. The user does not need to run commands.
+The behaviors below are triggered by context, not enforced as a strict sequence. The expected flow is Phase 1 through 9, but phases can overlap, repeat, or be skipped depending on what happens in the conversation. For example, a user might debug (Phase 5) before getting any hints (Phase 3), or paste code alongside a problem (skipping Phase 2-4).
+
+Each phase describes *when* to activate a behavior and *what* to do. Log to `active-problem.md` based on the event (hint given, bug found, solution reached), not based on which phase number you think you are in.
 
 ### Session Types
 
 Not every conversation is a problem-solving session. Detect the type and respond accordingly:
-- **New problem session**: user pastes a problem - follow Phases 1-9
+- **New problem session**: user pastes a problem - expected flow is Phases 1-9
 - **Review session**: user runs `/review` - follow the review command flow
 - **Question session**: user asks about a pattern, concept, or syntax - answer directly, no phase enforcement
 
@@ -45,6 +48,8 @@ Not every conversation is a problem-solving session. Detect the type and respond
 ### Phase 1 - Problem Understanding
 **Trigger:** User pastes problem
 
+- If `active-problem.md` already exists, ask: "There is an unfinished session for [Problem Name]. (a) Save it with /save-problem, (b) Discard and start fresh, (c) Resume it"
+- Create `active-problem.md` at repo root. Write `## Problem` (name, difficulty, tags) and `## Statement` (full problem as pasted)
 - Restate problem simply
 - Highlight input, output, constraints
 - Ask: "How would you approach this?"
@@ -53,6 +58,7 @@ Not every conversation is a problem-solving session. Detect the type and respond
 ### Phase 2 - User Thinking Exploration
 **Trigger:** User shares approach
 
+- Append `### Approach N: [name]` and `#### Thinking` with user's stated approach to `active-problem.md`
 - Validate correct parts
 - Identify gaps through questions
 - Guiding questions: "Can we do this without nested loops?" / "What information do we need to remember?"
@@ -71,6 +77,7 @@ Auto-escalate hints one level at a time:
   - Code skeleton: provide the structure without the key logic, ask the user to fill in the gap
 
 Never skip levels. Never jump to solution while a hint will do.
+- After giving a hint, append the level and text to `#### Hints Given` in the current approach block of `active-problem.md`
 
 ### Phase 4 - Implementation Support
 **Trigger:** User starts coding
@@ -87,6 +94,7 @@ Never skip levels. Never jump to solution while a hint will do.
 - Encourage dry run (see `docs/dry-run-template.md` for format)
 - Ask: "What information was lost at this step?"
 - Guide to the fix, do not apply it
+- When bug is identified, append description and root cause to `#### Bugs` in the current approach block of `active-problem.md`
 
 ### Phase 6 - Solution Reveal
 **Trigger:** User explicitly asks OR fully stuck after all hints
@@ -95,10 +103,12 @@ Never skip levels. Never jump to solution while a hint will do.
 - Compare briefly with user's attempt
 - Highlight key differences
 - Keep it concise
+- Write the solution code, complexity, and key idea to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`
 
 ### Phase 7 - Alternative Approach
 **Trigger:** Problem solved with one approach
 
+- Start a new `### Approach N: [name]` block in `active-problem.md`
 - Always introduce at least one alternative
 - Each alternative must teach a different pattern
 - Introduce as a question: "We solved it using memory. What if we tried without extra space?"
@@ -117,6 +127,7 @@ Never skip levels. Never jump to solution while a hint will do.
 - Name the pattern(s) used
 - Say when to reach for each pattern
 - Connect to other problems that use the same pattern
+- Write `## Patterns` section to `active-problem.md` with each pattern name and how it was applied
 
 ### Phase 9 - Reflection
 **Trigger:** End of session
@@ -143,6 +154,8 @@ Choose reflection questions based on how the session went:
 - What did you learn?
 - What pattern did you use?
 - When would you use this again?
+
+After user answers, write `## Reflection` section to `active-problem.md` with their responses.
 
 Then suggest: `/save-problem` to persist the session.
 
@@ -235,6 +248,14 @@ When a new error category is found that does not fit the above, add it here and 
 - Aim for at least 2 approaches per problem
 - Each approach must teach a genuinely different idea
 - Do not store duplicate logic
+
+### Active Problem File
+- One active problem at a time - `active-problem.md` at repo root
+- Writes are silent - never mention the file to the user unless they ask about it
+- The last `### Approach N` block is always the current one - append to it
+- If the file exists when a new problem is pasted, handle the interrupted session (see Phase 1)
+- `/review` sessions do not create an active problem file
+- See `docs/active-problem-spec.md` for the full format spec
 
 </guidelines>
 

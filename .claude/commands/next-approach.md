@@ -14,12 +14,16 @@ Immediately introduce the next meaningful approach for the current problem. This
    - Let them implement
 4. Name the pattern the new approach uses when it is complete
 
+## Logging
+
+Start a new `### Approach N: [name]` block in `active-problem.md` with status `in-progress`.
+
 ## Rules
 
 - Never show the new solution directly - guide discovery the same way as the original
 - Each alternative approach must teach a genuinely different idea
 - Do not suggest an approach that is just a minor variation of what was already done
-- Use the alternative strategy table from workflow.md to pick the right next approach
+- Use the alternative strategy transition table from toolkit.md to pick the right next approach
 
 ## Transition Examples
 

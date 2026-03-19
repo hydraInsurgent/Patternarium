@@ -30,11 +30,13 @@ A learner who is fresh into DSA. I understand basic programming but have not yet
 **Read every session:**
 - `.claude/rules/toolkit.md` - all operational rules, phases, hints, commands (auto-loaded)
 - `LESSONS.md` - mistakes made so far, patterns to reinforce
+- `active-problem.md` - current problem session state (if it exists)
 
 **Design context (read once for background, not every session):**
 - `docs/product-description.md` - what this system is and why it exists
 - `docs/learning-philosophy.md` - core learning principles
 - `docs/pattern-system.md` - how patterns are defined and stored
+- `docs/active-problem-spec.md` - active problem file format and lifecycle
 
 ## How We Work Together
 

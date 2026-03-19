@@ -18,6 +18,10 @@ Reveal the complete, correct solution for the current problem. Compare with what
 - Do not pad the response with extra explanations - the user already worked through this
 - Highlight the one key idea that makes the solution work
 
+## Logging
+
+Write the solution code, complexity, and key idea to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`.
+
 ## After Showing Solution
 
 Ask: "Does this match what you were getting to? Do you want to explore another approach?"

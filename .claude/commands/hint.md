@@ -10,13 +10,20 @@ Determine what hint level the user is currently at based on the conversation his
 - Level 2: Directional hint - ask about remembering or storing previous values
 - Level 3: Pattern hint - name the pattern category without naming the exact data structure
 - Level 4: Near-solution hint - describe the key data structure and how to use it
+- Level 5 (Bridge): Before revealing the full solution, try one or both:
+  - Guided dry run: walk through a concrete example step by step, ask the user to generalize
+  - Code skeleton: provide the structure without the key logic, ask the user to fill in the gap
 
-If already at Level 4, acknowledge this and ask if the user wants the full solution (/solution).
+If already at Level 5 and user is still stuck, ask if they want the full solution (/solution).
+
+## Logging
+
+After giving the hint, append `- Level N: "[hint text]"` to `#### Hints Given` in the current approach block of `active-problem.md`.
 
 ## Rules
 
 - Never skip levels
-- Never give the full solution unless on Level 4 and user confirms they want it
+- Never give the full solution unless Level 5 bridge has been tried and user confirms they want it
 - Keep the hint as a question when possible
 - One hint per invocation - do not give multiple hints at once
 
