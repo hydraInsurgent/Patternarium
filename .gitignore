@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Environment (API keys)
+.env*.local
+.env
+
+# OS
+.DS_Store
+
+# Debug logs
+npm-debug.log*
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Temporary files
+/tmp/
+/_tmp/
+
+# Plan files (local working docs, stored in .claude/plans/)
+.claude/plans/PLAN-*.md
+
+# IDE (local Cursor settings - shared commands are in .claude/commands/)
+.cursor/
+
+# Claude Code worktrees (Remote Control spawn mode)
+.claude/worktrees/
