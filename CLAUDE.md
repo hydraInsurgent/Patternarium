@@ -31,6 +31,7 @@ A learner who is fresh into DSA. I understand basic programming but have not yet
 - `.claude/rules/toolkit.md` - all operational rules, phases, hints, commands (auto-loaded)
 - `LESSONS.md` - mistakes made so far, patterns to reinforce
 - `active-problem.md` - current problem session state (if it exists)
+- `active-solution.cs` - user's coding workspace for current problem (if it exists, read-only for AI)
 
 **Design context (read once for background, not every session):**
 - `docs/product-description.md` - what this system is and why it exists

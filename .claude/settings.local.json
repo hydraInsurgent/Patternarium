@@ -1,5 +1,5 @@
 {
-  "defaultMode": "acceptEdits",
+  "defaultMode": "dontAsk",
   "permissions": {
     "allow": [
       "Bash(git init *)",

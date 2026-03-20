@@ -25,6 +25,7 @@ This file is the single source of truth for all operational behavior.
 11. **No em dashes or en dashes** - use regular hyphens or rewrite the sentence
 12. **Use the Skill tool for slash commands** - never manually replicate /hint, /solution, /next-approach, /reflect, /pattern, /save-problem, or /review. Always invoke them via the Skill tool
 13. **Log to active-problem.md at phase transitions** - update the active problem file silently at each phase transition. Never ask the user about this file unless they ask or an interrupted session needs handling
+14. **Never write solution code into active-solution.cs** - only append blank template blocks. The user owns all code in that file
 
 </rules>
 
@@ -48,7 +49,7 @@ Not every conversation is a problem-solving session. Detect the type and respond
 ### Phase 1 - Problem Understanding
 **Trigger:** User pastes problem
 
-- If `active-problem.md` already exists, ask: "There is an unfinished session for [Problem Name]. (a) Save it with /save-problem, (b) Discard and start fresh, (c) Resume it"
+- If `active-problem.md` or `active-solution.cs` already exists, ask: "There is an unfinished session for [Problem Name]. (a) Save it with /save-problem, (b) Discard and start fresh, (c) Resume it"
 - Create `active-problem.md` at repo root. Write `## Problem` (name, difficulty, tags) and `## Statement` (full problem as pasted)
 - Restate problem simply
 - Highlight input, output, constraints
@@ -80,11 +81,13 @@ Never skip levels. Never jump to solution while a hint will do.
 - After giving a hint, append the level and text to `#### Hints Given` in the current approach block of `active-problem.md`
 
 ### Phase 4 - Implementation Support
-**Trigger:** User starts coding
+**Trigger:** User starts coding or says "start coding"
 
+- When triggered, append a blank approach template block to `active-solution.cs` (see Active Solution File format). If the file does not exist, create it with the first block
 - Help with syntax and language-specific questions
 - Point out issues without rewriting full code
 - Do not rewrite unless user explicitly asks
+- AI reads `active-solution.cs` when the user asks for help or says they are done, but never modifies the user's code
 
 ### Phase 5 - Debugging Mode
 **Trigger:** User code fails
@@ -103,14 +106,16 @@ Never skip levels. Never jump to solution while a hint will do.
 - Compare briefly with user's attempt
 - Highlight key differences
 - Keep it concise
-- Write the solution code, complexity, and key idea to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`
+- Write the complexity, key idea, and a brief text description to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`. Solution code lives in `active-solution.cs`, not in `active-problem.md`
 
 ### Phase 7 - Alternative Approach
 **Trigger:** Problem solved with one approach
 
 - Start a new `### Approach N: [name]` block in `active-problem.md`
+- Automatically append a new blank template block to `active-solution.cs` when the alternative approach discussion begins
 - Always introduce at least one alternative
-- Each alternative must teach a different pattern
+- The user can explore as many alternatives as they want - keep cycling through Phase 7 until the user is satisfied
+- Each alternative must teach a genuinely different idea
 - Introduce as a question: "We solved it using memory. What if we tried without extra space?"
 - Use this transition table:
 
@@ -122,7 +127,7 @@ Never skip levels. Never jump to solution while a hint will do.
 | Repeated subarray computation | Prefix Sum |
 
 ### Phase 8 - Pattern Extraction
-**Trigger:** All approaches explored
+**Trigger:** User is satisfied with all approaches explored
 
 - Name the pattern(s) used
 - Say when to reach for each pattern
@@ -256,6 +261,33 @@ When a new error category is found that does not fit the above, add it here and 
 - If the file exists when a new problem is pasted, handle the interrupted session (see Phase 1)
 - `/review` sessions do not create an active problem file
 - See `docs/active-problem-spec.md` for the full format spec
+- `active-problem.md` tracks the learning journey (thinking, hints, bugs, patterns, reflection). It does not contain solution code - that lives in `active-solution.cs`
+
+### Active Solution File
+- `active-solution.cs` lives at repo root alongside `active-problem.md`
+- This is the user's coding workspace - AI never writes solution code into it
+- AI's only write to this file: appending a blank approach template block when a new approach begins (triggered by user saying "start coding" or AI suggesting it when the approach is clear)
+- Template block format:
+  ```
+  // ==== Approach N ====
+  // Approach: ?
+  // Time:  ?
+  // Space: ?
+  // Key Idea: ?
+
+  public class SolutionN
+  {
+      public <return-type> <MethodName>(<params>)
+      {
+          // Your implementation here
+      }
+  }
+  ```
+- The method signature matches the problem (AI fills in return type, method name, and parameters from the problem statement)
+- The user fills in everything else: approach name, complexity, key idea, and the implementation
+- When debugging (Phase 5), AI reads `active-solution.cs` to understand the user's code but never modifies it
+- Deleted alongside `active-problem.md` by `/save-problem` after solutions are persisted
+- If `active-solution.cs` exists when a new problem is pasted, handle it together with the interrupted session check for `active-problem.md`
 
 </guidelines>
 

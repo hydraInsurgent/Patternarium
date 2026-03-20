@@ -1,11 +1,13 @@
 # Active Problem File Spec
 
-During a problem session, `active-problem.md` lives at repo root and tracks the session in progress. The AI creates and updates this file automatically at phase transitions. The user never needs to touch it.
+During a problem session, two files live at repo root:
+- `active-problem.md` - tracks the learning journey (thinking, hints, bugs, patterns, reflection). AI-managed.
+- `active-solution.cs` - the user's coding workspace. AI only appends blank template blocks; the user writes all code and metadata.
 
 - One active problem at a time
 - Created at Phase 1 (user pastes a problem)
 - Updated silently at each phase transition
-- Deleted by `/save-problem` after decomposition into permanent storage
+- Both files deleted by `/save-problem` after decomposition into permanent storage
 
 ## Template
 
@@ -36,9 +38,9 @@ During a problem session, `active-problem.md` lives at repo root and tracks the 
 - [Bug description and root cause]
 
 #### Solution
-[Code block with solution]
 **Time:** O(?) | **Space:** O(?)
 **Key Idea:** [One sentence]
+(Solution code lives in `active-solution.cs`, not here)
 
 ---
 
@@ -68,8 +70,9 @@ Logging is event-based, not phase-based. Write when the event happens, regardles
 | User shares an approach | Append `### Approach N` + `#### Thinking` |
 | A hint is given | Append to `#### Hints Given` in current approach |
 | A bug is identified | Append to `#### Bugs` in current approach |
-| A solution is reached or revealed | Write `#### Solution` + set `**Status:** solved` |
-| A new alternative approach begins | Start new `### Approach N` block |
+| A solution is reached or revealed | Write `#### Solution` (complexity + key idea, no code) + set `**Status:** solved` |
+| User says "start coding" or approach is clear | Append blank template block to `active-solution.cs` |
+| A new alternative approach begins | Start new `### Approach N` block in `active-problem.md`; append new template block to `active-solution.cs` when user is ready to code |
 | Patterns are identified | Write `## Patterns` |
 | User answers reflection questions | Write `## Reflection` |
 
@@ -80,7 +83,7 @@ All writes are automatic. The user is never asked about this file.
 | Section | Becomes |
 |---------|---------|
 | `## Problem` + `## Statement` | `problems/<slug>/problem.md` |
-| Each `### Approach` with status "solved" | One `.cs` file per approach |
+| Each solved approach block from `active-solution.cs` | One `.cs` file per approach |
 | `#### Bugs` + `## Reflection` | `problems/<slug>/notes.md` |
 | `## Patterns` + approach names | `pattern-index.json` entry |
 | `## Patterns` | Updates to `patterns/*.md` Solved Problems |
@@ -88,13 +91,51 @@ All writes are automatic. The user is never asked about this file.
 
 ## Interrupted Session Handling
 
-If `active-problem.md` already exists when a new problem is pasted (Phase 1):
+If `active-problem.md` or `active-solution.cs` already exists when a new problem is pasted (Phase 1):
 1. Read the existing file, extract problem name
 2. Ask: "There is an unfinished session for [Problem Name]. (a) Save it with /save-problem, (b) Discard and start fresh, (c) Resume it"
-3. Act on user's choice
+3. Act on user's choice (discard removes both files)
+
+## Active Solution File Format
+
+`active-solution.cs` supports multiple approaches stacked in one file:
+
+```csharp
+// ==== Approach 1 ====
+// Approach: ?
+// Time:  ?
+// Space: ?
+// Key Idea: ?
+
+public class Solution1
+{
+    public <return-type> <MethodName>(<params>)
+    {
+        // Your implementation here
+    }
+}
+
+// ==== Approach 2 ====
+// Approach: ?
+// Time:  ?
+// Space: ?
+// Key Idea: ?
+
+public class Solution2
+{
+    public <return-type> <MethodName>(<params>)
+    {
+        // Your implementation here
+    }
+}
+```
+
+**AI writes:** Only the blank template block (separator, empty metadata fields, class with method signature)
+**User writes:** Everything else (approach name, complexity, key idea, implementation)
 
 ## Rules
 
 - The last `### Approach` block is always the current one - always append to it
-- `/review` sessions do not create an active problem file
+- `/review` sessions do not create active problem or solution files
 - If `/save-problem` is run without an active file, fall back to reconstructing from conversation history
+- AI never modifies user code in `active-solution.cs` - it can only read it for debugging and append new blank template blocks

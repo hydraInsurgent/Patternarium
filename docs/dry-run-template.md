@@ -1,4 +1,4 @@
-# Dry Run Template
+Also, tell me now where all the files should be updated. # Dry Run Template
 
 A dry run is a step-by-step mental simulation of code using a concrete input. It is the most reliable way to find bugs before or after running code.
 

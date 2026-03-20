@@ -1,12 +1,12 @@
 # /save-problem - Save Problem to Repo
 
-Save the current problem session to the repo. Reads from `active-problem.md`, decomposes it into the proper persistent structure, then deletes the active file.
+Save the current problem session to the repo. Reads from `active-problem.md` (learning journey) and `active-solution.cs` (user's code), decomposes them into the proper persistent structure, then deletes both active files.
 
 ## Behavior
 
-### Step 1 - Read active-problem.md
+### Step 1 - Read active files
 
-Read `active-problem.md` from repo root. If the file does not exist, fall back to reconstructing from conversation history and warn the user: "No active problem file found - reconstructing from our conversation. Some details may be incomplete."
+Read both `active-problem.md` and `active-solution.cs` from repo root. If either file does not exist, fall back to reconstructing from conversation history and warn the user: "Active file(s) missing - reconstructing from our conversation. Some details may be incomplete."
 
 ### Step 2 - Confirm problem slug
 
@@ -22,13 +22,13 @@ Parse `## Problem` and `## Statement` from the active file. Write to `problems/<
 
 ### Step 4 - Write solution files
 
-For each `### Approach N: [name]` block with **Status: solved**:
-- Derive filename from approach name (e.g., "HashMap" -> `hashmap.cs`, "Brute Force" -> `brute-force.cs`)
-- Extract code from `#### Solution` code block
-- Extract time/space complexity and key idea
-- Write `.cs` file with comment block header: approach name, complexity, key idea
+Parse `active-solution.cs` for each `// ==== Approach N ====` block:
+- Read the user-filled metadata (Approach name, Time, Space, Key Idea) from the comment header
+- Derive filename from approach name (e.g., "Subtraction Rule" -> `subtraction-rule.cs`, "Brute Force" -> `brute-force.cs`)
+- Cross-reference with `active-problem.md` - only persist approaches with **Status: solved**
+- Write `.cs` file with clean comment block header: approach name, complexity, key idea, followed by the user's code
 
-Approaches with status "in-progress" or "stuck" are skipped.
+Approaches with status "in-progress" or "stuck" in `active-problem.md` are skipped.
 
 ### Step 5 - Write notes.md
 
@@ -60,9 +60,9 @@ For each pattern in `## Patterns`:
 
 If any bugs or reflection mistakes warrant a lesson entry, add them to the appropriate section in LESSONS.md (Conceptual Mistakes, Code Mistakes, or Pattern Misidentifications).
 
-### Step 9 - Delete active-problem.md
+### Step 9 - Delete active files
 
-Remove the active file from repo root. The session is now fully persisted.
+Remove both `active-problem.md` and `active-solution.cs` from repo root. The session is now fully persisted.
 
 ### Step 10 - Confirm
 
