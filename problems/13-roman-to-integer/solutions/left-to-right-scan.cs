@@ -35,3 +35,8 @@ public class Solution2
         return result;
     }
 }
+
+// Why i < s.Length and not i < s.Length - 1?
+// - The loop updates currentValue = nextValue at each step
+// - If we stop at s.Length - 1, the last character never gets loaded into currentValue
+// - The final result += currentValue after the loop handles whichever value was last

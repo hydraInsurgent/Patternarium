@@ -32,3 +32,15 @@ public class Solution
         return result;
     }
 }
+
+// Why romanValues[s[i]] and not just s[i]?
+// - s[i] returns a char, and assigning it to int gives the ASCII code (e.g., 'I' = 73)
+// - Must look up the mapped value in the dictionary to get the actual roman numeral value
+//
+// Why i >= 0 and not i > 0?
+// - i > 0 skips the first character (index 0) entirely
+// - The first character must also be processed
+//
+// Why previousValue starts at 0?
+// - The rightmost character has nothing to its right, so it is always added
+// - Starting at 0 ensures the first comparison (previousValue > currentValue) is false, so it adds

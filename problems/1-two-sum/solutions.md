@@ -34,5 +34,6 @@
 ## Reflection
 
 - **Key insight:** `a + b = target` becomes `b = target - a` - converts "find a pair" into "check if one value exists"
-- **Critical rule:** Check first, then store with HashMap - prevents same-element reuse
+- **Future strategy:** Check first, then store with HashMap; carry identity when sorting
+- **Critical rule:** Check first, then store - prevents same-element reuse
 - **Carry identity:** When transforming data (sorting), attach the original identifier before the transformation

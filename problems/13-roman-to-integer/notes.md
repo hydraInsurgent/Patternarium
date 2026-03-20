@@ -30,6 +30,6 @@
 - C# local variables must be explicitly initialized before use
 
 ## Patterns Used
-- Linear Scan - Neighbor Comparison (Approaches 1 & 2)
-- Preprocessing - Normalize Before Compute (Approach 3)
-- Chunked Iteration - Variable Step (Approach 4)
+- **Linear Scan - Neighbor Comparison** (Approaches 1 & 2)
+- **Preprocessing - Normalize Before Compute** (Approach 3)
+- **Chunked Iteration - Variable Step** (Approach 4)

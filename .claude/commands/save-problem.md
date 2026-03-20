@@ -1,6 +1,6 @@
 # /save-problem - Save Problem to Repo
 
-Save the current problem session to the repo. Reads from `active-problem.md` (learning journey) and `active-solution.cs` (user's code), decomposes them into the proper persistent structure, then deletes both active files.
+Save the current problem session to the repo. Reads from `active-problem.md` (learning journey) and `active-solution.cs` (user's code), decomposes them into the proper persistent structure.
 
 ## Behavior
 
@@ -10,70 +10,105 @@ Read both `active-problem.md` and `active-solution.cs` from repo root. If either
 
 ### Step 2 - Confirm problem slug
 
-Ask: "What should we call this problem folder? (e.g., two-sum, valid-anagram)"
+Derive the folder name from the source and problem name in kebab-case:
+- LeetCode: `<number>-<name>` (e.g., `13-roman-to-integer`)
+- HackerRank: `hr-<name>` (e.g., `hr-dynamic-array`)
+- Codeforces: `cf-<name>` (e.g., `cf-watermelon`)
+- Other: `<source-prefix>-<name>`
+
+Ask user to confirm: "Save to `problems/<slug>/`?"
 
 ### Step 3 - Write problem.md
 
 Parse `## Problem` and `## Statement` from the active file. Write to `problems/<slug>/problem.md` with:
-- Problem title and difficulty (from `**Name:**` and `**Difficulty:**`)
-- Tags (from `**Tags:**`)
-- Source (from `**Source:**` if present)
-- Problem statement, examples, constraints (from `## Statement`)
+- YAML frontmatter: `title`, `category: DSA-Practice`, `difficulty`, `source: LeetCode`, `status: solved`
+- Problem title as `# Heading`
+- `## Statement`, `## Examples`, `## Constraints` as separate sections. Keep the problem statement as-is from the source - do not restructure
+- `## Solutions` section at bottom with links to `solutions.md` and `notes.md`
+- Tags as inline metadata at the very bottom: `tags :: [comma-separated tags]` (placed here to avoid spoiling the approach)
+- Tags are AI-inferred from the patterns and data structures used during the session
 
-### Step 4 - Write solution files
+### Step 4 - Write solution .cs files
 
 Parse `active-solution.cs` for each `// ==== Approach N ====` block:
 - Read the user-filled metadata (Approach name, Time, Space, Key Idea) from the comment header
 - Derive filename from approach name (e.g., "Subtraction Rule" -> `subtraction-rule.cs`, "Brute Force" -> `brute-force.cs`)
 - Cross-reference with `active-problem.md` - only persist approaches with **Status: solved**
-- Write `.cs` file with clean comment block header: approach name, complexity, key idea, followed by the user's code
+- Write `.cs` files into `problems/<slug>/solutions/` subfolder
+
+**Prettification rules:**
+- Rename single-letter variables to descriptive names (e.g., `num` -> `result`, `map` -> `romanValues`)
+- Add one comment per logical block explaining the *why*, not the *what*
+- Add a "Why" block after the code for decisions that came from bugs, mistakes, or discussions during the session. These are learning artifacts - only include "Why" entries for things the user actually struggled with or asked about. Never generate generic "Why" blocks
+- Preserve the user's logic exactly - only presentation changes
 
 Approaches with status "in-progress" or "stuck" in `active-problem.md` are skipped.
 
-### Step 5 - Write notes.md
+### Step 5 - Write solutions.md
+
+Create `problems/<slug>/solutions.md` with:
+- `# [Problem Name] - Solutions` heading
+- `## Approaches` section: for each solved approach, write:
+  - `### Approach N: [name]`
+  - `**Code:**` link to `.cs` file in `solutions/` subfolder
+  - `**Time:** / **Space:**` from active-problem.md or active-solution.cs metadata
+  - `**Thinking:**` - paraphrase what the user said about their approach and key idea. Do not add insights the user did not express
+  - `---` separator between approaches
+- `## Patterns` section: for each pattern, look up its `display_name` from the pattern `.md` file. Link using that display name: `[Display Name](../../patterns/<filename>.md) (Approach N) - description`
+- `## Reflection` section with required fields: `**Key insight:**`, `**Future strategy:**`, plus any session-specific fields that capture what the user actually said
+
+### Step 6 - Write notes.md
 
 Combine from the active file:
-- All `#### Bugs` entries from all approaches -> "Mistakes Made" section
-- `## Reflection` answers -> "Key Insights" and "Mantras" sections
-- `## Patterns` entries -> "Patterns Used" section
+- All `#### Bugs` entries -> `## Mistakes Made` section, grouped by `### Approach N - [name]` subheadings (no links). Skip approaches that had no bugs - do not create empty subheadings
+- `## Reflection` answers -> `## Key Insights` and `## Mantras` sections. Mantras can also come from bug lessons, not just reflection
+- `## Patterns` entries -> `## Patterns Used` section, listed by approach name with bold pattern names (no links - links live in solutions.md)
 
-### Step 6 - Update pattern-index.json
+In saved files, skip empty sections entirely. Do not write section headings with no content.
 
-Build the entry from `## Patterns` and the approach-to-pattern mapping:
+### Step 7 - Update pattern-index.json
+
+Build the entry using short pattern names (the filename without `.md`, title-cased). Example:
 ```json
-"ProblemName": {
-  "patterns": ["PatternName1", "PatternName2"],
+"Roman to Integer": {
+  "patterns": ["Linear Scan", "Preprocessing", "Chunked Iteration"],
   "approaches": {
-    "approach-file.cs": ["PatternName1"],
-    "other-approach.cs": ["PatternName2"]
+    "right-to-left-scan.cs": ["Linear Scan"],
+    "string-replacement.cs": ["Preprocessing"]
   }
 }
 ```
 
-### Step 7 - Update pattern files
+Short names in JSON. Display names are looked up from the pattern file when needed.
+
+### Step 8 - Update pattern files
 
 For each pattern in `## Patterns`:
 - Add this problem to the "Solved Problems" section of `patterns/<pattern>.md`
 - Add any new bugs from this session to the "Common Mistakes" section if applicable
 
-### Step 8 - Update LESSONS.md
+### Step 9 - Update LESSONS.md
 
 If any bugs or reflection mistakes warrant a lesson entry, add them to the appropriate section in LESSONS.md (Conceptual Mistakes, Code Mistakes, or Pattern Misidentifications).
 
-### Step 9 - Delete active files
-
-Remove both `active-problem.md` and `active-solution.cs` from repo root. The session is now fully persisted.
-
-### Step 10 - Confirm
+### Step 10 - Confirm and suggest cleanup
 
 Show a summary of what was created and updated:
 - Files created in `problems/<slug>/`
 - Patterns updated
 - LESSONS.md entries added (if any)
 
+Then suggest: "Ready to clear the active files for the next problem?"
+
+If the user confirms, clear both `active-problem.md` and `active-solution.cs` to empty files. If not, leave them for review.
+
 ## Rules
 
 - Ask the user to confirm the notes content before writing - do not invent reflection notes
 - If a pattern file does not exist yet, create it using the template in `docs/pattern-system.md`
-- Keep solution files clean and well-commented - this is a reference library
+- Prettification means: rename variables, one comment per logical block, plus session-derived "Why" blocks for decisions the user struggled with
 - If the active file is incomplete (e.g., no Reflection section), ask the user to fill in the gaps before saving
+- Active files are cleared to empty (not deleted) only when the user confirms
+- When writing the Thinking field in solutions.md: paraphrase the user's stated approach and key idea. Do not add insights the user did not express
+- When referencing patterns in solutions.md, look up the `display_name` from the pattern file
+- Tags are AI-inferred from patterns and data structures used - do not ask the user for tags

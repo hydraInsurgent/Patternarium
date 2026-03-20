@@ -44,7 +44,7 @@
 
 ## Reflection
 
+- **Key insight:** "Did my loop handle everything, or is there a leftover?" - critical question for variable-step iteration
+- **Future strategy:** Use neighbor comparison when dependencies are dynamic; use replacement when special cases are fixed and small in number
 - **Trickiest bug:** Approach 4 - handling the end scenario when the last character may or may not have been consumed
 - **Most natural approach:** Right-to-left scan (first instinct), but string replacement feels even more intuitive in hindsight
-- **Future strategy:** Use neighbor comparison when dependencies are dynamic; use replacement when special cases are fixed and small in number
-- **Key takeaway:** "Did my loop handle everything, or is there a leftover?"

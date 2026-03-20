@@ -1,4 +1,4 @@
-Also, tell me now where all the files should be updated. # Dry Run Template
+# Dry Run Template
 
 A dry run is a step-by-step mental simulation of code using a concrete input. It is the most reliable way to find bugs before or after running code.
 
@@ -31,3 +31,26 @@ Input: `nums = [2, 7, 11, 15]`, `target = 9`
 - Use the smallest input that exercises the logic
 - Track every variable, not just the "important" ones
 - If the bug is not obvious, try an input that should fail (edge case)
+
+## In active-solution.cs
+
+Dry runs can be added as comment blocks directly above the approach code in `active-solution.cs`. AI creates the empty table structure as comments (with appropriate column headers based on the code's variables); the user fills in the values step by step.
+
+```csharp
+// ==== Approach N - Dry Run ====
+// Input: "[concrete example]" (expected: [value])
+// Tracked: [variable names]
+//
+// | Step | var1 | var2 | ... | Action | Result |
+// |------|------|------|-----|--------|--------|
+// |      |      |      |     |        |        |
+// |      |      |      |     |        |        |
+//
+// Bug found:
+//
+
+// ==== Approach N ====
+// [approach code below]
+```
+
+This keeps the dry run next to the code it debugs, and the user can refer back to it when reviewing.

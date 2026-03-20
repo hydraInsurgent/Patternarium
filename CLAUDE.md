@@ -38,6 +38,7 @@ A learner who is fresh into DSA. I understand basic programming but have not yet
 - `docs/learning-philosophy.md` - core learning principles
 - `docs/pattern-system.md` - how patterns are defined and stored
 - `docs/active-problem-spec.md` - active problem file format and lifecycle
+- `docs/dry-run-template.md` - dry run format for mental simulation
 
 ## How We Work Together
 

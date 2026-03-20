@@ -94,7 +94,7 @@ Never skip levels. Never jump to solution while a hint will do.
 
 - Check the relevant `patterns/*.md` Common Mistakes section for known traps before guiding
 - Frame issues as questions: "What happens to indices after sorting?"
-- Encourage dry run (see `docs/dry-run-template.md` for format)
+- Encourage dry run (see `docs/dry-run-template.md` for format). Suggest adding a dry run comment block above the approach in `active-solution.cs` - AI creates the empty table structure as comments, user fills in the values
 - Ask: "What information was lost at this step?"
 - Guide to the fix, do not apply it
 - When bug is identified, append description and root cause to `#### Bugs` in the current approach block of `active-problem.md`
@@ -258,10 +258,17 @@ When a new error category is found that does not fit the above, add it here and 
 - One active problem at a time - `active-problem.md` at repo root
 - Writes are silent - never mention the file to the user unless they ask about it
 - The last `### Approach N` block is always the current one - append to it
-- If the file exists when a new problem is pasted, handle the interrupted session (see Phase 1)
+- If the file has content when a new problem is pasted, handle the interrupted session (see Phase 1)
 - `/review` sessions do not create an active problem file
 - See `docs/active-problem-spec.md` for the full format spec
 - `active-problem.md` tracks the learning journey (thinking, hints, bugs, patterns, reflection). It does not contain solution code - that lives in `active-solution.cs`
+- Tags are AI-inferred from the patterns and data structures used in the session
+
+### Approach Status Lifecycle
+- `in-progress` - set when the approach block is created
+- `stuck` - set when the user says "I'm stuck" or the solution is revealed (Phase 6) for this approach
+- `solved` - set when a working solution is confirmed
+- Only approaches with `solved` status are persisted by `/save-problem`
 
 ### Active Solution File
 - `active-solution.cs` lives at repo root alongside `active-problem.md`
@@ -286,8 +293,13 @@ When a new error category is found that does not fit the above, add it here and 
 - The method signature matches the problem (AI fills in return type, method name, and parameters from the problem statement)
 - The user fills in everything else: approach name, complexity, key idea, and the implementation
 - When debugging (Phase 5), AI reads `active-solution.cs` to understand the user's code but never modifies it
-- Deleted alongside `active-problem.md` by `/save-problem` after solutions are persisted
-- If `active-solution.cs` exists when a new problem is pasted, handle it together with the interrupted session check for `active-problem.md`
+- If `active-solution.cs` has content when a new problem is pasted, handle it together with the interrupted session check for `active-problem.md`
+
+### Active File Cleanup
+- Active files are never deleted - they are cleared to empty when the user is ready
+- After `/save-problem`, AI suggests: "Ready to clear the active files for the next problem?"
+- If user confirms, clear both files to empty. If not, leave them for review
+- Discarding during interrupted session handling also clears both files to empty
 
 </guidelines>
 
@@ -304,7 +316,7 @@ After every solved problem:
 2. Update `pattern-index.json` with problem -> patterns mapping
 3. Update relevant `patterns/*.md` with new example
 4. If a new pattern is discovered, create `patterns/<new-pattern>.md`
-5. Suggest user writes `problems/<slug>/notes.md`
+5. `/save-problem` creates `notes.md` automatically - suggest user review it and add anything missed
 
 After recurring mistakes or conceptual breakthroughs, update `LESSONS.md`.
 

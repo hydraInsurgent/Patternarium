@@ -40,3 +40,11 @@ public class Solution3
         return result;
     }
 }
+
+// Why s = s.Replace(...) and not just s.Replace(...)?
+// - C# strings are immutable - Replace() returns a new string, does not modify in place
+// - Without reassigning, s stays unchanged and the replacements are lost
+//
+// Why int result = 0 and not int result;?
+// - C# local variables must be explicitly initialized before use
+// - Class fields default to 0, but locals do not - the compiler will error on result += without = 0

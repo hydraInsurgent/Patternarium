@@ -1,4 +1,6 @@
-# Linear Scan - Neighbor Comparison
+# Linear Scan
+
+**display_name:** Linear Scan - Neighbor Comparison
 
 ## Core Idea
 Process elements by comparing each with its neighbor to decide what operation to apply.
@@ -26,7 +28,7 @@ for each element:
 - Works in either direction (left-to-right or right-to-left)
 
 ## Solved Problems
-- Roman to Integer (right-to-left scan, left-to-right scan)
+- **Roman to Integer** (problems/13-roman-to-integer/solutions/right-to-left-scan.cs, left-to-right-scan.cs)
 
 ## Try Next
 - Best Time to Buy and Sell Stock

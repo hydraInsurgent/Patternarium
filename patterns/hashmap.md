@@ -1,5 +1,7 @@
 # HashMap Pattern
 
+**display_name:** HashMap - Complement Lookup
+
 ## Core Idea
 
 Store previously seen elements (or computations) in a HashMap for O(1) lookup. Trade space for time. This eliminates the need for a second loop by remembering what you have already seen.
@@ -16,7 +18,7 @@ Store previously seen elements (or computations) in a HashMap for O(1) lookup. T
 
 > "Can I store what I have already seen so I do not have to scan again?"
 > "If I know the current value, what other value do I need? Have I seen it?"
-> "Would a second loop be searching for something I could have remembered?"
+> "Would a second loop be searching for something I could have remembered? If so what data structure should i use to remember."
 
 ## Template
 
@@ -59,7 +61,7 @@ If you check first:
 
 ## Solved Problems
 
-- **Two Sum** (problems/two-sum/hashmap.cs) - complement lookup, store number -> index
+- **Two Sum** (problems/1-two-sum/solutions/hashmap.cs) - complement lookup, store number -> index
 
 ## Try Next
 

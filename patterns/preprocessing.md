@@ -1,4 +1,6 @@
-# Preprocessing - Normalize Before Compute
+# Preprocessing
+
+**display_name:** Preprocessing - Normalize Before Compute
 
 ## Core Idea
 Transform input into a simpler form before applying the main logic, eliminating special cases upfront.
@@ -25,7 +27,7 @@ run simple main logic on cleaned input
 - Trades space for simpler logic
 
 ## Solved Problems
-- Roman to Integer (string replacement of subtraction pairs)
+- **Roman to Integer** (problems/13-roman-to-integer/solutions/string-replacement.cs) - string replacement of subtraction pairs
 
 ## Try Next
 - Calculator problems

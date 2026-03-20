@@ -44,3 +44,13 @@ public class Solution4
         return result;
     }
 }
+
+// Why if (i < s.Length) after the loop?
+// - The loop processes pairs (i += 2) or singles (i++), stopping when i < s.Length - 1
+// - If the last pair was a subtraction case, i jumps past the end (i == s.Length) - nothing left
+// - If the last character was a single, i == s.Length - 1 - it still needs to be added
+// - Checking i < s.Length catches exactly the "unprocessed last character" case
+//
+// Why current >= next and not current > next?
+// - Equal values (like XX = 20) should both be added, not subtracted
+// - Using > would send equal values into the subtraction branch

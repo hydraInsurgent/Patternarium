@@ -11,6 +11,7 @@ public class Solution
 
         for (int i = 0; i < n; i++)
         {
+            // Start at i+1 to avoid using the same element twice
             for (int j = i + 1; j < n; j++)
             {
                 if (nums[i] + nums[j] == target)
@@ -28,8 +29,3 @@ public class Solution
 // - Problem says we cannot use the same element twice
 // - j = 0 would eventually check nums[i] + nums[i] which is illegal
 // - j = i + 1 also avoids duplicate pairs like (2+7) and (7+2)
-//
-// Why O(n^2)?
-// - Outer loop runs n times
-// - Inner loop runs n-1, n-2, n-3... times
-// - Total comparisons ~ n^2 / 2, which is O(n^2)

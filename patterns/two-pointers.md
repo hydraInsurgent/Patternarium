@@ -1,5 +1,7 @@
 # Two Pointers Pattern
 
+**display_name:** Two Pointers - Sorted Pair
+
 ## Core Idea
 
 Place two pointers at different positions in a sorted array and move them toward each other based on the sum/comparison result. Each move eliminates part of the search space. One scan covers what would otherwise require nested loops.
@@ -73,7 +75,7 @@ This is the "carry identity with data" sub-pattern. Sorting changes positions bu
 
 ## Solved Problems
 
-- **Two Sum** (problems/two-sum/two-pointer.cs) - sorted + index preservation + two pointers
+- **Two Sum** (problems/1-two-sum/solutions/two-pointer.cs) - sorted + index preservation + two pointers
 
 ## Try Next
 

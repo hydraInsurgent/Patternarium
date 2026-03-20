@@ -1,4 +1,6 @@
-# Chunked Iteration - Variable Step
+# Chunked Iteration
+
+**display_name:** Chunked Iteration - Variable Step
 
 ## Core Idea
 Consume 1 or more elements per step based on a condition, advancing the index by different amounts.
@@ -29,7 +31,7 @@ handle any remaining unprocessed element
 - Must handle the "leftover" case after the loop
 
 ## Solved Problems
-- Roman to Integer (two-character lookahead)
+- **Roman to Integer** (problems/13-roman-to-integer/solutions/two-char-lookahead.cs) - two-character lookahead
 
 ## Try Next
 - Decode Ways

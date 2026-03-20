@@ -1,27 +1,25 @@
 // Approach: HashMap - Complement Lookup
 // Time:  O(n) - single pass through array
 // Space: O(n) - dictionary stores up to n elements
-// Key Idea: Store previously seen numbers (number -> index) for O(1) lookup
-//           For each element, check if its complement (target - current) was already seen
+// Key Idea: Store previously seen numbers for O(1) complement lookup
 
 public class Solution
 {
     public int[] TwoSum(int[] nums, int target)
     {
-        Dictionary<int, int> map = new Dictionary<int, int>(); // number -> index
+        var seenNumbers = new Dictionary<int, int>(); // number -> index
 
         for (int i = 0; i < nums.Length; i++)
         {
-            int needed = target - nums[i];
+            int complement = target - nums[i];
 
-            // Check FIRST, then store - critical order!
-            // If we stored first, [3,3] with target=6 would wrongly return [0,0]
-            if (map.TryGetValue(needed, out int index))
+            // Check FIRST, then store - prevents using same element twice
+            if (seenNumbers.TryGetValue(complement, out int foundIndex))
             {
-                return new int[] { index, i };
+                return new int[] { foundIndex, i };
             }
 
-            map[nums[i]] = i;
+            seenNumbers[nums[i]] = i;
         }
 
         return new int[0]; // guaranteed not to reach here
@@ -37,9 +35,3 @@ public class Solution
 // Why TryGetValue instead of ContainsKey + indexing?
 // - ContainsKey + map[needed] does TWO lookups
 // - TryGetValue does ONE lookup and returns the value via out parameter
-// - More idiomatic C# and slightly more efficient
-//
-// Why Dictionary<int, int> with number as key (not index as key)?
-// - We want to check: "have I seen this NUMBER before?"
-// - The lookup key must be the number, not the index
-// - The stored value is the index so we can return it in the answer
