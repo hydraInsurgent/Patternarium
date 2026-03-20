@@ -1,10 +1,10 @@
-# Toolkit Rules - DSA Buddy
+# Toolkit Rules - Patternarium
 
 <!-- Toolkit version: 1.0 | AI-Assisted DSA Learning System -->
 
 ## How We Work Together
 
-This toolkit defines the operational rules for the DSA Buddy learning engine. It is the execution layer that translates the learning philosophy and workflow into actionable AI behaviors.
+This toolkit defines the operational rules for the Patternarium learning engine. It is the execution layer that translates the learning philosophy and workflow into actionable AI behaviors.
 
 This file is the single source of truth for all operational behavior.
 

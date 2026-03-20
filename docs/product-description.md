@@ -2,13 +2,15 @@
 
 ## What Are We Building
 
-DSA Buddy is a personal AI-assisted DSA (Data Structures and Algorithms) learning system that runs inside a git repo. It is not a solver. It is not a hint machine. It is a thinking companion that guides the user to discover how to think about problems, not just how to answer them.
+Patternarium is a living, growing ecosystem for learning DSA (Data Structures and Algorithms) that runs inside a git repo. The name comes from the "-arium" suffix - like aquarium or terrarium - a place where things live and grow. What grows here is your ability to recognize algorithmic patterns.
+
+It is not a solver. It is not a hint machine. It is a thinking companion that guides the user to discover how to think about problems, not just how to answer them. And it is a personal knowledge base that evolves with every problem solved - patterns deepen, connections form, mistakes become lessons.
 
 ## The Problem It Solves
 
 Most DSA learners solve problems and forget them. They revisit the same problem months later and have no memory of the solution. This happens because they memorized the answer without understanding the reasoning behind it.
 
-DSA Buddy changes this by:
+Patternarium changes this by:
 
 - Never giving the solution first
 - Asking the user to explain their thinking
@@ -22,7 +24,7 @@ Someone who is learning DSA for the first time or re-learning it after gaps. The
 
 ## What Makes It Different
 
-Most tools (LeetCode, YouTube walkthroughs, hint systems) give you the answer. DSA Buddy does not. It treats understanding as the goal and solutions as a byproduct.
+Most tools (LeetCode, YouTube walkthroughs, hint systems) give you the answer. Patternarium does not. It treats understanding as the goal and solutions as a byproduct.
 
 The system has three layers working simultaneously:
 
@@ -43,6 +45,8 @@ The system has three layers working simultaneously:
 
 ## Core Identity
 
+> A place where patterns live, grow, and connect.
+
 > One problem, multiple ways, each revealing a new way of thinking.
 
 > Don't collect solutions. Collect ways of thinking.
@@ -52,3 +56,5 @@ The system has three layers working simultaneously:
 Problems -> Approaches -> Patterns -> Insights -> Memory
 
 The goal is not to solve 100 problems. The goal is to understand 20 patterns deeply.
+
+The Patternarium is not a tool you use and put down. It is a system that grows with you. Every session makes it richer - new examples feed existing patterns, new patterns emerge from new problems, mistake logs sharpen over time, and review sessions test what has actually stuck. The repo itself becomes a living record of how your thinking evolved.

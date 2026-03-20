@@ -1,7 +1,7 @@
 # Ideation Brief
 
 ## The Idea
-A personal quiz engine built into DSA Buddy that generates grounded, multiple-choice questions from your actual learning journey. Questions are pulled from your pattern library, your logged mistakes, and common failure modes around correct solutions. The question bank builds itself as you solve problems - zero manual card creation.
+A personal quiz engine built into Patternarium that generates grounded, multiple-choice questions from your actual learning journey. Questions are pulled from your pattern library, your logged mistakes, and common failure modes around correct solutions. The question bank builds itself as you solve problems - zero manual card creation.
 
 ## The Problem
 After solving a problem, pattern knowledge fades without reinforcement. Existing tools either require manual flashcard creation (Anki), teach generic patterns (Educative, AlgoMonster), or generate questions without understanding algorithm concepts (Quizgecko). Nothing converts your own mistake log into targeted quiz questions, and nothing integrates quiz reinforcement into a guided learning workflow.

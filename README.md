@@ -1,6 +1,10 @@
-# DSA Buddy
+# Patternarium
 
-A personal AI-assisted DSA (Data Structures and Algorithms) learning system powered by [Claude Code](https://docs.anthropic.com/en/docs/claude-code). It is a thinking companion, not a solver. The goal is to build pattern recognition through guided problem solving, multi-approach exploration, and reflection.
+A living, growing ecosystem for learning Data Structures and Algorithms - powered by [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+
+Like an aquarium or terrarium, a Patternarium is a place where things grow. Except here, what grows is your ability to recognize patterns. Every problem you solve feeds the system - new patterns emerge, existing ones deepen, mistakes become lessons, and connections form across problems you have already solved.
+
+It is not a solver. It is not a hint machine. It is a thinking companion that walks alongside you, and a personal pattern library that evolves with you.
 
 > Don't collect solutions. Collect ways of thinking.
 
@@ -8,7 +12,7 @@ A personal AI-assisted DSA (Data Structures and Algorithms) learning system powe
 
 Most DSA learners solve problems and forget them. They revisit the same problem months later and have no memory of the solution. This happens because they memorized the answer without understanding the reasoning behind it.
 
-DSA Buddy changes this by:
+Patternarium changes this by:
 
 - Never giving the solution first - asking for your approach instead
 - Guiding you through hints that escalate gradually, not jumping to answers
@@ -18,7 +22,7 @@ DSA Buddy changes this by:
 
 ## How It Works
 
-DSA Buddy runs as a set of Claude Code project instructions (CLAUDE.md + toolkit rules) that turn your AI assistant into a structured DSA tutor. You paste a problem, think through it together, and the system records everything into a growing personal knowledge base.
+Patternarium runs as a set of Claude Code project instructions (CLAUDE.md + toolkit rules) that turn your AI assistant into a structured DSA tutor. You paste a problem, think through it together, and the system records everything into a growing personal knowledge base.
 
 ### The Session Flow
 
@@ -47,7 +51,7 @@ DSA Buddy runs as a set of Claude Code project instructions (CLAUDE.md + toolkit
 ## Project Structure
 
 ```
-DSA-buddy/
+Patternarium/
     CLAUDE.md                  # Project instructions for Claude Code
     LESSONS.md                 # Tracked mistakes and breakthroughs
     active-problem.md          # Current session state (temporary)
@@ -89,7 +93,7 @@ DSA-buddy/
 
 ## The Pattern Library
 
-The core asset of this system. A pattern is not a solution - it is a reusable way of thinking that applies to a family of problems.
+The living core of the Patternarium. A pattern is not a solution - it is a reusable way of thinking that applies to a family of problems. The library starts small and grows with every problem you solve.
 
 | Pattern | When to Reach for It |
 |---------|---------------------|
@@ -102,7 +106,24 @@ The core asset of this system. A pattern is not a solution - it is a reusable wa
 | Sliding Window | Subarray/substring with constraint |
 | Sorting + Metadata | Sort without losing original index |
 
-Patterns grow organically. Every solved problem adds examples and common mistakes to existing patterns. New patterns are created when a genuinely new thinking strategy emerges.
+Patterns grow organically. Every solved problem adds examples and common mistakes to existing patterns. New patterns are created when a genuinely new thinking strategy emerges. Sub-patterns start as notes inside a parent and earn their own file when they appear across multiple problems.
+
+## How the System Grows
+
+The Patternarium is not a static tool you use and put down. It is a living system with three layers that feed each other:
+
+```
+Problems solved  -->  Patterns extracted  -->  Connections formed
+      |                     |                        |
+      v                     v                        v
+  mistakes logged     examples added         review questions generated
+  lessons tracked     triggers refined       cross-problem links built
+```
+
+- **After every problem:** patterns are tagged, examples are added, mistake traps are documented
+- **After recurring mistakes:** lessons are logged and tracked until mastered, then graduated
+- **During review:** the system quizzes you on past patterns without showing notes - testing recall, not recognition
+- **Over time:** the pattern library becomes a personal DSA knowledge base that reflects how *you* think
 
 ## Key Design Principles
 
@@ -111,6 +132,7 @@ Patterns grow organically. Every solved problem adds examples and common mistake
 - **Multi-approach learning** - every problem gets at least two approaches, each teaching a different idea
 - **Earn the optimization** - alternatives are introduced only after you feel the limitation of the current approach
 - **Reflection loop** - reflection converts short-term problem memory into long-term pattern memory
+- **Cumulative growth** - every session makes the system smarter; nothing is throwaway
 
 See [Learning Philosophy](docs/learning-philosophy.md) for the full rationale.
 

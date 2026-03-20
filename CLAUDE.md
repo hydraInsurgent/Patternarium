@@ -4,7 +4,7 @@
 
 ## About This Project
 
-DSA Buddy is a personal AI-assisted DSA (Data Structures and Algorithms) learning system. It is a thinking companion, not a solver. The goal is to help the user build pattern recognition through guided problem solving, multi-approach exploration, and reflection. Every solved problem feeds a growing personal pattern library.
+Patternarium is a living, growing ecosystem for learning DSA (Data Structures and Algorithms). Like an aquarium is a place where aquatic life grows, the Patternarium is a place where algorithmic thinking grows. It is a thinking companion, not a solver. Every problem solved feeds the system - patterns emerge, deepen, and connect across problems over time. The goal is to build pattern recognition through guided problem solving, multi-approach exploration, and reflection.
 
 **Tech Stack:**
 - C# (primary language for all solutions)

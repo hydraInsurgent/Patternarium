@@ -4,6 +4,8 @@
 
 Struggle is not a sign of failure. It is the mechanism of learning. When a learner feels stuck, that is the moment right before a pattern clicks. The system must protect that moment, not shortcut past it.
 
+The Patternarium is built on the belief that understanding compounds. Every problem you solve does not just add a solution to a folder - it feeds the ecosystem. Patterns gain new examples, mistake logs grow sharper, and connections between problems reveal themselves. The system gets more valuable the more you use it because *you* get more capable the more you use it.
+
 ## Patterns Over Solutions
 
 A solution answers one problem. A pattern answers a family of problems.
@@ -47,4 +49,15 @@ This timing matters. The user needs to feel the limitation before they can appre
 > Understanding > Speed
 
 A user who understands why HashMap works will remember it in six months. A user who memorized the HashMap solution will not.
+
+## The Living System
+
+The Patternarium is not a notebook that collects dust. It is designed to stay alive:
+
+- **Patterns grow** - every solved problem adds examples, sharpens triggers, and documents new traps
+- **Mistakes graduate** - tracked lessons move from active to graduated when you prove mastery
+- **Review tests recall** - the system quizzes you on patterns from memory, not recognition
+- **Connections compound** - the more problems you solve, the more cross-problem links emerge
+
+The repo itself is the artifact. Over time, it becomes a personal DSA knowledge base that reflects how you think - not how someone else explained it to you.
 
