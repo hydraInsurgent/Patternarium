@@ -1,8 +1,12 @@
-# Roman to Integer
+---
+title: Roman to Integer
+category: DSA-Practice
+difficulty: Easy
+source: LeetCode
+status: solved
+---
 
-**Difficulty:** Easy
-**Tags:** String, HashMap
-**Source:** LeetCode #13
+# Roman to Integer
 
 ## Statement
 
@@ -29,7 +33,7 @@ Roman numerals use seven symbols: I (1), V (5), X (10), L (50), C (100), D (500)
 
 ## Solutions
 
-**Status:** Solved
-
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
+
+tags :: String, HashMap

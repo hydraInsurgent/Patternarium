@@ -1,7 +1,12 @@
-# Two Sum
+---
+title: Two Sum
+category: DSA-Practice
+difficulty: Easy
+source: LeetCode
+status: solved
+---
 
-**Difficulty:** Easy
-**Tags:** Array, HashMap, Two Pointers
+# Two Sum
 
 ## Problem Statement
 
@@ -53,3 +58,12 @@ Output: [0,1]
 [3,2,4], target = 6      -> [1,2] (complement is not adjacent)
 [0,4,3,0], target = 0    -> [0,3] (zeros)
 ```
+
+---
+
+## Solutions
+
+- [Solution approaches & learning journey](solutions.md)
+- [Mistakes & key insights](notes.md)
+
+tags :: Array, HashMap, Two Pointers
