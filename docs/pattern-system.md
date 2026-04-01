@@ -268,3 +268,117 @@ New ideas start as subsections inside a parent pattern. They earn their own file
 When promoting: extract the subsection into `patterns/<name>.md`, add it to pattern-index.json, and link back from the parent pattern.
 
 Over time, the pattern library becomes a personal DSA knowledge base.
+
+---
+
+## Constructs System
+
+Constructs are the tools that patterns use - language features and data structures with known behaviors and syntax. They are not thinking strategies; they are building blocks.
+
+Examples: HashSet, Dictionary, Array.Sort, Stack, Queue, List.
+
+### Where Constructs Live
+
+Every construct lives in `constructs/<name>.md`. Filename is kebab-case.
+
+### Construct File Format
+
+```markdown
+# Construct Name
+
+## What It Is
+One sentence: what this data structure or feature does.
+
+## C# Syntax
+How to declare, add, check, iterate - with code snippets.
+
+## When to Reach For It
+- Scenario 1
+- Scenario 2
+
+## vs Alternatives
+- vs Dictionary: [key difference]
+- vs List: [key difference]
+
+## Gotchas
+- Known traps or surprising behaviors
+
+## Seen In
+- Problem 1 (what it was used for)
+```
+
+### How Constructs Are Tracked
+
+During a session, any new construct encountered is noted in `active-problem.md` under a `## Constructs` section in the relevant approach block. This is a lightweight note - just the name and what it was used for.
+
+When `/save-problem` runs, the AI generates or updates the full construct file from the template above.
+
+### Named Algorithms
+
+Named algorithms (Dijkstra, BFS, DFS, KMP, etc.) are a separate category from both patterns and constructs. They are specific procedures, not thinking strategies or language tools. They live in `algorithms/<name>.md`.
+
+---
+
+## Algorithms System
+
+Algorithms are named, well-defined procedures with a specific step-by-step structure. Unlike patterns (which are thinking strategies), algorithms have a canonical form - there is a right way to implement BFS, QuickSort, or Dijkstra.
+
+### Where Algorithms Live
+
+Every algorithm lives in `algorithms/<name>.md`. Filename is kebab-case.
+
+### Algorithm File Format
+
+```markdown
+# Algorithm Name
+
+## What It Is
+One sentence: what this algorithm does.
+
+## How It Works
+Step-by-step description in plain language.
+
+## Pseudocode
+```
+concise pseudocode
+```
+
+## Complexity
+- Time: O(?) - best / average / worst if they differ
+- Space: O(?)
+
+## When to Use It
+- Problem signal 1
+- Problem signal 2
+
+## vs Alternatives
+- vs [other algorithm]: [key difference and when to prefer each]
+
+## Gotchas
+- Known traps or edge cases
+
+## Seen In
+- Problem 1 (which approach, what role the algorithm played)
+```
+
+### How Algorithms Link to Problems
+
+An algorithm file is linked when you implement the procedure from scratch in a solution - not when a built-in uses it internally (e.g., `Array.Sort` uses IntroSort, but you did not write it, so no algorithm link).
+
+Tracking works identically to constructs:
+- During a session, log any algorithm implemented under `#### Algorithms` in the active approach block of `active-problem.md`
+- On `/save-problem`, update or create the algorithm file and append to `## Seen In`
+- `algorithms-index.json` maps problems to algorithms, same structure as `pattern-index.json`
+
+### algorithms-index.json Format
+
+```json
+{
+  "Problem Name": {
+    "algorithms": ["QuickSort", "BFS"],
+    "approaches": {
+      "solution1.cs": ["BFS"]
+    }
+  }
+}
+```

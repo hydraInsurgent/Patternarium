@@ -1,4 +1,12 @@
 {
+  "Longest Consecutive Sequence": {
+    "patterns": ["Linear Scan", "HashSet Existence Lookup", "Presence Array"],
+    "approaches": {
+      "sort-linear-scan.cs": ["Linear Scan"],
+      "hashset-sequence-start.cs": ["HashSet Existence Lookup"],
+      "presence-array.cs": ["Presence Array"]
+    }
+  },
   "Two Sum": {
     "patterns": ["HashMap", "Two Pointers"],
     "approaches": {

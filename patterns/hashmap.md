@@ -68,6 +68,43 @@ If you check first:
 - Subarray Sum = K - prefix sum + HashMap, store sum -> count
 - Group Anagrams - frequency counting, store sorted_word -> list
 
+---
+
+## Sub-Pattern: HashSet - Existence Lookup
+
+### Core Idea
+Load all values into a HashSet for O(1) membership testing. Unlike the complement lookup pattern, you store no values - only keys. Use when you need to answer "does this number exist?" not "where is it?" or "how many times?".
+
+### When to Reach for This
+- Consecutive sequence problems ("does n-1 or n+1 exist?")
+- Deduplication before processing
+- Replacing O(n) list scans with O(1) set lookups inside a loop
+
+### Mental Trigger
+> "Do I need to know if a value exists, with no other information needed?"
+> "Am I scanning a list repeatedly just to check membership?"
+
+### Template
+```csharp
+HashSet<int> set = new HashSet<int>(nums); // O(n) build
+
+foreach (int n in nums)
+{
+    if (!set.Contains(n - 1)) // sequence start: no predecessor
+    {
+        int current = n;
+        int length = 0;
+        while (set.Contains(current)) { current++; length++; }
+        // update max
+    }
+}
+```
+
+### Solved Problems
+- **Longest Consecutive Sequence** (Approach 2) - detect sequence starts by checking n-1 absence, count forward
+
+---
+
 ## Common Mistakes
 
 - **Storing first, checking second** - causes false positive matches on duplicates

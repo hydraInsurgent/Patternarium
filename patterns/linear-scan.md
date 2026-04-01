@@ -29,6 +29,7 @@ for each element:
 
 ## Solved Problems
 - **Roman to Integer** (problems/13-roman-to-integer/solutions/right-to-left-scan.cs, left-to-right-scan.cs)
+- **Longest Consecutive Sequence** (Approach 1) - sort first, then scan comparing each element to previous
 
 ## Try Next
 - Best Time to Buy and Sell Stock
