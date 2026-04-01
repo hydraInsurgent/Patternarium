@@ -4,7 +4,7 @@
     "approaches": {
       "sort-linear-scan.cs": ["Linear Scan"],
       "hashset-sequence-start.cs": ["HashSet Existence Lookup"],
-      "presence-array.cs": ["Presence Array"]
+      "presence-array.cs": ["Presence Array", "HashSet Existence Lookup"]
     }
   },
   "Two Sum": {
