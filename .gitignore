@@ -16,6 +16,10 @@ npm-debug.log*
 .vscode/
 *.swp
 
+# C# build output
+bin/
+obj/
+
 # Temporary files
 /tmp/
 /_tmp/

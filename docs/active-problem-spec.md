@@ -19,12 +19,16 @@ During a problem session, two files live at repo root:
 - **Source:** [optional, e.g. LeetCode #13]
 - **Status:** in-progress
 - **Date Started:** [YYYY-MM-DD]
+- **Time Started:** [YYYY-MM-DD HH:MM]
+- **Time Taken:** [filled when all approaches done and problem closed]
 
 ## Statement
 [Problem statement as pasted by user - keep as-is from source]
 
 ### Approach 1: [name]
 **Status:** in-progress | stuck | solved
+**Time Started:** [YYYY-MM-DD HH:MM]
+**Time Taken:** [filled when approach reaches solved or stuck]
 
 #### Thinking
 [User's stated approach]
@@ -44,6 +48,8 @@ During a problem session, two files live at repo root:
 
 ### Approach 2: [name]
 **Status:** [status]
+**Time Started:** [YYYY-MM-DD HH:MM]
+**Time Taken:** [filled when approach reaches solved or stuck]
 [same sub-sections as above]
 
 ---
@@ -68,8 +74,10 @@ Logging is event-based, not phase-based. Write when the event happens, regardles
 
 | Event | Section Updated |
 |-------|----------------|
-| User pastes a problem | Create file with `## Problem` (including Status: in-progress, Date Started) + `## Statement` |
-| User shares an approach | Append `### Approach N` with `**Status:** in-progress` + `#### Thinking` |
+| User pastes a problem | Create file with `## Problem` (including Status: in-progress, Date Started, Time Started) + `## Statement` |
+| User shares an approach | Append `### Approach N` with `**Status:** in-progress`, `**Time Started:**` (current time) + `#### Thinking` |
+| Approach reaches solved or stuck | Set `**Time Taken:**` on that approach block (compute from Time Started) |
+| All approaches done, problem closed | Set `**Time Taken:**` at Problem level (compute from Problem Time Started) |
 | A hint is given | Append to `#### Hints Given` in current approach |
 | User says "I'm stuck" or solution is revealed for them | Set current approach `**Status:** stuck` |
 | A bug is identified | Append to `#### Bugs` in current approach |
@@ -148,7 +156,7 @@ public class Solution2
 }
 ```
 
-**AI writes:** Only the blank template block (separator, empty metadata fields, class with method signature)
+**AI writes:** Only the blank template block (separator, empty metadata fields, class with method signature). Always append to the bottom - never prepend.
 **User writes:** Everything else (approach name, complexity, key idea, implementation)
 
 ### Dry Run Template in active-solution.cs

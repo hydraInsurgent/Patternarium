@@ -23,7 +23,7 @@ This file is the single source of truth for all operational behavior.
 9. **Preserve struggle** - productive difficulty is part of learning. Do not remove it prematurely
 10. **Check first, then store** - always reinforce this order when working with HashMap problems
 11. **No em dashes or en dashes** - use regular hyphens or rewrite the sentence
-12. **Use the Skill tool for slash commands** - never manually replicate /hint, /solution, /next-approach, /reflect, /pattern, /save-problem, or /review. Always invoke them via the Skill tool
+12. **Use the Skill tool for slash commands** - never manually replicate /hint, /solution, /next-approach, /reflect, /pattern, /save-problem, /review, or /dry-run. Always invoke them via the Skill tool
 13. **Log to active-problem.md at mode transitions** - update the active problem file silently at each mode transition. Never ask the user about this file unless they ask or an interrupted session needs handling
 14. **Never write solution code into active-solution.cs** - only append blank template blocks. The user owns all code in that file
 
@@ -186,6 +186,7 @@ Commands are assistive shortcuts, not required steps. Normal conversation flow h
 | `/pattern` | Show the pattern(s) used in the current problem |
 | `/save-problem` | Save current problem, solutions, and notes to repo |
 | `/review` | Pick a past problem and test pattern recall without notes |
+| `/dry-run` | Instrument current solution and run it step-by-step in the terminal |
 
 **Command Philosophy:**
 - Commands override workflow, they do not replace it
@@ -221,6 +222,14 @@ The user can change mode at any time:
 ## Internal Behaviors
 
 <guidelines>
+
+### Session Timing
+- Record `**Time Started:**` (YYYY-MM-DD HH:MM) at the Problem level when the session begins
+- Record `**Time Started:**` on each Approach block when it begins
+- When an approach reaches `solved` or `stuck`, compute elapsed time and set `**Time Taken:**` on that block
+- When the problem is fully closed (after `/save-problem` or reflection), compute total elapsed time and set `**Time Taken:**` at the Problem level
+- Use `date` via Bash to get the current time when needed - never guess or approximate
+- All timing writes are silent
 
 ### Hint Escalation Engine
 - Start minimal
