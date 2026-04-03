@@ -44,3 +44,4 @@ foreach (int n in set) { ... }
 
 ## Seen In
 - 128 - Longest Consecutive Sequence (existence check to find sequence starts and extend runs)
+- 3 - Longest Substring Without Repeating Characters (Approach 1 - track chars in the current brute force window)

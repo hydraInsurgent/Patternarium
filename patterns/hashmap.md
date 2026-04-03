@@ -62,6 +62,7 @@ If you check first:
 ## Solved Problems
 
 - **Two Sum** (problems/1-two-sum/solutions/hashmap.cs) - complement lookup, store number -> index
+- **Longest Substring Without Repeating Characters** (problems/3-longest-substring-without-repeating-characters/solutions/sliding-window-hashmap.cs) - store char -> last seen index for O(1) window jump
 
 ## Try Next
 

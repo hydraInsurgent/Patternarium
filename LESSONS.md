@@ -18,6 +18,9 @@
 - **Reset to 0, not 1, after a gap in a count scan** - resetting count to 1 instead of 0 makes the first element after a gap count as 2. After reset, the next true/match does count++ to reach 1. (Longest Consecutive Sequence, Approach 3)
 
 
+- **Sliding window: start must never move left** - when using a HashMap of last-seen indices to jump start, a char's previous occurrence may be before the current window. Updating start to that index+1 would move it backward and corrupt the window. Guard with `Math.Max(start, lastSeen+1)` or an explicit if condition. (Longest Substring Without Repeating Characters, Approach 2)
+- **start++ vs index jump in sliding window** - incrementing start by 1 on each repeat keeps the O(n) loop but misses the key optimization: you can jump directly to lastSeenIndex+1 and skip all the stale positions in one move. (Longest Substring Without Repeating Characters, Approach 2)
+
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->
 

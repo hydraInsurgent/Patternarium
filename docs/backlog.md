@@ -1,0 +1,63 @@
+# Patternarium Backlog
+
+This is the single source of truth for all planned and in-progress system work.
+
+**Scope check rule:**
+When a new request comes in, check Active first.
+- If there is active work: anything outside that scope goes to backlog, not into the current session.
+- If nothing is active: new items go directly to the appropriate section.
+
+---
+
+## Active
+
+What is currently being worked on:
+
+| Item | Status |
+|------|--------|
+| (nothing active) | - |
+
+---
+
+## On Hold
+
+Started or partially working - not urgent, resume when time allows.
+
+| # | Title | Notes |
+|---|-------|-------|
+| 3 | Dry run improvements | Currently works (comment table + user fills values), but not ideal. Debug logging toggle not yet built. AI sometimes sets up dry run without being asked. |
+
+---
+
+## Improvement Backlog
+
+System improvements - not yet started.
+
+| # | Title | Priority | Notes |
+|---|-------|----------|-------|
+| 1 | Frontmatter description field on pattern and construct files | medium | One-liner description field distinct from display_name. Helps when pattern names sound similar. Example: `description: Two-pointer for longest/shortest subarray with constraint.` |
+| 2 | Pattern menu file | low | Single `pattern-menu.md` with name + core idea + mental trigger per pattern. Avoids opening individual files during sessions. Trigger: when library hits 15+ patterns. Same idea for constructs. |
+| 3 | (moved to On Hold) | - | - |
+
+---
+
+## Someday / Maybe
+
+Untracked ideas - not prioritized, not committed to. Just worth remembering.
+
+- `/create-issue` style commands to manage this backlog from the CLI instead of editing manually
+- Pattern promotion automation - when a sub-pattern has appeared in 2+ problems, flag it for promotion to its own file
+- Review session scoring - track how many hints were needed during `/review` and log it to the problem's notes.md over time
+
+---
+
+## Closed
+
+Recently completed system work:
+
+| # | Title | Closed |
+|---|-------|--------|
+| - | Timing system (Time Started / Time Taken per approach and problem) | 2026-04-03 |
+| - | Sliding Window pattern file created | 2026-04-03 |
+| - | Dictionary, Span constructs created | 2026-04-03 |
+| - | Backlog created | 2026-04-03 |

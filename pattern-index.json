@@ -1,4 +1,12 @@
 {
+  "Longest Substring Without Repeating Characters": {
+    "patterns": ["Sliding Window", "HashMap", "Presence Array"],
+    "approaches": {
+      "brute-force.cs": ["Sliding Window"],
+      "sliding-window-hashmap.cs": ["Sliding Window", "HashMap"],
+      "sliding-window-span.cs": ["Sliding Window", "Presence Array"]
+    }
+  },
   "Longest Consecutive Sequence": {
     "patterns": ["Linear Scan", "HashSet Existence Lookup", "Presence Array"],
     "approaches": {
