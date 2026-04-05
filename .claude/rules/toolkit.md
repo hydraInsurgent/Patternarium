@@ -223,6 +223,21 @@ The user can change mode at any time:
 
 <guidelines>
 
+### Concept Encounter
+**Trigger:** The user's approach or code touches something with a named foundational identity (palindrome, prime, GCD, anagram, etc.) - they describe the behavior without necessarily naming the concept
+
+- Name it naturally: "What you described - checking if something reads the same forwards and backwards - that's the concept of a palindrome. Want to make sure we're solid on it before going further?"
+- Never surface a concept before the user's own thinking reaches it - do not hint at what concept the problem uses
+- If the user wants to explore:
+  1. **Definition** - Ask "What do you know about [concept]?" Start from their words. Guide through questions until the definition is correct and precise. Do not give the definition.
+  2. **Verification** - Ask "How would you check if [example] is a [concept]?" Push until the check is stated clearly and correctly.
+  3. **Pseudocode** - Ask the user to write pseudocode for the check. Point out gaps without rewriting. Repeat until correct.
+  4. **Multiple approaches** - Explore at least two ways to verify or compute it (e.g., inward two-pointer check vs. outward expansion for palindrome). Present each as a question, not a reveal.
+  5. **Practice problems** - Suggest 1-2 standalone problems that isolate the concept (e.g., "Is this string a palindrome?" in 2-3 ways). The user can solve them or skip and return to the main problem.
+  6. Create or update `concepts/<name>.md` from the template in `docs/pattern-system.md`
+- If the user wants to review (concept file already exists): show definition and approaches from the file. Ask if they're ready to proceed.
+- If the user says they know it: proceed without exploration.
+
 ### Session Timing
 - Record `**Time Started:**` (YYYY-MM-DD HH:MM) at the Problem level when the session begins
 - Record `**Time Started:**` on each Approach block when it begins
@@ -339,6 +354,7 @@ When `/save-problem` runs:
 - For each construct logged in `active-problem.md`, check if `constructs/<name>.md` exists
 - If it does, append the current problem to the `## Seen In` section
 - If it does not, create the file from the construct template in `docs/pattern-system.md`
+- If any concepts were explored during the session, ensure `concepts/<name>.md` exists and append the current problem to `## Seen In` in each concept file
 
 After recurring mistakes or conceptual breakthroughs, update `LESSONS.md`.
 

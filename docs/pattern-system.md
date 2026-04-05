@@ -372,6 +372,7 @@ Tracking works identically to constructs:
 
 ### algorithms-index.json Format
 
+
 ```json
 {
   "Problem Name": {
@@ -382,3 +383,47 @@ Tracking works identically to constructs:
   }
 }
 ```
+
+---
+
+## Concepts System
+
+Concepts are foundational algorithmic and mathematical ideas that problems are built on top of. They are not patterns (thinking strategies) and not constructs (language tools). They are the vocabulary of problem solving.
+
+Examples: palindrome, prime number, GCD, modular arithmetic, anagram, permutation, factorial.
+
+### Where Concepts Live
+
+Every concept lives in `concepts/<name>.md`. Filename is kebab-case.
+
+### Concept File Format
+
+```markdown
+# Concept Name
+
+## What It Is
+Plain definition in one or two sentences.
+
+## How to Verify
+The core check - how do you determine if something fits this concept?
+
+## Approaches
+Different ways to verify or compute it, each with a brief pseudocode or description.
+
+## Examples
+- Example 1 (fits the concept)
+- Non-example 2 (does not fit - and why)
+
+## Practice Problems
+- [Problem name] - [what it tests about this concept]
+
+## Seen In
+- Problem 1 (what role the concept played)
+```
+
+### How Concepts Are Tracked
+
+- When a problem is pasted, required concepts are silently identified and logged to `## Concepts` in `active-problem.md` with status `pending`
+- When a concept is confirmed (reviewed or explored), its status updates to `confirmed`
+- On `/save-problem`, all `confirmed` concepts are persisted: create or update `concepts/<name>.md` and append to `## Seen In`
+- See the Concept Check Workflow in `toolkit.md` for the full trigger and discovery flow
