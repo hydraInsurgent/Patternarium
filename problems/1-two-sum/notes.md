@@ -25,4 +25,4 @@
 
 ## Patterns Used
 - **HashMap - Complement Lookup** (Approach 2)
-- **Two Pointers - Sorted Pair** (Approach 3)
+- **Two Pointers - Sorted Pair** (Approach 3) - see [two-pointers.md#variation-sorted-pair](../../patterns/two-pointers.md#variation-sorted-pair)

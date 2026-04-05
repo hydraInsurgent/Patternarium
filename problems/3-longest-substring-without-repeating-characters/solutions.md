@@ -28,9 +28,10 @@
 
 ## Patterns
 
-- [Sliding Window - Contiguous Range Tracking](../../patterns/sliding-window.md) (All Approaches) - find longest contiguous substring with no repeated chars by maintaining a window that slides forward
-- [HashMap - Complement Lookup](../../patterns/hashmap.md) (Approach 2) - store char -> last seen index for O(1) jump to window start
-- [Presence Array - Bucket Marking](../../patterns/presence-array.md) (Approach 2.1) - int[128] indexed by ASCII value replaces Dictionary; extended from bool to int to store position
+- [Sliding Window - Shrink-Based](../../patterns/sliding-window.md#variation-shrink-based) (Approach 1) - restart-based window; establishes the concept before optimization
+- [Sliding Window - Index Jump](../../patterns/sliding-window.md#variation-index-jump) (Approaches 2 & 2.1) - find longest window with no repeated chars by jumping start directly on violation
+- [HashMap - Last Seen Index](../../patterns/hashmap.md#variation-last-seen-index) (Approach 2) - store char -> last seen index for O(1) jump to window start
+- [Presence Array - Integer Slot](../../patterns/presence-array.md#variation-integer-slot) (Approach 2.1) - int[128] indexed by ASCII value replaces Dictionary; stores end+1 to distinguish "never seen" from "seen at 0"
 
 ## Reflection
 

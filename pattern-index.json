@@ -31,5 +31,13 @@
       "string-replacement.cs": ["Preprocessing"],
       "two-char-lookahead.cs": ["Chunked Iteration"]
     }
+  },
+  "Valid Palindrome": {
+    "patterns": ["Two Pointers"],
+    "approaches": {
+      "inward-two-pointer.cs": ["Two Pointers"],
+      "two-pointer-without-extra-space.cs": ["Two Pointers"],
+      "ascii-two-pointer.cs": ["Two Pointers"]
+    }
   }
 }

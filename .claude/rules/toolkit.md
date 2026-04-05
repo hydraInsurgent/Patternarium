@@ -339,11 +339,19 @@ See `docs/pattern-system.md` for pattern file format, tagging rules, and structu
 <rules>
 
 After every solved problem:
-1. Ask the user which pattern was used
+1. Ask the user which pattern was used, and which variation within that pattern
 2. Update `pattern-index.json` with problem -> patterns mapping
-3. Update relevant `patterns/*.md` with new example
-4. If a new pattern is discovered, create `patterns/<new-pattern>.md`
-5. `/save-problem` creates `notes.md` automatically - suggest user review it and add anything missed
+3. Add the problem to the Solved Problems list under the relevant variation in `patterns/*.md`
+4. If a new variation of an existing pattern is discovered, add a `## Variation:` section to the existing pattern file
+5. If a genuinely new pattern is discovered (distinct mental trigger, distinct template), create `patterns/<new-pattern>.md`
+6. `/save-problem` creates `notes.md` automatically - suggest user review it and add anything missed
+
+When writing pattern links in solutions.md, use the format:
+`[display_name - Variation Name](../../patterns/<file>.md#variation-<anchor>)`
+- Look up `display_name` from the pattern file header
+- Look up the variation name from the `## Variation:` heading
+- Derive the anchor by lowercasing the heading and replacing spaces with hyphens
+- Example: `## Variation: Complement Lookup` -> `#variation-complement-lookup`
 
 During a session, whenever a new construct is introduced (HashSet, Dictionary, Array.Sort, etc.):
 - Add a `## Constructs` section to the current approach block in `active-problem.md`

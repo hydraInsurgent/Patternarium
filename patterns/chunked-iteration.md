@@ -1,19 +1,23 @@
 # Chunked Iteration
 
-**display_name:** Chunked Iteration - Variable Step
+**display_name:** Chunked Iteration
 
 ## Core Idea
-Consume 1 or more elements per step based on a condition, advancing the index by different amounts.
 
-## When to Reach for This
+Consume one or more elements per step based on a condition, advancing the index by different amounts. Unlike a standard for-loop that moves exactly one step, this pattern processes variable-size units.
+
+## Variation: Variable Step
+
+**When to reach for this:**
 - Tokens have variable length
-- Pairs or groups need special handling
-- Greedy matching (consume as much as possible per step)
+- Pairs or groups need to be consumed as a single unit
+- Greedy matching: consume as many elements as possible per step
 
-## Mental Trigger
+**Mental Trigger:**
 > "Do I sometimes need to process multiple elements as one unit?"
+> "Can I consume a group at once instead of one element at a time?"
 
-## Template
+**Template:**
 ```
 i = 0
 while i < length:
@@ -24,21 +28,25 @@ while i < length:
 handle any remaining unprocessed element
 ```
 
-## Tradeoffs
+**Tradeoffs:**
 - Time: O(n) - each element processed exactly once
 - Space: O(1) - just index tracking
 - More explicit control than for-loops
-- Must handle the "leftover" case after the loop
+- Must handle the "leftover" case after the loop ends
 
-## Solved Problems
-- **Roman to Integer** (problems/13-roman-to-integer/solutions/two-char-lookahead.cs) - two-character lookahead
+**Solved Problems:**
+- **Roman to Integer** (problems/13-roman-to-integer/solutions/two-char-lookahead.cs) - two-character lookahead: consume subtraction pair or single character per step
+
+---
 
 ## Try Next
+
 - Decode Ways
 - Integer to English Words
 - Tokenizer/Parser problems
 
 ## Common Mistakes
-- Forgetting to handle the last element when it wasn't consumed by a multi-element group
-- Using `>` instead of `>=` when equal values should go to the single-element branch
-- Loop condition must account for lookahead bounds (e.g., `i < length - 1` when checking `i + 1`)
+
+- **Forgetting the leftover** - the last element may not have been consumed by a multi-element group; always check after the loop
+- **Wrong comparison operator** - `>` instead of `>=` for equal values causes them to fall into the wrong branch (e.g., XX should not be a subtraction pair)
+- **Loop bounds with lookahead** - when checking `i + 1`, the loop condition must account for it (e.g., `i < length - 1`) to avoid index out of bounds

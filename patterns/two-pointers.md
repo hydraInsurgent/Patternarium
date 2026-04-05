@@ -1,29 +1,28 @@
 # Two Pointers Pattern
 
-**display_name:** Two Pointers - Sorted Pair
+**display_name:** Two Pointers
 
 ## Core Idea
 
-Place two pointers at different positions in a sorted array and move them toward each other based on the sum/comparison result. Each move eliminates part of the search space. One scan covers what would otherwise require nested loops.
+Place two pointers at different positions in a sequence and move them toward each other (or outward) based on a condition. Each move eliminates part of the search space. One scan covers what would otherwise require nested loops.
 
-## When to Reach for This
+The pointers define their own boundary. The outer `while (left < right)` is the single source of termination - inner logic should be bounded relative to the pointers, not the array edges.
 
+## Variation: Sorted Pair
+
+**When to reach for this:**
 - Sorted array with pair relationship (sum, difference, product)
 - Range shrinking problems
-- Problems where moving left means increasing value, moving right means decreasing
-- Removing duplicates while preserving relative order
+- Problems where moving left increases value and moving right decreases it
 - Finding closest pair to a target
 
-## Mental Trigger
-
+**Mental Trigger:**
 > "Is the array sorted (or can I sort it)?"
-> "Am I looking for a pair where I know moving in one direction increases the value and the other decreases it?"
+> "Am I looking for a pair where moving one pointer changes the result in a predictable direction?"
 > "Can I shrink the search window from both ends?"
 
-## Template
-
+**Template:**
 ```csharp
-// Sorted array two pointers
 int left = 0, right = nums.Length - 1;
 
 while (left < right)
@@ -31,63 +30,105 @@ while (left < right)
     int sum = nums[left] + nums[right];
 
     if (sum == target)
-    {
         return new int[] { left, right };
-    }
     else if (sum < target)
-    {
-        left++;   // need bigger values, move left pointer right
-    }
+        left++;   // need bigger values
     else
-    {
-        right--;  // need smaller values, move right pointer left
-    }
+        right--;  // need smaller values
 }
 ```
 
-## Tradeoffs
+**Important: Index Preservation When Sorting**
 
-| | Value |
-|--|--|
-| Time | O(n) for the two pointer scan |
-| Space | O(1) if array is already sorted; O(n) if we need to preserve indices via tuple |
-| vs HashMap | Requires sorted input; uses less space on sorted input |
-| vs Brute Force | O(n) instead of O(n^2) |
-
-## Important: Index Preservation When Sorting
-
-If the problem returns indices (not values), and you sort the array, you must carry the original index with each element:
+If the problem returns indices (not values), carry the original index with each element before sorting:
 
 ```csharp
-// Attach original index before sorting
 (int value, int index)[] arr = new (int, int)[nums.Length];
 for (int i = 0; i < nums.Length; i++)
     arr[i] = (nums[i], i);
 
-// Sort by value - original index travels with it
 Array.Sort(arr, (a, b) => a.value.CompareTo(b.value));
 
-// Return original indices, not sorted positions
 return new int[] { arr[left].index, arr[right].index };
 ```
 
 This is the "carry identity with data" sub-pattern. Sorting changes positions but must not destroy identity.
 
-## Solved Problems
+**Tradeoffs:**
 
-- **Two Sum** (problems/1-two-sum/solutions/two-pointer.cs) - sorted + index preservation + two pointers
+| | Value |
+|--|--|
+| Time | O(n) for the two pointer scan |
+| Space | O(1) if array is already sorted; O(n) if preserving indices via tuple |
+| vs HashMap | Requires sorted input; uses less space on sorted input |
+| vs Brute Force | O(n) instead of O(n^2) |
 
-## Try Next
-
-- Two Sum II - Input Already Sorted - same pattern, no index preservation needed
-- 3Sum - sort + two pointers as inner loop
-- Container With Most Water - shrink by moving the shorter side
-- Trapping Rain Water (variant)
-- Remove Duplicates from Sorted Array
-
-## Common Mistakes
-
+**Common Mistakes:**
 - **Sorting without preserving indices** - returning `[left, right]` after sort gives sorted positions, not original indices
 - **Forgetting the sorted requirement** - two pointers only works correctly when array ordering is meaningful
 - **Moving both pointers** - only move one pointer per iteration (the one causing the imbalance)
 - **Using `<=` in while condition** - `left < right` is correct; `left <= right` would allow using the same element twice
+
+**Solved Problems:**
+- **Two Sum** (problems/1-two-sum/solutions/two-pointer.cs) - sorted + index preservation + two pointers
+
+---
+
+## Variation: Symmetry Check
+
+**When to reach for this:**
+- Check if a string or sequence reads the same forwards and backwards
+- Sorting not required - structure is the check
+- Characters or elements may need to be skipped (non-alphanumeric, whitespace)
+
+**Mental Trigger:**
+> "Does it need to match from both ends toward the center?"
+> "Am I verifying symmetry, not searching for a target value?"
+> "Do I need to skip certain characters while comparing?"
+
+**Template:**
+```csharp
+int left = 0, right = s.Length - 1;
+
+while (left < right)
+{
+    // Skip invalid characters - bound by left < right, not array edges
+    while (!IsValid(s[left]) && left < right) left++;
+    while (!IsValid(s[right]) && right > left) right--;
+
+    if (Normalize(s[left]) != Normalize(s[right]))
+        return false;
+
+    // Advance unconditionally - outer while handles termination
+    left++;
+    right--;
+}
+
+return true;
+```
+
+**Tradeoffs:**
+
+| | Value |
+|--|--|
+| Time | O(n) |
+| Space | O(1) if skipping in-place; O(n) if cleaning the string first |
+| Clean-first vs Skip-in-place | Clean-first is simpler to read; skip-in-place saves space |
+
+**Common Mistakes:**
+- **Using array bounds in inner skip loops** - `left < s.Length-1` instead of `left < right` forces extra guard conditions and conditional pointer advancement. Use relative bounds so the outer while handles termination naturally
+
+**Solved Problems:**
+- **Valid Palindrome** (problems/125-valid-palindrome/solutions/inward-two-pointer.cs) - inward convergence from both ends to verify string symmetry
+
+---
+
+## Try Next
+
+- Two Sum II - Input Already Sorted (Sorted Pair)
+- 3Sum - sort + two pointers as inner loop (Sorted Pair)
+- Container With Most Water - shrink by moving the shorter side (Sorted Pair)
+- Trapping Rain Water variant (Sorted Pair)
+- Remove Duplicates from Sorted Array (Sorted Pair)
+- Valid Palindrome II - can remove one character (Symmetry Check)
+- Longest Palindromic Substring - expand outward from center (Symmetry Check)

@@ -29,7 +29,7 @@
 ## Patterns
 
 - [HashMap - Complement Lookup](../../patterns/hashmap.md) (Approach 2) - store seen elements for O(1) lookup, rewrite pair problems as complement search
-- [Two Pointers - Sorted Pair](../../patterns/two-pointers.md) (Approach 3) - sorted array + pair relationship, shrink window from both ends
+- [Two Pointers - Sorted Pair](../../patterns/two-pointers.md#variation-sorted-pair) (Approach 3) - sorted array + pair relationship, shrink window from both ends
 
 ## Reflection
 

@@ -38,9 +38,9 @@
 
 ## Patterns
 
-- [Linear Scan - Neighbor Comparison](../../patterns/linear-scan.md) (Approaches 1 & 2) - value depends on adjacent element, decide operation by comparing neighbors
-- [Preprocessing - Normalize Before Compute](../../patterns/preprocessing.md) (Approach 3) - eliminate special cases before main logic, works when cases are fixed and known
-- [Chunked Iteration - Variable Step](../../patterns/chunked-iteration.md) (Approach 4) - consume 1 or 2 elements per step, must handle leftover at the end
+- [Linear Scan - Neighbor Comparison](../../patterns/linear-scan.md#variation-neighbor-comparison) (Approaches 1 & 2) - value depends on adjacent element, decide operation by comparing neighbors
+- [Preprocessing - Normalize Before Compute](../../patterns/preprocessing.md#variation-normalize-before-compute) (Approach 3) - eliminate special cases before main logic, works when cases are fixed and known
+- [Chunked Iteration - Variable Step](../../patterns/chunked-iteration.md#variation-variable-step) (Approach 4) - consume 1 or 2 elements per step, must handle leftover at the end
 
 ## Reflection
 

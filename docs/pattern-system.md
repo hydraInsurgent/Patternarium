@@ -15,51 +15,66 @@ The pattern system is the core asset of this repo. Every solved problem feeds in
 
 ## Pattern File Format
 
-Every pattern lives in `patterns/<pattern-name>.md`. The filename is a short kebab-case identifier. The file defines a `display_name` that is used as the human-readable label in links and references.
+Every pattern lives in `patterns/<pattern-name>.md`. The filename is a short kebab-case identifier. The file defines a `display_name` (the base name) and contains one or more named variations as headings. Each variation is a distinct use of the same core idea - different trigger, different template, different tradeoffs.
 
 ```markdown
 # Pattern Name
 
-**display_name:** [Full Descriptive Name]
+**display_name:** Pattern Name
 
 ## Core Idea
-One sentence: what this pattern does and why it works.
+What this pattern does in general, independent of any specific variation.
 
-## When to Reach for This
+## Variation: [Variation Name]
+
+**When to reach for this:**
 - Signal 1 (e.g., "pair sum problems")
 - Signal 2 (e.g., "complement lookup")
-- Signal 3 (e.g., "frequency counting")
 
-## Mental Trigger
+**Mental Trigger:**
 > The question you should ask yourself when you see this type of problem.
 
-## Template
-Pseudocode or skeleton showing the pattern structure.
+**Template:**
+Pseudocode or skeleton showing the variation's structure.
 
-## Tradeoffs
+**Tradeoffs:**
 - Time complexity
 - Space complexity
 - When it beats alternatives
 
-## Solved Problems
+**Solved Problems:**
 - Problem 1 (approach used)
 
+---
+
+## Variation: [Variation Name 2]
+[same structure as above]
+
+---
+
 ## Try Next
-- Problem 2 (suggested, not yet solved)
+- Problem 2 (suggested, not yet solved) - note which variation applies
 
 ## Common Mistakes
-- Mistake 1 and why it happens
+- Mistake 1 and why it happens (Variation Name if variation-specific)
 - Mistake 2 and why it happens
 ```
 
 ### Pattern Naming Convention
 
 - **Filename:** short kebab-case (e.g., `linear-scan.md`, `hashmap.md`)
-- **display_name:** descriptive label (e.g., "Linear Scan - Neighbor Comparison", "HashMap - Complement Lookup")
+- **display_name:** base name only, no variation suffix (e.g., `"HashMap"`, `"Two Pointers"`)
+- **Variation names:** descriptive labels used as headings within the file (e.g., `"Complement Lookup"`, `"Sorted Pair"`)
 - **pattern-index.json:** uses short names matching the filename (e.g., `"Linear Scan"`, `"HashMap"`)
-- **solutions.md links:** uses display_name as link text, filename for the URL
+- **solutions.md links:** combine display_name and variation name as link text, with a heading anchor pointing to the variation
 
-When referencing a pattern, always look up the `display_name` from the pattern file to ensure consistency across sessions.
+**Link format:** `[display_name - Variation Name](../../patterns/<file>.md#variation-<anchor>)`
+
+Example: `[HashMap - Complement Lookup](../../patterns/hashmap.md#variation-complement-lookup)`
+
+The anchor is derived from the heading: `## Variation: Complement Lookup` becomes `#variation-complement-lookup` (lowercase, spaces to hyphens, special characters dropped).
+
+When referencing a pattern, always look up both the `display_name` and the variation heading from the pattern file to ensure consistency across sessions.
 
 ## Problem File Format
 
@@ -141,8 +156,8 @@ The learning journey file. Links to code files in `solutions/` subfolder and to 
 
 ## Patterns
 
-- [HashMap - Complement Lookup](../../patterns/hashmap.md) (Approach 2) - description
-- [Two Pointers - Sorted Pair](../../patterns/two-pointers.md) (Approach 3) - description
+- [HashMap - Complement Lookup](../../patterns/hashmap.md#variation-complement-lookup) (Approach 2) - description
+- [Two Pointers - Sorted Pair](../../patterns/two-pointers.md#variation-sorted-pair) (Approach 3) - description
 
 ## Reflection
 
@@ -240,32 +255,35 @@ This is the revision layer. When reviewing, you can quiz a specific pattern-appr
 
 The patterns discovered so far are:
 
-| Pattern | display_name | When to Use |
-|---------|-------------|-------------|
-| HashMap | HashMap - Complement Lookup | Pair sum, complement search, frequency counting, "have I seen this before?" |
-| Two Pointers | Two Pointers - Sorted Pair | Sorted array, pair relationships, range shrinking |
-| Prefix Sum | Prefix Sum | Subarray sum queries, running totals |
-| Sliding Window | Sliding Window | Subarray/substring with constraint |
-| Sorting + Metadata | Sorting + Metadata | Sort without losing original index (carry identity with data) |
-| Linear Scan | Linear Scan - Neighbor Comparison | Value depends on adjacent element, directional rules |
-| Preprocessing | Preprocessing - Normalize Before Compute | Fixed special cases that can be eliminated before main logic |
-| Chunked Iteration | Chunked Iteration - Variable Step | Variable-length tokens, consume 1 or more elements per step |
+| Pattern | display_name | Variations |
+|---------|-------------|------------|
+| HashMap | HashMap | Complement Lookup, Last Seen Index, HashSet Existence Lookup |
+| Two Pointers | Two Pointers | Sorted Pair, Symmetry Check |
+| Sliding Window | Sliding Window | Shrink-Based, Index Jump |
+| Presence Array | Presence Array | Boolean Presence, Integer Slot |
+| Linear Scan | Linear Scan | Neighbor Comparison |
+| Preprocessing | Preprocessing | Normalize Before Compute |
+| Chunked Iteration | Chunked Iteration | Variable Step |
+| Prefix Sum | Prefix Sum | (no variations yet) |
 
 ## How Patterns Grow
 
 Every new problem solved:
 1. Tags to existing patterns if applicable
-2. Adds an example to an existing pattern file
-3. If a new thinking strategy emerges, add it as a subsection within the closest parent pattern file
+2. Adds the problem to the Solved Problems list under the relevant variation in the pattern file
+3. If a new variation of an existing pattern is discovered, add a `## Variation:` section to the existing pattern file
+4. If a genuinely new thinking strategy emerges (distinct mental trigger, distinct template), create a new `patterns/<new-pattern>.md`
 
-## Sub-Pattern Promotion
+## Variation vs New Pattern
 
-New ideas start as subsections inside a parent pattern. They earn their own file when:
-- The sub-pattern appears in 2+ problems across different parent patterns
-- It has a distinct mental trigger (you recognize the problem differently)
+New ideas start as variations inside a parent pattern. They earn their own file when:
+- The idea appears in 2+ problems and feels distinct from all existing patterns
+- It has a clearly different mental trigger (you recognize the problem differently)
 - It has a meaningfully different code template
 
-When promoting: extract the subsection into `patterns/<name>.md`, add it to pattern-index.json, and link back from the parent pattern.
+When promoting: extract the variation into `patterns/<name>.md`, add it to pattern-index.json, and note the relationship in the original pattern file.
+
+Variations stay inside the parent when the core structure is the same and the difference is in application context (sorted vs unsorted, boolean vs integer slot, etc.).
 
 Over time, the pattern library becomes a personal DSA knowledge base.
 
