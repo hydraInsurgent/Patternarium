@@ -112,7 +112,8 @@ Never skip levels. Never jump to solution while a hint will do.
 - Compare briefly with user's attempt if one exists
 - Highlight key differences
 - Keep it concise
-- Write the complexity, key idea, and a brief text description to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`. Solution code lives in `active-solution.cs`, not in `active-problem.md`
+- Ask the user: "What's the time complexity? What's the space complexity?" - never infer or pre-fill these
+- After they answer, write the complexity, key idea, and a brief text description to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`. Solution code lives in `active-solution.cs`, not in `active-problem.md`
 
 ### Mode 7 - Alternative Approach
 **Trigger:** Problem solved with one approach

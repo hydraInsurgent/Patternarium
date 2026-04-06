@@ -1,50 +1,45 @@
-// AI-generated dry run
-// Longest Substring Without Repeating Characters - Approach 2: Sliding Window
-
-public static class Runner
+public class Runner
 {
     public static void Run()
     {
-        string s = InputParser.ReadString("Enter string: ");
-
+        DryRunLogger.Log("=== Dry Run: Missing Number - Boolean Flag Array ===");
+        DryRunLogger.Log("Each step shows what the code decided and why.");
+        DryRunLogger.Log("Press any key to advance.");
         DryRunLogger.Log();
-        DryRunLogger.Log("Longest Substring Without Repeating Characters - Sliding Window");
-        DryRunLogger.Log($"Input: \"{s}\"");
-        DryRunLogger.Log();
-        DryRunLogger.Log($"{"i",-4} {"s[i]",-6} {"start",-6} {"end",-5} {"set",-20} {"maxLen",-8} {"action"}");
-        DryRunLogger.Log(new string('-', 68));
 
-        if (s.Length == 0) { DryRunLogger.Log("Empty -> return 0"); DryRunLogger.Save(); return; }
-        else if (s.Length == 1) { DryRunLogger.Log("Single char -> return 1"); DryRunLogger.Save(); return; }
+        int[] nums = InputParser.ReadIntArray("Enter nums (e.g. 3 0 1): ");
 
-        int start = 0;
-        int end = 0;
-        int maxLength = 0;
-        HashSet<char> set = new HashSet<char>();
+        // --- Algorithm (verbatim copy with telemetry) ---
+        bool[] flags = new bool[nums.Length + 1];
 
-        for (int i = 0; i < s.Length; i++)
+        DryRunLogger.Log($"[ENTER] nums.Length={nums.Length}, flags size={flags.Length} (indices 0..{nums.Length})");
+        DryRunLogger.Pause();
+
+        for (int i = 0; i < nums.Length; i++)
         {
-            string action;
-            if (!set.Contains(s[i]))
-            {
-                set.Add(s[i]);
-                action = "add";
-            }
-            else
-            {
-                maxLength = end - start + 1 > maxLength ? end - start + 1 : maxLength;
-                start++;
-                action = $"collision -> start={start}";
-            }
-            end = i;
-
-            string setStr = "{" + string.Join(",", set) + "}";
-            DryRunLogger.Log($"{i,-4} {s[i],-6} {start,-6} {end,-5} {setStr,-20} {maxLength,-8} {action}");
+            flags[i] = true;
+            DryRunLogger.Log($"[UPDATE] i={i}, nums[i]={nums[i]} -> set flags[{i}]=true");
             DryRunLogger.Pause();
         }
 
-        DryRunLogger.Log();
-        DryRunLogger.Log($"Result: {maxLength}");
+        for (int i = 0; i < flags.Length; i++)
+        {
+            DryRunLogger.Log($"[CHECK] flags[{i}]={flags[i]}");
+            if (flags[i] == false)
+            {
+                DryRunLogger.Log($"[MATCH] flags[{i}] is false -> missing number candidate");
+                DryRunLogger.Pause();
+                int result = i;
+                DryRunLogger.Log();
+                DryRunLogger.Log($"[RETURN] {result}");
+                DryRunLogger.Save();
+                return;
+            }
+            DryRunLogger.Log($"[SKIP] flags[{i}] is true, moving on");
+            DryRunLogger.Pause();
+        }
+
+        DryRunLogger.Log("[RETURN] 0 (fallback)");
         DryRunLogger.Save();
     }
 }

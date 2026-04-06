@@ -55,12 +55,13 @@ Everything else (parsing infrastructure, logging, file writes, project setup) is
 
 3. Generate `Runner.cs` and show it in the chat. Wait for the user to confirm before writing.
 
-4. After confirmation, write `tools/dry-run/Runner.cs` and run:
+4. After confirmation, write `tools/dry-run/Runner.cs` and give the user this command to run themselves:
    ```bash
    cd "tools/dry-run" && dotnet run
    ```
+   Do NOT run this command yourself. The terminal must be interactive - the user steps through it with key presses.
 
-5. After the run completes, read the `#### Dry Run` section saved to `active-problem.md` and give a one-paragraph interpretation: where the flow diverged from expected behavior and what that points to. Then ask: "Can you see where it goes wrong?"
+5. After the user says they are done, read the `#### Dry Run` section saved to `active-problem.md` and give a one-paragraph interpretation: where the flow diverged from expected behavior and what that points to. Then ask: "Can you see where it goes wrong?"
 
 ### Telemetry Rules
 

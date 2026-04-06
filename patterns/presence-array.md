@@ -47,6 +47,7 @@ foreach (bool slot in present)
 
 **Solved Problems:**
 - **Longest Consecutive Sequence** (problems/128-longest-consecutive-sequence/solutions/presence-array.cs) - mark presence, scan for longest true run, with HashSet fallback for large ranges
+- **Missing Number** (problems/268-missing-number/solutions/boolean-flag-array.cs) - mark each value as seen, find the one slot that stays false
 
 ---
 

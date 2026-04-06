@@ -10,6 +10,7 @@ The workbench is the navigation and planning layer for Patternarium. The library
 | [backlog.md](backlog.md) | Parked items and far-future topics |
 | [goals.md](goals.md) | Current focus and targets |
 | [lists/blind-75.md](lists/blind-75.md) | Blind 75 progress tracker |
+| [lists/phased-75.md](lists/phased-75.md) | Phased 75 - batched learning order |
 | [sessions/](sessions/) | Paused problem sessions (in-progress, set aside) |
 
 ## Design Principle

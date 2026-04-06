@@ -45,5 +45,13 @@
     "approaches": {
       "expand-around-center.cs": ["Two Pointers"]
     }
+  },
+  "Missing Number": {
+    "patterns": ["Odd One Out"],
+    "approaches": {
+      "boolean-flag-array.cs": ["Odd One Out", "Presence Array"],
+      "gauss-sum.cs": ["Odd One Out"],
+      "xor-cancellation.cs": ["Odd One Out"]
+    }
   }
 }

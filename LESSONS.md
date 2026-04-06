@@ -26,6 +26,8 @@
 - **Don't detect what you can compute** - writing complex even/odd detection to avoid calling a function twice. The detection grew complicated and broke edge cases. Running both paths and comparing is simpler and the same complexity. (Longest Palindromic Substring, Approach 1)
 - **Pseudocode before code** - skipping pseudocode led to multiple logic errors (inverted while condition, wrong center index, conflicting blocks). Tracing all scenarios in pseudocode first would have caught most bugs before writing a line of code. (Longest Palindromic Substring, Approach 1)
 
+- **Presence array: mark the value, not the position** - `seen[nums[i]] = true`, not `seen[i] = true`. Using the loop index marks positions 0..n-1 in order regardless of array contents, so slot n is always empty and the code always returns n. (Missing Number, Approach 1)
+
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->
 

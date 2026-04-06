@@ -14,7 +14,7 @@
 | 11 | Container With Most Water | Med | not started | - | - |
 | 139 | Word Break | Med | not started | - | - |
 | 141 | Linked List Cycle | Easy | not started | - | - |
-| 268 | Missing Number | Easy | not started | - | - |
+| 268 | Missing Number | Easy | solved | Odd One Out | [→](../../problems/268-missing-number/problem.md) |
 | 15 | 3Sum | Med | not started | - | - |
 | 143 | Reorder List | Med | not started | - | - |
 | 269 | Alien Dictionary | Hard | not started | - | - |
