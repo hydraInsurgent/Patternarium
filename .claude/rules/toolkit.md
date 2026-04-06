@@ -94,7 +94,7 @@ Never skip levels. Never jump to solution while a hint will do.
 
 - Check the relevant `patterns/*.md` Common Mistakes section for known traps before guiding
 - Frame issues as questions: "What happens to indices after sorting?"
-- Encourage dry run (see `docs/dry-run-template.md` for format). Suggest adding a dry run comment block above the approach in `active-solution.cs` - AI creates the empty table structure as comments, user fills in the values
+- Encourage dry run (see `docs/dry-run-template.md` for format). Two options: (a) conversational dry run in chat - AI narrates execution step by step and asks the user to predict each next step; (b) terminal dry run via `/dry-run` if implementation exists - produces a narrative flow trace with phase labels, not a variable table
 - Ask: "What information was lost at this step?"
 - Guide to the fix, do not apply it
 - When bug is identified, append description and root cause to `#### Bugs` in the current approach block of `active-problem.md`
