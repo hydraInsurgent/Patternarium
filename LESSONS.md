@@ -22,6 +22,10 @@
 - **Sliding window: start must never move left** - when using a HashMap of last-seen indices to jump start, a char's previous occurrence may be before the current window. Updating start to that index+1 would move it backward and corrupt the window. Guard with `Math.Max(start, lastSeen+1)` or an explicit if condition. (Longest Substring Without Repeating Characters, Approach 2)
 - **start++ vs index jump in sliding window** - incrementing start by 1 on each repeat keeps the O(n) loop but misses the key optimization: you can jump directly to lastSeenIndex+1 and skip all the stale positions in one move. (Longest Substring Without Repeating Characters, Approach 2)
 
+- **Variable scope in C#** - variables declared inside `if/else {}` blocks don't exist outside those braces. Declare before the block, assign inside. (Longest Palindromic Substring, Approach 1)
+- **Don't detect what you can compute** - writing complex even/odd detection to avoid calling a function twice. The detection grew complicated and broke edge cases. Running both paths and comparing is simpler and the same complexity. (Longest Palindromic Substring, Approach 1)
+- **Pseudocode before code** - skipping pseudocode led to multiple logic errors (inverted while condition, wrong center index, conflicting blocks). Tracing all scenarios in pseudocode first would have caught most bugs before writing a line of code. (Longest Palindromic Substring, Approach 1)
+
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->
 

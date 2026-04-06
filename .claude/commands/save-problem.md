@@ -54,6 +54,13 @@ Create `problems/<slug>/solutions.md` with:
   - `**Time:** / **Space:**` from active-problem.md or active-solution.cs metadata
   - `**Thinking:**` - paraphrase what the user said about their approach and key idea. Do not add insights the user did not express
   - `---` separator between approaches
+- After solved approaches, check if any alternative approaches were discussed during the session but not explored. For each discussed-but-not-explored approach, append a placeholder block:
+  ```
+  ### Approach N: [name] *(not yet explored)*
+  **Time:** O(?) | **Space:** O(?)
+  **Idea:** [one-sentence description of what was discussed]
+  ```
+  Use `---` separator before each placeholder block, same as solved approaches.
 - `## Patterns` section: for each pattern, look up its `display_name` from the pattern `.md` file. Link using that display name: `[Display Name](../../patterns/<filename>.md) (Approach N) - description`
 - `## Reflection` section with required fields: `**Key insight:**`, `**Future strategy:**`, plus any session-specific fields that capture what the user actually said
 

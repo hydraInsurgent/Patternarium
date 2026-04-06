@@ -123,6 +123,59 @@ return true;
 
 ---
 
+## Variation: Expand Around Center
+
+**When to reach for this:**
+- Finding the longest palindromic substring
+- Any problem where you need to discover a structure by growing outward from a known point
+- Two shapes possible (odd/even length) that both need to be checked
+
+**Mental Trigger:**
+> "Is there a center I can fix and expand from?"
+> "Am I looking for a symmetric structure within a string?"
+> "Do I need to check two starting configurations per position?"
+
+**Template:**
+```csharp
+// Run for every index i - once for odd center, once for even center
+(int l, int r) odd  = Expand(s, i, i);
+(int l, int r) even = Expand(s, i, i + 1);
+
+private (int l, int r) Expand(string s, int left, int right)
+{
+    while (left > 0 && right < s.Length - 1 && s[left] == s[right])
+    {
+        left--;
+        right++;
+    }
+
+    if (s[left] != s[right]) { left++; right--; }
+
+    return (left, right);
+}
+```
+
+**Key insight:** No upfront detection tells you which center shape will be longer. Always run both and compare after.
+
+**Tradeoffs:**
+
+| | Value |
+|--|--|
+| Time | O(n²) - n centers, O(n) expansion each |
+| Space | O(1) |
+| vs Brute Force | O(n²) vs O(n³) - expansion avoids re-checking every substring |
+| vs Manacher's | Manacher's achieves O(n) by reusing expansion results |
+
+**Common Mistakes:**
+- **Detecting even/odd upfront** - writing complex detection logic to avoid two calls. Detection grows complicated and breaks edge cases. Just run both.
+- **Using n/2 as center** - center of the search space, not the current loop index. Each index i is the center being tested.
+- **Boundary off-by-one** - `left > 0` stops before checking index 0; `left >= 0` is needed if the loop should include the first character
+
+**Solved Problems:**
+- **Longest Palindromic Substring** (problems/5-longest-palindromic-substring/solutions/expand-around-center.cs) - two expansions per index, track longest result
+
+---
+
 ## Try Next
 
 - Two Sum II - Input Already Sorted (Sorted Pair)
@@ -131,4 +184,4 @@ return true;
 - Trapping Rain Water variant (Sorted Pair)
 - Remove Duplicates from Sorted Array (Sorted Pair)
 - Valid Palindrome II - can remove one character (Symmetry Check)
-- Longest Palindromic Substring - expand outward from center (Symmetry Check)
+- Longest Palindromic Substring - expand outward from center (Expand Around Center) ✓ solved

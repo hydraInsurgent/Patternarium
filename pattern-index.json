@@ -39,5 +39,11 @@
       "two-pointer-without-extra-space.cs": ["Two Pointers"],
       "ascii-two-pointer.cs": ["Two Pointers"]
     }
+  },
+  "Longest Palindromic Substring": {
+    "patterns": ["Two Pointers"],
+    "approaches": {
+      "expand-around-center.cs": ["Two Pointers"]
+    }
   }
 }
