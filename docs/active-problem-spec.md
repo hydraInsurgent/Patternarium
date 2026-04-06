@@ -101,10 +101,11 @@ Only approaches with `**Status:** solved` are persisted by `/save-problem`.
 
 | Section | Becomes |
 |---------|---------|
-| `## Problem` + `## Statement` | `problems/<slug>/problem.md` (YAML frontmatter + inline tags at bottom) |
+| `## Problem` + `## Statement` | `problems/<slug>/problem.md` (YAML frontmatter including `lists:` field + inline tags at bottom) |
 | Each solved approach block from `active-solution.cs` | `problems/<slug>/solutions/<approach>.cs` (prettified by AI) |
 | Approaches + Patterns + Reflection | `problems/<slug>/solutions.md` (with links to .cs files and pattern files) |
 | `#### Bugs` + `## Reflection` | `problems/<slug>/notes.md` (grouped by approach name) |
+| `lists:` field in frontmatter | Updates `workbench/lists/<name>.md` - marks problem as solved, adds pattern and link |
 | `## Patterns` + approach names | `pattern-index.json` entry |
 | `## Patterns` | Updates to `patterns/*.md` Solved Problems |
 | `#### Bugs` (new categories) | Updates to `patterns/*.md` Common Mistakes |

@@ -4,6 +4,8 @@ category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
+lists:
+  - blind-75
 ---
 
 # Two Sum

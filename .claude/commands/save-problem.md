@@ -21,7 +21,7 @@ Ask user to confirm: "Save to `problems/<slug>/`?"
 ### Step 3 - Write problem.md
 
 Parse `## Problem` and `## Statement` from the active file. Write to `problems/<slug>/problem.md` with:
-- YAML frontmatter: `title`, `category: DSA-Practice`, `difficulty`, `source: LeetCode`, `status: solved`
+- YAML frontmatter: `title`, `category: DSA-Practice`, `difficulty`, `source: LeetCode`, `status: solved`, `lists: [<list-names>]` (from what was set in Mode 1; if no list was specified, write `lists: []`)
 - Problem title as `# Heading`
 - `## Statement`, `## Examples`, `## Constraints` as separate sections. Keep the problem statement as-is from the source - do not restructure
 - `## Solutions` section at bottom with links to `solutions.md` and `notes.md`
@@ -94,7 +94,25 @@ For each pattern in `## Patterns`:
 - Add this problem to the "Solved Problems" section of `patterns/<pattern>.md`
 - Add any new bugs from this session to the "Common Mistakes" section if applicable
 
-### Step 9 - Update LESSONS.md
+### Step 9 - Update workbench lists
+
+Read the `lists` field from the problem's YAML frontmatter. For each list name:
+- Check if `workbench/lists/<list-name>.md` exists
+- If it exists: find the row for this problem and update its status to `solved`, add the pattern link and problem link
+- If it does not exist: create the file with a standard table header and this problem as the first row
+
+List file format:
+```markdown
+# <List Name>
+
+| # | Problem | Difficulty | Status | Pattern | Link |
+|---|---------|-----------|--------|---------|------|
+| 5 | Longest Palindromic Substring | Medium | solved | Two Pointers - Expand Around Center | [→](../../problems/5-longest-palindromic-substring/problem.md) |
+```
+
+If no `lists` field exists in the frontmatter, skip this step.
+
+### Step 10 - Update LESSONS.md
 
 If any bugs or reflection mistakes warrant a lesson entry, add them to the appropriate section in LESSONS.md (Conceptual Mistakes, Code Mistakes, or Pattern Misidentifications).
 

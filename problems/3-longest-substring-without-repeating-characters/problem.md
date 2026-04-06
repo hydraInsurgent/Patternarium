@@ -5,6 +5,8 @@ difficulty: Medium
 source: LeetCode
 number: 3
 status: solved
+lists:
+  - blind-75
 ---
 
 # Longest Substring Without Repeating Characters

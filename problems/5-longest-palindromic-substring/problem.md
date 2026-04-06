@@ -4,6 +4,8 @@ category: DSA-Practice
 difficulty: Medium
 source: LeetCode
 status: solved
+lists:
+  - blind-75
 ---
 
 # Longest Palindromic Substring

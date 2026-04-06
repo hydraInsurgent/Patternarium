@@ -1,4 +1,4 @@
-# Patternarium Backlog
+# Patternarium Roadmap
 
 This is the single source of truth for all planned and in-progress system work.
 
@@ -61,3 +61,9 @@ Recently completed system work:
 | - | Sliding Window pattern file created | 2026-04-03 |
 | - | Dictionary, Span constructs created | 2026-04-03 |
 | - | Backlog created | 2026-04-03 |
+| - | Dry-run tool - conversational and terminal modes | 2026-04-06 |
+| - | Concepts system - concept files, encounter workflow, palindrome.md | 2026-04-06 |
+| - | Workbench system - library, backlog, goals, lists, sessions | 2026-04-06 |
+| - | /pause-problem and /resume-problem skills | 2026-04-06 |
+| - | Blind 75 list with progress tracking | 2026-04-06 |
+| - | lists: frontmatter field + auto-update on /save-problem | 2026-04-06 |

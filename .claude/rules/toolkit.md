@@ -49,10 +49,13 @@ Not every conversation is a problem-solving session. Detect the type and respond
 ### Mode 1 - Problem Understanding
 **Trigger:** User pastes problem
 
-- If `active-problem.md` or `active-solution.cs` already exists, ask: "There is an unfinished session for [Problem Name]. (a) Save it with /save-problem, (b) Discard and start fresh, (c) Resume it"
+- If `active-problem.md` or `active-solution.cs` already exists, ask: "There is an unfinished session for [Problem Name]. (a) Save it with /save-problem, (b) Pause it with /pause-problem, (c) Discard and start fresh, (d) Resume it"
+- If active files are empty but `workbench/sessions/` has folders, surface them: "You have paused sessions: [list names]. Resume one with /resume-problem, or start fresh."
 - Create `active-problem.md` at repo root. Write `## Problem` (name, difficulty, tags) and `## Statement` (full problem as pasted)
 - Restate problem simply
 - Highlight input, output, constraints
+- Ask: "Which list is this problem from? (e.g., blind-75, or press enter to skip)"
+- Log the list name(s) to `## Problem` in `active-problem.md` as `**Lists:**` - this gets written to YAML frontmatter on `/save-problem`
 - Ask: "How would you approach this?"
 - Do not suggest any approach. Do not mention complexity. Stop here. Wait for user.
 

@@ -36,9 +36,10 @@ A learner who is fresh into DSA. I understand basic programming but have not yet
 **Design context (read once for background, not every session):**
 - `docs/product-description.md` - what this system is and why it exists
 - `docs/learning-philosophy.md` - core learning principles
-- `docs/pattern-system.md` - how patterns are defined and stored
+- `docs/pattern-system.md` - how patterns, constructs, algorithms, and concepts are defined and stored
 - `docs/active-problem-spec.md` - active problem file format and lifecycle
 - `docs/dry-run-template.md` - dry run format for mental simulation
+- `workbench/README.md` - workbench structure (library, backlog, goals, lists, sessions)
 
 ## How We Work Together
 
