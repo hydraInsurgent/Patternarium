@@ -1,3 +1,11 @@
+---
+name: "Span / stackalloc"
+category: memory
+tags: [span, stackalloc, stack-allocation, ascii, fixed-size-array, performance]
+language: csharp
+related: []
+---
+
 # Span / stackalloc
 
 ## What It Is

@@ -23,7 +23,7 @@ This file is the single source of truth for all operational behavior.
 9. **Preserve struggle** - productive difficulty is part of learning. Do not remove it prematurely
 10. **Check first, then store** - always reinforce this order when working with HashMap problems
 11. **No em dashes or en dashes** - use regular hyphens or rewrite the sentence
-12. **Use the Skill tool for slash commands** - never manually replicate /hint, /solution, /next-approach, /reflect, /pattern, /save-problem, /review, or /dry-run. Always invoke them via the Skill tool
+12. **Use the Skill tool for slash commands** - never manually replicate /hint, /solution, /next-approach, /reflect, /pattern, /save-problem, /review, /dry-run, or /add-construct. Always invoke them via the Skill tool
 13. **Log to active-problem.md at mode transitions** - update the active problem file silently at each mode transition. Never ask the user about this file unless they ask or an interrupted session needs handling
 14. **Never write solution code into active-solution.cs** - only append blank template blocks. The user owns all code in that file
 
@@ -191,6 +191,7 @@ Commands are assistive shortcuts, not required steps. Normal conversation flow h
 | `/save-problem` | Save current problem, solutions, and notes to repo |
 | `/review` | Pick a past problem and test pattern recall without notes |
 | `/dry-run` | Instrument current solution and run it step-by-step in the terminal |
+| `/add-construct` | Document a language feature or data structure in the construct library |
 
 **Command Philosophy:**
 - Commands override workflow, they do not replace it
@@ -322,7 +323,7 @@ When a new error category is found that does not fit the above, add it here and 
   }
   ```
 - The method signature matches the problem (AI fills in return type, method name, and parameters from the problem statement)
-- The user fills in everything else: approach name, complexity, key idea, and the implementation
+- The user writes the implementation. AI fills in the header comments (`// Approach:`, `// Time:`, `// Space:`, `// Key Idea:`) before pattern extraction (Mode 8), based on answers the user gave verbally during the session - never ask the user to fill these in
 - When debugging (Mode 5), AI reads `active-solution.cs` to understand the user's code but never modifies it
 - If `active-solution.cs` has content when a new problem is pasted, handle it together with the interrupted session check for `active-problem.md`
 
@@ -363,10 +364,20 @@ During a session, whenever a new construct is introduced (HashSet, Dictionary, A
 - Do this silently, same as other active-problem.md writes
 
 When `/save-problem` runs:
-- For each construct logged in `active-problem.md`, check if `constructs/<name>.md` exists
+- For each construct logged in `active-problem.md`, check if `constructs/<category>/<name>.md` exists
 - If it does, append the current problem to the `## Seen In` section
-- If it does not, create the file from the construct template in `docs/pattern-system.md`
+- If it does not, determine the category (see taxonomy in `docs/pattern-system.md`), create the file in the right subfolder using the full template including YAML frontmatter
 - If any concepts were explored during the session, ensure `concepts/<name>.md` exists and append the current problem to `## Seen In` in each concept file
+
+### Standalone Construct Creation
+**Trigger:** User introduces a new language feature or data structure outside a problem session
+
+1. Identify the construct name and what it does in one sentence
+2. Check the category taxonomy in `docs/pattern-system.md` - assign to the best-fit category. If none fit, propose a new category to the user before creating the file
+3. Check if a related construct already covers this partially - if so, consider whether to extend the existing file or create a new one. Ask the user if unclear
+4. Create `constructs/<category>/<name>.md` using the full template including YAML frontmatter
+5. Populate `related` field with any existing constructs that are meaningfully connected
+6. Add `## See Also` links in both directions - the new file and any related files it references
 
 After recurring mistakes or conceptual breakthroughs, update `LESSONS.md`.
 

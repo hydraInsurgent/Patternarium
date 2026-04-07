@@ -1,3 +1,11 @@
+---
+name: "Dictionary"
+category: collections
+tags: [dictionary, hashmap, key-value, o1-lookup, frequency-map]
+language: csharp
+related: [hashset]
+---
+
 # Dictionary
 
 ## What It Is

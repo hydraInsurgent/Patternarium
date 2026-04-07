@@ -303,11 +303,35 @@ Examples: HashSet, Dictionary, Array.Sort, Stack, Queue, List.
 
 ### Where Constructs Live
 
-Every construct lives in `constructs/<name>.md`. Filename is kebab-case.
+Every construct lives in `constructs/<category>/<name>.md`. Filename is kebab-case.
+
+#### Category Taxonomy
+
+Categories are DSA-relevant. When creating a construct, check this list first. If nothing fits, propose a new category.
+
+| Category | What belongs here |
+|----------|------------------|
+| `collections` | HashSet, Dictionary, List, Stack, Queue, SortedSet, SortedDictionary, PriorityQueue |
+| `sorting` | Sorting mechanics, comparers, ordering interfaces (Array.Sort comparer, IComparable, IComparer) |
+| `strings` | String manipulation, character operations, StringBuilder |
+| `memory` | Span, stackalloc, memory-efficient structures |
+| `math` | Bit operations, modular arithmetic, GCD, numeric utilities |
+| `search` | Binary search variants, index-based lookup patterns |
+| `graph` | Adjacency list, union-find, graph traversal building blocks |
+
+When a construct could fit two categories, choose the one that reflects its primary DSA use case.
 
 ### Construct File Format
 
 ```markdown
+---
+name: "Display Name"
+category: collections
+tags: [tag1, tag2]
+language: csharp
+related: [other-construct-filename-without-extension]
+---
+
 # Construct Name
 
 ## What It Is
@@ -327,9 +351,19 @@ How to declare, add, check, iterate - with code snippets.
 ## Gotchas
 - Known traps or surprising behaviors
 
+## See Also
+- [linked-construct.md](../category/linked-construct.md) - one line on why it is related
+
 ## Seen In
 - Problem 1 (what it was used for)
 ```
+
+**YAML field rules:**
+- `name` - human-readable display name, can include spaces and punctuation
+- `category` - must match one of the category taxonomy keys above
+- `tags` - lowercase, hyphen-separated, 2-6 tags describing the concept and use cases
+- `language` - always `csharp` for now
+- `related` - filenames only, no path, no extension (e.g., `icomparable` not `sorting/icomparable.md`)
 
 ### How Constructs Are Tracked
 

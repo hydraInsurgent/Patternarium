@@ -1,3 +1,11 @@
+---
+name: "HashSet"
+category: collections
+tags: [hashset, set, membership, deduplication, o1-lookup]
+language: csharp
+related: [dictionary]
+---
+
 # HashSet
 
 ## What It Is

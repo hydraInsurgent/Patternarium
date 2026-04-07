@@ -64,6 +64,7 @@ for (int i = 0; i < nums.Length - 1; i++)
 
 **Solved Problems:**
 - **Contains Duplicate** (problems/217-contains-duplicate/solutions/sort-adjacent-check.cs) - sort so duplicates land adjacent, then scan for equal neighbors
+- **Longest Consecutive Sequence** (problems/128-longest-consecutive-sequence/solutions/sort-linear-scan.cs) - sort so consecutive numbers land adjacent, then scan for runs (combined with Linear Scan - Neighbor Comparison)
 
 ---
 

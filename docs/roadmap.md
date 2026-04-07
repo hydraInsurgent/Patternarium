@@ -38,6 +38,7 @@ System improvements - not yet started.
 | 1 | Frontmatter description field on pattern and construct files | medium | One-liner description field distinct from display_name. Helps when pattern names sound similar. Example: `description: Two-pointer for longest/shortest subarray with constraint.` |
 | 2 | Pattern menu file | low | Single `pattern-menu.md` with name + core idea + mental trigger per pattern. Avoids opening individual files during sessions. Trigger: when library hits 15+ patterns. Same idea for constructs. |
 | 3 | (moved to On Hold) | - | - |
+| 4 | YAML frontmatter across all file types | high | Do before the library grows large. Goal: AI reads frontmatter first to decide relevance, loads full file only when needed - reduces token usage per session. Constructs are done (name, category, tags, language, related). Remaining: **patterns** (name, display_name, tags, related-patterns), **concepts** (name, tags, related), **algorithms** (name, tags, complexity, related), **solutions.md** (title, approaches, patterns-used, status). Define schema per type, confirm with user, then retrofit. Do one type at a time. |
 
 ---
 

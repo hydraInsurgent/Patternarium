@@ -28,6 +28,7 @@
 
 ## Patterns
 
+- [Preprocessing - Sort to Expose Structure](../../patterns/preprocessing.md#variation-sort-to-expose-structure) (Approach 1) - sort so consecutive numbers land adjacent, making runs visible to a simple scan
 - [Linear Scan - Neighbor Comparison](../../patterns/linear-scan.md#variation-neighbor-comparison) (Approach 1) - after sorting, scan comparing each element to the previous to detect consecutive runs and duplicates
 - [HashMap - HashSet Existence Lookup](../../patterns/hashmap.md#variation-hashset-existence-lookup) (Approach 2) - use n-1 absence as the sequence start signal, extend runs with O(1) contains checks
 - [Presence Array - Boolean Presence](../../patterns/presence-array.md#variation-boolean-presence) (Approach 3) - map values to boolean array indices using (num - min) offset, scan for longest consecutive true run
