@@ -114,6 +114,44 @@ foreach (int n in nums)
 
 ---
 
+## Variation: Frequency Count
+
+**When to reach for this:**
+- Anagram, permutation, or character distribution problems
+- "Do these two collections have the same elements with the same counts?"
+- Problems where you need to compare how many times each value appears
+
+**Mental Trigger:**
+> "Can I count occurrences in one pass, then cancel them out in another?"
+> "Is the question really about how many times each thing appears, not where it appears?"
+
+**Template:**
+```csharp
+var map = new Dictionary<char, int>();
+
+foreach (char c in s)
+    map[c] = map.GetValueOrDefault(c, 0) + 1;
+
+foreach (char c in t)
+{
+    if (!map.ContainsKey(c)) return false;
+    map[c]--;
+}
+
+return map.Values.All(v => v == 0);
+```
+
+**Optimization: Fixed Array Instead of Dictionary**
+
+When the character set is bounded (e.g. lowercase a-z), replace the Dictionary with `int[26]` indexed by `c - 'a'`. Same logic, no hashing overhead, O(1) space guaranteed.
+
+For stack allocation with no GC pressure, use `Span<int>` with `stackalloc int[26]` - identical behavior, faster in practice for short-lived fixed-size buffers.
+
+**Solved Problems:**
+- **Valid Anagram** (problems/242-valid-anagram/solutions/hashmap-frequency.cs) - count char frequencies in s, cancel out with t, verify all zero at end
+
+---
+
 ## Try Next
 
 - Subarray Sum = K - prefix sum + HashMap, store sum -> count (Complement Lookup)

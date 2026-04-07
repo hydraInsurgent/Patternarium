@@ -74,6 +74,18 @@
       "sort-adjacent-check.cs": ["Preprocessing"]
     }
   },
+  "242": {
+    "title": "Valid Anagram",
+    "slug": "valid-anagram",
+    "difficulty": "Easy",
+    "patterns": ["Preprocessing", "HashMap"],
+    "approaches": {
+      "sort-compare.cs": ["Preprocessing"],
+      "hashmap-frequency.cs": ["HashMap"],
+      "array-frequency.cs": ["HashMap"],
+      "span-frequency.cs": ["HashMap"]
+    }
+  },
   "268": {
     "title": "Missing Number",
     "slug": "missing-number",

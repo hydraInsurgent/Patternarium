@@ -1,6 +1,6 @@
 # Blind 75
 
-**Progress: 6 / 75** | Easy: 3/19 | Med: 3/49 | Hard: 0/7
+**Progress: 7 / 75** | Easy: 4/19 | Med: 3/49 | Hard: 0/7
 
 | LC # | Problem | Difficulty | Status | Pattern | Link |
 |------|---------|-----------|--------|---------|------|
@@ -73,7 +73,7 @@
 | 105 | Construct Binary Tree from Preorder and Inorder Traversal | Med | not started | - | - |
 | 235 | Lowest Common Ancestor of a Binary Search Tree | Med | not started | - | - |
 | 238 | Product of Array Except Self | Med | not started | - | - |
-| 242 | Valid Anagram | Easy | not started | - | - |
+| 242 | Valid Anagram | Easy | solved | Preprocessing - Sort to Expose Structure / HashMap - Frequency Count | [→](../../problems/242-valid-anagram/problem.md) |
 | 371 | Sum of Two Integers | Med | not started | - | - |
 | 252 | Meeting Rooms | Easy | not started | - | - |
 | 121 | Best Time to Buy and Sell Stock | Easy | not started | - | - |

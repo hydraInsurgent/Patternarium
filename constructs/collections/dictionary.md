@@ -64,3 +64,4 @@ foreach (var kvp in map)
 ## Seen In
 - 1 - Two Sum (store number -> index for complement lookup)
 - 3 - Longest Substring Without Repeating Characters (store char -> last seen index for window jump)
+- 242 - Valid Anagram (store char -> frequency count, cancel out with second string)

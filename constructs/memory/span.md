@@ -44,3 +44,4 @@ seen[c] = 1;            // 'A' = 65, so seen[65] = 1
 
 ## Seen In
 - 3 - Longest Substring Without Repeating Characters (Approach 2.1) - int[128] indexed by ASCII char value, stores last seen index+1 to avoid 0-ambiguity
+- 242 - Valid Anagram (Approach 4) - Span<int> stackalloc int[26] for frequency counting with no heap allocation

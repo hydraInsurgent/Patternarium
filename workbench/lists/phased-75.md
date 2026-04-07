@@ -1,6 +1,6 @@
 # Phased 75
 
-**Progress: 6 / 75** | Easy: 3/19 | Med: 3/49 | Hard: 0/7
+**Progress: 7 / 75** | Easy: 4/19 | Med: 3/49 | Hard: 0/7
 
 ## Phase 1 - Foundation (Problems 1-20)
 
@@ -9,7 +9,7 @@
 | LC # | Problem | Difficulty | Status | Pattern | Link |
 |------|---------|-----------|--------|---------|------|
 | 217 | Contains Duplicate | Easy | solved | HashMap - HashSet Existence Lookup / Preprocessing - Sort to Expose Structure | [→](../../problems/217-contains-duplicate/problem.md) |
-| 242 | Valid Anagram | Easy | not started | - | - |
+| 242 | Valid Anagram | Easy | solved | Preprocessing - Sort to Expose Structure / HashMap - Frequency Count | [→](../../problems/242-valid-anagram/problem.md) |
 | 1 | Two Sum | Easy | solved | HashMap - Complement Lookup | [→](../../problems/1-two-sum/problem.md) |
 | 20 | Valid Parentheses | Easy | not started | - | - |
 | 268 | Missing Number | Easy | solved | Odd One Out | [→](../../problems/268-missing-number/problem.md) |
