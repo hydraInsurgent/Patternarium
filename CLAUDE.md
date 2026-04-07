@@ -41,6 +41,27 @@ A learner who is fresh into DSA. I understand basic programming but have not yet
 - `docs/dry-run-template.md` - dry run format for mental simulation
 - `workbench/README.md` - workbench structure (library, backlog, goals, lists, sessions)
 
+## System Map
+
+Every folder in this repo has a distinct purpose. This is the complete inventory.
+
+| Folder / File | What It Contains | When to Write Here |
+|---------------|-----------------|-------------------|
+| `data-structures/` | Language-agnostic mental models for each data structure - what it is, operations, complexity, when to use | When a new DS is encountered or explored for the first time |
+| `algorithms/` | Named algorithms (Merge Sort, BFS, DFS, etc.) - how they work, pseudocode, complexity | When an algorithm is implemented from scratch in a solution |
+| `patterns/` | Problem-solving templates - the thinking strategy behind a family of problems | After every solved problem; grows through variations |
+| `constructs/` | C#-specific language features and APIs (Dictionary, Stack, Array.Sort, Span, etc.) | When a C# language tool is used in a solution |
+| `concepts/` | Mathematical and logical ideas problems are built on (palindrome, anagram, GCD, etc.) | When a foundational concept is explored during a session |
+| `problems/` | One folder per solved problem - statement, solutions, notes, pattern links | After every completed problem session via `/save-problem` |
+| `workbench/` | Problem lists, backlog, goals, session logs - planning and tracking layer | During session planning; backlog and list management |
+| `docs/` | System design documents - file formats, templates, philosophy, specs | When the system structure changes |
+| `pattern-index.json` | Maps problem numbers to patterns used - the cross-reference layer | After every solved problem |
+
+**The three layers of the knowledge system:**
+1. **Tools** - data structures, algorithms, constructs (the building blocks)
+2. **Thinking** - patterns, concepts (the strategies)
+3. **Evidence** - problems, solutions, notes (the practice record)
+
 ## How We Work Together
 
 All operational rules, workflow phases, hint escalation, slash commands, and AI behaviors are defined in `.claude/rules/toolkit.md`. That file is the single source of truth for how the system operates.

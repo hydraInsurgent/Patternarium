@@ -8,3 +8,25 @@ Building array and string fundamentals through Blind 75.
 
 ## Interview Targets
 (none yet)
+
+---
+
+## Data Structure Coverage
+
+Progress is tracked per data structure as the percentage of problem-solving techniques explored. See the individual file for the full technique breakdown.
+
+| Data Structure | Progress | Notes |
+|----------------|----------|-------|
+| [Array](../data-structures/array.md) | 56% (5/9) | Linear Scan, Preprocessing, HashMap, Odd One Out, Two Pointers done |
+| [String](../data-structures/string.md) | 60% (6/10) | Linear Scan, Two Pointers, Sliding Window, Preprocessing, HashMap, Chunked Iteration done |
+| [HashMap](../data-structures/hashmap.md) | 43% (3/7) | Complement Lookup, Frequency Count, Last Seen Index done |
+| [HashSet](../data-structures/hashset.md) | 33% (2/6) | Duplicate Detection, Existence Check done |
+| [Linked List](../data-structures/linked-list.md) | 0% (0/8) | not yet started |
+| [Stack](../data-structures/stack.md) | 0% (0/7) | not yet started |
+| [Queue](../data-structures/queue.md) | 0% (0/5) | not yet started |
+| [Deque](../data-structures/deque.md) | 0% (0/4) | not yet started |
+| [Binary Tree](../data-structures/binary-tree.md) | 0% (0/10) | not yet started |
+| [Binary Search Tree](../data-structures/binary-search-tree.md) | 0% (0/7) | not yet started |
+| [Heap](../data-structures/heap.md) | 0% (0/7) | not yet started |
+| [Trie](../data-structures/trie.md) | 0% (0/6) | not yet started |
+| [Graph](../data-structures/graph.md) | 0% (0/10) | not yet started |

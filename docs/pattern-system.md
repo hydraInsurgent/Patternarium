@@ -295,6 +295,90 @@ Over time, the pattern library becomes a personal DSA knowledge base.
 
 ---
 
+## Data Structures System
+
+Data structures are abstract, language-agnostic building blocks. They define what a structure is, what operations it supports, and when to reach for it - independent of any programming language. The C# implementation lives in the Constructs system.
+
+### Where Data Structures Live
+
+Every data structure lives in `data-structures/<name>.md`. Filename is kebab-case.
+
+### Status Field
+
+Each file has a `status` in its YAML frontmatter:
+- `stub` - pre-created for inventory; not yet encountered through problem solving
+- `explored` - actively used in at least one solved problem
+
+### Data Structures Inventory
+
+| File | Name | Status |
+|------|------|--------|
+| `array.md` | Array | explored |
+| `string.md` | String | explored |
+| `hashmap.md` | HashMap | explored |
+| `hashset.md` | HashSet | explored |
+| `linked-list.md` | Linked List | stub |
+| `stack.md` | Stack | stub |
+| `queue.md` | Queue | stub |
+| `deque.md` | Deque | stub |
+| `binary-tree.md` | Binary Tree | stub |
+| `binary-search-tree.md` | Binary Search Tree | stub |
+| `heap.md` | Heap | stub |
+| `trie.md` | Trie | stub |
+| `graph.md` | Graph | stub |
+
+### Data Structure File Format
+
+```markdown
+---
+name: "HashMap"
+status: stub | explored
+---
+
+# HashMap
+
+## What It Is
+One sentence: the mental model, language-agnostic.
+
+## Core Operations
+| Operation | Description | Average | Worst |
+|-----------|-------------|---------|-------|
+
+## Space Complexity
+O(?)
+
+## Mental Model
+How to visualize or reason about this structure.
+
+## When to Reach For It
+- Problem signal 1
+- Problem signal 2
+
+## When NOT to Use It
+- Scenario where another structure is better
+
+## vs Alternatives
+- vs [Other DS]: key difference
+
+## C# Implementation
+- [ConstructName](../constructs/category/name.md)
+
+## Seen In
+- Problem 1 (what role it played)
+```
+
+### How Data Structures Link to Constructs
+
+A data structure file describes the abstract concept. The C# construct file describes the syntax and gotchas. They are linked:
+- `data-structures/hashmap.md` -> references `constructs/collections/dictionary.md`
+- `data-structures/hashset.md` -> references `constructs/collections/hashset.md`
+
+When a new data structure is encountered in a problem session:
+- If the `data-structures/` file exists, update its status to `explored` and append to `## Seen In`
+- If no file exists yet (unusual - all core structures are pre-created), create one from the template above
+
+---
+
 ## Constructs System
 
 Constructs are the tools that patterns use - language features and data structures with known behaviors and syntax. They are not thinking strategies; they are building blocks.

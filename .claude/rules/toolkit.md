@@ -62,7 +62,7 @@ Not every conversation is a problem-solving session. Detect the type and respond
 ### Mode 2 - User Thinking Exploration
 **Trigger:** User shares approach
 
-- Append `### Approach N: [name]` and `#### Thinking` with user's stated approach to `active-problem.md`
+- Append `### Approach N: [name]` and `#### Thinking` with user's stated approach to `active-problem.md`. The name is informal and user-driven - use whatever the user described ("loop through everything", "use a map", etc.). Do not impose pattern names at this stage. Proper approach names derived from confirmed patterns are assigned only at `/save-problem` time.
 - Validate correct parts
 - Identify gaps through questions
 - Guiding questions: "Can we do this without nested loops?" / "What information do we need to remember?"
@@ -113,7 +113,8 @@ Never skip levels. Never jump to solution while a hint will do.
 - Highlight key differences
 - Keep it concise
 - Ask the user: "What's the time complexity? What's the space complexity?" - never infer or pre-fill these
-- After they answer, write the complexity, key idea, and a brief text description to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`. Solution code lives in `active-solution.cs`, not in `active-problem.md`
+- If the answer is correct, write the complexity, key idea, and a brief text description to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`. Solution code lives in `active-solution.cs`, not in `active-problem.md`
+- If the answer is wrong, nudge only - ask a pointed question aimed at the specific gap ("Think about how many elements you visit in the worst case"). Never accept an incorrect answer and never write it. Keep asking until the answer is correct.
 
 ### Mode 7 - Alternative Approach
 **Trigger:** Problem solved with one approach
@@ -248,7 +249,7 @@ The user can change mode at any time:
 - Record `**Time Started:**` on each Approach block when it begins
 - When an approach reaches `solved` or `stuck`, compute elapsed time and set `**Time Taken:**` on that block
 - When the problem is fully closed (after `/save-problem` or reflection), compute total elapsed time and set `**Time Taken:**` at the Problem level
-- Use `date` via Bash to get the current time when needed - never guess or approximate
+- Use PowerShell `Get-Date -Format "yyyy-MM-dd HH:mm"` to get the current time when needed - never guess or approximate
 - All timing writes are silent
 
 ### Hint Escalation Engine
@@ -343,13 +344,20 @@ See `docs/pattern-system.md` for pattern file format, tagging rules, and structu
 
 <rules>
 
+### Algorithm vs Pattern
+
+When naming what was used in a session, default to pattern. Suggest algorithm only when the technique is a named, canonical procedure - typically named after a person (Dijkstra's, Floyd's, Kadane's) or a universally recognized named procedure (Binary Search, Merge Sort). Even then, only suggest - let the user decide. If the user says algorithm, create or update the file in `algorithms/`. If the user says pattern (or is unsure), treat it as a pattern.
+
+---
+
 After every solved problem:
 1. Ask the user which pattern was used, and which variation within that pattern
 2. Update `pattern-index.json` with problem -> patterns mapping
 3. Add the problem to the Solved Problems list under the relevant variation in `patterns/*.md`
 4. If a new variation of an existing pattern is discovered, add a `## Variation:` section to the existing pattern file
 5. If a genuinely new pattern is discovered (distinct mental trigger, distinct template), create `patterns/<new-pattern>.md`
-6. `/save-problem` creates `notes.md` automatically - suggest user review it and add anything missed
+6. Update the coverage table in the relevant `data-structures/*.md` file (see Data Structure Coverage Update below)
+7. `/save-problem` creates `notes.md` automatically - suggest user review it and add anything missed
 
 When writing pattern links in solutions.md, use the format:
 `[display_name - Variation Name](../../patterns/<file>.md#variation-<anchor>)`
@@ -368,6 +376,54 @@ When `/save-problem` runs:
 - If it does, append the current problem to the `## Seen In` section
 - If it does not, determine the category (see taxonomy in `docs/pattern-system.md`), create the file in the right subfolder using the full template including YAML frontmatter
 - If any concepts were explored during the session, ensure `concepts/<name>.md` exists and append the current problem to `## Seen In` in each concept file
+
+### Data Structure Coverage Update
+
+**Trigger:** Runs as part of `/save-problem`, after pattern files are updated.
+
+**Step 1 - Identify data structures used.** Read `active-solution.cs` for the current approach. Scan the code for data structure types used - do not rely on the constructs log. Map types found to their data-structure files:
+
+| Type in code | Data Structure File |
+|--------------|-------------------|
+| `int[]`, `long[]`, `bool[]`, `List<T>` | `data-structures/array.md` |
+| `string`, `char[]` | `data-structures/string.md` |
+| `Dictionary<K,V>` | `data-structures/hashmap.md` |
+| `HashSet<T>` | `data-structures/hashset.md` |
+| `Stack<T>` | `data-structures/stack.md` |
+| `Queue<T>` | `data-structures/queue.md` |
+| `LinkedList<T>`, `ListNode` | `data-structures/linked-list.md` |
+| `PriorityQueue<T,P>` | `data-structures/heap.md` |
+
+If a type is not in this table but clearly represents a data structure, use judgment to pick the closest file. If genuinely ambiguous, surface it to the user - never skip silently.
+
+**Step 2 - Update the coverage table.** For each identified data-structure file:
+- Find the `## Coverage` section
+- For each pattern used in the session, read its `display_name` from the pattern file - this is the authority for the row name
+
+**Matching rules (in order):**
+1. Exact match on `display_name` - update that row
+2. Case-insensitive match ignoring extra spaces (e.g., "Hash Map" matches "HashMap") - update the row and normalize its name to the exact `display_name`
+3. No match found but a semantically close placeholder exists - flag it: note in the row that the name may need updating, proceed with the closest match, do not silently rename
+4. No match at all - add a new row using the exact `display_name`
+
+**Variation-as-pattern rule:** When a pattern variation uses a different data structure than the parent (e.g., HashSet Existence Lookup is a variation of HashMap, but HashSet is its own data structure file), update the coverage table in both files - the parent data structure file and the variant data structure file - using the parent pattern's `display_name` in both. Never create a separate row for the variation name.
+
+**After updating rows:**
+- Recount explored rows, recalculate the percentage, update the progress line and the `progress` field in frontmatter
+- Update the matching row in `workbench/goals.md` Data Structure Coverage table
+
+**When a new pattern file is created:** Check coverage tables in all relevant data-structure files for placeholder rows with a similar name. Apply the same matching rules above. If rule 3 triggers, surface it to the user rather than silently renaming. Once the pattern file exists, convert any matching plain text row name to a link.
+
+**Coverage table link format:** Pattern names in the coverage table are always markdown links to their pattern file - never plain text. Format: `[display_name](../patterns/file.md)`. This eliminates naming mismatch by definition - if the link is correct, the name is correct.
+
+Example row:
+`| [Two Pointers](../patterns/two-pointers.md) | explored | 1-Two Sum (Sorted Pair variation) |`
+
+**Placeholder rows** (techniques listed before a pattern file exists, e.g., "Sliding Window", "Binary Search") remain as plain text until the pattern file is created. At that point convert them to links.
+
+All coverage writes are silent except rule 3 conflicts and ambiguous data structure type mappings - those are surfaced to the user.
+
+**Note - Atomicity:** `/save-problem` involves many sequential writes with no rollback. This is future work. For now, if a save is interrupted, identify which steps completed by checking what files exist and resume from the next incomplete step.
 
 ### Standalone Construct Creation
 **Trigger:** User introduces a new language feature or data structure outside a problem session
