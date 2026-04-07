@@ -28,6 +28,8 @@
 
 - **Presence array: mark the value, not the position** - `seen[nums[i]] = true`, not `seen[i] = true`. Using the loop index marks positions 0..n-1 in order regardless of array contents, so slot n is always empty and the code always returns n. (Missing Number, Approach 1)
 
+- **HashSet vs HashMap - pick the lighter tool** - if you only need to know whether a value exists, use HashSet. Only reach for HashMap when you need to store something alongside the key (an index, a count, a mapped value). Using HashMap for existence-only problems adds unnecessary overhead. (Contains Duplicate, Approach 1)
+
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->
 

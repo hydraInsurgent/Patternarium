@@ -1,6 +1,6 @@
 # Blind 75
 
-**Progress: 5 / 75** | Easy: 2/19 | Med: 3/49 | Hard: 0/7
+**Progress: 6 / 75** | Easy: 3/19 | Med: 3/49 | Hard: 0/7
 
 | LC # | Problem | Difficulty | Status | Pattern | Link |
 |------|---------|-----------|--------|---------|------|
@@ -59,7 +59,7 @@
 | 211 | Design Add and Search Words Data Structure | Med | not started | - | - |
 | 212 | Word Search II | Hard | not started | - | - |
 | 213 | House Robber II | Med | not started | - | - |
-| 217 | Contains Duplicate | Easy | not started | - | - |
+| 217 | Contains Duplicate | Easy | solved | HashMap - HashSet Existence Lookup / Preprocessing - Sort to Expose Structure | [→](../../problems/217-contains-duplicate/problem.md) |
 | 91 | Decode Ways | Med | not started | - | - |
 | 347 | Top K Frequent Elements | Med | not started | - | - |
 | 253 | Meeting Rooms II | Med | not started | - | - |

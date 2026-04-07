@@ -1,0 +1,31 @@
+# Contains Duplicate - Solutions
+
+## Approaches
+
+### Approach 1: HashSet Lookup
+**Code:** [hashset-seen.cs](solutions/hashset-seen.cs)
+**Time:** O(n) | **Space:** O(n)
+
+**Thinking:** For each number, check if it's already in a HashSet of previously seen values. If found, return true. If not, add it and move on. Return false after the loop. HashSet is the right tool here - only need to know if something exists, not how many times or where.
+
+---
+
+### Approach 2: Sort + Adjacent Check
+**Code:** [sort-adjacent-check.cs](solutions/sort-adjacent-check.cs)
+**Time:** O(n log n) | **Space:** O(1)
+
+**Thinking:** Sort the array in place so duplicates become adjacent. Then scan once checking if any element equals its right neighbor. Trades time for space - no extra structure needed. Mutates the original array, which matters if the caller needs the original order.
+
+---
+
+## Patterns
+
+- [HashMap - HashSet Existence Lookup](../../patterns/hashmap.md#variation-hashset-existence-lookup) (Approach 1) - store each number in a HashSet; if it's already there on arrival, a duplicate exists
+- [Preprocessing - Sort to Expose Structure](../../patterns/preprocessing.md#variation-sort-to-expose-structure) (Approach 2) - sort so duplicates land adjacent, then scan for equal neighbors
+
+## Reflection
+
+- **Key insight:** Sorting doesn't create duplicates - it makes them visible by bringing them adjacent. Transform the input to expose what's hidden.
+- **Future strategy:** Reach for HashSet when you only need existence. Reach for sort when the relationship you're looking for becomes obvious in sorted order.
+- **HashMap vs HashSet:** Use HashSet when you only need to know if something exists. Use HashMap when you need to store something alongside the key - an index, a count, or any associated value.
+- **Trade-off:** HashSet is O(n) time but O(n) space. Sorting is O(n log n) time but O(1) space. Neither dominates - choose based on constraints.

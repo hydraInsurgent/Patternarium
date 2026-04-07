@@ -65,7 +65,7 @@ Pseudocode or skeleton showing the variation's structure.
 - **Filename:** short kebab-case (e.g., `linear-scan.md`, `hashmap.md`)
 - **display_name:** base name only, no variation suffix (e.g., `"HashMap"`, `"Two Pointers"`)
 - **Variation names:** descriptive labels used as headings within the file (e.g., `"Complement Lookup"`, `"Sorted Pair"`)
-- **pattern-index.json:** uses short names matching the filename (e.g., `"Linear Scan"`, `"HashMap"`)
+- **pattern-index.json:** uses display_name values (e.g., `"Linear Scan"`, `"HashMap"`)
 - **solutions.md links:** combine display_name and variation name as link text, with a heading anchor pointing to the variation
 
 **Link format:** `[display_name - Variation Name](../../patterns/<file>.md#variation-<anchor>)`
@@ -221,11 +221,14 @@ The "Why" block is optional - only added when the session produced relevant disc
 
 ## Pattern Index
 
-`pattern-index.json` connects problems to patterns using short pattern names (matching filenames):
+`pattern-index.json` connects problems to patterns. The LeetCode problem number is the stable key - title and metadata live inside the object so renaming never breaks lookups:
 
 ```json
 {
-  "Two Sum": {
+  "1": {
+    "title": "Two Sum",
+    "slug": "two-sum",
+    "difficulty": "Easy",
     "patterns": ["HashMap", "Two Pointers"],
     "approaches": {
       "brute-force.cs": [],
@@ -236,10 +239,13 @@ The "Why" block is optional - only added when the session produced relevant disc
 }
 ```
 
+- Key is the problem number (string) - stable, never changes
+- `title` is display-only - can be updated without breaking anything
+- `slug` maps to the folder name under `problems/`
 - `patterns` lists all patterns used across any approach for the problem
 - `approaches` maps each solution file to the specific patterns it uses
 - A single approach can use multiple patterns (e.g., Two Pointers + index preservation)
-- Short names in JSON. Display names are looked up from pattern files when rendering links
+- Pattern names in JSON match the `display_name` field in the pattern file (e.g., `"HashMap"`, `"Linear Scan"`)
 
 This is the revision layer. When reviewing, you can quiz a specific pattern-approach pair.
 

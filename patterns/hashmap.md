@@ -110,6 +110,7 @@ foreach (int n in nums)
 
 **Solved Problems:**
 - **Longest Consecutive Sequence** (problems/128-longest-consecutive-sequence/solutions/hashset-sequence-start.cs) - detect sequence starts by checking n-1 absence, count forward
+- **Contains Duplicate** (problems/217-contains-duplicate/solutions/hashset-seen.cs) - add each number to a HashSet; if it's already there, a duplicate exists
 
 ---
 

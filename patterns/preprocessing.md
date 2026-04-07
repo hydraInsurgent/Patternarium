@@ -35,6 +35,38 @@ run simple main logic on cleaned input
 
 ---
 
+## Variation: Sort to Expose Structure
+
+**When to reach for this:**
+- Duplicates, pairs, or relationships are hard to detect in arbitrary order
+- Sorting brings the relevant elements adjacent so a simple scan can finish the job
+- You can trade O(n log n) time for O(1) space vs a HashSet approach
+
+**Mental Trigger:**
+> "Would this be obvious if the array were sorted?"
+> "Can sorting bring the things I want to compare next to each other?"
+
+**Template:**
+```csharp
+Array.Sort(nums); // in-place, O(n log n)
+
+for (int i = 0; i < nums.Length - 1; i++)
+{
+    if (nums[i] == nums[i + 1])
+        // duplicate found - act here
+}
+```
+
+**Tradeoffs:**
+- Time: O(n log n) - dominated by sort
+- Space: O(1) - in-place sort, no extra structure
+- Mutates the original array - not safe if caller needs original order preserved
+
+**Solved Problems:**
+- **Contains Duplicate** (problems/217-contains-duplicate/solutions/sort-adjacent-check.cs) - sort so duplicates land adjacent, then scan for equal neighbors
+
+---
+
 ## Try Next
 
 - Calculator problems

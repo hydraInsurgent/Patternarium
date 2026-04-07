@@ -1,21 +1,8 @@
 {
-  "Longest Substring Without Repeating Characters": {
-    "patterns": ["Sliding Window", "HashMap", "Presence Array"],
-    "approaches": {
-      "brute-force.cs": ["Sliding Window"],
-      "sliding-window-hashmap.cs": ["Sliding Window", "HashMap"],
-      "sliding-window-span.cs": ["Sliding Window", "Presence Array"]
-    }
-  },
-  "Longest Consecutive Sequence": {
-    "patterns": ["Linear Scan", "HashSet Existence Lookup", "Presence Array"],
-    "approaches": {
-      "sort-linear-scan.cs": ["Linear Scan"],
-      "hashset-sequence-start.cs": ["HashSet Existence Lookup"],
-      "presence-array.cs": ["Presence Array", "HashSet Existence Lookup"]
-    }
-  },
-  "Two Sum": {
+  "1": {
+    "title": "Two Sum",
+    "slug": "two-sum",
+    "difficulty": "Easy",
     "patterns": ["HashMap", "Two Pointers"],
     "approaches": {
       "brute-force.cs": [],
@@ -23,7 +10,30 @@
       "two-pointer.cs": ["Two Pointers"]
     }
   },
-  "Roman to Integer": {
+  "3": {
+    "title": "Longest Substring Without Repeating Characters",
+    "slug": "longest-substring-without-repeating-characters",
+    "difficulty": "Medium",
+    "patterns": ["Sliding Window", "HashMap", "Presence Array"],
+    "approaches": {
+      "brute-force.cs": ["Sliding Window"],
+      "sliding-window-hashmap.cs": ["Sliding Window", "HashMap"],
+      "sliding-window-span.cs": ["Sliding Window", "Presence Array"]
+    }
+  },
+  "5": {
+    "title": "Longest Palindromic Substring",
+    "slug": "longest-palindromic-substring",
+    "difficulty": "Medium",
+    "patterns": ["Two Pointers"],
+    "approaches": {
+      "expand-around-center.cs": ["Two Pointers"]
+    }
+  },
+  "13": {
+    "title": "Roman to Integer",
+    "slug": "roman-to-integer",
+    "difficulty": "Easy",
     "patterns": ["Linear Scan", "Preprocessing", "Chunked Iteration"],
     "approaches": {
       "right-to-left-scan.cs": ["Linear Scan"],
@@ -32,7 +42,10 @@
       "two-char-lookahead.cs": ["Chunked Iteration"]
     }
   },
-  "Valid Palindrome": {
+  "125": {
+    "title": "Valid Palindrome",
+    "slug": "valid-palindrome",
+    "difficulty": "Easy",
     "patterns": ["Two Pointers"],
     "approaches": {
       "inward-two-pointer.cs": ["Two Pointers"],
@@ -40,13 +53,31 @@
       "ascii-two-pointer.cs": ["Two Pointers"]
     }
   },
-  "Longest Palindromic Substring": {
-    "patterns": ["Two Pointers"],
+  "128": {
+    "title": "Longest Consecutive Sequence",
+    "slug": "longest-consecutive-sequence",
+    "difficulty": "Medium",
+    "patterns": ["Linear Scan", "HashMap", "Presence Array"],
     "approaches": {
-      "expand-around-center.cs": ["Two Pointers"]
+      "sort-linear-scan.cs": ["Linear Scan"],
+      "hashset-sequence-start.cs": ["HashMap"],
+      "presence-array.cs": ["Presence Array", "HashMap"]
     }
   },
-  "Missing Number": {
+  "217": {
+    "title": "Contains Duplicate",
+    "slug": "contains-duplicate",
+    "difficulty": "Easy",
+    "patterns": ["HashMap", "Preprocessing"],
+    "approaches": {
+      "hashset-seen.cs": ["HashMap"],
+      "sort-adjacent-check.cs": ["Preprocessing"]
+    }
+  },
+  "268": {
+    "title": "Missing Number",
+    "slug": "missing-number",
+    "difficulty": "Easy",
     "patterns": ["Odd One Out"],
     "approaches": {
       "boolean-flag-array.cs": ["Odd One Out", "Presence Array"],

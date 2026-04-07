@@ -75,9 +75,12 @@ In saved files, skip empty sections entirely. Do not write section headings with
 
 ### Step 7 - Update pattern-index.json
 
-Build the entry using short pattern names (the filename without `.md`, title-cased). Example:
+Use the LeetCode problem number as the key. Title and metadata live inside the object. Pattern names match the `display_name` field in the pattern file. Example:
 ```json
-"Roman to Integer": {
+"13": {
+  "title": "Roman to Integer",
+  "slug": "roman-to-integer",
+  "difficulty": "Easy",
   "patterns": ["Linear Scan", "Preprocessing", "Chunked Iteration"],
   "approaches": {
     "right-to-left-scan.cs": ["Linear Scan"],
@@ -86,7 +89,7 @@ Build the entry using short pattern names (the filename without `.md`, title-cas
 }
 ```
 
-Short names in JSON. Display names are looked up from the pattern file when needed.
+Key is always the problem number (string). Display names are looked up from the pattern file when needed.
 
 ### Step 8 - Update pattern files
 
@@ -99,7 +102,7 @@ For each pattern in `## Patterns`:
 Read the `lists` field from the problem's YAML frontmatter. For each list name:
 - Check if `workbench/lists/<list-name>.md` exists
 - If it exists: find the row for this problem and update its status to `solved`, add the pattern link and problem link
-- If it does not exist: create the file with a standard table header and this problem as the first row
+- If it does not exist: ask the user "List '<list-name>' not found - is this a typo? Known lists are: [list existing files in workbench/lists/]. Confirm the correct name before creating a new list file."
 
 List file format:
 ```markdown

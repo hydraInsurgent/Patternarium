@@ -1,0 +1,40 @@
+---
+title: Contains Duplicate
+category: DSA-Practice
+difficulty: Easy
+source: LeetCode
+status: solved
+lists: [phased-75, blind-75]
+---
+
+# Contains Duplicate
+
+## Statement
+
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+## Examples
+
+**Example 1:**
+Input: nums = [1,2,3,1]
+Output: true
+
+**Example 2:**
+Input: nums = [1,2,3,4]
+Output: false
+
+**Example 3:**
+Input: nums = [1,1,1,3,3,4,3,2,4,2]
+Output: true
+
+## Constraints
+
+- 1 <= nums.length <= 10^5
+- -10^9 <= nums[i] <= 10^9
+
+## Solutions
+
+- [solutions.md](solutions.md) - approaches, patterns, reflection
+- [notes.md](notes.md) - mistakes, insights, mantras
+
+tags :: Array, HashSet, Sorting, HashMap
