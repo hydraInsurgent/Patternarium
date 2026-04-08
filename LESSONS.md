@@ -30,6 +30,8 @@
 
 - **HashSet vs HashMap - pick the lighter tool** - if you only need to know whether a value exists, use HashSet. Only reach for HashMap when you need to store something alongside the key (an index, a count, a mapped value). Using HashMap for existence-only problems adds unnecessary overhead. (Contains Duplicate, Approach 1)
 
+- **Compare complements, not raw characters** - when matching pairs (brackets, tags), the opener and closer are different characters. `'(' != ')'` is always true. You must translate via a map or push the complement upfront. (Valid Parentheses, Approach 1)
+
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->
 

@@ -1,7 +1,7 @@
 ---
 name: "Stack"
-status: stub
-progress: 0
+status: explored
+progress: 14
 ---
 
 # Stack
@@ -46,16 +46,16 @@ A stack of plates. You can only add to the top (push) or take from the top (pop)
 - Min Stack (track minimum alongside values)
 
 ## C# Implementation
-- Built-in: `Stack<T>`
+- [Stack](../constructs/collections/stack.md)
 - `stack.Push(x)`, `stack.Pop()`, `stack.Peek()`, `stack.Count`
 
 ## Coverage
 
-**Progress: 0 / 7 techniques explored (0%)**
+**Progress: 1 / 7 techniques explored (14%)**
 
 | Technique | Status | Problems Solved |
 |-----------|--------|-----------------|
-| Balanced Parentheses / Matching Pairs | not started | - (valid parentheses, tag matching) |
+| [Reverse Order Matching](../patterns/reverse-order-matching.md) | explored | 20-Valid Parentheses (Complement Push variation) |
 | Monotonic Stack - Next Greater Element | not started | - (find next larger to the right) |
 | Monotonic Stack - Previous Smaller / Greater | not started | - (largest rectangle in histogram) |
 | Min / Max Stack | not started | - (track running min alongside values) |
@@ -66,4 +66,4 @@ A stack of plates. You can only add to the top (push) or take from the top (pop)
 ---
 
 ## Seen In
-(not yet encountered in sessions)
+- 20 - Valid Parentheses (LIFO buffer to track unmatched opening brackets)

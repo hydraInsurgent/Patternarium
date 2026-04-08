@@ -69,3 +69,4 @@ All techniques here are use-case scenarios where HashMap is the primary tool. Ea
 - 1 - Two Sum (complement lookup: store value -> index)
 - 242 - Valid Anagram (frequency count: char -> count)
 - 128 - Longest Consecutive Sequence (existence lookup via HashSet variant)
+- 20 - Valid Parentheses (map opening brackets to closing complements)

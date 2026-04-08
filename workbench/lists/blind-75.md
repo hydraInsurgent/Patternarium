@@ -1,6 +1,6 @@
 # Blind 75
 
-**Progress: 7 / 75** | Easy: 4/19 | Med: 3/49 | Hard: 0/7
+**Progress: 8 / 75** | Easy: 5/19 | Med: 3/49 | Hard: 0/7
 
 | LC # | Problem | Difficulty | Status | Pattern | Link |
 |------|---------|-----------|--------|---------|------|
@@ -20,7 +20,7 @@
 | 269 | Alien Dictionary | Hard | not started | - | - |
 | 271 | Encode and Decode Strings | Med | not started | - | - |
 | 19 | Remove Nth Node From End of List | Med | not started | - | - |
-| 20 | Valid Parentheses | Easy | not started | - | - |
+| 20 | Valid Parentheses | Easy | solved | Reverse Order Matching - Complement Push | [->](../../problems/20-valid-parentheses/problem.md) |
 | 21 | Merge Two Sorted Lists | Easy | not started | - | - |
 | 23 | Merge k Sorted Lists | Hard | not started | - | - |
 | 152 | Maximum Product Subarray | Med | not started | - | - |

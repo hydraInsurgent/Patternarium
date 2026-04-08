@@ -30,8 +30,8 @@ A catalog of everything in the knowledge base. Updated automatically by `/save-p
 
 ## Constructs
 
-| Construct | What It Does | Problems |
-|-----------|-------------|---------|
-| [Dictionary](../constructs/dictionary.md) | O(1) key-value lookup | Two Sum, Roman to Integer |
-| [HashSet](../constructs/hashset.md) | O(1) membership check, no duplicates | Longest Consecutive Sequence |
-| [Span](../constructs/span.md) | Zero-allocation string slice | Longest Substring Without Repeating Characters |
+```dataview
+TABLE category, tags
+FROM "constructs"
+SORT file.name ASC
+```

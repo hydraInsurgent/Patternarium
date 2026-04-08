@@ -72,3 +72,4 @@ Linked rows have a pattern file. Plain text rows are placeholders until the patt
 - 13 - Roman to Integer (chunked character iteration)
 - 3 - Longest Substring Without Repeating Characters (sliding window)
 - 5 - Longest Palindromic Substring (expand around center)
+- 20 - Valid Parentheses (iterate string of bracket characters)

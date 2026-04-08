@@ -271,6 +271,7 @@ The patterns discovered so far are:
 | Preprocessing | Preprocessing | Normalize Before Compute |
 | Chunked Iteration | Chunked Iteration | Variable Step |
 | Prefix Sum | Prefix Sum | (no variations yet) |
+| Reverse Order Matching | Reverse Order Matching | Complement Push |
 
 ## How Patterns Grow
 

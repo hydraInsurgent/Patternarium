@@ -86,6 +86,16 @@
       "span-frequency.cs": ["HashMap"]
     }
   },
+  "20": {
+    "title": "Valid Parentheses",
+    "slug": "valid-parentheses",
+    "difficulty": "Easy",
+    "patterns": ["Reverse Order Matching"],
+    "approaches": {
+      "hashmap-complement.cs": ["Reverse Order Matching"],
+      "complement-push.cs": ["Reverse Order Matching"]
+    }
+  },
   "268": {
     "title": "Missing Number",
     "slug": "missing-number",

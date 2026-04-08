@@ -61,7 +61,11 @@ foreach (var kvp in map)
 - `map[key]` throws KeyNotFoundException if the key is missing. Use TryGetValue for safe access.
 - Do not use `GetValueOrDefault` when 0 is a valid stored value - the default 0 is indistinguishable from a stored 0.
 
+## See Also
+- [stack.md](stack.md) - often used together when stack elements need complement translation
+
 ## Seen In
 - 1 - Two Sum (store number -> index for complement lookup)
 - 3 - Longest Substring Without Repeating Characters (store char -> last seen index for window jump)
 - 242 - Valid Anagram (store char -> frequency count, cancel out with second string)
+- 20 - Valid Parentheses (map opening brackets to closing complements for match checking)
