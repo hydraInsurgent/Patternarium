@@ -1,7 +1,7 @@
 ---
 name: "Array"
 status: explored
-progress: 56
+progress: 58
 ---
 
 # Array
@@ -48,21 +48,24 @@ A row of numbered boxes. You can jump directly to any box if you know its number
 
 ## Coverage
 
-**Progress: 5 / 9 techniques explored (56%)**
+**Progress: 7 / 12 techniques explored (58%)**
 
 Linked rows have a pattern file. Plain text rows are placeholders - no pattern file exists yet. Links are added when the pattern file is created.
 
 | Technique | Status | Problems Solved |
 |-----------|--------|-----------------|
 | [Linear Scan](../patterns/linear-scan.md) | explored | 1-Two Sum, 217-Contains Duplicate |
-| [Preprocessing](../patterns/preprocessing.md) | explored | 217-Contains Duplicate (Sort to Expose Structure variation) |
+| [Preprocessing](../patterns/preprocessing.md) | explored | 217-Contains Duplicate (Sort to Expose Structure variation), 238-Product of Array Except Self (Build Derived Data variation) |
 | [HashMap](../patterns/hashmap.md) | explored | 1-Two Sum, 217-Contains Duplicate, 242-Valid Anagram |
 | [Odd One Out](../patterns/odd-one-out.md) | explored | 268-Missing Number (XOR variation) |
-| [Two Pointers](../patterns/two-pointers.md) | explored | 1-Two Sum (Sorted Pair variation) |
+| [Two Pointers](../patterns/two-pointers.md) | explored | 1-Two Sum (Sorted Pair variation), 238-Product of Array Except Self (Converging/Diverging variation) |
+| [Prefix/Suffix Decomposition](../patterns/prefix-suffix-decomposition.md) | explored | 238-Product of Array Except Self (Prefix/Suffix Product variation) |
+| [Multi-Pass Construction](../patterns/multi-pass-construction.md) | explored | 238-Product of Array Except Self (Layered Deposit variation) |
 | [Sliding Window](../patterns/sliding-window.md) | not started | - |
 | Prefix Sum | not started | - |
 | Binary Search | not started | - |
 | Kadane's Algorithm | not started | - |
+| Monotonic Stack | not started | - |
 
 ---
 
@@ -71,3 +74,4 @@ Linked rows have a pattern file. Plain text rows are placeholders - no pattern f
 - 217 - Contains Duplicate (sort and scan)
 - 268 - Missing Number (XOR over array, Gauss sum)
 - 242 - Valid Anagram (frequency count over character array)
+- 238 - Product of Array Except Self (prefix/suffix product arrays, two-pointer in-place, two-pass sequential)

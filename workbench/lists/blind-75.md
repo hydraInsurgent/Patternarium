@@ -1,6 +1,6 @@
 # Blind 75
 
-**Progress: 8 / 75** | Easy: 5/19 | Med: 3/49 | Hard: 0/7
+**Progress: 9 / 75** | Easy: 5/19 | Med: 4/49 | Hard: 0/7
 
 | LC # | Problem | Difficulty | Status | Pattern | Link |
 |------|---------|-----------|--------|---------|------|
@@ -72,7 +72,7 @@
 | 104 | Maximum Depth of Binary Tree | Easy | not started | - | - |
 | 105 | Construct Binary Tree from Preorder and Inorder Traversal | Med | not started | - | - |
 | 235 | Lowest Common Ancestor of a Binary Search Tree | Med | not started | - | - |
-| 238 | Product of Array Except Self | Med | not started | - | - |
+| 238 | Product of Array Except Self | Med | solved | Prefix/Suffix Decomposition / Two Pointers - Converging/Diverging / Multi-Pass Construction | [→](../../problems/238-product-of-array-except-self/problem.md) |
 | 242 | Valid Anagram | Easy | solved | Preprocessing - Sort to Expose Structure / HashMap - Frequency Count | [→](../../problems/242-valid-anagram/problem.md) |
 | 371 | Sum of Two Integers | Med | not started | - | - |
 | 252 | Meeting Rooms | Easy | not started | - | - |

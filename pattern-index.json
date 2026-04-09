@@ -106,5 +106,17 @@
       "gauss-sum.cs": ["Odd One Out"],
       "xor-cancellation.cs": ["Odd One Out"]
     }
+  },
+  "238": {
+    "title": "Product of Array Except Self",
+    "slug": "product-of-array-except-self",
+    "difficulty": "Medium",
+    "patterns": ["Prefix/Suffix Decomposition", "Two Pointers", "Preprocessing", "Multi-Pass Construction"],
+    "approaches": {
+      "brute-force.cs": [],
+      "prefix-suffix-arrays.cs": ["Prefix/Suffix Decomposition", "Preprocessing"],
+      "two-pointer-converging.cs": ["Prefix/Suffix Decomposition", "Two Pointers", "Multi-Pass Construction"],
+      "two-pass-sequential.cs": ["Prefix/Suffix Decomposition", "Multi-Pass Construction"]
+    }
   }
 }

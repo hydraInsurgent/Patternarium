@@ -69,6 +69,39 @@ for (int i = 0; i < nums.Length - 1; i++)
 
 ---
 
+## Variation: Build Derived Data
+
+**When to reach for this:**
+- The main logic needs information that is expensive to compute on the fly
+- You can precompute auxiliary arrays or structures in O(n) to make the main logic simple
+- The derived data is not a transformation of the input but new data computed from it
+
+**Mental Trigger:**
+> "What if I precomputed this value for every position before starting the main logic?"
+> "Am I recomputing the same thing inside a loop that I could compute once upfront?"
+
+**Template:**
+```csharp
+// Precompute derived data
+int[] derived = new int[n];
+for (int i = 0; i < n; i++)
+    derived[i] = /* compute from input */;
+
+// Main logic uses derived data directly
+for (int i = 0; i < n; i++)
+    result[i] = /* combine derived values */;
+```
+
+**Tradeoffs:**
+- Time: O(n) for precomputation + O(n) for main logic = O(n) total
+- Space: O(n) for the derived arrays
+- Trades space for avoiding redundant computation inside the main loop
+
+**Solved Problems:**
+- **Product of Array Except Self** (problems/238-product-of-array-except-self/solutions/prefix-suffix-arrays.cs) - precompute left and right product arrays, then combine
+
+---
+
 ## Try Next
 
 - Calculator problems
@@ -80,3 +113,4 @@ for (int i = 0; i < nums.Length - 1; i++)
 - **Forgetting C# strings are immutable** - `Replace()` returns a new string, does not modify in place
 - **Not accounting for space cost** - the transformed input requires O(n) extra space
 - **Order of replacements** - replacements can interfere if they overlap; order may matter
+- **Including the current element in its own derived value** - when building prefix/suffix arrays, off-by-one in the index formula can include the element at position i in its own precomputed value

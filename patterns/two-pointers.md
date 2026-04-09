@@ -176,12 +176,62 @@ private (int l, int r) Expand(string s, int left, int right)
 
 ---
 
+## Variation: Converging/Diverging
+
+**When to reach for this:**
+- You need to build information from both ends simultaneously
+- The answer at each position combines a left component and a right component
+- You want O(1) extra space by using the output array as working storage
+
+**Mental Trigger:**
+> "Can I deposit partial results from both ends and complete them after the pointers cross?"
+> "Do I need to change direction mid-algorithm?"
+
+**Template:**
+```csharp
+int left = 0, right = n - 1;
+int leftProduct = 1, rightProduct = 1;
+
+// Phase 1: Converge - deposit one half at each position
+while (left < right)
+{
+    output[left] = leftProduct;
+    output[right] = rightProduct;
+    leftProduct *= nums[left];
+    rightProduct *= nums[right];
+    left++;
+    right--;
+}
+
+// Phase 2: Diverge - complete each position with the other half
+// (pointers continue moving in the same direction, visiting slots
+// that already have one half stored)
+```
+
+**Tradeoffs:**
+
+| | Value |
+|--|--|
+| Time | O(n) |
+| Space | O(1) extra - output array is the only allocation |
+| vs Two-Pass | Same complexity, more complex logic, fewer loops |
+| vs Separate Arrays | Saves O(n) space but adds center-element handling for odd-length inputs |
+
+**Common Mistakes:**
+- **Odd-length center element unhandled** - when converging, the center element is never visited if `left < right` exits before they meet. Need a special case when `left == right` to assign both halves directly
+- **Even-length crossing** - pointers cross without meeting, which is fine as long as Phase 2 handles all remaining positions
+
+**Solved Problems:**
+- **Product of Array Except Self** (problems/238-product-of-array-except-self/solutions/two-pointer-converging.cs) - converge depositing partial products, diverge completing each position
+
+---
+
 ## Try Next
 
 - Two Sum II - Input Already Sorted (Sorted Pair)
 - 3Sum - sort + two pointers as inner loop (Sorted Pair)
 - Container With Most Water - shrink by moving the shorter side (Sorted Pair)
-- Trapping Rain Water variant (Sorted Pair)
+- Trapping Rain Water variant (Sorted Pair / Converging/Diverging)
 - Remove Duplicates from Sorted Array (Sorted Pair)
 - Valid Palindrome II - can remove one character (Symmetry Check)
 - Longest Palindromic Substring - expand outward from center (Expand Around Center) ✓ solved

@@ -1,6 +1,6 @@
 # Phased 75
 
-**Progress: 8 / 75** | Easy: 5/19 | Med: 3/49 | Hard: 0/7
+**Progress: 9 / 75** | Easy: 5/19 | Med: 4/49 | Hard: 0/7
 
 ## Phase 1 - Foundation (Problems 1-20)
 
@@ -19,7 +19,7 @@
 
 | LC # | Problem | Difficulty | Status | Pattern | Link |
 |------|---------|-----------|--------|---------|------|
-| 238 | Product of Array Except Self | Med | not started | - | - |
+| 238 | Product of Array Except Self | Med | solved | Prefix/Suffix Decomposition / Two Pointers - Converging/Diverging / Multi-Pass Construction | [→](../../problems/238-product-of-array-except-self/problem.md) |
 | 121 | Best Time to Buy and Sell Stock | Easy | not started | - | - |
 | 125 | Valid Palindrome | Easy | solved | Two Pointers - Symmetry Check | [→](../../problems/125-valid-palindrome/problem.md) |
 | 647 | Palindromic Substrings | Med | not started | - | - |
