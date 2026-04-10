@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/Personal/Code/Depth Projects/VS Code Extensions/markdown-tooling/vscode-dataview-preview/**)",
+      "Read(//d/Personal/Code/Depth Projects/VS Code Extensions/Obsidian Extensions/obsidian-dataview/**)"
+    ]
+  }
+}
