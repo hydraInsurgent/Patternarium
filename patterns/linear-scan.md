@@ -1,3 +1,15 @@
+---
+name: linear-scan
+display_name: Linear Scan
+category: pattern
+variations:
+  - name: Neighbor Comparison
+    ds: [array, string]
+  - name: Running State
+    ds: [array]
+ds-primary: [array, string]
+---
+
 # Linear Scan
 
 **display_name:** Linear Scan

@@ -1,3 +1,13 @@
+---
+name: multi-pass-construction
+display_name: Multi-Pass Construction
+category: pattern
+variations:
+  - name: Layered Deposit
+    ds: [array]
+ds-primary: [array]
+---
+
 # Multi-Pass Construction
 
 **display_name:** Multi-Pass Construction

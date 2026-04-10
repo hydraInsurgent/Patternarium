@@ -1,3 +1,13 @@
+---
+name: reverse-order-matching
+display_name: Reverse Order Matching
+category: pattern
+variations:
+  - name: Complement Push
+    ds: [string, stack, hashmap, array]
+ds-primary: [string, stack, hashmap, array]
+---
+
 # Reverse Order Matching
 
 **display_name:** Reverse Order Matching

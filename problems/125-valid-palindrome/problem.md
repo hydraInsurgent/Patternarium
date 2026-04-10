@@ -1,11 +1,16 @@
 ---
 title: Valid Palindrome
+number: 125
+slug: valid-palindrome
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
-lists:
-  - blind-75
+lists: [blind-75]
+ds-used: [string, array]
+patterns: [Two Pointers]
+constructs: [char-methods, linq]
+tags: [palindrome, alphanumeric-filter, two-pointer]
 ---
 
 # Valid Palindrome

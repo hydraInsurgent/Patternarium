@@ -1,10 +1,16 @@
 ---
-title: "242. Valid Anagram"
+title: Valid Anagram
+number: 242
+slug: valid-anagram
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
+ds-used: [string, hashmap, array]
+patterns: [Preprocessing, HashMap]
+constructs: [linq, dictionary, span]
+tags: [anagram, frequency-count, character-frequency]
 ---
 
 # 242. Valid Anagram

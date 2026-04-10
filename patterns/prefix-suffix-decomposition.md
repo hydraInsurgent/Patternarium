@@ -1,3 +1,13 @@
+---
+name: prefix-suffix-decomposition
+display_name: Prefix/Suffix Decomposition
+category: pattern
+variations:
+  - name: Prefix/Suffix Product
+    ds: [array]
+ds-primary: [array]
+---
+
 # Prefix/Suffix Decomposition
 
 **display_name:** Prefix/Suffix Decomposition

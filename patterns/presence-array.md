@@ -1,3 +1,15 @@
+---
+name: presence-array
+display_name: Presence Array
+category: pattern
+variations:
+  - name: Boolean Presence
+    ds: [array]
+  - name: Integer Slot
+    ds: [string, array]
+ds-primary: [array, string]
+---
+
 # Presence Array
 
 **display_name:** Presence Array

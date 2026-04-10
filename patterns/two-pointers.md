@@ -1,3 +1,19 @@
+---
+name: two-pointers
+display_name: Two Pointers
+category: pattern
+variations:
+  - name: Sorted Pair
+    ds: [array]
+  - name: Symmetry Check
+    ds: [string]
+  - name: Expand Around Center
+    ds: [string]
+  - name: Converging/Diverging
+    ds: [array]
+ds-primary: [array, string]
+---
+
 # Two Pointers Pattern
 
 **display_name:** Two Pointers

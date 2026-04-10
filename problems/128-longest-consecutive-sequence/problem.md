@@ -1,11 +1,16 @@
 ---
 title: Longest Consecutive Sequence
+number: 128
+slug: longest-consecutive-sequence
 category: DSA-Practice
 difficulty: Medium
 source: LeetCode
 status: solved
-lists:
-  - blind-75
+lists: [blind-75]
+ds-used: [array, hashset]
+patterns: [Linear Scan, HashMap, Presence Array]
+constructs: [hashset, array-sort]
+tags: [consecutive-sequence, sequence-start, existence-lookup]
 ---
 
 # Longest Consecutive Sequence

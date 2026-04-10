@@ -1,11 +1,16 @@
 ---
 title: Two Sum
+number: 1
+slug: two-sum
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
-lists:
-  - blind-75
+lists: [blind-75]
+ds-used: [array, hashmap]
+patterns: [HashMap, Two Pointers]
+constructs: [dictionary, array-sort]
+tags: [complement-lookup, index-tracking, target-sum]
 ---
 
 # Two Sum

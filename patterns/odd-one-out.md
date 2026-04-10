@@ -1,3 +1,17 @@
+---
+name: odd-one-out
+display_name: Odd One Out
+category: pattern
+variations:
+  - name: Boolean Presence Check
+    ds: [array]
+  - name: Gauss Sum (Math)
+    ds: [array]
+  - name: XOR Cancellation
+    ds: [array]
+ds-primary: [array]
+---
+
 # Odd One Out
 
 **display_name:** Odd One Out

@@ -249,21 +249,25 @@ These sections currently require AI to append/update during /save-problem. They 
 
 ### Phase 2 - Design query templates
 
-**Track:** B | **Depends on:** Phase 1 | **Safe to pause after:** Yes
+**Track:** B | **Depends on:** Phase 1 | **Safe to pause after:** Yes | **Status: COMPLETE (2026-04-10)**
 
 **Goal:** Write and test working Dataview queries for each Layer 3 replacement.
 
-For each Layer 3 replacement:
-1. Write the query
-2. Test it renders correctly in VS Code
-3. Document it in `docs/dataview/query-templates.md`
+All four query types confirmed rendering correctly in VS Code with `yahsan2.vscode-dataview-preview`.
 
-Priority order (simplest to most complex):
-1. Goals coverage % - read DS frontmatter `progress` field (simplest - single field read)
-2. Concept "Seen In" - query problem frontmatter by tag
-3. Pattern "Solved Problems" - lookup in master-index.json (or frontmatter)
-4. DS/construct "Seen In" - lookup by index or frontmatter
-5. Test variation-level DS queries if Phase 1 shows support
+**Results:**
+
+| Query type | File tested | Renders? |
+|-----------|-------------|---------|
+| Pattern "Solved Problems" | `patterns/hashmap.md` | Yes - 5 problems |
+| DS "Seen In" | `data-structures/hashmap.md` | Yes - 5 problems |
+| Construct "Seen In" | `constructs/collections/dictionary.md` | Yes - 5 problems |
+| Concept "Seen In" | `concepts/palindrome.md` | Yes - 2 problems |
+| Goals coverage % | N/A | No - no aggregation, stays Layer 2 |
+
+Full query templates documented in `docs/dataview/query-templates.md`.
+
+**Execution order note:** Phases 3 and 4 were completed before Phase 2 testing to provide real frontmatter data. Actual order run: 1 → 3 → 4 → 2.
 
 ### Phase 3 - Promote pattern-index.json to master-index.json
 

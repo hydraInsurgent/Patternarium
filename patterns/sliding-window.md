@@ -1,3 +1,15 @@
+---
+name: sliding-window
+display_name: Sliding Window
+category: pattern
+variations:
+  - name: Shrink-Based
+    ds: [string, hashset]
+  - name: Index Jump
+    ds: [string, hashmap, array]
+ds-primary: [string, hashmap, hashset, array]
+---
+
 # Sliding Window
 
 **display_name:** Sliding Window

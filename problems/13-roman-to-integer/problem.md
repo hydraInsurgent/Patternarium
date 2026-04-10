@@ -1,9 +1,16 @@
 ---
 title: Roman to Integer
+number: 13
+slug: roman-to-integer
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
+lists: []
+ds-used: [string, hashmap]
+patterns: [Linear Scan, Preprocessing, Chunked Iteration]
+constructs: [dictionary, string-replace]
+tags: [lookup-table, subtractive-notation, roman-numerals]
 ---
 
 # Roman to Integer

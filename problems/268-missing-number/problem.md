@@ -1,10 +1,16 @@
 ---
 title: Missing Number
+number: 268
+slug: missing-number
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
-lists: [phased-75, blind-75]
+lists: [blind-75, phased-75]
+ds-used: [array]
+patterns: [Odd One Out, Presence Array]
+constructs: []
+tags: [missing-number, xor-cancellation, gauss-sum]
 ---
 
 # Missing Number

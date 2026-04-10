@@ -65,7 +65,11 @@ foreach (var kvp in map)
 - [stack.md](stack.md) - often used together when stack elements need complement translation
 
 ## Seen In
-- 1 - Two Sum (store number -> index for complement lookup)
-- 3 - Longest Substring Without Repeating Characters (store char -> last seen index for window jump)
-- 242 - Valid Anagram (store char -> frequency count, cancel out with second string)
-- 20 - Valid Parentheses (map opening brackets to closing complements for match checking)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN constructs AS construct
+WHERE construct = "dictionary"
+SORT number asc
+```

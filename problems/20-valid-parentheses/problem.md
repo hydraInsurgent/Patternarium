@@ -1,10 +1,16 @@
 ---
 title: Valid Parentheses
+number: 20
+slug: valid-parentheses
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
+ds-used: [string, stack, hashmap, array]
+patterns: [Reverse Order Matching]
+constructs: [stack, dictionary]
+tags: [bracket-matching, lifo, stack-matching]
 ---
 
 # Valid Parentheses

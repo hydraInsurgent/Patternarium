@@ -1,3 +1,17 @@
+---
+name: preprocessing
+display_name: Preprocessing
+category: pattern
+variations:
+  - name: Normalize Before Compute
+    ds: [string]
+  - name: Sort to Expose Structure
+    ds: [array]
+  - name: Build Derived Data
+    ds: [array]
+ds-primary: [string, array]
+---
+
 # Preprocessing
 
 **display_name:** Preprocessing

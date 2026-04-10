@@ -1,3 +1,13 @@
+---
+name: chunked-iteration
+display_name: Chunked Iteration
+category: pattern
+variations:
+  - name: Variable Step
+    ds: [string, hashmap]
+ds-primary: [string, hashmap]
+---
+
 # Chunked Iteration
 
 **display_name:** Chunked Iteration

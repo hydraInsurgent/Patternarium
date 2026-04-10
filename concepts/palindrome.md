@@ -65,4 +65,11 @@ isPalindrome(s, left, right):
 - Longest Palindromic Substring (LeetCode #5) - outward expansion from every center
 
 ## Seen In
-- Longest Palindromic Substring (#5) - outward expansion from center used as core technique
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN tags AS tag
+WHERE tag = "palindrome"
+SORT number asc
+```

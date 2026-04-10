@@ -1,10 +1,16 @@
 ---
 title: Product of Array Except Self
+number: 238
+slug: product-of-array-except-self
 category: DSA-Practice
 difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
+ds-used: [array]
+patterns: [Prefix/Suffix Decomposition, Two Pointers, Preprocessing, Multi-Pass Construction]
+constructs: []
+tags: [prefix-product, suffix-product, no-division]
 ---
 
 # Product of Array Except Self
