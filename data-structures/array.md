@@ -54,7 +54,7 @@ Linked rows have a pattern file. Plain text rows are placeholders - no pattern f
 
 | Technique | Status | Problems Solved |
 |-----------|--------|-----------------|
-| [Linear Scan](../patterns/linear-scan.md) | explored | 1-Two Sum, 217-Contains Duplicate |
+| [Linear Scan](../patterns/linear-scan.md) | explored | 1-Two Sum, 217-Contains Duplicate, 121-Best Time to Buy and Sell Stock (Running State variation) |
 | [Preprocessing](../patterns/preprocessing.md) | explored | 217-Contains Duplicate (Sort to Expose Structure variation), 238-Product of Array Except Self (Build Derived Data variation) |
 | [HashMap](../patterns/hashmap.md) | explored | 1-Two Sum, 217-Contains Duplicate, 242-Valid Anagram |
 | [Odd One Out](../patterns/odd-one-out.md) | explored | 268-Missing Number (XOR variation) |
@@ -75,3 +75,4 @@ Linked rows have a pattern file. Plain text rows are placeholders - no pattern f
 - 268 - Missing Number (XOR over array, Gauss sum)
 - 242 - Valid Anagram (frequency count over character array)
 - 238 - Product of Array Except Self (prefix/suffix product arrays, two-pointer in-place, two-pass sequential)
+- 121 - Best Time to Buy and Sell Stock (brute force nested loop, running state single pass)

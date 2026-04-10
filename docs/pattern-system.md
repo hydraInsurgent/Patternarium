@@ -267,7 +267,7 @@ The patterns discovered so far are:
 | Two Pointers | Two Pointers | Sorted Pair, Symmetry Check |
 | Sliding Window | Sliding Window | Shrink-Based, Index Jump |
 | Presence Array | Presence Array | Boolean Presence, Integer Slot |
-| Linear Scan | Linear Scan | Neighbor Comparison |
+| Linear Scan | Linear Scan | Neighbor Comparison, Running State |
 | Preprocessing | Preprocessing | Normalize Before Compute |
 | Chunked Iteration | Chunked Iteration | Variable Step |
 | Prefix Sum | Prefix Sum | (no variations yet) |

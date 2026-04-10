@@ -37,10 +37,40 @@ for each element:
 
 ---
 
+## Variation: Running State
+
+**When to reach for this:**
+- You need the best/worst/optimal result across an array but the answer depends on a relationship between two positions (e.g., buy before sell)
+- Past data can be compressed into a running summary (min, max, best-so-far) rather than stored in full
+- The problem asks for a single pass over a sequence where at each step you combine "the best so far" with the current element
+
+**Mental Trigger:**
+> "Can I summarize everything I've seen so far into one or two variables, and use that to decide at each step?"
+> "Am I storing data or just tracking a running condition?"
+
+**Template:**
+```
+initialize running state (e.g., min = first element)
+initialize result (e.g., best = 0)
+for each element from second onward:
+    update result using current element and running state
+    update running state with current element
+```
+
+**Tradeoffs:**
+- Time: O(n) - single pass
+- Space: O(1) - only running variables
+- Order of operations matters when the running state and result interact (e.g., compute profit before updating min to ensure buy-before-sell)
+
+**Solved Problems:**
+- **Best Time to Buy and Sell Stock** (problems/121-best-time-to-buy-and-sell-stock/solutions/running-state.cs) - track running minimum price, compute max profit at each step
+
+---
+
 ## Try Next
 
-- Best Time to Buy and Sell Stock
 - Trapping Rain Water
+- Maximum Subarray
 
 ## Common Mistakes
 

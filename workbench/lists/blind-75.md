@@ -1,6 +1,6 @@
 # Blind 75
 
-**Progress: 9 / 75** | Easy: 5/19 | Med: 4/49 | Hard: 0/7
+**Progress: 10 / 75** | Easy: 6/19 | Med: 4/49 | Hard: 0/7
 
 | LC # | Problem | Difficulty | Status | Pattern | Link |
 |------|---------|-----------|--------|---------|------|
@@ -76,6 +76,6 @@
 | 242 | Valid Anagram | Easy | solved | Preprocessing - Sort to Expose Structure / HashMap - Frequency Count | [→](../../problems/242-valid-anagram/problem.md) |
 | 371 | Sum of Two Integers | Med | not started | - | - |
 | 252 | Meeting Rooms | Easy | not started | - | - |
-| 121 | Best Time to Buy and Sell Stock | Easy | not started | - | - |
+| 121 | Best Time to Buy and Sell Stock | Easy | solved | Linear Scan - Running State | [->](../../problems/121-best-time-to-buy-and-sell-stock/problem.md) |
 | 124 | Binary Tree Maximum Path Sum | Hard | not started | - | - |
 | 125 | Valid Palindrome | Easy | solved | Two Pointers - Symmetry Check | [→](../../problems/125-valid-palindrome/problem.md) |
