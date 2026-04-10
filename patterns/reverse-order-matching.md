@@ -71,3 +71,13 @@ return stack.Count == 0;
 - **Comparing raw opener to closer** - `'(' != ')'` will always be true. You must translate via a map or push the complement. (Valid Parentheses, Approach 1)
 - **Forgetting to check stack empty at end** - input like `"((("` has no pop failures but the stack is not empty, so it's invalid.
 - **Forgetting to check stack empty before pop** - input like `")"` would pop an empty stack and crash.
+
+## Solved Problems
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Reverse Order Matching"
+SORT number asc
+```

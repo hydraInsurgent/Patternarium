@@ -89,3 +89,13 @@ for each element from second onward:
 - **Off-by-one in loop bounds** - skipping first or last element when comparing with a neighbor
 - **Forgetting the boundary element** - the element with no neighbor to compare against needs special handling
 - **Getting comparison direction backwards** - `>` vs `<` when switching scan direction
+
+## Solved Problems
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Linear Scan"
+SORT number asc
+```

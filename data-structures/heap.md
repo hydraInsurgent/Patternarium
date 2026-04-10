@@ -1,5 +1,6 @@
 ---
 name: "Heap"
+slug: heap
 status: stub
 progress: 0
 ---
@@ -66,4 +67,11 @@ A partially ordered tree where the top always holds the smallest (min-heap) or l
 ---
 
 ## Seen In
-(not yet encountered in sessions)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "heap"
+SORT number asc
+```

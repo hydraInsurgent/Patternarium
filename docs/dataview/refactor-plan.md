@@ -388,14 +388,16 @@ progress: 58
 Target state:
 ```yaml
 name: "Array"
+slug: array
 status: explored
 progress: 58
 ```
 
-No schema change needed. `progress` stays in frontmatter, manually updated by `/save-problem` when coverage rows change. Coverage tables stay as Layer 2 (hand-authored).
+`slug` = filename without `.md` extension (e.g., `array.md` → `slug: array`). This is the canonical value used in `ds-used` arrays in problem frontmatter and in `## Seen In` Dataview queries. Rule: slug is always lowercase, always matches the filename.
 
 Work:
 - Verify all 13 DS files have consistent frontmatter
+- Add `slug` field to all 13 DS files
 - No Seen In replacement yet (Track B, Phase 7)
 
 #### Concept files
@@ -405,12 +407,15 @@ Current state: No YAML at all.
 Target state:
 ```yaml
 ---
-name: "Palindrome"
+name: palindrome
+slug: palindrome
+display_name: Palindrome
 category: concept
-related-patterns: [two-pointers]
-related-constructs: [string-reversal]
+tags: [palindrome, two-pointers, string-comparison]
 ---
 ```
+
+`slug` = the primary tag value used in `tags` arrays in problem frontmatter and in `## Seen In` Dataview queries. Rule: slug is always lowercase, always matches the tag that links a problem to this concept.
 
 Work:
 - Define the YAML schema for concepts
@@ -421,9 +426,23 @@ Work:
 
 Current state: Already well-structured YAML.
 
+Target state: Add `slug` field.
+```yaml
+---
+name: "Dictionary"
+slug: dictionary
+category: collections
+tags: [...]
+language: csharp
+related: [hashset]
+---
+```
+
+`slug` = the value used in `constructs` arrays in problem frontmatter and in `## Seen In` Dataview queries. Rule: slug is the short identifier - it may differ from the filename when the filename is a long descriptive title (e.g., `array-sort-custom-comparer.md` has `slug: array-sort`). When slug differs from filename, it must be declared explicitly.
+
 Work:
-- Verify consistency across all 7 files
-- No changes expected
+- Add `slug` field to all 7 construct files
+- Document any slug-filename mismatches explicitly
 
 ---
 
@@ -630,6 +649,21 @@ Key architectural decisions from the review:
 6. Link-based coverage matching replaces 4-rule fuzzy cascade
 7. Data verification checkpoint between data migration and query replacement
 8. Migration runs on a dedicated git branch
+
+**Post-review deviation (2026-04-10):**
+
+9. **Slug standardization for file types.** Every non-problem file (DS, construct, concept, pattern) has one canonical field whose value equals what goes in the corresponding problem frontmatter array. This makes Dataview query values predictable and self-documenting - no need to remember or invent a tag when creating a new file.
+
+   | File type | Canonical field | Problem frontmatter field | Query uses |
+   |-----------|----------------|--------------------------|-----------|
+   | Data structure | `slug` (= filename without .md) | `ds-used` | `WHERE ds = "slug"` |
+   | Construct | `slug` (explicit - may differ from filename) | `constructs` | `WHERE construct = "slug"` |
+   | Concept | `slug` (= primary tag) | `tags` | `WHERE tag = "slug"` |
+   | Pattern | `display_name` (already existed, title case by design) | `patterns` | `WHERE pattern = "display_name"` |
+
+   Rule for new files: define the `slug` (or `display_name` for patterns) at file creation time. The `## Seen In` / `## Solved Problems` query is generated directly from that value. One definition, referenced in two places - the file's own frontmatter and problem frontmatter.
+
+   Known exception: `array-sort-custom-comparer.md` has `slug: array-sort` (filename is the long descriptive title, slug is the short public ID). Any construct where slug differs from filename must declare slug explicitly.
 
 ---
 

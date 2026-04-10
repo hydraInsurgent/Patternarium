@@ -1,5 +1,6 @@
 ---
 name: "HashMap"
+slug: hashmap
 status: explored
 progress: 43
 ---

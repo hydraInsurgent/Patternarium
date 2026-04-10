@@ -1,5 +1,6 @@
 ---
 name: "Array"
+slug: array
 status: explored
 progress: 58
 ---
@@ -70,9 +71,11 @@ Linked rows have a pattern file. Plain text rows are placeholders - no pattern f
 ---
 
 ## Seen In
-- 1 - Two Sum (brute force: nested loop over array)
-- 217 - Contains Duplicate (sort and scan)
-- 268 - Missing Number (XOR over array, Gauss sum)
-- 242 - Valid Anagram (frequency count over character array)
-- 238 - Product of Array Except Self (prefix/suffix product arrays, two-pointer in-place, two-pass sequential)
-- 121 - Best Time to Buy and Sell Stock (brute force nested loop, running state single pass)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "array"
+SORT number asc
+```

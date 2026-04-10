@@ -1,5 +1,6 @@
 ---
 name: "Stack"
+slug: stack
 category: collections
 tags: [stack, lifo, push, pop, matching, reverse-order]
 language: csharp
@@ -54,4 +55,11 @@ foreach (char c in stack) { ... }
 - [dictionary.md](dictionary.md) - often used together when stack elements need complement translation
 
 ## Seen In
-- 20 - Valid Parentheses (LIFO buffer to track unmatched opening brackets)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN constructs AS construct
+WHERE construct = "stack"
+SORT number asc
+```

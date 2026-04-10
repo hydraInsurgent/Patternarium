@@ -69,3 +69,13 @@ for (int i = n - 1; i >= 0; i--)
 
 - **Overwriting before reading** - when the second pass modifies a slot, the first pass's value is consumed. Order of operations matters: read the stored value, combine, then write
 - **Forgetting center element in pointer-based variants** - if using converging pointers, odd-length arrays have a center element that neither pointer visits during the first phase
+
+## Solved Problems
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Multi-Pass Construction"
+SORT number asc
+```

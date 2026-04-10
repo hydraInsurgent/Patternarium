@@ -1,5 +1,6 @@
 ---
 name: "Dictionary"
+slug: dictionary
 category: collections
 tags: [dictionary, hashmap, key-value, o1-lookup, frequency-map]
 language: csharp

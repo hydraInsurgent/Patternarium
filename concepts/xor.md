@@ -1,3 +1,11 @@
+---
+name: xor
+slug: xor
+display_name: XOR
+category: concept
+tags: [xor, bitwise, cancellation]
+---
+
 # XOR (Exclusive OR)
 
 ## What It Is
@@ -47,4 +55,11 @@ int result = a ^ b;
 - Missing Number (LeetCode #268) - XOR all indices with all values; the missing one survives
 
 ## Seen In
-- Missing Number (#268) - XOR'd all indices [0..n] against all array values; paired numbers cancelled, missing number survived
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN tags AS tag
+WHERE tag = "xor"
+SORT number asc
+```

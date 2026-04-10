@@ -1,5 +1,6 @@
 ---
 name: "Stack"
+slug: stack
 status: explored
 progress: 14
 ---
@@ -66,4 +67,11 @@ A stack of plates. You can only add to the top (push) or take from the top (pop)
 ---
 
 ## Seen In
-- 20 - Valid Parentheses (LIFO buffer to track unmatched opening brackets)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "stack"
+SORT number asc
+```

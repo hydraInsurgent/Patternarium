@@ -1,5 +1,6 @@
 ---
 name: "Graph"
+slug: graph
 status: stub
 progress: 0
 ---
@@ -91,4 +92,11 @@ A map of cities and roads. Cities are nodes. Roads are edges. Some roads are one
 ---
 
 ## Seen In
-(not yet encountered in sessions)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "graph"
+SORT number asc
+```

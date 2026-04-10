@@ -1,5 +1,6 @@
 ---
 name: "String"
+slug: string
 status: explored
 progress: 60
 ---
@@ -67,9 +68,11 @@ Linked rows have a pattern file. Plain text rows are placeholders until the patt
 ---
 
 ## Seen In
-- 125 - Valid Palindrome (two pointers on character array)
-- 242 - Valid Anagram (frequency count on characters)
-- 13 - Roman to Integer (chunked character iteration)
-- 3 - Longest Substring Without Repeating Characters (sliding window)
-- 5 - Longest Palindromic Substring (expand around center)
-- 20 - Valid Parentheses (iterate string of bracket characters)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "string"
+SORT number asc
+```

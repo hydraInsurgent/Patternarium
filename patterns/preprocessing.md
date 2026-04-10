@@ -127,4 +127,14 @@ for (int i = 0; i < n; i++)
 - **Forgetting C# strings are immutable** - `Replace()` returns a new string, does not modify in place
 - **Not accounting for space cost** - the transformed input requires O(n) extra space
 - **Order of replacements** - replacements can interfere if they overlap; order may matter
+
+## Solved Problems
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Preprocessing"
+SORT number asc
+```
 - **Including the current element in its own derived value** - when building prefix/suffix arrays, off-by-one in the index formula can include the element at position i in its own precomputed value

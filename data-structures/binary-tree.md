@@ -1,5 +1,6 @@
 ---
 name: "Binary Tree"
+slug: binary-tree
 status: stub
 progress: 0
 ---
@@ -88,4 +89,11 @@ The four ways to visit all nodes in a binary tree:
 ---
 
 ## Seen In
-(not yet encountered in sessions)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "binary-tree"
+SORT number asc
+```

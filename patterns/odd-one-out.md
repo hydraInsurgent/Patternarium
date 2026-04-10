@@ -110,3 +110,13 @@ return result;
 - **Boolean Presence - using loop index instead of value** - `seen[i] = true` marks the position, not the number. Must be `seen[nums[i]] = true`
 - **Gauss Sum - integer overflow** - for large n, `n * (n + 1)` can overflow int. Use `long` if needed
 - **XOR - forgetting the last index** - the loop runs 0 to n-1, so index n must be XOR'd separately
+
+## Solved Problems
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Odd One Out"
+SORT number asc
+```

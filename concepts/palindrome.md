@@ -1,3 +1,11 @@
+---
+name: palindrome
+slug: palindrome
+display_name: Palindrome
+category: concept
+tags: [palindrome, two-pointers, string-comparison]
+---
+
 # Palindrome
 
 ## What It Is

@@ -251,3 +251,13 @@ while (left < right)
 - Remove Duplicates from Sorted Array (Sorted Pair)
 - Valid Palindrome II - can remove one character (Symmetry Check)
 - Longest Palindromic Substring - expand outward from center (Expand Around Center) ✓ solved
+
+## Solved Problems
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Two Pointers"
+SORT number asc
+```
