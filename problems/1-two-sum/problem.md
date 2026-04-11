@@ -10,6 +10,7 @@ lists: [blind-75]
 ds-used: [array, hashmap]
 patterns: [HashMap, Two Pointers]
 constructs: [dictionary, array-sort]
+algorithms: []
 tags: [complement-lookup, index-tracking, target-sum]
 ---
 
@@ -72,5 +73,3 @@ Output: [0,1]
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Array, HashMap, Two Pointers

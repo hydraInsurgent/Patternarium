@@ -10,6 +10,7 @@ lists: [blind-75, phased-75]
 ds-used: [array]
 patterns: [Odd One Out, Presence Array]
 constructs: []
+algorithms: []
 tags: [missing-number, xor-cancellation, xor, gauss-sum]
 ---
 
@@ -44,5 +45,3 @@ Explanation: n = 9, range is [0,9]. 8 is missing.
 ## Solutions
 - [Solutions overview](solutions.md)
 - [Notes and lessons](notes.md)
-
-tags :: [array, math, bit-manipulation]

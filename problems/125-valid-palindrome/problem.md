@@ -10,6 +10,7 @@ lists: [blind-75]
 ds-used: [string, array]
 patterns: [Two Pointers]
 constructs: [char-methods, linq]
+algorithms: []
 tags: [palindrome, alphanumeric-filter, two-pointer]
 ---
 
@@ -47,5 +48,3 @@ Explanation: s is an empty string "" after removing non-alphanumeric characters.
 
 - [Solutions](solutions.md)
 - [Notes](notes.md)
-
-tags :: [two-pointers, string, palindrome]

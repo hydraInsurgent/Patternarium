@@ -47,8 +47,7 @@ System improvements - not yet started.
 Untracked ideas - not prioritized, not committed to. Just worth remembering.
 
 - `/create-issue` style commands to manage this backlog from the CLI instead of editing manually
-- **YAML as a scan layer for token reduction** - AI reads YAML frontmatter first to decide relevance, loads full file only when needed. The existing indexes (pattern-index.json, algorithms-index.json) are the same idea at the problem level; YAML extends it down to the file level. Depends on item #4 (YAML frontmatter across all file types) being complete first.
-- **Dataview query layer for auto-maintained tables** - Dataview queries generate and maintain coverage tables, pattern-index, and cross-references from YAML frontmatter - removes AI from table bookkeeping entirely. Decided to stay in VS Code; using [yahsan2/vscode-dataview-preview](https://github.com/yahsan2/vscode-dataview-preview) (installed, v0.0.5, MIT). Extension is lightly maintained - consider becoming a maintainer or forking if it becomes load-bearing. Depends on item #4 first.
+- **YAML as a scan layer for token reduction** - AI reads YAML frontmatter first to decide relevance, loads full file only when needed. The existing master-index.json is the same idea at the problem level; YAML extends it down to the file level.
 - Pattern promotion automation - when a sub-pattern has appeared in 2+ problems, flag it for promotion to its own file
 - Review session scoring - track how many hints were needed during `/review` and log it to the problem's notes.md over time
 
@@ -70,3 +69,4 @@ Recently completed system work:
 | - | /pause-problem and /resume-problem skills | 2026-04-06 |
 | - | Blind 75 list with progress tracking | 2026-04-06 |
 | - | lists: frontmatter field + auto-update on /save-problem | 2026-04-06 |
+| - | Dataview query layer - Seen In and Solved Problems auto-rendered from problem frontmatter; master-index.json promoted from pattern-index.json with enriched schema; YAML frontmatter added to all file types; algorithm system fully integrated | 2026-04-11 |

@@ -12,8 +12,6 @@ ds-primary: [array, string]
 
 # Linear Scan
 
-**display_name:** Linear Scan
-
 ## Core Idea
 
 Process elements one by one in a single pass, using local context (current element, neighbor, or accumulated state) to decide what operation to apply. No backtracking, no restarting.

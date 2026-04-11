@@ -10,8 +10,6 @@ ds-primary: [string, hashmap]
 
 # Chunked Iteration
 
-**display_name:** Chunked Iteration
-
 ## Core Idea
 
 Consume one or more elements per step based on a condition, advancing the index by different amounts. Unlike a standard for-loop that moves exactly one step, this pattern processes variable-size units.

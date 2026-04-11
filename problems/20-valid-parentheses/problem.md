@@ -10,6 +10,7 @@ lists: [blind-75, phased-75]
 ds-used: [string, stack, hashmap, array]
 patterns: [Reverse Order Matching]
 constructs: [stack, dictionary]
+algorithms: []
 tags: [bracket-matching, lifo, stack-matching]
 ---
 
@@ -56,5 +57,3 @@ Output: false
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Stack, String, HashMap

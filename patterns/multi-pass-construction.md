@@ -10,8 +10,6 @@ ds-primary: [array]
 
 # Multi-Pass Construction
 
-**display_name:** Multi-Pass Construction
-
 ## Core Idea
 
 Build the answer incrementally across multiple passes, using the output array itself as working space. Each pass deposits one layer of information. After all passes, every position has its complete answer. This avoids extra arrays by reusing the output as intermediate storage.

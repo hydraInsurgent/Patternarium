@@ -10,6 +10,7 @@ lists: [blind-75, phased-75]
 ds-used: [array]
 patterns: [Prefix/Suffix Decomposition, Two Pointers, Preprocessing, Multi-Pass Construction]
 constructs: []
+algorithms: []
 tags: [prefix-product, suffix-product, no-division]
 ---
 
@@ -42,5 +43,3 @@ You must write an algorithm that runs in O(n) time and without using the divisio
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Array, Prefix/Suffix, Two Pointers, Multi-Pass

@@ -14,8 +14,6 @@ ds-primary: [array]
 
 # Odd One Out
 
-**display_name:** Odd One Out
-
 ## Core Idea
 
 A complete set of values is expected, but one (or more) is missing, duplicated, or unpaired. Use a property of the full set - mathematical, bitwise, or structural - to isolate the element that doesn't belong.

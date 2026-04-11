@@ -10,6 +10,7 @@ lists: [blind-75, phased-75]
 ds-used: [array, hashset]
 patterns: [HashMap, Preprocessing]
 constructs: [hashset, array-sort]
+algorithms: []
 tags: [duplicate-detection, existence-check, set-lookup]
 ---
 
@@ -42,5 +43,3 @@ Output: true
 
 - [solutions.md](solutions.md) - approaches, patterns, reflection
 - [notes.md](notes.md) - mistakes, insights, mantras
-
-tags :: Array, HashSet, Sorting, HashMap

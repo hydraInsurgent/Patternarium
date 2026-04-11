@@ -16,8 +16,6 @@ ds-primary: [array, string]
 
 # Two Pointers Pattern
 
-**display_name:** Two Pointers
-
 ## Core Idea
 
 Place two pointers at different positions in a sequence and move them toward each other (or outward) based on a condition. Each move eliminates part of the search space. One scan covers what would otherwise require nested loops.

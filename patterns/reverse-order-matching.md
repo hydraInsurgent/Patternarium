@@ -10,8 +10,6 @@ ds-primary: [string, stack, hashmap, array]
 
 # Reverse Order Matching
 
-**display_name:** Reverse Order Matching
-
 ## Core Idea
 
 Use a stack to match elements that must pair up in reverse order - the most recently opened thing must be closed first (LIFO). The stack enforces this ordering constraint naturally: push when something opens, pop when something closes, and check that the popped element is the correct match.

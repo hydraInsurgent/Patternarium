@@ -10,6 +10,7 @@ lists: [blind-75, phased-75]
 ds-used: [array]
 patterns: [Linear Scan]
 constructs: [math-functions]
+algorithms: []
 tags: [running-minimum, max-profit, single-pass]
 ---
 
@@ -48,5 +49,3 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Array, Linear Scan

@@ -10,6 +10,7 @@ lists: [blind-75]
 ds-used: [array, hashset]
 patterns: [Linear Scan, HashMap, Presence Array]
 constructs: [hashset, array-sort]
+algorithms: []
 tags: [consecutive-sequence, sequence-start, existence-lookup]
 ---
 
@@ -45,5 +46,3 @@ Output: 3
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Array, HashSet, Sorting

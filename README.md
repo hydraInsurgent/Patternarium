@@ -56,7 +56,7 @@ Patternarium/
     LESSONS.md                 # Tracked mistakes and breakthroughs
     active-problem.md          # Current session state (temporary)
     active-solution.cs         # Current coding workspace (temporary)
-    pattern-index.json         # Problem-to-pattern mapping
+    master-index.json          # Cross-reference index (patterns, constructs, DS, algorithms)
 
     .claude/
         rules/
@@ -67,20 +67,48 @@ Patternarium/
     docs/
         product-description.md # What this system is and why
         learning-philosophy.md # Core learning principles
-        pattern-system.md      # Pattern file format and tagging rules
+        pattern-system.md      # File formats, templates, tagging rules
         active-problem-spec.md # Active problem file lifecycle
         dry-run-template.md    # Dry run format for mental simulation
 
-    patterns/                  # Reusable pattern library
+    data-structures/           # Language-agnostic DS mental models (13 files)
+        array.md
+        hashmap.md
+        string.md
+        ...
+
+    algorithms/                # Named algorithm procedures (QuickSort, MergeSort, etc.)
+        quicksort.md
+        mergesort.md
+        insertion-sort.md
+
+    constructs/                # C#-specific language features and APIs
+        collections/
+            dictionary.md
+            hashset.md
+            linq.md
+        sorting/
+            array-sort-custom-comparer.md
+        memory/
+            span.md
+        strings/
+            char-methods.md
+            string-replace.md
+
+    concepts/                  # Foundational mathematical/algorithmic ideas
+        palindrome.md
+        xor.md
+
+    patterns/                  # Reusable thinking strategies (11 files)
         hashmap.md
         two-pointers.md
         linear-scan.md
-        preprocessing.md
-        chunked-iteration.md
+        sliding-window.md
+        ...
 
     problems/                  # Solved problems archive
         1-two-sum/
-            problem.md         # Problem statement (spoiler-free)
+            problem.md         # Problem statement + YAML metadata
             solutions.md       # Approaches, patterns, reflection
             notes.md           # Mistakes and key insights
             solutions/
@@ -140,7 +168,7 @@ See [Learning Philosophy](docs/learning-philosophy.md) for the full rationale.
 
 - **C#** - primary language for all solutions
 - **Markdown** - docs, notes, pattern files
-- **JSON** - pattern index
+- **JSON** - master-index.json (cross-reference index)
 - **Claude Code** - AI engine (runs via CLAUDE.md project instructions)
 
 ## Getting Started
@@ -170,4 +198,4 @@ The system activates automatically through the project instructions in [CLAUDE.m
 | [Active Problem Spec](docs/active-problem-spec.md) | Active file format and lifecycle |
 | [Dry Run Template](docs/dry-run-template.md) | Step-by-step mental simulation format |
 | [LESSONS.md](LESSONS.md) | Tracked mistakes and breakthroughs |
-| [pattern-index.json](pattern-index.json) | Problem-to-pattern mapping for review |
+| [master-index.json](master-index.json) | Cross-reference index for AI lookups and review |

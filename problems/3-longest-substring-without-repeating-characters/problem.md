@@ -10,6 +10,7 @@ lists: [blind-75]
 ds-used: [string, hashmap, hashset, array]
 patterns: [Sliding Window, HashMap, Presence Array]
 constructs: [hashset, dictionary, span]
+algorithms: []
 tags: [sliding-window, window-boundary, duplicate-detection]
 ---
 
@@ -36,5 +37,3 @@ Given a string s, find the length of the longest substring without duplicate cha
 
 - [Solution approaches and learning journey](solutions.md)
 - [Mistakes and key insights](notes.md)
-
-tags :: Sliding Window, HashMap, Presence Array, String

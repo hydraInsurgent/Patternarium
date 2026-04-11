@@ -14,8 +14,6 @@ ds-primary: [string, array]
 
 # Preprocessing
 
-**display_name:** Preprocessing
-
 ## Core Idea
 
 Transform input into a simpler form before applying the main logic. Eliminate special cases upfront so the main loop stays clean.

@@ -10,8 +10,6 @@ ds-primary: [array]
 
 # Prefix/Suffix Decomposition
 
-**display_name:** Prefix/Suffix Decomposition
-
 ## Core Idea
 
 Break a problem into two directional subproblems: what comes before each position (prefix) and what comes after (suffix). Solve each direction independently, then combine the results. This transforms "compute something about everything else" into two simpler passes.

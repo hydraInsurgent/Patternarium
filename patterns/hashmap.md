@@ -16,8 +16,6 @@ ds-primary: [array, string, hashmap, hashset]
 
 # HashMap Pattern
 
-**display_name:** HashMap
-
 ## Core Idea
 
 Store previously seen elements (or computations) in a HashMap for O(1) lookup. Trade space for time. This eliminates the need for a second loop by remembering what you have already seen.

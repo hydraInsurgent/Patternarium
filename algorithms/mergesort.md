@@ -1,3 +1,13 @@
+---
+name: "MergeSort"
+slug: mergesort
+category: algorithm
+tags: [sorting, divide-and-conquer, stable, guaranteed-nlogn]
+time: "O(n log n)"
+space: "O(n)"
+related: [quicksort, insertion-sort]
+---
+
 # MergeSort
 
 ## What It Is
@@ -46,4 +56,11 @@ merge(left, right):
 - Slower in practice than QuickSort for in-memory sorting due to memory allocation overhead
 
 ## Seen In
-- (not yet linked to any solved problem)
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN algorithms AS algo
+WHERE algo = "mergesort"
+SORT number asc
+```

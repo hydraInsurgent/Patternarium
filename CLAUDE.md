@@ -9,7 +9,7 @@ Patternarium is a living, growing ecosystem for learning DSA (Data Structures an
 **Tech Stack:**
 - C# (primary language for all solutions)
 - Markdown (docs, notes, pattern files)
-- JSON (pattern-index.json)
+- JSON (master-index.json)
 
 ## Who I Am
 
@@ -55,7 +55,7 @@ Every folder in this repo has a distinct purpose. This is the complete inventory
 | `problems/` | One folder per solved problem - statement, solutions, notes, pattern links | After every completed problem session via `/save-problem` |
 | `workbench/` | Problem lists, backlog, goals, session logs - planning and tracking layer | During session planning; backlog and list management |
 | `docs/` | System design documents - file formats, templates, philosophy, specs | When the system structure changes |
-| `pattern-index.json` | Maps problem numbers to patterns used - the cross-reference layer | After every solved problem |
+| `master-index.json` | Maps problem numbers to patterns, constructs, and DS used - the cross-reference layer | After every solved problem |
 
 **The three layers of the knowledge system:**
 1. **Tools** - data structures, algorithms, constructs (the building blocks)

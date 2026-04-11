@@ -480,7 +480,11 @@ For each replacement:
 
 ### Phase 8 - Update toolkit.md, /save-problem, and all references
 
-**Track:** Both | **Safe to pause after:** No - complete this phase fully
+**Track:** Both | **Safe to pause after:** No - complete this phase fully | **Status: COMPLETE (2026-04-10)**
+
+**Verification result:** 2 files still contain `pattern-index.json` - both intentional:
+- `docs/vision.md` - historical context describing the promotion ("master-index.json promoted from pattern-index.json")
+- `docs/dataview/refactor-plan.md` - this file itself, documenting the migration steps
 
 **Goal:** Strip out eliminated steps and rules, update all file references.
 
@@ -538,13 +542,18 @@ All 14 files that reference `pattern-index.json`:
 
 ### Phase 9 - Verify and clean up
 
-- Run through a full `/save-problem` with the new, slimmed-down flow on the refactor branch
-- Confirm all Dataview queries render correctly across every file type
-- Confirm no orphaned manual sections remain (Seen In sections should be gone from DS, construct, concept files)
-- Remove transition scaffolding (duplicate `display_name` in body + frontmatter for pattern files)
-- Run the reference grep one final time
-- Update memory files to mark refactor as complete
-- Merge `dataview-refactor` branch to main
+**Status: IN PROGRESS (2026-04-11)**
+
+- [x] Remove transition scaffolding (`**display_name:**` body lines removed from all 11 pattern files)
+- [x] Confirm no orphaned manual Seen In sections remain (spot-verified DS, construct, concept files all have Dataview queries)
+- [x] Run the reference grep - only 3 intentional `pattern-index.json` refs remain (vision.md, this file, review-prompt.md)
+- [x] Delete `pattern-index.json` from repo root
+- [x] Remove stale `tags ::` inline lines from all 12 problem files (old spoiler-free format, now superseded by YAML frontmatter)
+- [x] Algorithm system fully integrated: YAML frontmatter + Dataview Seen In on all 3 algorithm files; `algorithms` field added to all 12 problem frontmatter files and all 12 master-index.json entries; `by-algorithm` reverse-lookup index added; save-problem.md + toolkit.md + pattern-system.md all updated
+- [x] pattern-system.md templates fully updated (all 5 file types now have correct YAML + Dataview queries in their templates; `algorithms-index.json` removed)
+- [x] Update memory files to mark refactor as complete
+- [ ] End-to-end review in dedicated session (review prompt written - see `docs/dataview/review-prompt.md`)
+- [ ] Merge `dataview-refactor` branch to main
 
 ---
 

@@ -12,8 +12,6 @@ ds-primary: [string, hashmap, hashset, array]
 
 # Sliding Window
 
-**display_name:** Sliding Window
-
 ## Core Idea
 
 Maintain a window (a contiguous range of elements) using two pointers - start and end. Instead of restarting from scratch on each failure, slide the window forward by advancing start. Start only ever moves right, never left. Trades the restart cost for a single pass.

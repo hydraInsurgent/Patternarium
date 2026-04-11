@@ -10,6 +10,7 @@ lists: []
 ds-used: [string, hashmap]
 patterns: [Linear Scan, Preprocessing, Chunked Iteration]
 constructs: [dictionary, string-replace]
+algorithms: []
 tags: [lookup-table, subtractive-notation, roman-numerals]
 ---
 
@@ -42,5 +43,3 @@ Roman numerals use seven symbols: I (1), V (5), X (10), L (50), C (100), D (500)
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: String, HashMap

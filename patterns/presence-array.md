@@ -12,8 +12,6 @@ ds-primary: [array, string]
 
 # Presence Array
 
-**display_name:** Presence Array
-
 ## Core Idea
 
 Map values to indices in an array using a known offset. Direct index access replaces hash lookup with true O(1) array access. Consecutive indices in the array correspond directly to consecutive values.
