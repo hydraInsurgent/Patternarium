@@ -70,9 +70,9 @@ A branching path where each step is one character. All words starting with "ca" 
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "trie"
-SORT number asc
+SORT problem asc
 ```

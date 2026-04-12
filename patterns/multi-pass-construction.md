@@ -71,9 +71,9 @@ for (int i = n - 1; i >= 0; i--)
 ## Solved Problems
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN patterns AS pattern
 WHERE pattern = "Multi-Pass Construction"
-SORT number asc
+SORT problem asc
 ```

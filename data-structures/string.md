@@ -70,9 +70,9 @@ Linked rows have a pattern file. Plain text rows are placeholders until the patt
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "string"
-SORT number asc
+SORT problem asc
 ```

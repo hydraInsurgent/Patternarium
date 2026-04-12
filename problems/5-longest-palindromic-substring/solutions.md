@@ -1,3 +1,25 @@
+---
+problem: 5
+problem-title: Longest Palindromic Substring
+difficulty: Medium
+category: solutions
+patterns: [Two Pointers]
+constructs: []
+ds-used: [string]
+algorithms: []
+approaches:
+  - name: Expand Around Center
+    file: solutions/expand-around-center.cs
+    patterns: [Two Pointers]
+    variation: Expand Around Center
+    constructs: []
+    ds-used: [string]
+    ds-notes:
+      string: "expand outward from each center index; odd and even expansion per position"
+    time: "O(n²)"
+    space: "O(1)"
+---
+
 # Longest Palindromic Substring - Solutions
 
 ## Approaches

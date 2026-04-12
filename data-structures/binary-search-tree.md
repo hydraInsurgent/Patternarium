@@ -71,9 +71,9 @@ Inorder traversal of a BST always produces elements in sorted order. This is the
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "binary-search-tree"
-SORT number asc
+SORT problem asc
 ```

@@ -1,3 +1,55 @@
+---
+problem: 242
+problem-title: Valid Anagram
+difficulty: Easy
+category: solutions
+patterns: [Preprocessing, HashMap]
+constructs: [linq, dictionary, span]
+ds-used: [string, hashmap, array]
+algorithms: []
+approaches:
+  - name: Sort and Compare
+    file: solutions/sort-compare.cs
+    patterns: [Preprocessing]
+    variation: Sort Compare
+    constructs: [linq]
+    ds-used: [string, array]
+    ds-notes:
+      array: "char[] sorted via LINQ OrderBy; compare sorted arrays"
+    time: "O(n log n)"
+    space: "O(n)"
+  - name: HashMap - Frequency Count
+    file: solutions/hashmap-frequency.cs
+    patterns: [HashMap]
+    variation: HashMap Frequency Count
+    constructs: [dictionary]
+    ds-used: [string, hashmap]
+    ds-notes:
+      hashmap: "char frequency count: increment on s, decrement on t, check all zero"
+    time: "O(n)"
+    space: "O(1) lowercase, O(n) Unicode"
+  - name: Integer Array - Frequency Count
+    file: solutions/array-frequency.cs
+    patterns: [HashMap]
+    variation: Array Frequency Count
+    constructs: []
+    ds-used: [string, array]
+    ds-notes:
+      array: "int[26] indexed by c - 'a'; same logic as HashMap but fixed-size array"
+    time: "O(n)"
+    space: "O(1)"
+  - name: Span + stackalloc - Frequency Count
+    file: solutions/span-frequency.cs
+    patterns: [HashMap]
+    variation: Span Frequency Count
+    constructs: [span]
+    ds-used: [string, array]
+    ds-notes:
+      array: "Span<int> + stackalloc; same as int[26] but stack-allocated, no heap allocation"
+    time: "O(n)"
+    space: "O(1)"
+---
+
 # 242. Valid Anagram - Solutions
 
 ## Approaches

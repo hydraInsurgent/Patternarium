@@ -31,15 +31,10 @@ Parse `## Problem` and `## Statement` from the active file. Write to `problems/<
   source: LeetCode
   status: solved
   lists: [blind-75]
-  ds-used: [array, hashmap]
-  patterns: [HashMap, Two Pointers]
-  constructs: [dictionary]
-  algorithms: []
   tags: [complement-lookup, index-tracking, target-sum]
   ```
   - `number` and `slug` are derived from the folder name
   - `lists` from what was set in Mode 1; write `lists: []` if none specified
-  - `ds-used`, `patterns`, `constructs`, `algorithms` are derived from the master-index.json entry written in Step 7 (or from active-problem.md if saving out of order)
   - `tags` are AI-inferred from the patterns and data structures used during the session
 - Problem title as `# Heading`
 - `## Statement`, `## Examples`, `## Constraints` as separate sections. Keep the problem statement as-is from the source - do not restructure
@@ -63,7 +58,47 @@ Approaches with status "in-progress" or "stuck" in `active-problem.md` are skipp
 
 ### Step 5 - Write solutions.md
 
-Create `problems/<slug>/solutions.md` with:
+Create `problems/<slug>/solutions.md`. Write YAML frontmatter first, then the markdown body.
+
+**Frontmatter:**
+
+```yaml
+---
+problem: <number>
+problem-title: <Problem Name>
+difficulty: Easy | Medium | Hard
+category: solutions
+patterns: [DisplayName1, DisplayName2]
+constructs: [slug1, slug2]
+ds-used: [ds1, ds2]
+algorithms: []
+approaches:
+  - name: Brute Force
+    file: solutions/brute-force.cs
+    patterns: []
+    constructs: []
+    ds-used: [array]
+    time: "O(n^2)"
+    space: "O(1)"
+  - name: HashMap - Complement Lookup
+    file: solutions/hashmap.cs
+    patterns: [HashMap]
+    variation: Complement Lookup
+    constructs: [dictionary]
+    ds-used: [array, hashmap]
+    ds-notes:
+      hashmap: "complement lookup: store value -> index"
+    time: "O(n)"
+    space: "O(n)"
+---
+```
+
+- `patterns`, `constructs`, `ds-used`, `algorithms` at the top level are flat lists aggregated across all solved approaches - used by Dataview queries
+- Each entry in `approaches:` maps to one solved approach. Include `variation` only when the approach uses a named pattern variation. Include `ds-notes` only when a DS is used in a non-obvious way. `file` is the relative path within the problem folder (e.g., `solutions/hashmap.cs`)
+- Pattern names use `display_name` from the pattern file. Construct and algorithm names use their `slug` field
+- `category: solutions` enables Dataview queries to filter solutions.md files from problem.md files when querying `FROM "problems"`
+
+**Markdown body:**
 - `# [Problem Name] - Solutions` heading
 - `## Approaches` section: for each solved approach, write:
   - `### Approach N: [name]`
@@ -78,7 +113,7 @@ Create `problems/<slug>/solutions.md` with:
   **Idea:** [one-sentence description of what was discussed]
   ```
   Use `---` separator before each placeholder block, same as solved approaches.
-- `## Patterns` section: for each pattern, look up its `display_name` from the pattern `.md` file. Link using that display name: `[Display Name](../../patterns/<filename>.md) (Approach N) - description`
+- `## Patterns` section: for each pattern, link using `display_name` and variation name with a heading anchor: `[display_name - Variation Name](../../patterns/<file>.md#variation-<anchor>) (Approach N) - description`
 - `## Reflection` section with required fields: `**Key insight:**`, `**Future strategy:**`, plus any session-specific fields that capture what the user actually said
 
 ### Step 6 - Write notes.md
@@ -90,51 +125,21 @@ Combine from the active file:
 
 In saved files, skip empty sections entirely. Do not write section headings with no content.
 
-### Step 7 - Write master-index.json
+### Step 7 - Regenerate master-index.json
 
-Set `_saving` to the problem number at the start of this step. Clear it back to `null` at the end.
+Run from repo root:
 
-Add or update the entry under `"problems"` keyed by problem number (string). Full entry format:
-```json
-"13": {
-  "title": "Roman to Integer",
-  "slug": "roman-to-integer",
-  "difficulty": "Easy",
-  "patterns": ["Linear Scan", "Preprocessing", "Chunked Iteration"],
-  "constructs": ["dictionary", "string-replace"],
-  "algorithms": [],
-  "ds-used": ["string", "hashmap"],
-  "ds-notes": {
-    "hashmap": "char -> int lookup table for roman numeral values",
-    "string": "string.Replace used to encode subtractive pairs before scanning"
-  },
-  "lists": [],
-  "approaches": {
-    "right-to-left-scan.cs": {
-      "patterns": ["Linear Scan"],
-      "variation": "Right to Left",
-      "ds-used": ["string", "hashmap"]
-    },
-    "string-replacement.cs": {
-      "patterns": ["Preprocessing"],
-      "variation": "String Replacement",
-      "ds-used": ["string", "hashmap"]
-    }
-  }
-}
+```
+dotnet run scripts/Rebuild-Index.cs
 ```
 
-After writing the entry, update all four reverse-lookup indexes:
-- `by-pattern`: for each pattern, add this problem number to its array (if not already present)
-- `by-ds`: for each ds-used value, add this problem number
-- `by-construct`: for each construct, add this problem number
-- `by-algorithm`: for each algorithm, add this problem number (skip if `algorithms` is empty)
+This reads the `solutions.md` YAML frontmatter from every problem folder and regenerates `master-index.json` with the full `problems` map and all four reverse-lookup indexes (`by-pattern`, `by-ds`, `by-construct`, `by-algorithm`).
 
-Pattern names use `display_name` from the pattern file. Construct names use the `slug` field from the construct file. Algorithm names use the `slug` field from the algorithm file.
+Do not hand-write master-index.json entries. The script is the single source of truth for this file. If the script fails, report the error to the user before proceeding.
 
 ### Step 8 - Update DS coverage tables
 
-For each value in `ds-used` from the Step 7 entry:
+For each value in `ds-used` from the problem's `solutions.md` frontmatter:
 - Find `data-structures/<slug>.md` (the `slug` field in DS frontmatter matches the ds-used value)
 - In the `## Coverage` section, match by link target: search for a row containing `[display_name](../patterns/file.md)` for each pattern used
 - If the linked row exists: append this problem to its Problems Solved column
@@ -195,4 +200,3 @@ If the user confirms, clear both `active-problem.md` and `active-solution.cs` to
 - When writing the Thinking field in solutions.md: paraphrase the user's stated approach and key idea. Do not add insights the user did not express
 - When referencing patterns in solutions.md, look up the `display_name` from the pattern file
 - Tags are AI-inferred from patterns and data structures used - do not ask the user for tags
-- `_saving` in master-index.json must be cleared to `null` at the end of Step 7. If it is non-null at session start, a previous save was interrupted - check which steps completed and resume from the next incomplete step

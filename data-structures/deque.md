@@ -65,9 +65,9 @@ A tunnel open at both ends. You can push or pull from either side. This flexibil
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "deque"
-SORT number asc
+SORT problem asc
 ```

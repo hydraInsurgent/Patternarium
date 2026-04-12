@@ -14,17 +14,17 @@ Tested query templates for each Layer 3 replacement. Each query reads from probl
 
 **Replaces:** `## Solved Problems` section in `patterns/*.md`
 
-**Reads:** `patterns` frontmatter array in problem files
+**Reads:** `patterns` frontmatter array in `solutions.md` files
 
-**How to use:** Copy the block into the pattern file. Replace `"HashMap"` with the exact pattern name as it appears in problem frontmatter (case-sensitive).
+**How to use:** Copy the block into the pattern file. Replace `"HashMap"` with the exact pattern name as it appears in solutions.md frontmatter (case-sensitive).
 
 ````markdown
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN patterns AS pattern
 WHERE pattern = "HashMap"
-SORT number asc
+SORT problem asc
 ```
 ````
 
@@ -44,17 +44,17 @@ SORT number asc
 
 **Replaces:** `## Seen In` section in `data-structures/*.md`
 
-**Reads:** `ds-used` frontmatter array in problem files
+**Reads:** `ds-used` frontmatter array in `solutions.md` files
 
-**How to use:** Copy the block into the DS file. Replace `"hashmap"` with the lowercase DS name as it appears in problem frontmatter. Valid values: `array`, `string`, `hashmap`, `hashset`, `stack`.
+**How to use:** Copy the block into the DS file. Replace `"hashmap"` with the lowercase DS slug. Valid values: `array`, `string`, `hashmap`, `hashset`, `stack`.
 
 ````markdown
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "hashmap"
-SORT number asc
+SORT problem asc
 ```
 ````
 
@@ -76,17 +76,17 @@ Note: Roman to Integer and Valid Parentheses appear here because they use `Dicti
 
 **Replaces:** `## Seen In` section in `constructs/**/*.md`
 
-**Reads:** `constructs` frontmatter array in problem files
+**Reads:** `constructs` frontmatter array in `solutions.md` files
 
-**How to use:** Copy the block into the construct file. Replace `"dictionary"` with the lowercase construct name as it appears in problem frontmatter. Valid values: `dictionary`, `hashset`, `stack`, `span`, `array-sort`, `math-functions`, `char-methods`, `string-replace`, `linq`.
+**How to use:** Copy the block into the construct file. Replace `"dictionary"` with the construct slug. Valid values: `dictionary`, `hashset`, `stack`, `span`, `array-sort`, `math-functions`, `char-methods`, `string-replace`, `linq`.
 
 ````markdown
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN constructs AS construct
 WHERE construct = "dictionary"
-SORT number asc
+SORT problem asc
 ```
 ````
 
@@ -150,14 +150,27 @@ All fields that queries can use from problem frontmatter:
 
 | Field | Type | Example values | Used in template |
 |-------|------|----------------|-----------------|
+Fields on `solutions.md` (used by Templates 1-3):
+
+| Field | Type | Example values | Used in template |
+|-------|------|----------------|-----------------|
+| `problem` | integer | `1`, `128` | Sort + display (`problem AS "#"`) |
+| `problem-title` | string | `"Two Sum"` | Display column (`problem-title AS "Problem"`) |
+| `difficulty` | string | `"Easy"`, `"Medium"` | Display + filter |
+| `patterns` | array | `[HashMap, Two Pointers]` | Template 1 |
+| `ds-used` | array | `[array, hashmap]` | Template 2 |
+| `constructs` | array | `[dictionary, array-sort]` | Template 3 |
+| `algorithms` | array | `[quicksort]` | Algorithm Seen In |
+
+Fields on `problem.md` (used by Template 4 - Concepts):
+
+| Field | Type | Example values | Used in template |
+|-------|------|----------------|-----------------|
 | `title` | string | `"Two Sum"` | Display column |
 | `number` | integer | `1`, `128` | Sort + display |
 | `difficulty` | string | `"Easy"`, `"Medium"` | Display + filter |
 | `status` | string | `"solved"` | Filter if needed |
 | `lists` | array | `[blind-75, phased-75]` | Filter by list |
-| `patterns` | array | `[HashMap, Two Pointers]` | Template 1 |
-| `ds-used` | array | `[array, hashmap]` | Template 2 |
-| `constructs` | array | `[dictionary, array-sort]` | Template 3 |
 | `tags` | array | `[complement-lookup, target-sum]` | Template 4 |
 
 ### Filtering by list (bonus query)

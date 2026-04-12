@@ -7,10 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
-ds-used: [array]
-patterns: [Prefix/Suffix Decomposition, Two Pointers, Preprocessing, Multi-Pass Construction]
-constructs: []
-algorithms: []
 tags: [prefix-product, suffix-product, no-division]
 ---
 

@@ -71,9 +71,9 @@ A chain of boxes, each box holding a value and a string tied to the next box. Yo
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "linked-list"
-SORT number asc
+SORT problem asc
 ```

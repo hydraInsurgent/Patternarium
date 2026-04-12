@@ -69,9 +69,9 @@ All techniques here are use-case scenarios where HashMap is the primary tool. Ea
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "hashmap"
-SORT number asc
+SORT problem asc
 ```

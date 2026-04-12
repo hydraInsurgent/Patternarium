@@ -1,3 +1,42 @@
+---
+problem: 125
+problem-title: Valid Palindrome
+difficulty: Easy
+category: solutions
+patterns: [Two Pointers]
+constructs: [char-methods, linq]
+ds-used: [string, array]
+algorithms: []
+approaches:
+  - name: Inward Two Pointer
+    file: solutions/inward-two-pointer.cs
+    patterns: [Two Pointers]
+    variation: Clean Then Scan
+    constructs: [linq, char-methods]
+    ds-used: [string, array]
+    ds-notes:
+      string: "cleaned and lowercased before scan"
+      array: "char[] built from LINQ-filtered string"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Two Pointer Without Extra Space
+    file: solutions/two-pointer-without-extra-space.cs
+    patterns: [Two Pointers]
+    variation: In-Place Pointer
+    constructs: [char-methods]
+    ds-used: [string]
+    time: "O(n)"
+    space: "O(1)"
+  - name: ASCII Two Pointer
+    file: solutions/ascii-two-pointer.cs
+    patterns: [Two Pointers]
+    variation: ASCII Range Check
+    constructs: []
+    ds-used: [string]
+    time: "O(n)"
+    space: "O(1)"
+---
+
 # Valid Palindrome - Solutions
 
 ## Approaches

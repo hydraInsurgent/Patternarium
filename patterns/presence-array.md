@@ -114,9 +114,9 @@ if (lastSeen[s[end]] > 0)
 ## Solved Problems
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN patterns AS pattern
 WHERE pattern = "Presence Array"
-SORT number asc
+SORT problem asc
 ```

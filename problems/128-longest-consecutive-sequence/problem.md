@@ -7,10 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75]
-ds-used: [array, hashset]
-patterns: [Linear Scan, HashMap, Presence Array]
-constructs: [hashset, array-sort]
-algorithms: []
 tags: [consecutive-sequence, sequence-start, existence-lookup]
 ---
 

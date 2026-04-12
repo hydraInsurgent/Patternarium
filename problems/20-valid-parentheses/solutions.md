@@ -1,3 +1,36 @@
+---
+problem: 20
+problem-title: Valid Parentheses
+difficulty: Easy
+category: solutions
+patterns: [Reverse Order Matching]
+constructs: [stack, dictionary]
+ds-used: [string, stack, hashmap, array]
+algorithms: []
+approaches:
+  - name: Stack with HashMap complement lookup
+    file: solutions/hashmap-complement.cs
+    patterns: [Reverse Order Matching]
+    variation: HashMap Complement
+    constructs: [stack, dictionary]
+    ds-used: [string, stack, hashmap]
+    ds-notes:
+      stack: "LIFO bracket matching"
+      hashmap: "closing -> opening bracket complement map"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Stack with direct complement push
+    file: solutions/complement-push.cs
+    patterns: [Reverse Order Matching]
+    variation: Complement Push
+    constructs: []
+    ds-used: [string, array]
+    ds-notes:
+      array: "char[] used as manual stack; push expected closing bracket on open"
+    time: "O(n)"
+    space: "O(n)"
+---
+
 # Valid Parentheses - Solutions
 
 ## Approaches

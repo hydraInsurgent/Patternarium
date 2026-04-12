@@ -7,10 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
-ds-used: [array, hashset]
-patterns: [HashMap, Preprocessing]
-constructs: [hashset, array-sort]
-algorithms: []
 tags: [duplicate-detection, existence-check, set-lookup]
 ---
 

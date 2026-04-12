@@ -7,10 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
-ds-used: [string, hashmap, array]
-patterns: [Preprocessing, HashMap]
-constructs: [linq, dictionary, span]
-algorithms: []
 tags: [anagram, frequency-count, character-frequency]
 ---
 

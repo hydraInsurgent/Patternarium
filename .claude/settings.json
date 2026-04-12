@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Read(//d/Personal/Code/Depth Projects/VS Code Extensions/markdown-tooling/vscode-dataview-preview/**)",
-      "Read(//d/Personal/Code/Depth Projects/VS Code Extensions/Obsidian Extensions/obsidian-dataview/**)"
+      "Read(//d/Personal/Code/Depth Projects/VS Code Extensions/Obsidian Extensions/obsidian-dataview/**)",
+      "Bash(powershell.exe -Command ':*)",
+      "Bash(powershell.exe -File \"d:/Personal/Code/Depth Projects/Patternarium/scripts/Rebuild-Index.ps1\")",
+      "Bash(dotnet run:*)"
+    ],
+    "additionalDirectories": [
+      "d:\\Personal\\Code\\Depth Projects\\Patternarium\\scripts"
     ]
   }
 }

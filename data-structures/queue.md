@@ -65,9 +65,9 @@ A line of people. New people join at the back. The person at the front is served
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "queue"
-SORT number asc
+SORT problem asc
 ```

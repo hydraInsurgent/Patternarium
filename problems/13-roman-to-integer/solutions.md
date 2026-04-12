@@ -1,3 +1,56 @@
+---
+problem: 13
+problem-title: Roman to Integer
+difficulty: Easy
+category: solutions
+patterns: [Linear Scan, Preprocessing, Chunked Iteration]
+constructs: [dictionary, string-replace]
+ds-used: [string, hashmap]
+algorithms: []
+approaches:
+  - name: Right-to-left scan
+    file: solutions/right-to-left-scan.cs
+    patterns: [Linear Scan]
+    variation: Right to Left
+    constructs: [dictionary]
+    ds-used: [string, hashmap]
+    ds-notes:
+      hashmap: "char -> int lookup table for roman numeral values"
+    time: "O(n)"
+    space: "O(1)"
+  - name: Left-to-right scan
+    file: solutions/left-to-right-scan.cs
+    patterns: [Linear Scan]
+    variation: Left to Right Lookahead
+    constructs: [dictionary]
+    ds-used: [string, hashmap]
+    ds-notes:
+      hashmap: "char -> int lookup table for roman numeral values"
+    time: "O(n)"
+    space: "O(1)"
+  - name: String replacement
+    file: solutions/string-replacement.cs
+    patterns: [Preprocessing]
+    variation: String Replacement
+    constructs: [dictionary, string-replace]
+    ds-used: [string, hashmap]
+    ds-notes:
+      hashmap: "char -> int lookup table for roman numeral values"
+      string: "string.Replace encodes subtractive pairs as single chars before scanning"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Two-character lookahead
+    file: solutions/two-char-lookahead.cs
+    patterns: [Chunked Iteration]
+    variation: Two Char Lookahead
+    constructs: [dictionary]
+    ds-used: [string, hashmap]
+    ds-notes:
+      hashmap: "char -> int lookup table for roman numeral values"
+    time: "O(n)"
+    space: "O(1)"
+---
+
 # Roman to Integer - Solutions
 
 ## Approaches

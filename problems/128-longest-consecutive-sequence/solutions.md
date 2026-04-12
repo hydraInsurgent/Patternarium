@@ -1,3 +1,46 @@
+---
+problem: 128
+problem-title: Longest Consecutive Sequence
+difficulty: Medium
+category: solutions
+patterns: [Linear Scan, HashMap, Presence Array]
+constructs: [hashset, array-sort]
+ds-used: [array, hashset]
+algorithms: []
+approaches:
+  - name: Sort + Linear Scan
+    file: solutions/sort-linear-scan.cs
+    patterns: [Linear Scan]
+    variation: Sort Linear Scan
+    constructs: [array-sort]
+    ds-used: [array]
+    ds-notes:
+      array: "sorted array; skip duplicates, count consecutive runs"
+    time: "O(n log n)"
+    space: "O(1)"
+  - name: HashSet - Sequence Start Detection
+    file: solutions/hashset-sequence-start.cs
+    patterns: [HashMap]
+    variation: Sequence Start Detection
+    constructs: [hashset]
+    ds-used: [array, hashset]
+    ds-notes:
+      hashset: "O(1) lookup; number is a sequence start only if n-1 is not in the set"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Presence Array (small range optimization)
+    file: solutions/presence-array.cs
+    patterns: [Presence Array, HashMap]
+    variation: Presence Array with HashSet Fallback
+    constructs: [hashset]
+    ds-used: [array, hashset]
+    ds-notes:
+      array: "bool[] presence array for small value ranges"
+      hashset: "fallback for large ranges where presence array would be too big"
+    time: "O(n + r) small range, O(n) large range"
+    space: "O(r) small range, O(n) large range"
+---
+
 # Longest Consecutive Sequence - Solutions
 
 ## Approaches

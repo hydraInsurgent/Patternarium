@@ -46,9 +46,9 @@ seen[c] = 1;            // 'A' = 65, so seen[65] = 1
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN constructs AS construct
 WHERE construct = "span"
-SORT number asc
+SORT problem asc
 ```

@@ -58,9 +58,9 @@ merge(left, right):
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN algorithms AS algo
 WHERE algo = "mergesort"
-SORT number asc
+SORT problem asc
 ```

@@ -7,10 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75]
-ds-used: [string]
-patterns: [Two Pointers]
-constructs: []
-algorithms: []
 tags: [palindrome, expand-around-center, center-expansion]
 ---
 

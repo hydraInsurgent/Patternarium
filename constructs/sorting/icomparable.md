@@ -100,9 +100,9 @@ The same applies to your own class - even if `Item` implements `IComparable<T>`,
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN constructs AS construct
 WHERE construct = "icomparable"
-SORT number asc
+SORT problem asc
 ```

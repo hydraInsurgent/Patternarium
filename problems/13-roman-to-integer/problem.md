@@ -7,10 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: []
-ds-used: [string, hashmap]
-patterns: [Linear Scan, Preprocessing, Chunked Iteration]
-constructs: [dictionary, string-replace]
-algorithms: []
 tags: [lookup-table, subtractive-notation, roman-numerals]
 ---
 

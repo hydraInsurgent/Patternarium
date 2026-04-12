@@ -108,9 +108,9 @@ The function must return:
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN constructs AS construct
 WHERE construct = "array-sort"
-SORT number asc
+SORT problem asc
 ```

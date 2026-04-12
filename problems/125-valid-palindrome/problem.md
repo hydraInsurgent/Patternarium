@@ -7,10 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75]
-ds-used: [string, array]
-patterns: [Two Pointers]
-constructs: [char-methods, linq]
-algorithms: []
 tags: [palindrome, alphanumeric-filter, two-pointer]
 ---
 

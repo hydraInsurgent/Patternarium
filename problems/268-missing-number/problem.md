@@ -7,10 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
-ds-used: [array]
-patterns: [Odd One Out, Presence Array]
-constructs: []
-algorithms: []
 tags: [missing-number, xor-cancellation, xor, gauss-sum]
 ---
 

@@ -1,3 +1,45 @@
+---
+problem: 268
+problem-title: Missing Number
+difficulty: Easy
+category: solutions
+patterns: [Odd One Out, Presence Array]
+constructs: []
+ds-used: [array]
+algorithms: []
+approaches:
+  - name: Boolean Flag Array
+    file: solutions/boolean-flag-array.cs
+    patterns: [Odd One Out, Presence Array]
+    variation: Boolean Flag Array
+    constructs: []
+    ds-used: [array]
+    ds-notes:
+      array: "bool[n+1] marks each seen number; scan for false to find missing"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Gauss Sum
+    file: solutions/gauss-sum.cs
+    patterns: [Odd One Out]
+    variation: Gauss Sum
+    constructs: []
+    ds-used: [array]
+    ds-notes:
+      array: "expected sum n*(n+1)/2 minus actual sum equals missing number"
+    time: "O(n)"
+    space: "O(1)"
+  - name: XOR Cancellation
+    file: solutions/xor-cancellation.cs
+    patterns: [Odd One Out]
+    variation: XOR Cancellation
+    constructs: []
+    ds-used: [array]
+    ds-notes:
+      array: "XOR all indices 0..n and all values; paired elements cancel, missing remains"
+    time: "O(n)"
+    space: "O(1)"
+---
+
 # Missing Number - Solutions
 
 ## Approaches

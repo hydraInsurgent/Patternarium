@@ -91,9 +91,9 @@ The four ways to visit all nodes in a binary tree:
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "binary-tree"
-SORT number asc
+SORT problem asc
 ```

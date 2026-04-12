@@ -119,11 +119,11 @@ Guard the jump with `>= start` to ensure the stored index is within the current 
 ## Solved Problems
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN patterns AS pattern
 WHERE pattern = "Sliding Window"
-SORT number asc
+SORT problem asc
 ```
 - **start moving left** - not guarding against a stale stored index before the current window. Use `>= start` check (Index Jump)
 - **Not updating state on both sides** - window state must be updated when elements enter from the right AND exit from the left (Shrink-Based)

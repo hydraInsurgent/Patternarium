@@ -94,9 +94,9 @@ A map of cities and roads. Cities are nodes. Roads are edges. Some roads are one
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "graph"
-SORT number asc
+SORT problem asc
 ```

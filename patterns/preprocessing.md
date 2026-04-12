@@ -129,10 +129,10 @@ for (int i = 0; i < n; i++)
 ## Solved Problems
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN patterns AS pattern
 WHERE pattern = "Preprocessing"
-SORT number asc
+SORT problem asc
 ```
 - **Including the current element in its own derived value** - when building prefix/suffix arrays, off-by-one in the index formula can include the element at position i in its own precomputed value

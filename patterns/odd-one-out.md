@@ -112,9 +112,9 @@ return result;
 ## Solved Problems
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN patterns AS pattern
 WHERE pattern = "Odd One Out"
-SORT number asc
+SORT problem asc
 ```

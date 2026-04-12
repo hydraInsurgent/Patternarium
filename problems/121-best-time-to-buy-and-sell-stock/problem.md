@@ -7,10 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
-ds-used: [array]
-patterns: [Linear Scan]
-constructs: [math-functions]
-algorithms: []
 tags: [running-minimum, max-profit, single-pass]
 ---
 

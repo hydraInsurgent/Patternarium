@@ -366,7 +366,7 @@ Work:
 - Define the YAML schema for patterns
 - Add frontmatter to all 11 pattern files
 - Build variation list and DS mapping from master-index.json approach data
-- Move `display_name` from body text to frontmatter (keep body text for backward compat during transition, remove in Phase 10)
+- Move `display_name` from body text to frontmatter (keep body text for backward compat during transition, remove in Phase 9 cleanup)
 
 **Do not replace Solved Problems sections yet.** That's Track B, Phase 7.
 
@@ -540,9 +540,11 @@ All 14 files that reference `pattern-index.json`:
 
 **Verification:** Run `grep -r "pattern-index.json" --include="*.md"` after all updates. Result should be zero matches (except possibly this checklist itself).
 
-### Phase 9 - Verify and clean up
+### Phase 9 - Verify and Review
 
-**Status: IN PROGRESS (2026-04-11)**
+**Status: COMPLETE (2026-04-11)**
+
+#### Cleanup
 
 - [x] Remove transition scaffolding (`**display_name:**` body lines removed from all 11 pattern files)
 - [x] Confirm no orphaned manual Seen In sections remain (spot-verified DS, construct, concept files all have Dataview queries)
@@ -552,30 +554,158 @@ All 14 files that reference `pattern-index.json`:
 - [x] Algorithm system fully integrated: YAML frontmatter + Dataview Seen In on all 3 algorithm files; `algorithms` field added to all 12 problem frontmatter files and all 12 master-index.json entries; `by-algorithm` reverse-lookup index added; save-problem.md + toolkit.md + pattern-system.md all updated
 - [x] pattern-system.md templates fully updated (all 5 file types now have correct YAML + Dataview queries in their templates; `algorithms-index.json` removed)
 - [x] Update memory files to mark refactor as complete
-- [ ] End-to-end review in dedicated session (review prompt written - see `docs/dataview/review-prompt.md`)
-- [ ] Merge `dataview-refactor` branch to main
+
+#### End-to-End Review
+
+**Prompt:** `docs/dataview/review-prompt.md` | **Run:** 2026-04-11 | **Result:** 8 failures found, all fixed
+
+| Failure | Severity | Fix applied |
+|---------|----------|-------------|
+| `master-index.json` `by-ds["array"]` incorrectly included problem 13 | BREAKING | Removed "13" from the array |
+| `save-problem.md` Rules missing construct and concept file creation | MISSING | Added two rules: construct at `constructs/<category>/<slug>.md`, concept at `concepts/<slug>.md` |
+| `pattern-system.md` problem.md template missing `algorithms` field | WRONG | Added `algorithms: []` between `constructs` and `tags` |
+| `pattern-system.md` master-index template missing `algorithms` and `by-algorithm` | WRONG | Added both to template and updated prose description |
+| `pattern-system.md` DS Coverage table template was 2-column, real files are 3-column | WRONG | Updated to `Technique \| Status \| Problems Solved` with bold Progress line |
+| `algorithms-index.json` still existed at repo root; `roadmap.md` still referenced it | STALE | Deleted file; updated roadmap reference |
+| Three construct files missing: `char-methods`, `string-replace`, `linq` | MISSING | Created all three files; created `constructs/strings/` directory |
+| All 12 problem files had `tags` before `algorithms` in frontmatter | WRONG | Swapped order in all 12 files; updated `pattern-system.md` template to match |
+
+#### Plan vs Reality Review
+
+**Prompt:** `docs/dataview/plan-vs-reality-prompt.md` | **Run:** 2026-04-11 | **Result:** 6 stale issues found, all fixed
+
+| Issue | Severity | Fix applied |
+|-------|----------|-------------|
+| `docs/active-problem-spec.md` decomposition table still listed "Updates to `patterns/*.md` Solved Problems" as an AI write | STALE | Removed the row - Solved Problems is now a Dataview query |
+| `docs/active-problem-spec.md` decomposition table said "inline tags at bottom" | STALE | Updated to list all 13 required frontmatter fields |
+| `docs/dataview/refactor-plan.md` Phase 9 checklist said "2 intentional refs remain" but there were 3 | STALE | Updated count to 3 (vision.md, refactor-plan.md, review-prompt.md) |
+| `README.md` Tech Stack still said "JSON - pattern index" | STALE | Updated to "JSON - master-index.json (cross-reference index)" |
+| `docs/roadmap.md` "Dataview query layer" item still in Someday/Maybe | STALE | Moved to Closed with full description |
+| `README.md` Project Structure tree missing `data-structures/`, `algorithms/`, `constructs/`, `concepts/` | STALE | Updated tree to show all active directories and representative files |
+
+### Phase 10 - Automate master-index.json generation
+
+**Status: COMPLETE (2026-04-12)**
+
+- [x] 10A - Add solutions.md YAML frontmatter for all 12 existing problems
+- [x] 10B - Write rebuild script (`scripts/Rebuild-Index.cs` - implemented in C# instead of PS1 as originally planned; produces identical output)
+- [x] 10C - Update `/save-problem`: AI no longer writes master-index.json; Step 7 runs `dotnet run scripts/Rebuild-Index.cs` after all writes; `_saving` marker dropped
+- [x] 10D - Update spec files: `docs/pattern-system.md`, `docs/active-problem-spec.md`, `.claude/commands/save-problem.md` all updated
+
+**Goal:** Make master-index.json a fully script-generated build artifact. AI writes YAML only. The script rebuilds the index before and after every `/save-problem` run, so the index is always fresh when AI reads it and always reflects the latest save when AI finishes.
+
+**Sub-steps (each independently pauseable):**
+
+#### 10A - Add solutions.md YAML frontmatter (data migration)
+
+`solutions.md` currently has no frontmatter. This sub-step adds it for all 12 existing problems.
+
+Source of backfill data: existing `master-index.json` entries (the approaches and ds-notes already live there - this is a reshape, not new data).
+
+Target YAML to add to the top of each `solutions.md`:
+
+```yaml
+---
+approaches:
+  - name: HashMap
+    file: solutions/hashmap.cs
+    patterns: [HashMap]
+    variation: Complement Lookup
+    constructs: [dictionary]
+    ds-used: [array, hashmap]
+    ds-notes:
+      hashmap: "complement lookup: store value -> index"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Two Pointers
+    file: solutions/two-pointer.cs
+    patterns: [Two Pointers]
+    variation: Sorted Pair
+    constructs: [array-sort]
+    ds-used: [array]
+    time: "O(n log n)"
+    space: "O(n)"
+---
+```
+
+Rules:
+- One approach block per solved approach (skip brute force entries that have no pattern)
+- `ds-notes` is nested inside the approach it belongs to, not at the top level
+- `constructs` per approach is derived from the existing `constructs` field in master-index.json, filtered to what that specific approach used (use the solution `.cs` file as ground truth if ambiguous)
+- `time` and `space` are sourced from the `.cs` file comment headers
+- Body of `solutions.md` stays unchanged
+
+#### 10B - Write Rebuild-Index.ps1
+
+Script lives at `scripts/Rebuild-Index.ps1`. Reads two files per problem, builds the full JSON.
+
+**Inputs (per problem):**
+- `problems/<slug>/problem.md` - title, number, slug, difficulty, lists, patterns, constructs, ds-used, algorithms, tags
+- `problems/<slug>/solutions.md` - approaches array (name, file, patterns, variation, constructs, ds-used, ds-notes, time, space)
+
+**Output:** `master-index.json` rebuilt from scratch:
+- `problems` entries: merged from both sources. Flat fields from problem.md, approaches + ds-notes from solutions.md
+- `by-pattern`, `by-ds`, `by-construct`, `by-algorithm`: computed from the merged problems data - never drifts
+- `_saving`: always written as `null` by the script (a non-null value means an interrupted AI save - the script never sets this)
+
+**Validation step:** First run diffs output against current `master-index.json`. Should match exactly. Any discrepancy surfaces a data inconsistency to fix before proceeding.
+
+#### 10C - Update /save-problem
+
+Three changes:
+
+1. **Add Step 0:** Run `Rebuild-Index.ps1` before reading active files. Ensures AI starts with a fresh index that reflects any manual YAML edits made between sessions.
+
+2. **Remove Step 7:** AI no longer writes `master-index.json`. The step is gone entirely.
+
+3. **Redirect Step 7 writes to YAML:**
+   - `approaches` data (filename, patterns, variation, ds-used) now written to `solutions.md` frontmatter as part of Step 5 (write solutions.md)
+   - `ds-notes` now written inside each approach block in `solutions.md` frontmatter
+   - `_saving` marker: dropped entirely - no longer needed since AI does not write the JSON
+
+4. **Add script run at end of Step 11:** After all writes confirmed, run `Rebuild-Index.ps1` to regenerate the index with the new problem's data. This is the step that makes the new problem queryable.
+
+#### 10D - Update spec files
+
+- `docs/pattern-system.md`: Update master-index.json section - mark it as script-generated, describe the two-source schema (problem.md + solutions.md), remove the AI write instructions
+- `docs/pattern-system.md`: Update solutions.md format to include YAML frontmatter block
+- `.claude/commands/save-problem.md`: Apply 10C changes (Step 0, remove Step 7, redirect writes, add end script run)
+- `docs/active-problem-spec.md`: Update data flow to reflect that approaches/ds-notes now land in solutions.md YAML
+- Update ownership rules table in this file (Layer 1 section): transfer `approaches` and `ds-notes` authority from master-index.json to solutions.md; mark master-index.json as derived
+
+### Phase 11 - Merge to main
+
+**Status: COMPLETE (2026-04-12)**
+
+- [x] Final spot-check: open `patterns/hashmap.md`, `data-structures/array.md` in VS Code - confirm Dataview queries render correctly
+- [x] Run `Rebuild-Index.cs` - confirm output matches current `master-index.json` exactly (12 problems, 11 patterns, 5 DS, 9 constructs)
+- [x] Merge `dataview-refactor` branch to `main`
 
 ---
 
 ## Post-refactor /save-problem flow
+Ok, now I feel everything should be done. Please review the whole thing end to end, and I would suggest finding any inconsistencies. Maybe, if you want, you can run the old 
+This table reflects the flow after Phase 10 completes. Phase 7 (replace derived views) gives the intermediate state; Phase 10 (automate index) gives the final state below.
 
 | Step | What | File ops |
 |------|------|----------|
+| 0 | Run Rebuild-Index.ps1 - freshen index before reading | 1 write (script) |
 | 1 | Read active files | 2 reads |
 | 2 | Confirm slug | 0 |
 | 3 | Write problem.md (enriched frontmatter) | 1 write |
 | 4 | Write solution .cs files | 1-3 writes |
-| 5 | Write solutions.md | 1 write |
+| 5 | Write solutions.md (body + approaches YAML frontmatter) | 1 write |
 | 6 | Write notes.md | 1 write |
-| 7 | Write master-index.json (entry + reverse lookups + _saving marker) | 1 write |
-| 8 | Update DS coverage table rows + progress in frontmatter | 1-2 writes |
-| 9 | Update list file status/pattern/link columns | 1-2 writes |
-| 10 | Update LESSONS.md | 0-1 write |
-| 11 | Confirm + cleanup | 0-2 writes |
+| ~~7~~ | ~~Write master-index.json~~ - removed; script handles this | 0 |
+| 7 | Update DS coverage table rows + progress in frontmatter | 1-2 writes |
+| 8 | Update list file status/pattern/link columns | 1-2 writes |
+| 9 | Update LESSONS.md | 0-1 write |
+| 10 | Confirm + cleanup | 0-2 writes |
+| 11 | Run Rebuild-Index.ps1 - regenerate index after all writes | 1 write (script) |
 
 **Total: ~9-11 file ops (down from ~15). ~30-35% reduction.**
 
-Eliminated: pattern Solved Problems appends, all Seen In appends, goals.md updates, coverage matching cascade.
+Eliminated: pattern Solved Problems appends, all Seen In appends, goals.md updates, coverage matching cascade, manual master-index.json writes.
 Simplified: list updates (status only, no roster management), coverage updates (link-based matching).
 
 ---
@@ -639,9 +769,11 @@ All remaining AI work after the refactor is either generative or curated:
 - Writing problem statements, solution code, notes (content creation)
 - Prettifying code with variable renames and comments (transformation)
 - Writing pattern variations (new content)
-- Writing master-index.json entries (structured fact creation)
+- Writing YAML frontmatter to problem.md and solutions.md (structured fact creation - single source of truth per field)
 - **Updating coverage table rows** - justified: coverage tables contain placeholder rows for planned techniques that don't have files. A query can't know about these.
 - **Updating list file status columns** - justified: list rosters include unsolved problems with no files. A query can't show what doesn't exist.
+
+After Phase 10: master-index.json is no longer an AI write. It is script-generated from YAML. AI writes source data once (to YAML), script derives the index. The "structured fact creation" burden on AI is reduced to writing YAML in the files that own the data.
 
 ---
 

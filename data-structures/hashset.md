@@ -64,9 +64,9 @@ HashSet use cases are variations of the [HashMap](../patterns/hashmap.md) patter
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty, patterns
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
 FROM "problems"
 FLATTEN ds-used AS ds
 WHERE ds = "hashset"
-SORT number asc
+SORT problem asc
 ```

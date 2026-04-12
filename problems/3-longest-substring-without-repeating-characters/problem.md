@@ -7,10 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75]
-ds-used: [string, hashmap, hashset, array]
-patterns: [Sliding Window, HashMap, Presence Array]
-constructs: [hashset, dictionary, span]
-algorithms: []
 tags: [sliding-window, window-boundary, duplicate-detection]
 ---
 

@@ -1,3 +1,52 @@
+---
+problem: 238
+problem-title: Product of Array Except Self
+difficulty: Medium
+category: solutions
+patterns: [Prefix/Suffix Decomposition, Two Pointers, Preprocessing, Multi-Pass Construction]
+constructs: []
+ds-used: [array]
+algorithms: []
+approaches:
+  - name: Brute Force
+    file: solutions/brute-force.cs
+    patterns: []
+    constructs: []
+    ds-used: [array]
+    time: "O(n^2)"
+    space: "O(n)"
+  - name: Prefix/Suffix Product Arrays
+    file: solutions/prefix-suffix-arrays.cs
+    patterns: [Prefix/Suffix Decomposition, Preprocessing]
+    variation: Prefix Suffix Arrays
+    constructs: []
+    ds-used: [array]
+    ds-notes:
+      array: "two separate prefix and suffix product arrays; output is element-wise product"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Two-Pointer Converging/Diverging
+    file: solutions/two-pointer-converging.cs
+    patterns: [Prefix/Suffix Decomposition, Two Pointers, Multi-Pass Construction]
+    variation: Two Pointer Converging
+    constructs: []
+    ds-used: [array]
+    ds-notes:
+      array: "two passes with converging pointers; output array reused as prefix accumulator"
+    time: "O(n)"
+    space: "O(1) extra"
+  - name: Two-Pass Sequential
+    file: solutions/two-pass-sequential.cs
+    patterns: [Prefix/Suffix Decomposition, Multi-Pass Construction]
+    variation: Two Pass Sequential
+    constructs: []
+    ds-used: [array]
+    ds-notes:
+      array: "output built in two sequential passes; running prefix then running suffix"
+    time: "O(n)"
+    space: "O(1) extra"
+---
+
 # Product of Array Except Self - Solutions
 
 ## Approaches

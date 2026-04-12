@@ -7,10 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75]
-ds-used: [array, hashmap]
-patterns: [HashMap, Two Pointers]
-constructs: [dictionary, array-sort]
-algorithms: []
 tags: [complement-lookup, index-tracking, target-sum]
 ---
 
