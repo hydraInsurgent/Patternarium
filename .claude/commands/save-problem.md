@@ -56,6 +56,15 @@ Parse `active-solution.cs` for each `// ==== Approach N ====` block:
 
 Approaches with status "in-progress" or "stuck" in `active-problem.md` are skipped.
 
+### Step 4b - Ensure pattern files exist
+
+For each pattern named in `active-problem.md` `## Patterns`:
+- Check if `patterns/<file>.md` exists. If it does, read its `display_name` and confirm the `## Variation:` heading that will be referenced exists in the file.
+- If the pattern file does not exist, create it now from the template in `docs/pattern-system.md`. Derive `display_name` from the pattern name used in the session. Tell the user: "Creating new pattern file: `patterns/<file>.md` - you may want to review it after save."
+- If the file exists but the specific variation does not, add the variation section now before proceeding.
+
+This step must complete before Step 5, which uses `display_name` to build links in solutions.md.
+
 ### Step 5 - Write solutions.md
 
 Create `problems/<slug>/solutions.md`. Write YAML frontmatter first, then the markdown body.
@@ -97,6 +106,8 @@ approaches:
 - Each entry in `approaches:` maps to one solved approach. Include `variation` only when the approach uses a named pattern variation. Include `ds-notes` only when a DS is used in a non-obvious way. `file` is the relative path within the problem folder (e.g., `solutions/hashmap.cs`)
 - Pattern names use `display_name` from the pattern file. Construct and algorithm names use their `slug` field
 - `category: solutions` enables Dataview queries to filter solutions.md files from problem.md files when querying `FROM "problems"`
+- **Constructs fallback for imported sessions:** if approach blocks in active-problem.md do not have `## Constructs` subsections, check `## Import Notes` -> `### Constructs Identified` in active-problem.md. Map each construct name to its slug using the construct files in `constructs/`. If no construct file exists yet, use the name as a provisional slug and create the file (per the Rules section).
+- **Remaining approaches source:** check `## Import Notes` -> `### Remaining Approaches` in active-problem.md for approaches discussed but not yet explored. If that section exists, use it as the source for not-yet-explored placeholder blocks. If it does not exist, infer from conversation history.
 
 **Markdown body:**
 - `# [Problem Name] - Solutions` heading
@@ -188,8 +199,8 @@ If found, perform these distillations:
 For each pattern used in the session:
 - Read the analysis `## Pattern Signals` and `## Key Insights for Pattern Library` sections
 - Open the pattern file and find the relevant `## Variation:` section
-- Add any signals not already present to `**When to reach for this:**`. Deduplication rule: skip a bullet if its core meaning is already expressed by an existing bullet - either exact wording or semantic equivalent (e.g., "problem asks to count all palindromes" and "problem wants a count of all palindromic substrings" are equivalent - skip)
-- Add any pattern-specific mistakes (filtered from the analysis Mistakes table) to `## Common Mistakes`. Filter rule: only add mistakes that are caused by misapplying this pattern's specific mechanics. Do not add general learning behavior mistakes, DP concept confusions unrelated to the pattern, or problem comprehension errors - those belong in LESSONS.md only. Deduplication rule: skip a mistake if its core scenario is already described in `## Common Mistakes`
+- Add any signals not already present to `**When to reach for this:**`. Deduplication rule: skip a bullet only if it uses identical or near-identical wording to an existing bullet. If the meaning overlaps but the phrasing is distinct, add it - the pattern file is a reference, not a summary.
+- Add any pattern-specific mistakes (filtered from the analysis Mistakes table) to `## Common Mistakes`. Filter rule: only add mistakes that are caused by misapplying this pattern's specific mechanics. Do not add general learning behavior mistakes, DP concept confusions unrelated to the pattern, or problem comprehension errors - those belong in LESSONS.md only. Deduplication rule: skip a mistake only if it uses identical or near-identical wording to an existing entry.
 
 **Archive:**
 After all distillation is complete, move both files to `reference-chats/_archive/<problem-slug>/`:
@@ -197,6 +208,15 @@ After all distillation is complete, move both files to `reference-chats/_archive
 - `reference-chats/analysis/<slug>-analysis.md`
 
 Create the `_archive/<problem-slug>/` folder if it does not exist. If either source file is not found, skip moving it silently.
+
+### Step 11b - Verify import checklist (if present)
+
+If `active-problem.md` contains `## Import Notes` -> `### Session Checklist`:
+1. Cross-check each unchecked item (`- [ ]`) against what was actually done during the session (approach blocks solved, complexity confirmed, code written, reflection answered). If the work is done but the item was never ticked, mark it `[x]` silently.
+2. After auto-updating, if any items remain unchecked, surface them to the user:
+   > "These checklist items are still open - address them before saving, or save anyway?"
+   > [list remaining unchecked items]
+   The user decides whether to proceed. Do not block the save.
 
 ### Step 12 - Confirm and suggest cleanup
 
@@ -211,6 +231,8 @@ Then suggest: "Ready to clear the active files for the next problem?"
 
 If the user confirms, clear both `active-problem.md` and `active-solution.cs` to empty files. If not, leave them for review.
 
+`## Import Notes` in active-problem.md is cleared as part of this - it does not need separate handling.
+
 ## Rules
 
 - Ask the user to confirm the notes content before writing - do not invent reflection notes
@@ -221,6 +243,7 @@ If the user confirms, clear both `active-problem.md` and `active-solution.cs` to
 - If a new variation of an existing pattern was used, check whether the variation name (from the `variation` field in Step 7 approaches) already exists as a `## Variation: [name]` heading in the pattern file. If not, add the section: populate **When to reach for this** from the session, **Template** from the code structure used, **Common Mistakes** from any bugs logged during the session. The `## Seen In` block within the variation is a Dataview query - do not write it manually
 - Prettification means: rename variables, one comment per logical block, plus session-derived "Why" blocks for decisions the user struggled with
 - If the active file is incomplete (e.g., no Reflection section), ask the user to fill in the gaps before saving
+- If any `// Time:` or `// Space:` headers in `active-solution.cs` still contain `?`, treat this as incomplete. Ask the user to confirm complexity for each unconfirmed approach before saving. Do not write `?` into solutions.md frontmatter
 - Active files are cleared to empty (not deleted) only when the user confirms
 - When writing the Thinking field in solutions.md: paraphrase the user's stated approach and key idea. Do not add insights the user did not express
 - When referencing patterns in solutions.md, look up the `display_name` from the pattern file

@@ -24,7 +24,17 @@ If multiple paused sessions exist, list them by problem name and ask which to re
 
 ### Step 5 - Re-orient
 
-Read the restored `active-problem.md` and give the user a brief re-orientation:
+Read the restored `active-problem.md`. Check whether it contains `## Import Notes` - this indicates the session originated from `/import-chat`.
+
+**If `## Import Notes` is present (imported session):**
+- Also check for a matching analysis file: glob `reference-chats/analysis/*.md` and look for one whose `slug` frontmatter field matches the problem slug from `## Problem`
+- If found, read the analysis file for the full thinking journey and session context before re-orienting
+- Surface open checklist items from `## Import Notes` -> `### Session Checklist` as the first thing shown:
+  > "Resuming imported session. Open items from last time: [list unchecked items]"
+- Then give the normal re-orientation below
+
+**For all sessions:**
+Give the user a brief re-orientation:
 - Problem name and difficulty
 - Current approach and its status
 - Where the session left off (last hint level, last bug, last action)
@@ -36,3 +46,4 @@ Then ask: "Ready to continue?"
 - Never resume into a non-empty active file - always check first
 - Re-orientation should be brief - one short paragraph, not a full replay
 - After restoring, the session continues normally from wherever it left off
+- For imported sessions, the analysis file provides richer context than active-problem.md alone - read it if it exists

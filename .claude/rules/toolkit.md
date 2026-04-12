@@ -298,6 +298,7 @@ When a new error category is found that does not fit the above, add it here and 
 - See `docs/active-problem-spec.md` for the full format spec
 - `active-problem.md` tracks the learning journey (thinking, hints, bugs, patterns, reflection). It does not contain solution code - that lives in `active-solution.cs`
 - Tags are AI-inferred from the patterns and data structures used in the session
+- If active-problem.md contains `## Import Notes`, the session originated from `/import-chat`. When continuing such a session (either in the same conversation or via `/resume-problem`), check for a matching analysis file in `reference-chats/analysis/` and read it for the full thinking journey and open questions - the active file alone does not capture all the session context
 
 ### Approach Status Lifecycle
 - `in-progress` - set when the approach block is created

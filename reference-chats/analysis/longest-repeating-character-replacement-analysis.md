@@ -39,7 +39,9 @@ This is the validity condition for any substring. It works regardless of which c
 
 ---
 
-## Approach 1: Brute Force
+## Approaches
+
+### Approach 1: Brute Force
 
 **Complexity:** O(n²) time, O(1) space (26 uppercase letters max in freq map)
 

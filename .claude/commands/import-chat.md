@@ -10,7 +10,7 @@ Use this command when a problem was solved in an external chat (ChatGPT, etc.) a
 
 ## What the User Provides
 
-1. **Chat file** - path to the exported chat in `reference-chats/<filename>.txt`
+1. **Chat file** - path to the exported chat in `reference-chats/imports/<filename>.txt`
 2. **Active problem** - `active-problem.md` at repo root (may contain just the raw problem statement, or may be empty)
 3. **Active solution** - `active-solution.cs` at repo root (may contain raw labeled code, or may be empty)
 
@@ -22,8 +22,8 @@ Any of the three may be missing or minimal. The chat is the primary source of tr
 
 If the user ran `/import-chat` without arguments, ask:
 
-> "Which reference chat should I import? Available files in `reference-chats/`:"
-> [list .txt files]
+> "Which reference chat should I import? Available files in `reference-chats/imports/`:"
+> [list .txt files in `reference-chats/imports/`]
 
 Accept a filename or full path.
 
@@ -104,7 +104,7 @@ category: analysis
 
 ## Approaches
 
-[One subsection per approach. For each:]
+[One subsection per approach. Use `### Approach N:` (H3 under this H2) - do not use top-level H2 headings per approach.]
 ### Approach N: [Name]
 **Complexity:** O(?) time, O(?) space
 **Structure:** [pseudocode or 3-5 line description]
@@ -173,24 +173,32 @@ category: analysis
 
 ### Step 5 - Write active-problem.md
 
-Three cases based on what is already in `active-problem.md`:
+Two cases based on what is already in `active-problem.md`:
 
-**Case A - empty or only raw problem statement:** Write the full active problem file from scratch using the format from `docs/active-problem-spec.md`. Fill in:
+**Empty or only raw problem statement:** Write the full active problem file from scratch using the format from `docs/active-problem-spec.md`. Fill in:
 - `## Problem` section with name, difficulty, source, tags (AI-inferred), time started
 - `## Statement` with the full problem text
-- For each approach explored in the chat: write `### Approach N: [name]` with status, thinking, hints (if any), bugs (if any)
-- `## Patterns` section if pattern extraction happened in the chat
+- For each approach explored in the chat: write `### Approach N: [name]` with status `in-progress`, thinking, hints (if any), bugs (if any)
+- `## Patterns` section if pattern extraction happened in the chat. When writing pattern names, look up `display_name` from the pattern file in `patterns/`. If the pattern file does not exist yet, write the name as used in the chat and mark it: `<!-- no pattern file yet - confirm name at save time -->`
 - Leave `## Reflection` blank - this must come from the user live
 
-**Case B - has partial session data (approach blocks, thinking sections):** Use the existing file as the base. Only fill in sections that are missing or have placeholder content:
+**Has partial session data (approach blocks, thinking sections):** Use the existing file as the base. Only fill in sections that are missing or have placeholder content:
 - If `## Problem` fields are already populated, leave them - do not overwrite
 - If an approach block already exists in the file, check whether the chat adds anything (bugs, hints, resolution) to it - if so, append to that block. Do not overwrite existing thinking
 - If the chat covers approaches not yet in the file, append new approach blocks
-- If `## Patterns` already exists, leave it. If absent and the chat covers patterns, add it
+- If `## Patterns` already exists, leave it. If absent and the chat covers patterns, add it with the same display_name lookup rule above
 
-**Case C - already fully written (all approaches present with thinking and status):** Skip this step entirely - the file is already up to date.
+In both cases: do not fabricate anything not present in the chat. If a section cannot be filled from the chat, leave it with a placeholder comment: `<!-- not covered in imported chat -->`.
 
-In all cases: do not fabricate anything not present in the chat. If a section cannot be filled from the chat, leave it with a placeholder comment: `<!-- not covered in imported chat -->`.
+After writing the approach blocks, append `## Import Notes` at the bottom of active-problem.md. This section is synthesized from the analysis file - not copy-pasted. Apply these rules:
+
+**`### Constructs Identified`:** Read `## Constructs Used` from the analysis file. For each construct, write its name and its specific role in the approach as used in this session - not a bare name. If a construct appeared across multiple approaches, note which approach used it and how.
+
+**`### Remaining Approaches`:** Identify approaches discussed in the chat but not yet coded or confirmed. For each, write a next-step description that builds on what the user already understood - include what clicked and what open question remains. Do not just list approach names.
+
+**`### Session Checklist`:** Read `## Session Checklist` from the analysis file. Filter: drop items that are already addressed by the approach blocks written above (e.g., if thinking and a bug were captured, the "approach understood" item is done). Mark pre-completed items with `[x]`. Keep only items that represent genuine remaining work. Always include the four Overall items.
+
+If the file already had `## Import Notes` (Case B re-import): only update the checklist section - do not re-synthesize constructs or remaining approaches.
 
 Write silently - do not narrate what you are writing.
 
@@ -238,7 +246,7 @@ From the chat:
 - Code: [written / not yet written]
 
 Checklist items still open:
-[list the unchecked items from the session checklist]
+[list the unchecked items from ## Import Notes -> ### Session Checklist in active-problem.md]
 
 Ready to continue. What would you like to do next?
 ```

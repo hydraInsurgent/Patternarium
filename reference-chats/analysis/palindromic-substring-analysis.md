@@ -55,6 +55,30 @@ The chat ends mid-discussion - the last two questions (j computation from i, and
 
 ---
 
+## Approaches
+
+### Approach 1: Center Expansion
+**Complexity:** O(n²) time, O(1) space
+**Structure:** For each index `i`, call `expand(i, i)` (odd-length center) and `expand(i, i+1)` (even-length center). Each call expands outward while `s[left] == s[right]`, incrementing a counter on each valid step.
+**Key optimization / insight:** No pre-check before even-length expansion - the while condition handles a starting mismatch naturally. Count inside the loop, not after. No boundary correction needed.
+
+### Approach 2: Dynamic Programming
+**Complexity:** O(n²) time, O(n²) space
+**Structure:** Fill `dp[i][j]` for increasing substring lengths (1, 2, 3, ...). Base: length 1 always true, length 2 check `s[i] == s[j]`. Transition: `dp[i][j] = (s[i] == s[j]) && dp[i+1][j-1]`. Increment count whenever `dp[i][j] = true`.
+**Key optimization / insight:** Fill order (by length, not by `i`) ensures `dp[i+1][j-1]` is always computed before `dp[i][j]`. `j = i + length - 1`. Count can happen inline while filling.
+
+---
+
+## Core Formula / Key Condition
+
+Center expansion has no single formula - the correctness condition is structural:
+- **Count inside the loop, not after.** Every successful iteration of `while (left >= 0 && right < n && s[left] == s[right])` is one valid palindrome. The loop never executes an invalid state, so no boundary correction is needed after exit.
+- **DP transition:** `dp[i][j] = (s[i] == s[j]) && dp[i+1][j-1]`, with base cases: length 1 (`i == j`) is always true; length 2 (`j == i + 1`) checks only `s[i] == s[j]`. Fill in order of increasing substring length so inner results are always ready.
+
+The non-obvious part: both approaches share the same palindrome definition but differ completely in bookkeeping. Center expansion counts events as they happen. DP pre-computes all answers and counts after.
+
+---
+
 ## Approaches Mentioned But Not Explored
 
 - **Brute force** - mentioned by ChatGPT as a starting point but user jumped straight to center expansion
@@ -106,6 +130,24 @@ Must fill in increasing substring length because dp[i][j] depends on dp[i+1][j-1
 | Center Expansion | Expand from each center (odd + even) | O(n²) time, O(1) space |
 | DP (2D table) | Bottom-up, fill by increasing length | O(n²) time, O(n²) space |
 | Manacher's | Not explored | O(n) time, O(n) space |
+
+---
+
+## Constructs Used
+
+- `int count` (center expansion) - simple counter incremented once per valid expansion step inside the while loop
+- `bool[,] dp` (DP approach) - 2D boolean table where `dp[i,j]` stores whether substring s[i..j] is a palindrome; sized n x n
+- Outer loop over substring length, inner loop over starting index `i` (DP fill order) - the outer variable is length, not `i` or `j` directly
+
+---
+
+## Pattern Signals
+
+- Problem asks to **count**, not find - signals a counting loop rather than boundary tracking or index return
+- Output is a single integer - no need to track which palindromes, only how many
+- Substring problem with symmetry - palindrome check naturally expands from a center point
+- "All palindromic substrings" wording - suggests every possible center must be evaluated, not just the longest
+- DP signal: "can we reuse the result of a smaller subproblem?" - checking whether s[0..3] is a palindrome reuses the check for s[1..2], which is also independently evaluated elsewhere
 
 ---
 
