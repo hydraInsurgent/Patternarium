@@ -1,3 +1,13 @@
+---
+name: "Insertion Sort"
+slug: insertion-sort
+category: algorithm
+tags: [sorting, comparison-based, in-place, stable]
+time: "O(n^2) average/worst, O(n) best"
+space: "O(1)"
+related: [quicksort, mergesort]
+---
+
 # Insertion Sort
 
 ## What It Is
@@ -39,4 +49,11 @@ insertionsort(arr):
 - Do not use on large unsorted arrays - O(n^2) becomes very slow
 
 ## Seen In
-- (not yet linked to any solved problem)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN algorithms AS algo
+WHERE algo = "insertion-sort"
+SORT problem asc
+```

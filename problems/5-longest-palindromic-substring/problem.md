@@ -1,11 +1,13 @@
 ---
 title: Longest Palindromic Substring
+number: 5
+slug: longest-palindromic-substring
 category: DSA-Practice
 difficulty: Medium
 source: LeetCode
 status: solved
-lists:
-  - blind-75
+lists: [blind-75]
+tags: [palindrome, expand-around-center, center-expansion]
 ---
 
 # Longest Palindromic Substring
@@ -31,5 +33,3 @@ Output: "bb"
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: String, Two Pointers, Palindrome

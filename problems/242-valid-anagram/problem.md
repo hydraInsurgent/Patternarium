@@ -1,10 +1,13 @@
 ---
-title: "242. Valid Anagram"
+title: Valid Anagram
+number: 242
+slug: valid-anagram
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
+tags: [anagram, frequency-count, character-frequency]
 ---
 
 # 242. Valid Anagram
@@ -34,5 +37,3 @@ Output: false
 
 - [Solutions overview](solutions.md)
 - [Notes and mistakes](notes.md)
-
-tags :: strings, hash-map, sorting, frequency-count, anagram

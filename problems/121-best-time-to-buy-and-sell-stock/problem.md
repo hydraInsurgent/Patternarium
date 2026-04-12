@@ -1,10 +1,13 @@
 ---
 title: Best Time to Buy and Sell Stock
+number: 121
+slug: best-time-to-buy-and-sell-stock
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
+tags: [running-minimum, max-profit, single-pass]
 ---
 
 # Best Time to Buy and Sell Stock
@@ -42,5 +45,3 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Array, Linear Scan

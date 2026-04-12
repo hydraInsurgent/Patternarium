@@ -1,3 +1,13 @@
+---
+name: "QuickSort"
+slug: quicksort
+category: algorithm
+tags: [sorting, divide-and-conquer, in-place, unstable]
+time: "O(n log n) average, O(n^2) worst"
+space: "O(log n)"
+related: [mergesort, insertion-sort]
+---
+
 # QuickSort
 
 ## What It Is
@@ -46,4 +56,11 @@ partition(arr, low, high):
 - Not stable - equal elements may change relative order
 
 ## Seen In
-- (not yet linked to any solved problem)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN algorithms AS algo
+WHERE algo = "quicksort"
+SORT problem asc
+```

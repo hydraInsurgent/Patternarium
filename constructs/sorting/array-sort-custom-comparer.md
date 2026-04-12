@@ -1,5 +1,6 @@
 ---
 name: "Array.Sort - Custom Comparer"
+slug: array-sort
 category: sorting
 tags: [sorting, comparer, lambda, icomparer, custom-sort, multi-key]
 language: csharp
@@ -105,3 +106,11 @@ The function must return:
 - [icomparable.md](../sorting/icomparable.md) - what `CompareTo` is, how primitives implement it, and how to define it on your own class
 
 ## Seen In
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN constructs AS construct
+WHERE construct = "array-sort"
+SORT problem asc
+```

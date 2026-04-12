@@ -1,10 +1,13 @@
 ---
 title: Contains Duplicate
+number: 217
+slug: contains-duplicate
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
-lists: [phased-75, blind-75]
+lists: [blind-75, phased-75]
+tags: [duplicate-detection, existence-check, set-lookup]
 ---
 
 # Contains Duplicate
@@ -36,5 +39,3 @@ Output: true
 
 - [solutions.md](solutions.md) - approaches, patterns, reflection
 - [notes.md](notes.md) - mistakes, insights, mantras
-
-tags :: Array, HashSet, Sorting, HashMap

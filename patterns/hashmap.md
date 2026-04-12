@@ -1,6 +1,20 @@
-# HashMap Pattern
+---
+name: hashmap
+display_name: HashMap
+category: pattern
+variations:
+  - name: Complement Lookup
+    ds: [array, hashmap]
+  - name: Last Seen Index
+    ds: [string, hashmap]
+  - name: HashSet Existence Lookup
+    ds: [array, hashset]
+  - name: Frequency Count
+    ds: [string, hashmap, array]
+ds-primary: [array, string, hashmap, hashset]
+---
 
-**display_name:** HashMap
+# HashMap Pattern
 
 ## Core Idea
 
@@ -165,3 +179,13 @@ For stack allocation with no GC pressure, use `Span<int>` with `stackalloc int[2
 - **Wrong map structure** - storing index as key when you need to look up by value
 - **Forgetting to store** - checking but never inserting means the map stays empty forever
 - **Start moving left** - not guarding the index jump with `>= start` corrupts the window (Last Seen Index)
+
+## Solved Problems
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "HashMap"
+SORT problem asc
+```

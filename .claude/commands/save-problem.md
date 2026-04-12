@@ -21,12 +21,24 @@ Ask user to confirm: "Save to `problems/<slug>/`?"
 ### Step 3 - Write problem.md
 
 Parse `## Problem` and `## Statement` from the active file. Write to `problems/<slug>/problem.md` with:
-- YAML frontmatter: `title`, `category: DSA-Practice`, `difficulty`, `source: LeetCode`, `status: solved`, `lists: [<list-names>]` (from what was set in Mode 1; if no list was specified, write `lists: []`)
+- YAML frontmatter with all fields:
+  ```yaml
+  title: Two Sum
+  number: 1
+  slug: two-sum
+  category: DSA-Practice
+  difficulty: Easy
+  source: LeetCode
+  status: solved
+  lists: [blind-75]
+  tags: [complement-lookup, index-tracking, target-sum]
+  ```
+  - `number` and `slug` are derived from the folder name
+  - `lists` from what was set in Mode 1; write `lists: []` if none specified
+  - `tags` are AI-inferred from the patterns and data structures used during the session
 - Problem title as `# Heading`
 - `## Statement`, `## Examples`, `## Constraints` as separate sections. Keep the problem statement as-is from the source - do not restructure
 - `## Solutions` section at bottom with links to `solutions.md` and `notes.md`
-- Tags as inline metadata at the very bottom: `tags :: [comma-separated tags]` (placed here to avoid spoiling the approach)
-- Tags are AI-inferred from the patterns and data structures used during the session
 
 ### Step 4 - Write solution .cs files
 
@@ -46,7 +58,47 @@ Approaches with status "in-progress" or "stuck" in `active-problem.md` are skipp
 
 ### Step 5 - Write solutions.md
 
-Create `problems/<slug>/solutions.md` with:
+Create `problems/<slug>/solutions.md`. Write YAML frontmatter first, then the markdown body.
+
+**Frontmatter:**
+
+```yaml
+---
+problem: <number>
+problem-title: <Problem Name>
+difficulty: Easy | Medium | Hard
+category: solutions
+patterns: [DisplayName1, DisplayName2]
+constructs: [slug1, slug2]
+ds-used: [ds1, ds2]
+algorithms: []
+approaches:
+  - name: Brute Force
+    file: solutions/brute-force.cs
+    patterns: []
+    constructs: []
+    ds-used: [array]
+    time: "O(n^2)"
+    space: "O(1)"
+  - name: HashMap - Complement Lookup
+    file: solutions/hashmap.cs
+    patterns: [HashMap]
+    variation: Complement Lookup
+    constructs: [dictionary]
+    ds-used: [array, hashmap]
+    ds-notes:
+      hashmap: "complement lookup: store value -> index"
+    time: "O(n)"
+    space: "O(n)"
+---
+```
+
+- `patterns`, `constructs`, `ds-used`, `algorithms` at the top level are flat lists aggregated across all solved approaches - used by Dataview queries
+- Each entry in `approaches:` maps to one solved approach. Include `variation` only when the approach uses a named pattern variation. Include `ds-notes` only when a DS is used in a non-obvious way. `file` is the relative path within the problem folder (e.g., `solutions/hashmap.cs`)
+- Pattern names use `display_name` from the pattern file. Construct and algorithm names use their `slug` field
+- `category: solutions` enables Dataview queries to filter solutions.md files from problem.md files when querying `FROM "problems"`
+
+**Markdown body:**
 - `# [Problem Name] - Solutions` heading
 - `## Approaches` section: for each solved approach, write:
   - `### Approach N: [name]`
@@ -61,7 +113,7 @@ Create `problems/<slug>/solutions.md` with:
   **Idea:** [one-sentence description of what was discussed]
   ```
   Use `---` separator before each placeholder block, same as solved approaches.
-- `## Patterns` section: for each pattern, look up its `display_name` from the pattern `.md` file. Link using that display name: `[Display Name](../../patterns/<filename>.md) (Approach N) - description`
+- `## Patterns` section: for each pattern, link using `display_name` and variation name with a heading anchor: `[display_name - Variation Name](../../patterns/<file>.md#variation-<anchor>) (Approach N) - description`
 - `## Reflection` section with required fields: `**Key insight:**`, `**Future strategy:**`, plus any session-specific fields that capture what the user actually said
 
 ### Step 6 - Write notes.md
@@ -73,29 +125,32 @@ Combine from the active file:
 
 In saved files, skip empty sections entirely. Do not write section headings with no content.
 
-### Step 7 - Update pattern-index.json
+### Step 7 - Regenerate master-index.json
 
-Use the LeetCode problem number as the key. Title and metadata live inside the object. Pattern names match the `display_name` field in the pattern file. Example:
-```json
-"13": {
-  "title": "Roman to Integer",
-  "slug": "roman-to-integer",
-  "difficulty": "Easy",
-  "patterns": ["Linear Scan", "Preprocessing", "Chunked Iteration"],
-  "approaches": {
-    "right-to-left-scan.cs": ["Linear Scan"],
-    "string-replacement.cs": ["Preprocessing"]
-  }
-}
+Run from repo root:
+
+```
+dotnet run scripts/Rebuild-Index.cs
 ```
 
-Key is always the problem number (string). Display names are looked up from the pattern file when needed.
+This reads the `solutions.md` YAML frontmatter from every problem folder and regenerates `master-index.json` with the full `problems` map and all four reverse-lookup indexes (`by-pattern`, `by-ds`, `by-construct`, `by-algorithm`).
 
-### Step 8 - Update pattern files
+Do not hand-write master-index.json entries. The script is the single source of truth for this file. If the script fails, report the error to the user before proceeding.
 
-For each pattern in `## Patterns`:
-- Add this problem to the "Solved Problems" section of `patterns/<pattern>.md`
-- Add any new bugs from this session to the "Common Mistakes" section if applicable
+### Step 8 - Update DS coverage tables
+
+For each value in `ds-used` from the problem's `solutions.md` frontmatter:
+- Find `data-structures/<slug>.md` (the `slug` field in DS frontmatter matches the ds-used value)
+- In the `## Coverage` section, match by link target: search for a row containing `[display_name](../patterns/file.md)` for each pattern used
+- If the linked row exists: append this problem to its Problems Solved column
+- If no linked row exists: add a new row using the exact format `[display_name](../patterns/file.md)`
+- Plain text placeholders: if a plain text row closely matches the pattern's display_name and the pattern file exists, convert it to a link first, then update
+
+After updating rows:
+- Recount explored rows, recalculate the percentage, update the `progress` field in DS frontmatter
+- Update the matching row in `workbench/goals.md` Data Structure Coverage table
+
+All coverage writes are silent.
 
 ### Step 9 - Update workbench lists
 
@@ -119,11 +174,12 @@ If no `lists` field exists in the frontmatter, skip this step.
 
 If any bugs or reflection mistakes warrant a lesson entry, add them to the appropriate section in LESSONS.md (Conceptual Mistakes, Code Mistakes, or Pattern Misidentifications).
 
-### Step 10 - Confirm and suggest cleanup
+### Step 11 - Confirm and suggest cleanup
 
 Show a summary of what was created and updated:
 - Files created in `problems/<slug>/`
-- Patterns updated
+- master-index.json updated
+- DS coverage tables updated
 - LESSONS.md entries added (if any)
 
 Then suggest: "Ready to clear the active files for the next problem?"
@@ -134,6 +190,10 @@ If the user confirms, clear both `active-problem.md` and `active-solution.cs` to
 
 - Ask the user to confirm the notes content before writing - do not invent reflection notes
 - If a pattern file does not exist yet, create it using the template in `docs/pattern-system.md`
+- If an algorithm file does not exist yet, create it using the template in `docs/pattern-system.md`
+- If a construct file does not exist yet, create it using the construct template in `docs/pattern-system.md`. Choose the category from the taxonomy in that file. Create the file at `constructs/<category>/<slug>.md`
+- If a concept file does not exist yet, create it using the concept template in `docs/pattern-system.md`. Create the file at `concepts/<slug>.md`
+- If a new variation of an existing pattern was used, check whether the variation name (from the `variation` field in Step 7 approaches) already exists as a `## Variation: [name]` heading in the pattern file. If not, add the section: populate **When to reach for this** from the session, **Template** from the code structure used, **Common Mistakes** from any bugs logged during the session. The `## Seen In` block within the variation is a Dataview query - do not write it manually
 - Prettification means: rename variables, one comment per logical block, plus session-derived "Why" blocks for decisions the user struggled with
 - If the active file is incomplete (e.g., no Reflection section), ask the user to fill in the gaps before saving
 - Active files are cleared to empty (not deleted) only when the user confirms

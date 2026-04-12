@@ -1,6 +1,16 @@
-# Linear Scan
+---
+name: linear-scan
+display_name: Linear Scan
+category: pattern
+variations:
+  - name: Neighbor Comparison
+    ds: [array, string]
+  - name: Running State
+    ds: [array]
+ds-primary: [array, string]
+---
 
-**display_name:** Linear Scan
+# Linear Scan
 
 ## Core Idea
 
@@ -77,3 +87,13 @@ for each element from second onward:
 - **Off-by-one in loop bounds** - skipping first or last element when comparing with a neighbor
 - **Forgetting the boundary element** - the element with no neighbor to compare against needs special handling
 - **Getting comparison direction backwards** - `>` vs `<` when switching scan direction
+
+## Solved Problems
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Linear Scan"
+SORT problem asc
+```

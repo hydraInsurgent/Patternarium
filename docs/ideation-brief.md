@@ -40,7 +40,7 @@ All generated questions must be grounded in repo data only:
 - `patterns/*.md`
 - `problems/*/notes.md`
 - `LESSONS.md`
-- `pattern-index.json`
+- `master-index.json`
 
 External MCQs are user-imported manually - their choice, their library. The system stores them in the same format but does not generate them.
 

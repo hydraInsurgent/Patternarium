@@ -1,5 +1,6 @@
 ---
 name: "Linked List"
+slug: linked-list
 status: stub
 progress: 0
 ---
@@ -68,4 +69,11 @@ A chain of boxes, each box holding a value and a string tied to the next box. Yo
 ---
 
 ## Seen In
-(not yet encountered in sessions)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "linked-list"
+SORT problem asc
+```

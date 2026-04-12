@@ -1,9 +1,13 @@
 ---
 title: Roman to Integer
+number: 13
+slug: roman-to-integer
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
+lists: []
+tags: [lookup-table, subtractive-notation, roman-numerals]
 ---
 
 # Roman to Integer
@@ -35,5 +39,3 @@ Roman numerals use seven symbols: I (1), V (5), X (10), L (50), C (100), D (500)
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: String, HashMap

@@ -1,5 +1,6 @@
 ---
 name: "Trie"
+slug: trie
 status: stub
 progress: 0
 ---
@@ -67,4 +68,11 @@ A branching path where each step is one character. All words starting with "ca" 
 ---
 
 ## Seen In
-(not yet encountered in sessions)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "trie"
+SORT problem asc
+```

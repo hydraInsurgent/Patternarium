@@ -1,3 +1,42 @@
+---
+problem: 1
+problem-title: Two Sum
+difficulty: Easy
+category: solutions
+patterns: [HashMap, Two Pointers]
+constructs: [dictionary, array-sort]
+ds-used: [array, hashmap]
+algorithms: []
+approaches:
+  - name: Brute Force
+    file: solutions/brute-force.cs
+    patterns: []
+    constructs: []
+    ds-used: [array]
+    time: "O(n^2)"
+    space: "O(1)"
+  - name: HashMap - Complement Lookup
+    file: solutions/hashmap.cs
+    patterns: [HashMap]
+    variation: Complement Lookup
+    constructs: [dictionary]
+    ds-used: [array, hashmap]
+    ds-notes:
+      hashmap: "complement lookup: store value -> index"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Sorting + Two Pointers
+    file: solutions/two-pointer.cs
+    patterns: [Two Pointers]
+    variation: Sorted Pair
+    constructs: [array-sort]
+    ds-used: [array]
+    ds-notes:
+      array: "tuple array preserves original indices through sort"
+    time: "O(n log n)"
+    space: "O(n)"
+---
+
 # Two Sum - Solutions
 
 ## Approaches

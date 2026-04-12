@@ -1,10 +1,13 @@
 ---
 title: Valid Parentheses
+number: 20
+slug: valid-parentheses
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
+tags: [bracket-matching, lifo, stack-matching]
 ---
 
 # Valid Parentheses
@@ -50,5 +53,3 @@ Output: false
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Stack, String, HashMap

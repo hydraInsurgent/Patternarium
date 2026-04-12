@@ -1,6 +1,14 @@
-# Prefix/Suffix Decomposition
+---
+name: prefix-suffix-decomposition
+display_name: Prefix/Suffix Decomposition
+category: pattern
+variations:
+  - name: Prefix/Suffix Product
+    ds: [array]
+ds-primary: [array]
+---
 
-**display_name:** Prefix/Suffix Decomposition
+# Prefix/Suffix Decomposition
 
 ## Core Idea
 
@@ -58,3 +66,13 @@ for (int i = 0; i < n; i++)
 
 - **Including the current element in its own prefix/suffix** - `prefix[i] = prefix[i-1] * nums[i]` includes nums[i] in its own left product. Must use `nums[i-1]` to exclude self
 - **Using same-direction indices when combining** - if suffix is built in a different direction, you may need complementary indices to pair correctly
+
+## Solved Problems
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Prefix/Suffix Decomposition"
+SORT problem asc
+```

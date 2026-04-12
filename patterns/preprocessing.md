@@ -1,6 +1,18 @@
-# Preprocessing
+---
+name: preprocessing
+display_name: Preprocessing
+category: pattern
+variations:
+  - name: Normalize Before Compute
+    ds: [string]
+  - name: Sort to Expose Structure
+    ds: [array]
+  - name: Build Derived Data
+    ds: [array]
+ds-primary: [string, array]
+---
 
-**display_name:** Preprocessing
+# Preprocessing
 
 ## Core Idea
 
@@ -113,4 +125,14 @@ for (int i = 0; i < n; i++)
 - **Forgetting C# strings are immutable** - `Replace()` returns a new string, does not modify in place
 - **Not accounting for space cost** - the transformed input requires O(n) extra space
 - **Order of replacements** - replacements can interfere if they overlap; order may matter
+
+## Solved Problems
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Preprocessing"
+SORT problem asc
+```
 - **Including the current element in its own derived value** - when building prefix/suffix arrays, off-by-one in the index formula can include the element at position i in its own precomputed value

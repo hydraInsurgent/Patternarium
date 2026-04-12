@@ -1,11 +1,13 @@
 ---
 title: Longest Consecutive Sequence
+number: 128
+slug: longest-consecutive-sequence
 category: DSA-Practice
 difficulty: Medium
 source: LeetCode
 status: solved
-lists:
-  - blind-75
+lists: [blind-75]
+tags: [consecutive-sequence, sequence-start, existence-lookup]
 ---
 
 # Longest Consecutive Sequence
@@ -40,5 +42,3 @@ Output: 3
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Array, HashSet, Sorting

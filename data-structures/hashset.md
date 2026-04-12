@@ -1,5 +1,6 @@
 ---
 name: "HashSet"
+slug: hashset
 status: explored
 progress: 33
 ---
@@ -61,5 +62,11 @@ HashSet use cases are variations of the [HashMap](../patterns/hashmap.md) patter
 ---
 
 ## Seen In
-- 217 - Contains Duplicate (track seen elements, check before inserting)
-- 128 - Longest Consecutive Sequence (existence lookup to find sequence starts)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "hashset"
+SORT problem asc
+```

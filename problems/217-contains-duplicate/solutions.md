@@ -1,3 +1,35 @@
+---
+problem: 217
+problem-title: Contains Duplicate
+difficulty: Easy
+category: solutions
+patterns: [HashMap, Preprocessing]
+constructs: [hashset, array-sort]
+ds-used: [array, hashset]
+algorithms: []
+approaches:
+  - name: HashSet Lookup
+    file: solutions/hashset-seen.cs
+    patterns: [HashMap]
+    variation: HashSet Existence Lookup
+    constructs: [hashset]
+    ds-used: [array, hashset]
+    ds-notes:
+      hashset: "O(1) existence check; check before adding to catch duplicates"
+    time: "O(n)"
+    space: "O(n)"
+  - name: Sort + Adjacent Check
+    file: solutions/sort-adjacent-check.cs
+    patterns: [Preprocessing]
+    variation: Sort Adjacent Check
+    constructs: [array-sort]
+    ds-used: [array]
+    ds-notes:
+      array: "sorted array; duplicates become adjacent neighbors"
+    time: "O(n log n)"
+    space: "O(1)"
+---
+
 # Contains Duplicate - Solutions
 
 ## Approaches

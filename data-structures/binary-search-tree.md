@@ -1,5 +1,6 @@
 ---
 name: "Binary Search Tree"
+slug: binary-search-tree
 status: stub
 progress: 0
 ---
@@ -68,4 +69,11 @@ Inorder traversal of a BST always produces elements in sorted order. This is the
 ---
 
 ## Seen In
-(not yet encountered in sessions)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "binary-search-tree"
+SORT problem asc
+```

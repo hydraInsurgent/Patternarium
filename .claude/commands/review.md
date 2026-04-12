@@ -1,10 +1,10 @@
 # Review - Test Pattern Recall
 
-Pick a past problem from `pattern-index.json` and test the user's recall.
+Pick a past problem from `master-index.json` and test the user's recall.
 
 ## How to pick a problem
 
-1. Read `pattern-index.json` to see all solved problems and their patterns
+1. Read `master-index.json` to see all solved problems and their patterns
 2. Prefer problems the user has not revisited recently
 3. If a pattern appears across multiple problems, pick the one solved longest ago
 4. If the user specifies a pattern (e.g., `/review hashmap`), pick a problem that uses that pattern

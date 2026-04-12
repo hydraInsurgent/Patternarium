@@ -1,6 +1,16 @@
-# Presence Array
+---
+name: presence-array
+display_name: Presence Array
+category: pattern
+variations:
+  - name: Boolean Presence
+    ds: [array]
+  - name: Integer Slot
+    ds: [string, array]
+ds-primary: [array, string]
+---
 
-**display_name:** Presence Array
+# Presence Array
 
 ## Core Idea
 
@@ -100,3 +110,13 @@ if (lastSeen[s[end]] > 0)
 - **Resetting count to 1 instead of 0** - after a gap, the next true slot does count++, so reset must be 0 or the first element after a gap counts as 2 (Boolean Presence)
 - **Forgetting the offset** - using `present[n]` instead of `present[n - min]` causes index out of bounds
 - **Not using index+1 trick** - default value 0 is indistinguishable from "seen at index 0" without the +1 shift (Integer Slot)
+
+## Solved Problems
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Presence Array"
+SORT problem asc
+```

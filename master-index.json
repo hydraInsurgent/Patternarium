@@ -1,0 +1,772 @@
+{
+  "_saving": null,
+  "problems": {
+    "1": {
+      "title": "Two Sum",
+      "slug": "two-sum",
+      "difficulty": "Easy",
+      "patterns": [
+        "HashMap",
+        "Two Pointers"
+      ],
+      "constructs": [
+        "dictionary",
+        "array-sort"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "array",
+        "hashmap"
+      ],
+      "lists": [
+        "blind-75"
+      ],
+      "ds-notes": {
+        "hashmap": "complement lookup: store value -\u003E index",
+        "array": "tuple array preserves original indices through sort"
+      },
+      "approaches": {
+        "brute-force.cs": {
+          "ds-used": [
+            "array"
+          ]
+        },
+        "hashmap.cs": {
+          "patterns": [
+            "HashMap"
+          ],
+          "variation": "Complement Lookup",
+          "ds-used": [
+            "array",
+            "hashmap"
+          ]
+        },
+        "two-pointer.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "Sorted Pair",
+          "ds-used": [
+            "array"
+          ]
+        }
+      }
+    },
+    "121": {
+      "title": "Best Time to Buy and Sell Stock",
+      "slug": "best-time-to-buy-and-sell-stock",
+      "difficulty": "Easy",
+      "patterns": [
+        "Linear Scan"
+      ],
+      "constructs": [
+        "math-functions"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "array"
+      ],
+      "lists": [
+        "blind-75",
+        "phased-75"
+      ],
+      "ds-notes": {
+        "array": "nested loops check every buy-sell pair"
+      },
+      "approaches": {
+        "brute-force.cs": {
+          "ds-used": [
+            "array"
+          ]
+        },
+        "running-state.cs": {
+          "patterns": [
+            "Linear Scan"
+          ],
+          "variation": "Running State",
+          "ds-used": [
+            "array"
+          ]
+        }
+      }
+    },
+    "125": {
+      "title": "Valid Palindrome",
+      "slug": "valid-palindrome",
+      "difficulty": "Easy",
+      "patterns": [
+        "Two Pointers"
+      ],
+      "constructs": [
+        "char-methods",
+        "linq"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "string",
+        "array"
+      ],
+      "lists": [
+        "blind-75"
+      ],
+      "ds-notes": {
+        "string": "cleaned and lowercased before scan",
+        "array": "char[] built from LINQ-filtered string"
+      },
+      "approaches": {
+        "inward-two-pointer.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "Clean Then Scan",
+          "ds-used": [
+            "string",
+            "array"
+          ]
+        },
+        "two-pointer-without-extra-space.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "In-Place Pointer",
+          "ds-used": [
+            "string"
+          ]
+        },
+        "ascii-two-pointer.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "ASCII Range Check",
+          "ds-used": [
+            "string"
+          ]
+        }
+      }
+    },
+    "128": {
+      "title": "Longest Consecutive Sequence",
+      "slug": "longest-consecutive-sequence",
+      "difficulty": "Medium",
+      "patterns": [
+        "Linear Scan",
+        "HashMap",
+        "Presence Array"
+      ],
+      "constructs": [
+        "hashset",
+        "array-sort"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "array",
+        "hashset"
+      ],
+      "lists": [
+        "blind-75"
+      ],
+      "ds-notes": {
+        "array": "sorted array; skip duplicates, count consecutive runs",
+        "hashset": "O(1) lookup; number is a sequence start only if n-1 is not in the set"
+      },
+      "approaches": {
+        "sort-linear-scan.cs": {
+          "patterns": [
+            "Linear Scan"
+          ],
+          "variation": "Sort Linear Scan",
+          "ds-used": [
+            "array"
+          ]
+        },
+        "hashset-sequence-start.cs": {
+          "patterns": [
+            "HashMap"
+          ],
+          "variation": "Sequence Start Detection",
+          "ds-used": [
+            "array",
+            "hashset"
+          ]
+        },
+        "presence-array.cs": {
+          "patterns": [
+            "Presence Array",
+            "HashMap"
+          ],
+          "variation": "Presence Array with HashSet Fallback",
+          "ds-used": [
+            "array",
+            "hashset"
+          ]
+        }
+      }
+    },
+    "13": {
+      "title": "Roman to Integer",
+      "slug": "roman-to-integer",
+      "difficulty": "Easy",
+      "patterns": [
+        "Linear Scan",
+        "Preprocessing",
+        "Chunked Iteration"
+      ],
+      "constructs": [
+        "dictionary",
+        "string-replace"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "string",
+        "hashmap"
+      ],
+      "lists": [],
+      "ds-notes": {
+        "hashmap": "char -\u003E int lookup table for roman numeral values",
+        "string": "string.Replace encodes subtractive pairs as single chars before scanning"
+      },
+      "approaches": {
+        "right-to-left-scan.cs": {
+          "patterns": [
+            "Linear Scan"
+          ],
+          "variation": "Right to Left",
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        },
+        "left-to-right-scan.cs": {
+          "patterns": [
+            "Linear Scan"
+          ],
+          "variation": "Left to Right Lookahead",
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        },
+        "string-replacement.cs": {
+          "patterns": [
+            "Preprocessing"
+          ],
+          "variation": "String Replacement",
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        },
+        "two-char-lookahead.cs": {
+          "patterns": [
+            "Chunked Iteration"
+          ],
+          "variation": "Two Char Lookahead",
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        }
+      }
+    },
+    "20": {
+      "title": "Valid Parentheses",
+      "slug": "valid-parentheses",
+      "difficulty": "Easy",
+      "patterns": [
+        "Reverse Order Matching"
+      ],
+      "constructs": [
+        "stack",
+        "dictionary"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "string",
+        "stack",
+        "hashmap",
+        "array"
+      ],
+      "lists": [
+        "blind-75",
+        "phased-75"
+      ],
+      "ds-notes": {
+        "stack": "LIFO bracket matching",
+        "hashmap": "closing -\u003E opening bracket complement map",
+        "array": "char[] used as manual stack; push expected closing bracket on open"
+      },
+      "approaches": {
+        "hashmap-complement.cs": {
+          "patterns": [
+            "Reverse Order Matching"
+          ],
+          "variation": "HashMap Complement",
+          "ds-used": [
+            "string",
+            "stack",
+            "hashmap"
+          ]
+        },
+        "complement-push.cs": {
+          "patterns": [
+            "Reverse Order Matching"
+          ],
+          "variation": "Complement Push",
+          "ds-used": [
+            "string",
+            "array"
+          ]
+        }
+      }
+    },
+    "217": {
+      "title": "Contains Duplicate",
+      "slug": "contains-duplicate",
+      "difficulty": "Easy",
+      "patterns": [
+        "HashMap",
+        "Preprocessing"
+      ],
+      "constructs": [
+        "hashset",
+        "array-sort"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "array",
+        "hashset"
+      ],
+      "lists": [
+        "blind-75",
+        "phased-75"
+      ],
+      "ds-notes": {
+        "hashset": "O(1) existence check; check before adding to catch duplicates",
+        "array": "sorted array; duplicates become adjacent neighbors"
+      },
+      "approaches": {
+        "hashset-seen.cs": {
+          "patterns": [
+            "HashMap"
+          ],
+          "variation": "HashSet Existence Lookup",
+          "ds-used": [
+            "array",
+            "hashset"
+          ]
+        },
+        "sort-adjacent-check.cs": {
+          "patterns": [
+            "Preprocessing"
+          ],
+          "variation": "Sort Adjacent Check",
+          "ds-used": [
+            "array"
+          ]
+        }
+      }
+    },
+    "238": {
+      "title": "Product of Array Except Self",
+      "slug": "product-of-array-except-self",
+      "difficulty": "Medium",
+      "patterns": [
+        "Prefix/Suffix Decomposition",
+        "Two Pointers",
+        "Preprocessing",
+        "Multi-Pass Construction"
+      ],
+      "constructs": [],
+      "algorithms": [],
+      "ds-used": [
+        "array"
+      ],
+      "lists": [
+        "blind-75",
+        "phased-75"
+      ],
+      "ds-notes": {
+        "array": "two separate prefix and suffix product arrays; output is element-wise product"
+      },
+      "approaches": {
+        "brute-force.cs": {
+          "ds-used": [
+            "array"
+          ]
+        },
+        "prefix-suffix-arrays.cs": {
+          "patterns": [
+            "Prefix/Suffix Decomposition",
+            "Preprocessing"
+          ],
+          "variation": "Prefix Suffix Arrays",
+          "ds-used": [
+            "array"
+          ]
+        },
+        "two-pointer-converging.cs": {
+          "patterns": [
+            "Prefix/Suffix Decomposition",
+            "Two Pointers",
+            "Multi-Pass Construction"
+          ],
+          "variation": "Two Pointer Converging",
+          "ds-used": [
+            "array"
+          ]
+        },
+        "two-pass-sequential.cs": {
+          "patterns": [
+            "Prefix/Suffix Decomposition",
+            "Multi-Pass Construction"
+          ],
+          "variation": "Two Pass Sequential",
+          "ds-used": [
+            "array"
+          ]
+        }
+      }
+    },
+    "242": {
+      "title": "Valid Anagram",
+      "slug": "valid-anagram",
+      "difficulty": "Easy",
+      "patterns": [
+        "Preprocessing",
+        "HashMap"
+      ],
+      "constructs": [
+        "linq",
+        "dictionary",
+        "span"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "string",
+        "hashmap",
+        "array"
+      ],
+      "lists": [
+        "blind-75",
+        "phased-75"
+      ],
+      "ds-notes": {
+        "array": "char[] sorted via LINQ OrderBy; compare sorted arrays",
+        "hashmap": "char frequency count: increment on s, decrement on t, check all zero"
+      },
+      "approaches": {
+        "sort-compare.cs": {
+          "patterns": [
+            "Preprocessing"
+          ],
+          "variation": "Sort Compare",
+          "ds-used": [
+            "string",
+            "array"
+          ]
+        },
+        "hashmap-frequency.cs": {
+          "patterns": [
+            "HashMap"
+          ],
+          "variation": "HashMap Frequency Count",
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        },
+        "array-frequency.cs": {
+          "patterns": [
+            "HashMap"
+          ],
+          "variation": "Array Frequency Count",
+          "ds-used": [
+            "string",
+            "array"
+          ]
+        },
+        "span-frequency.cs": {
+          "patterns": [
+            "HashMap"
+          ],
+          "variation": "Span Frequency Count",
+          "ds-used": [
+            "string",
+            "array"
+          ]
+        }
+      }
+    },
+    "268": {
+      "title": "Missing Number",
+      "slug": "missing-number",
+      "difficulty": "Easy",
+      "patterns": [
+        "Odd One Out",
+        "Presence Array"
+      ],
+      "constructs": [],
+      "algorithms": [],
+      "ds-used": [
+        "array"
+      ],
+      "lists": [
+        "blind-75",
+        "phased-75"
+      ],
+      "ds-notes": {
+        "array": "bool[n\u002B1] marks each seen number; scan for false to find missing"
+      },
+      "approaches": {
+        "boolean-flag-array.cs": {
+          "patterns": [
+            "Odd One Out",
+            "Presence Array"
+          ],
+          "variation": "Boolean Flag Array",
+          "ds-used": [
+            "array"
+          ]
+        },
+        "gauss-sum.cs": {
+          "patterns": [
+            "Odd One Out"
+          ],
+          "variation": "Gauss Sum",
+          "ds-used": [
+            "array"
+          ]
+        },
+        "xor-cancellation.cs": {
+          "patterns": [
+            "Odd One Out"
+          ],
+          "variation": "XOR Cancellation",
+          "ds-used": [
+            "array"
+          ]
+        }
+      }
+    },
+    "3": {
+      "title": "Longest Substring Without Repeating Characters",
+      "slug": "longest-substring-without-repeating-characters",
+      "difficulty": "Medium",
+      "patterns": [
+        "Sliding Window",
+        "HashMap",
+        "Presence Array"
+      ],
+      "constructs": [
+        "hashset",
+        "dictionary",
+        "span"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "string",
+        "hashmap",
+        "hashset",
+        "array"
+      ],
+      "lists": [
+        "blind-75"
+      ],
+      "ds-notes": {
+        "hashset": "presence check in brute force window",
+        "hashmap": "char -\u003E last seen index for window boundary jump",
+        "array": "Span\u003Cint\u003E stack-allocated ASCII index array; fixed size independent of input"
+      },
+      "approaches": {
+        "brute-force.cs": {
+          "patterns": [
+            "Sliding Window"
+          ],
+          "variation": "Brute Force",
+          "ds-used": [
+            "string",
+            "hashset"
+          ]
+        },
+        "sliding-window-hashmap.cs": {
+          "patterns": [
+            "Sliding Window",
+            "HashMap"
+          ],
+          "variation": "Last Seen Index",
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        },
+        "sliding-window-span.cs": {
+          "patterns": [
+            "Sliding Window",
+            "Presence Array"
+          ],
+          "variation": "ASCII Span Array",
+          "ds-used": [
+            "string",
+            "array"
+          ]
+        }
+      }
+    },
+    "5": {
+      "title": "Longest Palindromic Substring",
+      "slug": "longest-palindromic-substring",
+      "difficulty": "Medium",
+      "patterns": [
+        "Two Pointers"
+      ],
+      "constructs": [],
+      "algorithms": [],
+      "ds-used": [
+        "string"
+      ],
+      "lists": [
+        "blind-75"
+      ],
+      "ds-notes": {
+        "string": "expand outward from each center index; odd and even expansion per position"
+      },
+      "approaches": {
+        "expand-around-center.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "Expand Around Center",
+          "ds-used": [
+            "string"
+          ]
+        }
+      }
+    }
+  },
+  "by-pattern": {
+    "HashMap": [
+      "1",
+      "3",
+      "128",
+      "217",
+      "242"
+    ],
+    "Two Pointers": [
+      "1",
+      "5",
+      "125",
+      "238"
+    ],
+    "Linear Scan": [
+      "13",
+      "121",
+      "128"
+    ],
+    "Presence Array": [
+      "3",
+      "128",
+      "268"
+    ],
+    "Preprocessing": [
+      "13",
+      "217",
+      "238",
+      "242"
+    ],
+    "Chunked Iteration": [
+      "13"
+    ],
+    "Reverse Order Matching": [
+      "20"
+    ],
+    "Prefix/Suffix Decomposition": [
+      "238"
+    ],
+    "Multi-Pass Construction": [
+      "238"
+    ],
+    "Odd One Out": [
+      "268"
+    ],
+    "Sliding Window": [
+      "3"
+    ]
+  },
+  "by-ds": {
+    "array": [
+      "1",
+      "3",
+      "20",
+      "121",
+      "125",
+      "128",
+      "217",
+      "238",
+      "242",
+      "268"
+    ],
+    "hashmap": [
+      "1",
+      "3",
+      "13",
+      "20",
+      "242"
+    ],
+    "string": [
+      "3",
+      "5",
+      "13",
+      "20",
+      "125",
+      "242"
+    ],
+    "hashset": [
+      "3",
+      "128",
+      "217"
+    ],
+    "stack": [
+      "20"
+    ]
+  },
+  "by-construct": {
+    "dictionary": [
+      "1",
+      "3",
+      "13",
+      "20",
+      "242"
+    ],
+    "array-sort": [
+      "1",
+      "128",
+      "217"
+    ],
+    "math-functions": [
+      "121"
+    ],
+    "char-methods": [
+      "125"
+    ],
+    "linq": [
+      "125",
+      "242"
+    ],
+    "hashset": [
+      "3",
+      "128",
+      "217"
+    ],
+    "string-replace": [
+      "13"
+    ],
+    "stack": [
+      "20"
+    ],
+    "span": [
+      "3",
+      "242"
+    ]
+  },
+  "by-algorithm": {}
+}

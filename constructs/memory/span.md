@@ -1,5 +1,6 @@
 ---
 name: "Span / stackalloc"
+slug: span
 category: memory
 tags: [span, stackalloc, stack-allocation, ascii, fixed-size-array, performance]
 language: csharp
@@ -43,5 +44,11 @@ seen[c] = 1;            // 'A' = 65, so seen[65] = 1
 - Only covers chars in the ASCII range (0-127). For Unicode input, fall back to Dictionary.
 
 ## Seen In
-- 3 - Longest Substring Without Repeating Characters (Approach 2.1) - int[128] indexed by ASCII char value, stores last seen index+1 to avoid 0-ambiguity
-- 242 - Valid Anagram (Approach 4) - Span<int> stackalloc int[26] for frequency counting with no heap allocation
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN constructs AS construct
+WHERE construct = "span"
+SORT problem asc
+```

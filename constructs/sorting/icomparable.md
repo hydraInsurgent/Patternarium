@@ -1,5 +1,6 @@
 ---
 name: "IComparable<T> / CompareTo"
+slug: icomparable
 category: sorting
 tags: [icomparable, compareto, comparison, ordering, interface, custom-class]
 language: csharp
@@ -97,3 +98,11 @@ The same applies to your own class - even if `Item` implements `IComparable<T>`,
 - [array-sort-custom-comparer.md](../sorting/array-sort-custom-comparer.md) - how to pass custom comparison logic to `Array.Sort`
 
 ## Seen In
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN constructs AS construct
+WHERE construct = "icomparable"
+SORT problem asc
+```

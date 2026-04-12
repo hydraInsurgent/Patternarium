@@ -1,11 +1,13 @@
 ---
 title: Two Sum
+number: 1
+slug: two-sum
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
-lists:
-  - blind-75
+lists: [blind-75]
+tags: [complement-lookup, index-tracking, target-sum]
 ---
 
 # Two Sum
@@ -67,5 +69,3 @@ Output: [0,1]
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Array, HashMap, Two Pointers

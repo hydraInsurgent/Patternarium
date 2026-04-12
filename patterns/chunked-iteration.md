@@ -1,6 +1,14 @@
-# Chunked Iteration
+---
+name: chunked-iteration
+display_name: Chunked Iteration
+category: pattern
+variations:
+  - name: Variable Step
+    ds: [string, hashmap]
+ds-primary: [string, hashmap]
+---
 
-**display_name:** Chunked Iteration
+# Chunked Iteration
 
 ## Core Idea
 
@@ -50,3 +58,13 @@ handle any remaining unprocessed element
 - **Forgetting the leftover** - the last element may not have been consumed by a multi-element group; always check after the loop
 - **Wrong comparison operator** - `>` instead of `>=` for equal values causes them to fall into the wrong branch (e.g., XX should not be a subtraction pair)
 - **Loop bounds with lookahead** - when checking `i + 1`, the loop condition must account for it (e.g., `i < length - 1`) to avoid index out of bounds
+
+## Solved Problems
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Chunked Iteration"
+SORT problem asc
+```

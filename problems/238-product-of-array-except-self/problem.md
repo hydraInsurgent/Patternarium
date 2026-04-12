@@ -1,10 +1,13 @@
 ---
 title: Product of Array Except Self
+number: 238
+slug: product-of-array-except-self
 category: DSA-Practice
 difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
+tags: [prefix-product, suffix-product, no-division]
 ---
 
 # Product of Array Except Self
@@ -36,5 +39,3 @@ You must write an algorithm that runs in O(n) time and without using the divisio
 
 - [Solution approaches & learning journey](solutions.md)
 - [Mistakes & key insights](notes.md)
-
-tags :: Array, Prefix/Suffix, Two Pointers, Multi-Pass

@@ -1,6 +1,20 @@
-# Two Pointers Pattern
+---
+name: two-pointers
+display_name: Two Pointers
+category: pattern
+variations:
+  - name: Sorted Pair
+    ds: [array]
+  - name: Symmetry Check
+    ds: [string]
+  - name: Expand Around Center
+    ds: [string]
+  - name: Converging/Diverging
+    ds: [array]
+ds-primary: [array, string]
+---
 
-**display_name:** Two Pointers
+# Two Pointers Pattern
 
 ## Core Idea
 
@@ -235,3 +249,13 @@ while (left < right)
 - Remove Duplicates from Sorted Array (Sorted Pair)
 - Valid Palindrome II - can remove one character (Symmetry Check)
 - Longest Palindromic Substring - expand outward from center (Expand Around Center) ✓ solved
+
+## Solved Problems
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Two Pointers"
+SORT problem asc
+```

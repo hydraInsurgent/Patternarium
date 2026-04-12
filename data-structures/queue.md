@@ -1,5 +1,6 @@
 ---
 name: "Queue"
+slug: queue
 status: stub
 progress: 0
 ---
@@ -62,4 +63,11 @@ A line of people. New people join at the back. The person at the front is served
 ---
 
 ## Seen In
-(not yet encountered in sessions)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty, patterns
+FROM "problems"
+FLATTEN ds-used AS ds
+WHERE ds = "queue"
+SORT problem asc
+```

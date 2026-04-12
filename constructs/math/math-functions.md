@@ -1,5 +1,6 @@
 ---
 name: "Math Functions"
+slug: math-functions
 category: math
 tags: [math, comparison, numeric-utilities, built-in]
 language: csharp
@@ -40,4 +41,11 @@ maxProfit = Math.Max(prices[i] - minSoFar, maxProfit);
 - `Math.Pow` returns `double`, not `int` - cast if needed
 
 ## Seen In
-- 121 - Best Time to Buy and Sell Stock (Math.Max/Math.Min for tracking running min price and max profit)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN constructs AS construct
+WHERE construct = "math-functions"
+SORT problem asc
+```

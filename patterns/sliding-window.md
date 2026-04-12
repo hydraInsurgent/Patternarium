@@ -1,6 +1,16 @@
-# Sliding Window
+---
+name: sliding-window
+display_name: Sliding Window
+category: pattern
+variations:
+  - name: Shrink-Based
+    ds: [string, hashset]
+  - name: Index Jump
+    ds: [string, hashmap, array]
+ds-primary: [string, hashmap, hashset, array]
+---
 
-**display_name:** Sliding Window
+# Sliding Window
 
 ## Core Idea
 
@@ -105,5 +115,15 @@ Guard the jump with `>= start` to ensure the stored index is within the current 
 ## Common Mistakes
 
 - **start++ instead of index jump** - crawling start forward one step when a HashMap lets you jump directly (Index Jump)
+
+## Solved Problems
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN patterns AS pattern
+WHERE pattern = "Sliding Window"
+SORT problem asc
+```
 - **start moving left** - not guarding against a stale stored index before the current window. Use `>= start` check (Index Jump)
 - **Not updating state on both sides** - window state must be updated when elements enter from the right AND exit from the left (Shrink-Based)

@@ -1,3 +1,34 @@
+---
+problem: 121
+problem-title: Best Time to Buy and Sell Stock
+difficulty: Easy
+category: solutions
+patterns: [Linear Scan]
+constructs: [math-functions]
+ds-used: [array]
+algorithms: []
+approaches:
+  - name: Brute Force
+    file: solutions/brute-force.cs
+    patterns: []
+    constructs: []
+    ds-used: [array]
+    ds-notes:
+      array: "nested loops check every buy-sell pair"
+    time: "O(n^2)"
+    space: "O(1)"
+  - name: Running State - Track Min So Far
+    file: solutions/running-state.cs
+    patterns: [Linear Scan]
+    variation: Running State
+    constructs: [math-functions]
+    ds-used: [array]
+    ds-notes:
+      array: "single pass tracking min price seen and max profit achievable"
+    time: "O(n)"
+    space: "O(1)"
+---
+
 # Best Time to Buy and Sell Stock - Solutions
 
 ## Approaches

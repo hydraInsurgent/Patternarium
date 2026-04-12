@@ -1,11 +1,13 @@
 ---
 title: Valid Palindrome
+number: 125
+slug: valid-palindrome
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
-lists:
-  - blind-75
+lists: [blind-75]
+tags: [palindrome, alphanumeric-filter, two-pointer]
 ---
 
 # Valid Palindrome
@@ -42,5 +44,3 @@ Explanation: s is an empty string "" after removing non-alphanumeric characters.
 
 - [Solutions](solutions.md)
 - [Notes](notes.md)
-
-tags :: [two-pointers, string, palindrome]

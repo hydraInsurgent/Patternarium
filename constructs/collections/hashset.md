@@ -1,5 +1,6 @@
 ---
 name: "HashSet"
+slug: hashset
 category: collections
 tags: [hashset, set, membership, deduplication, o1-lookup]
 language: csharp
@@ -51,6 +52,11 @@ foreach (int n in set) { ... }
 - Cannot access elements by index
 
 ## Seen In
-- 128 - Longest Consecutive Sequence (existence check to find sequence starts and extend runs)
-- 3 - Longest Substring Without Repeating Characters (Approach 1 - track chars in the current brute force window)
-- 217 - Contains Duplicate (track seen numbers; if Contains returns true, a duplicate exists)
+
+```dataview
+TABLE problem-title AS "Problem", problem AS "#", difficulty
+FROM "problems"
+FLATTEN constructs AS construct
+WHERE construct = "hashset"
+SORT problem asc
+```

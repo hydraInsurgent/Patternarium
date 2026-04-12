@@ -1,10 +1,13 @@
 ---
 title: Missing Number
+number: 268
+slug: missing-number
 category: DSA-Practice
 difficulty: Easy
 source: LeetCode
 status: solved
-lists: [phased-75, blind-75]
+lists: [blind-75, phased-75]
+tags: [missing-number, xor-cancellation, xor, gauss-sum]
 ---
 
 # Missing Number
@@ -38,5 +41,3 @@ Explanation: n = 9, range is [0,9]. 8 is missing.
 ## Solutions
 - [Solutions overview](solutions.md)
 - [Notes and lessons](notes.md)
-
-tags :: [array, math, bit-manipulation]
