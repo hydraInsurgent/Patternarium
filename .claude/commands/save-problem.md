@@ -104,6 +104,7 @@ approaches:
   - `### Approach N: [name]`
   - `**Code:**` link to `.cs` file in `solutions/` subfolder
   - `**Time:** / **Space:**` from active-problem.md or active-solution.cs metadata
+  - `**Key Condition:**` - the specific formula, invariant, or condition that defines this approach. Source in priority order: (1) `#### Solution` block's `**Key Condition:**` field in active-problem.md, (2) the analysis file's `## Core Formula / Key Condition` section if one exists for this problem, (3) derive from the user's stated approach in `#### Thinking`. Omit entirely for trivial brute force where Thinking already covers it fully. Never fabricate - if no clear condition is identifiable, omit.
   - `**Thinking:**` - paraphrase what the user said about their approach and key idea. Do not add insights the user did not express
   - `---` separator between approaches
 - After solved approaches, check if any alternative approaches were discussed during the session but not explored. For each discussed-but-not-explored approach, append a placeholder block:
@@ -122,6 +123,7 @@ Combine from the active file:
 - All `#### Bugs` entries -> `## Mistakes Made` section, grouped by `### Approach N - [name]` subheadings (no links). Skip approaches that had no bugs - do not create empty subheadings
 - `## Reflection` answers -> `## Key Insights` and `## Mantras` sections. Mantras can also come from bug lessons, not just reflection
 - `## Patterns` entries -> `## Patterns Used` section, listed by approach name with bold pattern names (no links - links live in solutions.md)
+- Source for `## Connected Problems` in notes.md: (1) if an analysis file exists, read its `## Connections to Other Problems` section; (2) otherwise, check `## Connections` in active-problem.md. Use whichever source has content. If both exist, merge them (deduplicate by problem number). Format: `**[Number] - [Problem Name]** - one-sentence connection`. Skip the section entirely if neither source has content.
 
 In saved files, skip empty sections entirely. Do not write section headings with no content.
 
@@ -174,13 +176,36 @@ If no `lists` field exists in the frontmatter, skip this step.
 
 If any bugs or reflection mistakes warrant a lesson entry, add them to the appropriate section in LESSONS.md (Conceptual Mistakes, Code Mistakes, or Pattern Misidentifications).
 
-### Step 11 - Confirm and suggest cleanup
+If an analysis file exists for this problem: scan its `## Mistakes and Lessons` table. For each row, check if the mistake is already in LESSONS.md. If not, add it. If it is, enrich the existing entry with the `What happened` context from the table if the current entry lacks that detail.
+
+### Step 11 - Distill analysis file (if present)
+
+Glob `reference-chats/analysis/*.md`. For each file found, read its YAML frontmatter and check if `slug` matches the current problem's slug (e.g., `647-palindromic-substrings`). If a match is found, that is the analysis file for this problem. If no match is found, skip this step entirely.
+
+If found, perform these distillations:
+
+**Pattern file enrichment:**
+For each pattern used in the session:
+- Read the analysis `## Pattern Signals` and `## Key Insights for Pattern Library` sections
+- Open the pattern file and find the relevant `## Variation:` section
+- Add any signals not already present to `**When to reach for this:**`. Deduplication rule: skip a bullet if its core meaning is already expressed by an existing bullet - either exact wording or semantic equivalent (e.g., "problem asks to count all palindromes" and "problem wants a count of all palindromic substrings" are equivalent - skip)
+- Add any pattern-specific mistakes (filtered from the analysis Mistakes table) to `## Common Mistakes`. Filter rule: only add mistakes that are caused by misapplying this pattern's specific mechanics. Do not add general learning behavior mistakes, DP concept confusions unrelated to the pattern, or problem comprehension errors - those belong in LESSONS.md only. Deduplication rule: skip a mistake if its core scenario is already described in `## Common Mistakes`
+
+**Archive:**
+After all distillation is complete, move both files to `reference-chats/_archive/<problem-slug>/`:
+- `reference-chats/imports/<chat-filename>.txt` (if present)
+- `reference-chats/analysis/<slug>-analysis.md`
+
+Create the `_archive/<problem-slug>/` folder if it does not exist. If either source file is not found, skip moving it silently.
+
+### Step 12 - Confirm and suggest cleanup
 
 Show a summary of what was created and updated:
 - Files created in `problems/<slug>/`
 - master-index.json updated
 - DS coverage tables updated
-- LESSONS.md entries added (if any)
+- LESSONS.md entries added or enriched (if any)
+- Analysis distilled and archived (if analysis file was present)
 
 Then suggest: "Ready to clear the active files for the next problem?"
 

@@ -190,6 +190,8 @@ approaches:
 **Code:** [brute-force.cs](solutions/brute-force.cs)
 **Time:** O(n^2) | **Space:** O(1)
 
+**Key Condition:** [The specific formula, invariant, or condition that defines this approach - e.g., `length - maxFreq <= k`. Omit for trivial brute force where Thinking already covers it fully.]
+
 **Thinking:** [Paraphrase of user's stated approach - no AI additions]
 
 ---
@@ -197,6 +199,8 @@ approaches:
 ### Approach 2: HashMap
 **Code:** [hashmap.cs](solutions/hashmap.cs)
 **Time:** O(n) | **Space:** O(n)
+
+**Key Condition:** [The specific formula, invariant, or condition that defines this approach.]
 
 **Thinking:** [Paraphrase of user's stated approach - no AI additions]
 
@@ -238,7 +242,12 @@ Quick reference for review. Mistakes grouped by approach name, no links. Skip se
 
 ## Patterns Used
 - **Pattern Name** (Approach N)
+
+## Connected Problems
+- **[Number] - [Problem Name]** - one sentence on why these are connected (shared technique, prerequisite, or direct contrast)
 ```
+
+Skip `## Connected Problems` if no meaningful connections exist. Do not invent connections - only write entries that came from the session or the analysis file.
 
 ### Solution .cs files
 

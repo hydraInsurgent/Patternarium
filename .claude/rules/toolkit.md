@@ -113,7 +113,7 @@ Never skip levels. Never jump to solution while a hint will do.
 - Highlight key differences
 - Keep it concise
 - Ask the user: "What's the time complexity? What's the space complexity?" - never infer or pre-fill these
-- If the answer is correct, write the complexity, key idea, and a brief text description to `#### Solution` in the current approach block of `active-problem.md`. Set approach status to `solved`. Solution code lives in `active-solution.cs`, not in `active-problem.md`
+- If the answer is correct, write `#### Solution` to the current approach block of `active-problem.md`: fill `**Time:**`, `**Space:**`, `**Key Condition:**` (the specific formula or invariant if one exists - omit the field entirely if the approach has no central formula), and `**Key Idea:**` (one sentence). Set approach status to `solved`. Solution code lives in `active-solution.cs`, not in `active-problem.md`
 - If the answer is wrong, nudge only - ask a pointed question aimed at the specific gap ("Think about how many elements you visit in the worst case"). Never accept an incorrect answer and never write it. Keep asking until the answer is correct.
 
 ### Mode 7 - Alternative Approach
@@ -141,6 +141,7 @@ Never skip levels. Never jump to solution while a hint will do.
 - Say when to reach for each pattern
 - Connect to other problems that use the same pattern
 - Write `## Patterns` section to `active-problem.md` with each pattern name and how it was applied
+- If any connections to other problems come up naturally during the discussion, write `## Connections` to `active-problem.md`: one entry per problem in the format `- **[Number] - [Problem Name]**: [one-sentence connection]`. Only write what actually came up - do not invent connections
 
 ### Mode 9 - Reflection
 **Trigger:** End of session
@@ -193,6 +194,7 @@ Commands are assistive shortcuts, not required steps. Normal conversation flow h
 | `/review` | Pick a past problem and test pattern recall without notes |
 | `/dry-run` | Instrument current solution and run it step-by-step in the terminal |
 | `/add-construct` | Document a language feature or data structure in the construct library |
+| `/import-chat` | Import an external chat (ChatGPT etc.) as a problem session - generates analysis, fills active files |
 
 **Command Philosophy:**
 - Commands override workflow, they do not replace it
