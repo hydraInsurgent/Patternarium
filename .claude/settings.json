@@ -5,7 +5,8 @@
       "Read(//d/Personal/Code/Depth Projects/VS Code Extensions/Obsidian Extensions/obsidian-dataview/**)",
       "Bash(powershell.exe -Command ':*)",
       "Bash(powershell.exe -File \"d:/Personal/Code/Depth Projects/Patternarium/scripts/Rebuild-Index.ps1\")",
-      "Bash(dotnet run:*)"
+      "Bash(dotnet run:*)",
+      "Bash(dotnet-script scripts/Rebuild-Index.cs)"
     ],
     "additionalDirectories": [
       "d:\\Personal\\Code\\Depth Projects\\Patternarium\\scripts"

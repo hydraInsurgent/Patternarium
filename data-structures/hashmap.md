@@ -57,7 +57,7 @@ All techniques here are use-case scenarios where HashMap is the primary tool. Ea
 | Technique | Status | Problems Solved |
 |-----------|--------|-----------------|
 | [Complement Lookup](../patterns/hashmap.md) | explored | 1-Two Sum |
-| [Frequency Count](../patterns/hashmap.md) | explored | 242-Valid Anagram, 217-Contains Duplicate |
+| [Frequency Count](../patterns/hashmap.md) | explored | 242-Valid Anagram, 217-Contains Duplicate, 424-Longest Repeating Character Replacement |
 | [Last Seen Index](../patterns/hashmap.md) | explored | 3-Longest Substring Without Repeating Characters |
 | Grouping / Bucketing | not started | - (Group Anagrams: sort chars as key) |
 | Running Prefix Sum | not started | - (Subarray Sum Equals K) |

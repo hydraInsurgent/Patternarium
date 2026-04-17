@@ -6,6 +6,10 @@
 ## Conceptual Mistakes
 <!-- Misunderstandings about how an algorithm or pattern works -->
 
+- **Sliding window grows from l=0, r=0 - not from the full array** - first instinct was to start at l=0, r=n-1 and shrink inward. Sliding window always starts narrow and expands right. (Longest Repeating Character Replacement, Approach 2)
+- **Window state must update before validity check** - adding s[r] to the freq map and updating maxFreq must happen before checking if the window is valid. The window must be fully formed first. (Longest Repeating Character Replacement, Approach 2)
+- **Monotonic tracking variable: never decrement on shrink** - when a running max tracks only increases (e.g., maxFreq), decrementing it when an element exits breaks correctness on ties. Let it stay stale - any window size it allows was already achievable when the variable was genuinely that high. (Longest Repeating Character Replacement, Approach 2)
+
 
 ## Code Mistakes
 <!-- Bugs caused by implementation errors, not conceptual gaps -->
@@ -31,6 +35,8 @@
 - **HashSet vs HashMap - pick the lighter tool** - if you only need to know whether a value exists, use HashSet. Only reach for HashMap when you need to store something alongside the key (an index, a count, a mapped value). Using HashMap for existence-only problems adds unnecessary overhead. (Contains Duplicate, Approach 1)
 
 - **Compare complements, not raw characters** - when matching pairs (brackets, tags), the opener and closer are different characters. `'(' != ')'` is always true. You must translate via a map or push the complement upfront. (Valid Parentheses, Approach 1)
+- **Sliding window inner loop: use while(invalid), not if(valid)** - the shrink condition checks when the window is invalid. Inverting it (shrinking when valid) drifts the indices and causes crashes. Check the exact polarity before coding. (Longest Repeating Character Replacement, Approach 2)
+- **Every traversal pointer must advance in the loop** - forgetting right++ in a while(right < n) sliding window creates an infinite loop. Each outer-loop pointer must have a guaranteed increment path. (Longest Repeating Character Replacement, Approach 2)
 
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->

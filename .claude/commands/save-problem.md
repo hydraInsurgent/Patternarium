@@ -53,6 +53,7 @@ Parse `active-solution.cs` for each `// ==== Approach N ====` block:
 - Add one comment per logical block explaining the *why*, not the *what*
 - Add a "Why" block after the code for decisions that came from bugs, mistakes, or discussions during the session. These are learning artifacts - only include "Why" entries for things the user actually struggled with or asked about. Never generate generic "Why" blocks
 - Preserve the user's logic exactly - only presentation changes
+- **Never change loop structure.** `while` stays `while`, `for` stays `for`. Converting between semantically equivalent loop forms (e.g., `while (right < n)` with `right++` at the bottom to `for (int right = 0; ...)`) is a structural change and is forbidden. The user's chosen loop form is part of their logic.
 
 Approaches with status "in-progress" or "stuck" in `active-problem.md` are skipped.
 
@@ -140,7 +141,7 @@ In saved files, skip empty sections entirely. Do not write section headings with
 
 ### Step 7 - Regenerate master-index.json
 
-Run from repo root:
+Run from repo root using the .NET 10 single-file run command:
 
 ```
 dotnet run scripts/Rebuild-Index.cs

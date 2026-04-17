@@ -30,7 +30,7 @@
 | 39 | Combination Sum | Med | not started | - | - |
 | 295 | Find Median from Data Stream | Hard | not started | - | - |
 | 297 | Serialize and Deserialize Binary Tree | Hard | not started | - | - |
-| 424 | Longest Repeating Character Replacement | Med | not started | - | - |
+| 424 | Longest Repeating Character Replacement | Med | solved | Sliding Window - Shrink-Based | [→](../../problems/424-longest-repeating-character-replacement/problem.md) |
 | 300 | Longest Increasing Subsequence | Med | not started | - | - |
 | 48 | Rotate Image | Med | not started | - | - |
 | 49 | Group Anagrams | Med | not started | - | - |

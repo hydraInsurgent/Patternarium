@@ -612,6 +612,58 @@
         }
       }
     },
+    "424": {
+      "title": "Longest Repeating Character Replacement",
+      "slug": "424-longest-repeating-character-replacement",
+      "difficulty": "Medium",
+      "patterns": [
+        "Sliding Window"
+      ],
+      "constructs": [
+        "dictionary",
+        "math-functions"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "string",
+        "hashmap"
+      ],
+      "lists": [
+        "blind-75",
+        "phased-75"
+      ],
+      "ds-notes": {
+        "hashmap": "frequency map for current window - decremented on left exit; maxFreq monotonically non-decreasing"
+      },
+      "approaches": {
+        "brute-force.cs": {
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        },
+        "sliding-window.cs": {
+          "patterns": [
+            "Sliding Window"
+          ],
+          "variation": "Shrink-Based",
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        },
+        "sliding-window-monotonic.cs": {
+          "patterns": [
+            "Sliding Window"
+          ],
+          "variation": "Shrink-Based",
+          "ds-used": [
+            "string",
+            "hashmap"
+          ]
+        }
+      }
+    },
     "5": {
       "title": "Longest Palindromic Substring",
       "slug": "longest-palindromic-substring",
@@ -689,7 +741,8 @@
       "268"
     ],
     "Sliding Window": [
-      "3"
+      "3",
+      "424"
     ]
   },
   "by-ds": {
@@ -710,7 +763,8 @@
       "3",
       "13",
       "20",
-      "242"
+      "242",
+      "424"
     ],
     "string": [
       "3",
@@ -718,7 +772,8 @@
       "13",
       "20",
       "125",
-      "242"
+      "242",
+      "424"
     ],
     "hashset": [
       "3",
@@ -735,7 +790,8 @@
       "3",
       "13",
       "20",
-      "242"
+      "242",
+      "424"
     ],
     "array-sort": [
       "1",
@@ -743,7 +799,8 @@
       "217"
     ],
     "math-functions": [
-      "121"
+      "121",
+      "424"
     ],
     "char-methods": [
       "125"

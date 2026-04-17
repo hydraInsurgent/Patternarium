@@ -24,7 +24,7 @@
 | 125 | Valid Palindrome | Easy | solved | Two Pointers - Symmetry Check | [→](../../problems/125-valid-palindrome/problem.md) |
 | 647 | Palindromic Substrings | Med | not started | - | - |
 | 3 | Longest Substring Without Repeating Characters | Med | solved | Sliding Window | [→](../../problems/3-longest-substring-without-repeating-characters/problem.md) |
-| 424 | Longest Repeating Character Replacement | Med | not started | - | - |
+| 424 | Longest Repeating Character Replacement | Med | solved | Sliding Window - Shrink-Based | [→](../../problems/424-longest-repeating-character-replacement/problem.md) |
 | 76 | Minimum Window Substring | Hard | not started | - | - |
 
 ### Batch 3 - Thinking Shifts

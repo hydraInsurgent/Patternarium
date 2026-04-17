@@ -36,6 +36,7 @@ The key question: can you grow or shrink the window based on a local condition, 
 - General window validity constraint (not character-position based)
 - Need to shrink one step at a time when the window becomes invalid
 - Use HashSet or a frequency map to track window contents
+- Validity depends on a frequency condition like `windowSize - maxFreq <= k` - where the condition involves the count of the most common element in the window
 
 **Template:**
 ```csharp
@@ -61,6 +62,7 @@ for (int end = 0; end < s.Length; end++)
 
 **Solved Problems:**
 - **Longest Substring Without Repeating Characters** (problems/3-longest-substring-without-repeating-characters/solutions/brute-force.cs) - restart approach; establishes the window concept before optimization
+- **Longest Repeating Character Replacement** (problems/424-longest-repeating-character-replacement/solutions/sliding-window.cs) - frequency-based validity condition; stale maxFreq invariant
 
 ---
 
@@ -115,6 +117,10 @@ Guard the jump with `>= start` to ensure the stored index is within the current 
 ## Common Mistakes
 
 - **start++ instead of index jump** - crawling start forward one step when a HashMap lets you jump directly (Index Jump)
+- **Starting at l=0, r=n-1** - window shrinks from both edges. Sliding window always starts at l=0, r=0 and grows right (Shrink-Based)
+- **Checking validity before adding s[r]** - window state must be updated before the validity check; the element must be in the window to evaluate it (Shrink-Based)
+- **Single if instead of while for shrinking** - one expansion can require multiple contractions before the condition is satisfied again (Shrink-Based)
+- **Decrementing a monotonic tracking variable on shrink** - when a running max is tracked incrementally (only ever increases), decrementing it on shrink breaks correctness when multiple elements share the max value. Let it stay stale; any window it allows was already achievable (Shrink-Based, frequency problems)
 
 ## Solved Problems
 
