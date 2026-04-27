@@ -176,6 +176,7 @@ approaches:
     variation: Complement Lookup
     constructs: [dictionary]
     ds-used: [array, hashmap]
+    techniques: [running-max]
     ds-notes:
       hashmap: "complement lookup: store value -> index"
     time: "O(n)"
@@ -210,6 +211,11 @@ approaches:
 
 - [HashMap - Complement Lookup](../../patterns/hashmap.md#variation-complement-lookup) (Approach 2) - description
 - [Two Pointers - Sorted Pair](../../patterns/two-pointers.md#variation-sorted-pair) (Approach 3) - description
+
+## Techniques
+
+- [Running Max](../../techniques/running-max.md) (Approaches 1, 2) - carry best area forward as a running maximum
+- [Constraint-Ceiling Pruning](../../techniques/constraint-ceiling-pruning.md) (Approach 3) - exit when remaining width * 10000 cannot beat current best
 
 ## Reflection
 
@@ -693,3 +699,73 @@ SORT number asc
 - When a concept is confirmed (reviewed or explored), its status updates to `confirmed`
 - On `/save-problem`, all `confirmed` concepts are persisted: create or update `concepts/<name>.md` (the `## Seen In` section is a Dataview query and updates automatically)
 - See the Concept Check Workflow in `toolkit.md` for the full trigger and discovery flow
+
+---
+
+## Techniques System
+
+Techniques are reusable optimization and implementation moves that apply on top of an existing solution. Unlike patterns (which answer "how do I structure this solution?"), techniques answer "how do I make this step faster or smarter?"
+
+A technique is worth capturing when: it is a general reasoning move that could appear in a completely different problem, not a problem-specific trick.
+
+### Where Techniques Live
+
+Every technique lives in `techniques/<name>.md`. Filename is kebab-case.
+
+### Technique File Format
+
+```markdown
+---
+name: technique-name
+slug: technique-name
+display_name: Technique Name
+category: technique
+tags: [technique-name, related-tag]
+---
+
+# Technique Name
+
+## What It Is
+One sentence: what optimization or implementation move this is.
+
+## Core Reasoning
+Why it works - the logical argument that makes this valid.
+
+## When to Apply
+- Signal 1
+- Signal 2
+
+## Template
+Pseudocode or code skeleton showing the technique's structure.
+
+## Tradeoffs
+- When it helps
+- When it does not
+
+## Seen In
+
+```dataview
+TABLE title AS "Problem", number AS "#", difficulty
+FROM "problems"
+FLATTEN techniques AS technique
+WHERE technique = "technique-name"
+SORT number asc
+```
+```
+
+### How Techniques Differ from Patterns and Constructs
+
+| | Answers | Example |
+|--|--|--|
+| Pattern | How do I structure this solution? | Two Pointers |
+| Technique | How do I implement or optimize this step? | Running Max, Constraint-Ceiling Pruning |
+| Construct | What C# tool do I reach for? | `Math.Max`, `Dictionary<K,V>` |
+
+Patterns are built from techniques. Sliding Window uses Running Max. Two Pointers uses Greedy Elimination. The technique is the atomic unit; the pattern is the assembly.
+
+### Techniques Inventory
+
+| File | Name | First Seen In |
+|------|------|--------------|
+| `running-max.md` | Running Max | 121 - Best Time to Buy and Sell Stock |
+| `constraint-ceiling-pruning.md` | Constraint-Ceiling Pruning | 11 - Container With Most Water |

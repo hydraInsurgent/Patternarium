@@ -231,6 +231,24 @@ The user can change mode at any time:
 
 <guidelines>
 
+### Technique Identification
+**Trigger:** An implementation move is used that is reusable across problems - not the pattern itself but a specific optimization or recurring tool within the solution (running max, monotonic running max, constraint-ceiling pruning, etc.)
+
+- Identify at solution time (Mode 6 or later) by reading the confirmed solution - techniques surface after the approach is clear, not during thinking
+- Do not log to `active-problem.md` mid-session - techniques are identified and written at `/save-problem` time
+- At `/save-problem`: identify techniques per approach by reading the solution code, write a `## Techniques` section to `solutions.md` markdown body (same level as `## Patterns`), and populate `techniques:` in each approach's YAML block. If a technique file does not exist, create it from the template in `docs/pattern-system.md`
+- A technique is worth capturing when: it is a general reasoning move that could appear in a different problem, not a problem-specific trick
+
+**How to recognize a technique vs a pattern:**
+- Pattern: answers "how do I structure this solution?" - recognized from problem shape before coding
+- Technique: answers "how do I implement or optimize this step?" - recognized during or after coding
+
+**Common techniques to watch for:**
+- `running-max` / `running-min` - carry best value forward instead of rescanning
+- `monotonic-running-max` - running max that intentionally stays stale on decrease
+- `constraint-ceiling-pruning` - use problem constraint as theoretical ceiling for early exit
+- New techniques: if a move doesn't match any existing file, propose a name to the user before creating
+
 ### Concept Encounter
 **Trigger:** The user's approach or code touches something with a named foundational identity (palindrome, prime, GCD, anagram, etc.) - they describe the behavior without necessarily naming the concept
 

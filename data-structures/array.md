@@ -59,7 +59,7 @@ Linked rows have a pattern file. Plain text rows are placeholders - no pattern f
 | [Preprocessing](../patterns/preprocessing.md) | explored | 217-Contains Duplicate (Sort to Expose Structure variation), 238-Product of Array Except Self (Build Derived Data variation) |
 | [HashMap](../patterns/hashmap.md) | explored | 1-Two Sum, 217-Contains Duplicate, 242-Valid Anagram |
 | [Odd One Out](../patterns/odd-one-out.md) | explored | 268-Missing Number (XOR variation) |
-| [Two Pointers](../patterns/two-pointers.md) | explored | 1-Two Sum (Sorted Pair variation), 238-Product of Array Except Self (Converging/Diverging variation) |
+| [Two Pointers](../patterns/two-pointers.md) | explored | 1-Two Sum (Sorted Pair variation), 238-Product of Array Except Self (Converging/Diverging variation), 11-Container With Most Water (Sorted Pair variation) |
 | [Prefix/Suffix Decomposition](../patterns/prefix-suffix-decomposition.md) | explored | 238-Product of Array Except Self (Prefix/Suffix Product variation) |
 | [Multi-Pass Construction](../patterns/multi-pass-construction.md) | explored | 238-Product of Array Except Self (Layered Deposit variation) |
 | [Sliding Window](../patterns/sliding-window.md) | not started | - |

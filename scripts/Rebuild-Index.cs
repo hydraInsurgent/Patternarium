@@ -81,6 +81,7 @@ var byPattern   = new Dictionary<string, SortedSet<int>>();
 var byDs        = new Dictionary<string, SortedSet<int>>();
 var byConstruct = new Dictionary<string, SortedSet<int>>();
 var byAlgorithm = new Dictionary<string, SortedSet<int>>();
+var byTechnique = new Dictionary<string, SortedSet<int>>();
 
 void AddToIndex(Dictionary<string, SortedSet<int>> index, string key, int num)
 {
@@ -105,6 +106,7 @@ foreach (var problemDir in Directory.GetDirectories(problemsRoot).Order())
     var constructs = ToArr(sFront.GetValueOrDefault("constructs"));
     var dsUsed     = ToArr(sFront.GetValueOrDefault("ds-used"));
     var algorithms = ToArr(sFront.GetValueOrDefault("algorithms"));
+    var techniques = ToArr(sFront.GetValueOrDefault("techniques"));
 
     if (verbose)
         Console.WriteLine($"  #{number} {title} - {patterns.Length} patterns, approaches: {(sFront.ContainsKey("approaches") ? "yes" : "none")}");
@@ -121,14 +123,16 @@ foreach (var problemDir in Directory.GetDirectories(problemsRoot).Order())
             if (string.IsNullOrEmpty(file)) continue;
             var fileName = Path.GetFileName(file);
 
-            var apPatterns = ToArr(DictGet(apObj, "patterns"));
-            var apDs       = ToArr(DictGet(apObj, "ds-used"));
-            var variation  = DictGet(apObj, "variation")?.ToString() ?? "";
+            var apPatterns   = ToArr(DictGet(apObj, "patterns"));
+            var apDs         = ToArr(DictGet(apObj, "ds-used"));
+            var apTechniques = ToArr(DictGet(apObj, "techniques"));
+            var variation    = DictGet(apObj, "variation")?.ToString() ?? "";
 
             var apEntry = new JsonObject();
-            if (apPatterns.Length > 0) apEntry["patterns"]  = ToJsonArray(apPatterns);
+            if (apPatterns.Length > 0)   apEntry["patterns"]   = ToJsonArray(apPatterns);
             if (!string.IsNullOrEmpty(variation)) apEntry["variation"] = variation;
-            if (apDs.Length > 0)       apEntry["ds-used"]   = ToJsonArray(apDs);
+            if (apDs.Length > 0)         apEntry["ds-used"]    = ToJsonArray(apDs);
+            if (apTechniques.Length > 0) apEntry["techniques"] = ToJsonArray(apTechniques);
 
             // Aggregate ds-notes (first note per DS wins)
             if (DictGet(apObj, "ds-notes") is IDictionary notes)
@@ -153,6 +157,7 @@ foreach (var problemDir in Directory.GetDirectories(problemsRoot).Order())
         ["constructs"] = ToJsonArray(constructs),
         ["algorithms"] = ToJsonArray(algorithms),
         ["ds-used"]    = ToJsonArray(dsUsed),
+        ["techniques"] = ToJsonArray(techniques),
         ["lists"]      = ToJsonArray(lists),
     };
 
@@ -170,6 +175,7 @@ foreach (var problemDir in Directory.GetDirectories(problemsRoot).Order())
     foreach (var ds in dsUsed)     AddToIndex(byDs,        ds, number);
     foreach (var c  in constructs) AddToIndex(byConstruct, c,  number);
     foreach (var a  in algorithms) AddToIndex(byAlgorithm, a,  number);
+    foreach (var t  in techniques) AddToIndex(byTechnique, t,  number);
 }
 
 // ---------------------------------------------------------------------------
@@ -192,9 +198,10 @@ var root = new JsonObject
     ["by-ds"]        = BuildReverseIndex(byDs),
     ["by-construct"] = BuildReverseIndex(byConstruct),
     ["by-algorithm"] = BuildReverseIndex(byAlgorithm),
+    ["by-technique"] = BuildReverseIndex(byTechnique),
 };
 
 File.WriteAllText(indexPath, root.ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
 
-Console.WriteLine($"master-index.json rebuilt: {problems.Count} problems, {byPattern.Count} patterns, {byDs.Count} DS, {byConstruct.Count} constructs");
+Console.WriteLine($"master-index.json rebuilt: {problems.Count} problems, {byPattern.Count} patterns, {byDs.Count} DS, {byConstruct.Count} constructs, {byTechnique.Count} techniques");
 return 0;

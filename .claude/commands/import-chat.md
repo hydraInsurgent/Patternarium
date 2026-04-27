@@ -10,7 +10,7 @@ Use this command when a problem was solved in an external chat (ChatGPT, etc.) a
 
 ## What the User Provides
 
-1. **Chat file** - path to the exported chat in `reference-chats/imports/<filename>.txt`
+1. **Chat file** - path to the exported chat in `reference-chats/imports/<filename>.txt` or `.md`
 2. **Active problem** - `active-problem.md` at repo root (may contain just the raw problem statement, or may be empty)
 3. **Active solution** - `active-solution.cs` at repo root (may contain raw labeled code, or may be empty)
 
@@ -23,7 +23,7 @@ Any of the three may be missing or minimal. The chat is the primary source of tr
 If the user ran `/import-chat` without arguments, ask:
 
 > "Which reference chat should I import? Available files in `reference-chats/imports/`:"
-> [list .txt files in `reference-chats/imports/`]
+> [list .txt and .md files in `reference-chats/imports/`]
 
 Accept a filename or full path.
 
@@ -80,7 +80,7 @@ title: "<Problem Name>"
 slug: <problem-slug>
 source: LeetCode | HackerRank | Codeforces | Other
 difficulty: Easy | Medium | Hard
-import-file: <chat-filename>.txt
+import-file: <chat-filename>.txt | <chat-filename>.md
 category: analysis
 ---
 

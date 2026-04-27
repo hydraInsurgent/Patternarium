@@ -29,6 +29,7 @@ The pointers define their own boundary. The outer `while (left < right)` is the 
 - Range shrinking problems
 - Problems where moving left increases value and moving right decreases it
 - Finding closest pair to a target
+- Value or validity depends only on the two endpoint positions, not on elements between them
 
 **Mental Trigger:**
 > "Is the array sorted (or can I sort it)?"
@@ -82,6 +83,7 @@ This is the "carry identity with data" sub-pattern. Sorting changes positions bu
 - **Forgetting the sorted requirement** - two pointers only works correctly when array ordering is meaningful
 - **Moving both pointers** - only move one pointer per iteration (the one causing the imbalance)
 - **Using `<=` in while condition** - `left < right` is correct; `left <= right` would allow using the same element twice
+- **Reaching for sliding window when only endpoints matter** - sliding window requires a validity condition on window contents. If the problem only cares about the two boundary positions (not elements between them), there is no contraction rule and two pointers applies instead (Container With Most Water)
 
 **Solved Problems:**
 - **Two Sum** (problems/1-two-sum/solutions/two-pointer.cs) - sorted + index preservation + two pointers
@@ -244,7 +246,7 @@ while (left < right)
 
 - Two Sum II - Input Already Sorted (Sorted Pair)
 - 3Sum - sort + two pointers as inner loop (Sorted Pair)
-- Container With Most Water - shrink by moving the shorter side (Sorted Pair)
+- Container With Most Water - shrink by moving the shorter side (Sorted Pair) ✓ solved
 - Trapping Rain Water variant (Sorted Pair / Converging/Diverging)
 - Remove Duplicates from Sorted Array (Sorted Pair)
 - Valid Palindrome II - can remove one character (Symmetry Check)

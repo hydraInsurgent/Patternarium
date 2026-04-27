@@ -18,6 +18,7 @@
         "array",
         "hashmap"
       ],
+      "techniques": [],
       "lists": [
         "blind-75"
       ],
@@ -52,6 +53,59 @@
         }
       }
     },
+    "11": {
+      "title": "Container With Most Water",
+      "slug": "container-with-most-water",
+      "difficulty": "Medium",
+      "patterns": [
+        "Two Pointers"
+      ],
+      "constructs": [],
+      "algorithms": [],
+      "ds-used": [
+        "array"
+      ],
+      "techniques": [
+        "running-max",
+        "constraint-ceiling-pruning"
+      ],
+      "lists": [],
+      "approaches": {
+        "brute-force.cs": {
+          "ds-used": [
+            "array"
+          ],
+          "techniques": [
+            "running-max"
+          ]
+        },
+        "two-pointers.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "Sorted Pair",
+          "ds-used": [
+            "array"
+          ],
+          "techniques": [
+            "running-max"
+          ]
+        },
+        "two-pointers-pruned.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "Sorted Pair",
+          "ds-used": [
+            "array"
+          ],
+          "techniques": [
+            "running-max",
+            "constraint-ceiling-pruning"
+          ]
+        }
+      }
+    },
     "121": {
       "title": "Best Time to Buy and Sell Stock",
       "slug": "best-time-to-buy-and-sell-stock",
@@ -66,6 +120,7 @@
       "ds-used": [
         "array"
       ],
+      "techniques": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -106,6 +161,7 @@
         "string",
         "array"
       ],
+      "techniques": [],
       "lists": [
         "blind-75"
       ],
@@ -162,6 +218,7 @@
         "array",
         "hashset"
       ],
+      "techniques": [],
       "lists": [
         "blind-75"
       ],
@@ -220,6 +277,7 @@
         "string",
         "hashmap"
       ],
+      "techniques": [],
       "lists": [],
       "ds-notes": {
         "hashmap": "char -\u003E int lookup table for roman numeral values",
@@ -286,6 +344,7 @@
         "hashmap",
         "array"
       ],
+      "techniques": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -336,6 +395,7 @@
         "array",
         "hashset"
       ],
+      "techniques": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -381,6 +441,7 @@
       "ds-used": [
         "array"
       ],
+      "techniques": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -446,6 +507,7 @@
         "hashmap",
         "array"
       ],
+      "techniques": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -510,6 +572,7 @@
       "ds-used": [
         "array"
       ],
+      "techniques": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -569,6 +632,7 @@
         "hashset",
         "array"
       ],
+      "techniques": [],
       "lists": [
         "blind-75"
       ],
@@ -628,6 +692,7 @@
         "string",
         "hashmap"
       ],
+      "techniques": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -676,6 +741,7 @@
       "ds-used": [
         "string"
       ],
+      "techniques": [],
       "lists": [
         "blind-75"
       ],
@@ -706,6 +772,7 @@
     "Two Pointers": [
       "1",
       "5",
+      "11",
       "125",
       "238"
     ],
@@ -749,6 +816,7 @@
     "array": [
       "1",
       "3",
+      "11",
       "20",
       "121",
       "125",
@@ -825,5 +893,13 @@
       "242"
     ]
   },
-  "by-algorithm": {}
+  "by-algorithm": {},
+  "by-technique": {
+    "running-max": [
+      "11"
+    ],
+    "constraint-ceiling-pruning": [
+      "11"
+    ]
+  }
 }

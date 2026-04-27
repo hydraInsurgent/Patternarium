@@ -15,7 +15,7 @@ What is currently being worked on:
 
 | Item | Status |
 |------|--------|
-| (nothing active) | - |
+| Vault revision - problem-by-problem technique tagging and pattern enrichment | Layer 1 done; Layer 2 (14 problems) in progress |
 
 ---
 
@@ -50,6 +50,7 @@ Untracked ideas - not prioritized, not committed to. Just worth remembering.
 - **YAML as a scan layer for token reduction** - AI reads YAML frontmatter first to decide relevance, loads full file only when needed. The existing master-index.json is the same idea at the problem level; YAML extends it down to the file level.
 - Pattern promotion automation - when a sub-pattern has appeared in 2+ problems, flag it for promotion to its own file
 - Review session scoring - track how many hints were needed during `/review` and log it to the problem's notes.md over time
+- **Semantic search layer** - vector DB (MemPalace or similar) lets Claude query the vault by meaning instead of reading every file. Makes Claude a better knowledge manager as the vault grows. Real payoff at ~50+ patterns / 150+ problems. Can be added at any time - just runs against existing markdown files.
 
 ---
 
@@ -70,3 +71,4 @@ Recently completed system work:
 | - | Blind 75 list with progress tracking | 2026-04-06 |
 | - | lists: frontmatter field + auto-update on /save-problem | 2026-04-06 |
 | - | Dataview query layer - Seen In and Solved Problems auto-rendered from problem frontmatter; master-index.json promoted from pattern-index.json with enriched schema; YAML frontmatter added to all file types; algorithm system fully integrated | 2026-04-11 |
+| - | Techniques system - techniques/ folder, file format, toolkit.md identification behavior, by-technique index in Rebuild-Index.cs, techniques field per approach in solutions.md, CLAUDE.md and active-problem-spec.md updated | 2026-04-27 |

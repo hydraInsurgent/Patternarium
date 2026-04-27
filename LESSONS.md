@@ -41,6 +41,8 @@
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->
 
+- **Sliding window doesn't fit when validity depends only on the two endpoints** - the signal for sliding window is a validity condition on window *contents* (character frequency, sum, etc.). If the problem only cares about the two boundary positions and not what is between them, there is no contraction rule and two pointers applies instead. (Container With Most Water - explored sliding window first before realizing the constraint is only on the edges)
+
 
 ---
 
