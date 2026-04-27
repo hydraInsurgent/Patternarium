@@ -1,0 +1,213 @@
+{
+  "main": {
+    "id": "3dc20529a7449730",
+    "type": "split",
+    "children": [
+      {
+        "id": "a1e5a6c70a65e417",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "50067603ff1e7654",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "patterns/linear-scan.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "linear-scan"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3dc9b97f65a5dabd",
+    "type": "split",
+    "children": [
+      {
+        "id": "44691a0ad3eb8c95",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "619ee4012f4fbf2f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "94a3113ade474869",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0dfe58108ae2abeb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "792119d8018dd4dd",
+    "type": "split",
+    "children": [
+      {
+        "id": "cbf35e13b45e9bfc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ddafd39438c81492",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "problems/268-missing-number/solutions.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for solutions"
+            }
+          },
+          {
+            "id": "f020585673760f25",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "problems/268-missing-number/solutions.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from solutions"
+            }
+          },
+          {
+            "id": "3659c0f84bc32eca",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "20d96f642d478387",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "f42c35b95b818258",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "problems/268-missing-number/solutions.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of solutions"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "50067603ff1e7654",
+  "lastOpenFiles": [
+    "patterns/multi-pass-construction.md",
+    "patterns/odd-one-out.md",
+    "patterns/prefix-suffix-decomposition.md",
+    "patterns/presence-array.md",
+    "problems/3-longest-substring-without-repeating-characters/problem.md",
+    "constructs/math/math-functions.md",
+    "constructs/collections/char-frequency-array.md",
+    "problems/268-missing-number/solutions.md",
+    "docs/pattern-system.md.tmp.14608.1777308235720",
+    "concepts/xor.md",
+    "docs/pattern-system.md.tmp.14608.1777308231924",
+    "concepts/palindrome.md",
+    "scripts/Rebuild-Index.cs.tmp.14608.1777308197106",
+    "scripts/Rebuild-Index.cs.tmp.14608.1777308195392",
+    "scripts/Rebuild-Index.cs.tmp.14608.1777308194373",
+    "scripts/Rebuild-Index.cs.tmp.14608.1777308192692",
+    "scripts/Rebuild-Index.cs.tmp.14608.1777308191544",
+    "scripts/Rebuild-Index.cs.tmp.14608.1777308190002",
+    "concepts/xor.md.tmp.14608.1777308184976",
+    "concepts/palindrome.md.tmp.14608.1777308183894",
+    "problems/3-longest-substring-without-repeating-characters/solutions.md",
+    "problems/5-longest-palindromic-substring/notes.md",
+    "problems/5-longest-palindromic-substring/problem.md",
+    "constructs/collections/dictionary.md"
+  ]
+}
