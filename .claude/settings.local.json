@@ -1,5 +1,4 @@
 {
-  "defaultMode": "dontAsk",
   "permissions": {
     "allow": [
       "Bash(git init *)",
@@ -22,7 +21,6 @@
       "Bash(git check-ignore *)",
       "Bash(git worktree *)",
       "Bash(git rev-parse *)",
-
       "Bash(gh repo create *)",
       "Bash(gh repo view *)",
       "Bash(gh repo edit *)",
@@ -40,34 +38,30 @@
       "Bash(gh pr diff *)",
       "Bash(gh api *)",
       "Bash(gh release list *)",
-
       "Bash(npm install *)",
       "Bash(npm uninstall *)",
-
       "Bash(node scripts/ask-gpt.js *)",
       "Bash(node scripts/ask-gemini.js *)",
       "Bash(node scripts/browse.js *)",
-
       "Read",
       "Edit",
       "Write",
       "Glob",
       "Grep",
-
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebSearch",
-
       "Bash(cp *)",
-
       "Bash(ls *)",
       "Bash(diff *)",
       "Bash(echo *)",
       "Bash(mkdir *)",
-      "Bash(cat *)"
+      "Bash(cat *)",
+      "WebFetch(domain:claude.ai)"
     ],
     "additionalDirectories": [
       "/tmp"
     ]
-  }
+  },
+  "defaultMode": "dontAsk"
 }
