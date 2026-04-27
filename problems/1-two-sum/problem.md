@@ -7,7 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75]
-tags: [complement-lookup, index-tracking, target-sum]
 ---
 
 # Two Sum

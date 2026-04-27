@@ -1,4 +1,4 @@
----
+﻿---
 name: "Stack"
 slug: stack
 category: collections

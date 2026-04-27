@@ -1,4 +1,4 @@
----
+﻿---
 name: reverse-order-matching
 display_name: Reverse Order Matching
 category: pattern

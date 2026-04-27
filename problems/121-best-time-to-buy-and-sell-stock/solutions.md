@@ -1,4 +1,4 @@
----
+﻿---
 problem: 121
 problem-title: Best Time to Buy and Sell Stock
 difficulty: Easy
@@ -7,6 +7,7 @@ patterns: [Linear Scan]
 constructs: [math-functions]
 ds-used: [array]
 algorithms: []
+tags: [running-minimum, max-profit, single-pass]
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs

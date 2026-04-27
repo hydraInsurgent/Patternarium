@@ -1,4 +1,4 @@
----
+﻿---
 problem: 5
 problem-title: Longest Palindromic Substring
 difficulty: Medium
@@ -7,6 +7,7 @@ patterns: [Two Pointers]
 constructs: []
 ds-used: [string]
 algorithms: []
+tags: [palindrome, expand-around-center, center-expansion]
 approaches:
   - name: Expand Around Center
     file: solutions/expand-around-center.cs

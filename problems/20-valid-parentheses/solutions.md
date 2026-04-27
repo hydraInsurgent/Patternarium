@@ -1,4 +1,4 @@
----
+﻿---
 problem: 20
 problem-title: Valid Parentheses
 difficulty: Easy
@@ -7,6 +7,7 @@ patterns: [Reverse Order Matching]
 constructs: [stack, dictionary]
 ds-used: [string, stack, hashmap, array]
 algorithms: []
+tags: [bracket-matching, lifo, stack-matching]
 approaches:
   - name: Stack with HashMap complement lookup
     file: solutions/hashmap-complement.cs

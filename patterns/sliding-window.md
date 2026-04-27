@@ -1,4 +1,4 @@
----
+﻿---
 name: sliding-window
 display_name: Sliding Window
 category: pattern

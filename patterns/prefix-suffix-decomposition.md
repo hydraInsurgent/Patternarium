@@ -1,4 +1,4 @@
----
+﻿---
 name: prefix-suffix-decomposition
 display_name: Prefix/Suffix Decomposition
 category: pattern

@@ -7,7 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75]
-tags: [sliding-window, window-boundary, duplicate-detection]
 ---
 
 # Longest Substring Without Repeating Characters

@@ -1,4 +1,4 @@
----
+﻿---
 name: "IComparable<T> / CompareTo"
 slug: icomparable
 category: sorting

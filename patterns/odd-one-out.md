@@ -1,4 +1,4 @@
----
+﻿---
 name: odd-one-out
 display_name: Odd One Out
 category: pattern

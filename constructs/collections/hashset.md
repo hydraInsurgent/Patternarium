@@ -1,4 +1,4 @@
----
+﻿---
 name: "HashSet"
 slug: hashset
 category: collections

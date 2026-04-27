@@ -192,6 +192,7 @@ Commands are assistive shortcuts, not required steps. Normal conversation flow h
 | `/pattern` | Show the pattern(s) used in the current problem |
 | `/save-problem` | Save current problem, solutions, and notes to repo |
 | `/review` | Pick a past problem and test pattern recall without notes |
+| `/revise` | Cold re-solve a saved problem from scratch, then compare against saved solution and update vault |
 | `/dry-run` | Instrument current solution and run it step-by-step in the terminal |
 | `/add-construct` | Document a language feature or data structure in the construct library |
 | `/import-chat` | Import an external chat (ChatGPT etc.) as a problem session - generates analysis, fills active files |

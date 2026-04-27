@@ -7,7 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
-tags: [running-minimum, max-profit, single-pass]
 ---
 
 # Best Time to Buy and Sell Stock

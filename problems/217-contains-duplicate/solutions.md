@@ -1,4 +1,4 @@
----
+﻿---
 problem: 217
 problem-title: Contains Duplicate
 difficulty: Easy
@@ -7,6 +7,7 @@ patterns: [HashMap, Preprocessing]
 constructs: [hashset, array-sort]
 ds-used: [array, hashset]
 algorithms: []
+tags: [duplicate-detection, existence-check, set-lookup]
 approaches:
   - name: HashSet Lookup
     file: solutions/hashset-seen.cs

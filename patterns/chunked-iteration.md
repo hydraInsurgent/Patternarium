@@ -1,4 +1,4 @@
----
+﻿---
 name: chunked-iteration
 display_name: Chunked Iteration
 category: pattern

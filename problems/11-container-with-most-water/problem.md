@@ -7,7 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: []
-tags: [two-pointers, greedy, array]
 ---
 
 # Container With Most Water

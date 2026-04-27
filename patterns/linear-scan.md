@@ -1,4 +1,4 @@
----
+﻿---
 name: linear-scan
 display_name: Linear Scan
 category: pattern

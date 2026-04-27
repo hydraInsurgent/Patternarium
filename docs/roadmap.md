@@ -15,7 +15,7 @@ What is currently being worked on:
 
 | Item | Status |
 |------|--------|
-| Vault revision - problem-by-problem technique tagging and pattern enrichment | Layer 1 done; Layer 2 (14 problems) in progress |
+| Vault revision - technique tagging + pattern restructuring | Layer 1 done; full plan in `docs/vault-revision-plan.md` |
 
 ---
 

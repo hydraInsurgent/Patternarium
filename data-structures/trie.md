@@ -1,4 +1,4 @@
----
+﻿---
 name: "Trie"
 slug: trie
 status: stub

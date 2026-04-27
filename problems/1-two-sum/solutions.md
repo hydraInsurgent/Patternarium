@@ -1,4 +1,4 @@
----
+﻿---
 problem: 1
 problem-title: Two Sum
 difficulty: Easy
@@ -7,6 +7,7 @@ patterns: [HashMap, Two Pointers]
 constructs: [dictionary, array-sort]
 ds-used: [array, hashmap]
 algorithms: []
+tags: [complement-lookup, index-tracking, target-sum]
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs

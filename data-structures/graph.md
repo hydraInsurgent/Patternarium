@@ -1,4 +1,4 @@
----
+﻿---
 name: "Graph"
 slug: graph
 status: stub

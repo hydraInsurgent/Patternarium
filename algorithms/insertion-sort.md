@@ -1,4 +1,4 @@
----
+﻿---
 name: "Insertion Sort"
 slug: insertion-sort
 category: algorithm

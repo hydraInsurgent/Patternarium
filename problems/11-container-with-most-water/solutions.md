@@ -1,4 +1,4 @@
----
+﻿---
 problem: 11
 problem-title: Container With Most Water
 difficulty: Medium
@@ -7,6 +7,7 @@ patterns: [Two Pointers]
 constructs: []
 ds-used: [array]
 algorithms: []
+tags: [two-pointers, greedy, array]
 techniques: [running-max, constraint-ceiling-pruning]
 approaches:
   - name: Brute Force - Two Nested Loops

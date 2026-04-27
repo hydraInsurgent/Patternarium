@@ -1,4 +1,4 @@
----
+﻿---
 name: "Binary Search Tree"
 slug: binary-search-tree
 status: stub

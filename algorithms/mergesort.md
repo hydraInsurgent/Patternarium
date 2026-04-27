@@ -1,4 +1,4 @@
----
+﻿---
 name: "MergeSort"
 slug: mergesort
 category: algorithm

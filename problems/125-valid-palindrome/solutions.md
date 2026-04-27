@@ -1,4 +1,4 @@
----
+﻿---
 problem: 125
 problem-title: Valid Palindrome
 difficulty: Easy
@@ -7,6 +7,7 @@ patterns: [Two Pointers]
 constructs: [char-methods, linq]
 ds-used: [string, array]
 algorithms: []
+tags: [palindrome, alphanumeric-filter, two-pointer]
 approaches:
   - name: Inward Two Pointer
     file: solutions/inward-two-pointer.cs

@@ -1,4 +1,4 @@
----
+﻿---
 name: "Character Frequency Array"
 slug: char-frequency-array
 category: collections

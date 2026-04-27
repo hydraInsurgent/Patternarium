@@ -1,4 +1,4 @@
----
+﻿---
 name: "String.Replace"
 slug: string-replace
 category: strings

@@ -1,4 +1,4 @@
----
+﻿---
 name: "LINQ"
 slug: linq
 category: collections

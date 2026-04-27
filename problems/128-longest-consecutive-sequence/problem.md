@@ -7,7 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75]
-tags: [consecutive-sequence, sequence-start, existence-lookup]
 ---
 
 # Longest Consecutive Sequence

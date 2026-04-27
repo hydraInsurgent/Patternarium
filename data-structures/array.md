@@ -1,4 +1,4 @@
----
+﻿---
 name: "Array"
 slug: array
 status: explored

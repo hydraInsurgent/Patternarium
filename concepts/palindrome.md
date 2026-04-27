@@ -75,9 +75,9 @@ isPalindrome(s, left, right):
 ## Seen In
 
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN tags AS tag
 WHERE tag = "palindrome"
-SORT number asc
+SORT problem asc
 ```

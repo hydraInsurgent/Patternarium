@@ -122,7 +122,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75]
-tags: [complement-lookup, index-tracking, target-sum]
 ---
 
 # Two Sum
@@ -162,6 +161,7 @@ patterns: [HashMap, Two Pointers]
 constructs: [dictionary, array-sort]
 ds-used: [array, hashmap]
 algorithms: []
+tags: [tag1, tag2]
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs
@@ -223,6 +223,8 @@ approaches:
 - **Future strategy:** [required - from user's session]
 - **[session-specific field]:** [optional - captures what user actually said]
 ```
+
+- `tags` moved here from `problem.md` to avoid spoiling approach during cold re-solve sessions.
 
 Use `---` separators between approaches only. Patterns and Reflection flow without separators.
 

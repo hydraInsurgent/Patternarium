@@ -1,4 +1,4 @@
----
+﻿---
 problem: 13
 problem-title: Roman to Integer
 difficulty: Easy
@@ -7,6 +7,7 @@ patterns: [Linear Scan, Preprocessing, Chunked Iteration]
 constructs: [dictionary, string-replace]
 ds-used: [string, hashmap]
 algorithms: []
+tags: [lookup-table, subtractive-notation, roman-numerals]
 approaches:
   - name: Right-to-left scan
     file: solutions/right-to-left-scan.cs

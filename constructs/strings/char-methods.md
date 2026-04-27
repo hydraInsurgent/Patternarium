@@ -1,4 +1,4 @@
----
+﻿---
 name: "Char Methods"
 slug: char-methods
 category: strings

@@ -1,4 +1,4 @@
----
+﻿---
 name: "QuickSort"
 slug: quicksort
 category: algorithm

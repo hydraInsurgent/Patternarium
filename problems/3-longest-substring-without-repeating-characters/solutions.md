@@ -1,4 +1,4 @@
----
+﻿---
 problem: 3
 problem-title: Longest Substring Without Repeating Characters
 difficulty: Medium
@@ -7,6 +7,7 @@ patterns: [Sliding Window, HashMap, Presence Array]
 constructs: [hashset, dictionary, span]
 ds-used: [string, hashmap, hashset, array]
 algorithms: []
+tags: [sliding-window, window-boundary, duplicate-detection]
 approaches:
   - name: Brute Force with HashSet
     file: solutions/brute-force.cs

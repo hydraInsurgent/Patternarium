@@ -7,7 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
-tags: [sliding-window, frequency-map, string, variable-window]
 ---
 
 # Longest Repeating Character Replacement

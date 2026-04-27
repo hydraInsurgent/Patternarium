@@ -7,7 +7,6 @@ difficulty: Medium
 source: LeetCode
 status: solved
 lists: [blind-75]
-tags: [palindrome, expand-around-center, center-expansion]
 ---
 
 # Longest Palindromic Substring

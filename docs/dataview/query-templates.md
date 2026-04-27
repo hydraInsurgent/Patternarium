@@ -1,4 +1,4 @@
-# Dataview Query Templates
+﻿# Dataview Query Templates
 
 Tested query templates for each Layer 3 replacement. Each query reads from problem frontmatter YAML arrays using FLATTEN + WHERE.
 
@@ -106,7 +106,7 @@ SORT problem asc
 
 **Replaces:** `## Seen In` section in `concepts/*.md`
 
-**Reads:** `tags` frontmatter array in problem files
+**Reads:** `tags` frontmatter array in `solutions.md` files
 
 **How to use:** Copy the block into the concept file. Replace `"palindrome"` with the tag that problems about this concept share. This requires that problems using the concept were tagged consistently. Current tag values relevant to existing concepts:
 
@@ -117,11 +117,11 @@ SORT problem asc
 
 ````markdown
 ```dataview
-TABLE title AS "Problem", number AS "#", difficulty
+TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
 FLATTEN tags AS tag
 WHERE tag = "palindrome"
-SORT number asc
+SORT problem asc
 ```
 ````
 
@@ -162,7 +162,16 @@ Fields on `solutions.md` (used by Templates 1-3):
 | `constructs` | array | `[dictionary, array-sort]` | Template 3 |
 | `algorithms` | array | `[quicksort]` | Algorithm Seen In |
 
-Fields on `problem.md` (used by Template 4 - Concepts):
+Fields on `solutions.md` (used by Template 4 - Concepts):
+
+| Field | Type | Example values | Used in template |
+|-------|------|----------------|-----------------|
+| `problem-title` | string | `"Two Sum"` | Display column |
+| `problem` | integer | `1`, `128` | Sort + display |
+| `difficulty` | string | `"Easy"`, `"Medium"` | Display + filter |
+| `tags` | array | `[complement-lookup, target-sum]` | Template 4 |
+
+Fields on `problem.md`:
 
 | Field | Type | Example values | Used in template |
 |-------|------|----------------|-----------------|
@@ -171,7 +180,6 @@ Fields on `problem.md` (used by Template 4 - Concepts):
 | `difficulty` | string | `"Easy"`, `"Medium"` | Display + filter |
 | `status` | string | `"solved"` | Filter if needed |
 | `lists` | array | `[blind-75, phased-75]` | Filter by list |
-| `tags` | array | `[complement-lookup, target-sum]` | Template 4 |
 
 ### Filtering by list (bonus query)
 

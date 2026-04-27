@@ -1,4 +1,4 @@
----
+﻿---
 problem: 238
 problem-title: Product of Array Except Self
 difficulty: Medium
@@ -7,6 +7,7 @@ patterns: [Prefix/Suffix Decomposition, Two Pointers, Preprocessing, Multi-Pass 
 constructs: []
 ds-used: [array]
 algorithms: []
+tags: [prefix-product, suffix-product, no-division]
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs

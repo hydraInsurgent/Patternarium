@@ -7,7 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75]
-tags: [palindrome, alphanumeric-filter, two-pointer]
 ---
 
 # Valid Palindrome

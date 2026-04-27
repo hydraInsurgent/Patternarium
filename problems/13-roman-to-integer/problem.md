@@ -7,7 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: []
-tags: [lookup-table, subtractive-notation, roman-numerals]
 ---
 
 # Roman to Integer

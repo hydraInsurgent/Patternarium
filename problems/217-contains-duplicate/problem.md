@@ -7,7 +7,6 @@ difficulty: Easy
 source: LeetCode
 status: solved
 lists: [blind-75, phased-75]
-tags: [duplicate-detection, existence-check, set-lookup]
 ---
 
 # Contains Duplicate

@@ -1,4 +1,4 @@
----
+﻿---
 problem: 242
 problem-title: Valid Anagram
 difficulty: Easy
@@ -7,6 +7,7 @@ patterns: [Preprocessing, HashMap]
 constructs: [linq, dictionary, span]
 ds-used: [string, hashmap, array]
 algorithms: []
+tags: [anagram, frequency-count, character-frequency]
 approaches:
   - name: Sort and Compare
     file: solutions/sort-compare.cs

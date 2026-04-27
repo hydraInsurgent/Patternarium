@@ -1,4 +1,4 @@
----
+﻿---
 name: "Deque"
 slug: deque
 status: stub

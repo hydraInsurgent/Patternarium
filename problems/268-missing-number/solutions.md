@@ -1,4 +1,4 @@
----
+﻿---
 problem: 268
 problem-title: Missing Number
 difficulty: Easy
@@ -7,6 +7,7 @@ patterns: [Odd One Out, Presence Array]
 constructs: []
 ds-used: [array]
 algorithms: []
+tags: [missing-number, xor-cancellation, xor, gauss-sum]
 approaches:
   - name: Boolean Flag Array
     file: solutions/boolean-flag-array.cs

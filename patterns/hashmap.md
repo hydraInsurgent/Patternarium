@@ -1,4 +1,4 @@
----
+﻿---
 name: hashmap
 display_name: HashMap
 category: pattern

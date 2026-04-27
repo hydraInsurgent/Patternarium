@@ -1,4 +1,4 @@
----
+﻿---
 name: "Array.Sort - Custom Comparer"
 slug: array-sort
 category: sorting

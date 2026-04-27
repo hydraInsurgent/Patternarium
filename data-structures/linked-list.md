@@ -1,4 +1,4 @@
----
+﻿---
 name: "Linked List"
 slug: linked-list
 status: stub

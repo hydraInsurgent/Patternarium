@@ -1,4 +1,4 @@
----
+﻿---
 name: "Span / stackalloc"
 slug: span
 category: memory
