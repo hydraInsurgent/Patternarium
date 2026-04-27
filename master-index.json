@@ -19,6 +19,7 @@
         "hashmap"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [
         "blind-75"
       ],
@@ -69,6 +70,7 @@
         "running-max",
         "constraint-ceiling-pruning"
       ],
+      "concepts": [],
       "lists": [],
       "approaches": {
         "brute-force.cs": {
@@ -121,6 +123,7 @@
         "array"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -162,6 +165,9 @@
         "array"
       ],
       "techniques": [],
+      "concepts": [
+        "palindrome"
+      ],
       "lists": [
         "blind-75"
       ],
@@ -219,6 +225,7 @@
         "hashset"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [
         "blind-75"
       ],
@@ -278,6 +285,7 @@
         "hashmap"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [],
       "ds-notes": {
         "hashmap": "char -\u003E int lookup table for roman numeral values",
@@ -345,6 +353,7 @@
         "array"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -396,6 +405,7 @@
         "hashset"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -442,6 +452,7 @@
         "array"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -508,6 +519,9 @@
         "array"
       ],
       "techniques": [],
+      "concepts": [
+        "anagram"
+      ],
       "lists": [
         "blind-75",
         "phased-75"
@@ -573,6 +587,9 @@
         "array"
       ],
       "techniques": [],
+      "concepts": [
+        "xor"
+      ],
       "lists": [
         "blind-75",
         "phased-75"
@@ -633,6 +650,7 @@
         "array"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [
         "blind-75"
       ],
@@ -693,6 +711,7 @@
         "hashmap"
       ],
       "techniques": [],
+      "concepts": [],
       "lists": [
         "blind-75",
         "phased-75"
@@ -742,6 +761,9 @@
         "string"
       ],
       "techniques": [],
+      "concepts": [
+        "palindrome"
+      ],
       "lists": [
         "blind-75"
       ],
@@ -900,6 +922,18 @@
     ],
     "constraint-ceiling-pruning": [
       "11"
+    ]
+  },
+  "by-concept": {
+    "palindrome": [
+      "5",
+      "125"
+    ],
+    "anagram": [
+      "242"
+    ],
+    "xor": [
+      "268"
     ]
   }
 }

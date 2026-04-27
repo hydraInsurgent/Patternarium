@@ -7,7 +7,7 @@ patterns: [Linear Scan]
 constructs: [math-functions]
 ds-used: [array]
 algorithms: []
-tags: [running-minimum, max-profit, single-pass]
+concepts: []
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs

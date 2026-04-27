@@ -7,7 +7,7 @@ patterns: [Two Pointers]
 constructs: []
 ds-used: [string]
 algorithms: []
-tags: [palindrome, expand-around-center, center-expansion]
+concepts: [palindrome]
 approaches:
   - name: Expand Around Center
     file: solutions/expand-around-center.cs

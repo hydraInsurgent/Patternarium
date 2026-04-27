@@ -82,6 +82,7 @@ var byDs        = new Dictionary<string, SortedSet<int>>();
 var byConstruct = new Dictionary<string, SortedSet<int>>();
 var byAlgorithm = new Dictionary<string, SortedSet<int>>();
 var byTechnique = new Dictionary<string, SortedSet<int>>();
+var byConcept   = new Dictionary<string, SortedSet<int>>();
 
 void AddToIndex(Dictionary<string, SortedSet<int>> index, string key, int num)
 {
@@ -107,6 +108,7 @@ foreach (var problemDir in Directory.GetDirectories(problemsRoot).Order())
     var dsUsed     = ToArr(sFront.GetValueOrDefault("ds-used"));
     var algorithms = ToArr(sFront.GetValueOrDefault("algorithms"));
     var techniques = ToArr(sFront.GetValueOrDefault("techniques"));
+    var concepts   = ToArr(sFront.GetValueOrDefault("concepts"));
 
     if (verbose)
         Console.WriteLine($"  #{number} {title} - {patterns.Length} patterns, approaches: {(sFront.ContainsKey("approaches") ? "yes" : "none")}");
@@ -158,6 +160,7 @@ foreach (var problemDir in Directory.GetDirectories(problemsRoot).Order())
         ["algorithms"] = ToJsonArray(algorithms),
         ["ds-used"]    = ToJsonArray(dsUsed),
         ["techniques"] = ToJsonArray(techniques),
+        ["concepts"]   = ToJsonArray(concepts),
         ["lists"]      = ToJsonArray(lists),
     };
 
@@ -176,6 +179,7 @@ foreach (var problemDir in Directory.GetDirectories(problemsRoot).Order())
     foreach (var c  in constructs) AddToIndex(byConstruct, c,  number);
     foreach (var a  in algorithms) AddToIndex(byAlgorithm, a,  number);
     foreach (var t  in techniques) AddToIndex(byTechnique, t,  number);
+    foreach (var c  in concepts)   AddToIndex(byConcept,   c,  number);
 }
 
 // ---------------------------------------------------------------------------
@@ -199,9 +203,10 @@ var root = new JsonObject
     ["by-construct"] = BuildReverseIndex(byConstruct),
     ["by-algorithm"] = BuildReverseIndex(byAlgorithm),
     ["by-technique"] = BuildReverseIndex(byTechnique),
+    ["by-concept"]   = BuildReverseIndex(byConcept),
 };
 
 File.WriteAllText(indexPath, root.ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
 
-Console.WriteLine($"master-index.json rebuilt: {problems.Count} problems, {byPattern.Count} patterns, {byDs.Count} DS, {byConstruct.Count} constructs, {byTechnique.Count} techniques");
+Console.WriteLine($"master-index.json rebuilt: {problems.Count} problems, {byPattern.Count} patterns, {byDs.Count} DS, {byConstruct.Count} constructs, {byTechnique.Count} techniques, {byConcept.Count} concepts");
 return 0;

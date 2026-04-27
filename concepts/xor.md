@@ -59,7 +59,7 @@ int result = a ^ b;
 ```dataview
 TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
-FLATTEN tags AS tag
-WHERE tag = "xor"
+FLATTEN concepts AS concept
+WHERE concept = "xor"
 SORT problem asc
 ```

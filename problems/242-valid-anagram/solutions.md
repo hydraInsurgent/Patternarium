@@ -7,7 +7,7 @@ patterns: [Preprocessing, HashMap]
 constructs: [linq, dictionary, span]
 ds-used: [string, hashmap, array]
 algorithms: []
-tags: [anagram, frequency-count, character-frequency]
+concepts: [anagram]
 approaches:
   - name: Sort and Compare
     file: solutions/sort-compare.cs

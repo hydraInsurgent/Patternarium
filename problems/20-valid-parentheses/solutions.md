@@ -7,7 +7,7 @@ patterns: [Reverse Order Matching]
 constructs: [stack, dictionary]
 ds-used: [string, stack, hashmap, array]
 algorithms: []
-tags: [bracket-matching, lifo, stack-matching]
+concepts: []
 approaches:
   - name: Stack with HashMap complement lookup
     file: solutions/hashmap-complement.cs

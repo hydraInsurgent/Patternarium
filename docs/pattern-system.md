@@ -161,7 +161,7 @@ patterns: [HashMap, Two Pointers]
 constructs: [dictionary, array-sort]
 ds-used: [array, hashmap]
 algorithms: []
-tags: [tag1, tag2]
+concepts: [concept-slug]
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs
@@ -224,7 +224,8 @@ approaches:
 - **[session-specific field]:** [optional - captures what user actually said]
 ```
 
-- `tags` moved here from `problem.md` to avoid spoiling approach during cold re-solve sessions.
+- `concepts` lists concept slugs (e.g. `palindrome`, `anagram`, `xor`) that the problem is built on. Used by concept Seen In queries. Leave empty if no named concept applies.
+- No `tags` field - all meaningful metadata lives in structured fields (`patterns`, `ds-used`, `constructs`, `techniques`, `concepts`, `algorithms`).
 
 Use `---` separators between approaches only. Patterns and Reflection flow without separators.
 

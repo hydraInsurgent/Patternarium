@@ -7,7 +7,7 @@ patterns: [Prefix/Suffix Decomposition, Two Pointers, Preprocessing, Multi-Pass 
 constructs: []
 ds-used: [array]
 algorithms: []
-tags: [prefix-product, suffix-product, no-division]
+concepts: []
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs

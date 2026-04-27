@@ -7,7 +7,7 @@ patterns: [HashMap, Two Pointers]
 constructs: [dictionary, array-sort]
 ds-used: [array, hashmap]
 algorithms: []
-tags: [complement-lookup, index-tracking, target-sum]
+concepts: []
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs

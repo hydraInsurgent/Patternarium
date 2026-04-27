@@ -7,7 +7,7 @@ patterns: [Sliding Window]
 constructs: [dictionary, math-functions]
 ds-used: [string, hashmap]
 algorithms: []
-tags: [sliding-window, frequency-map, string, variable-window]
+concepts: []
 approaches:
   - name: Brute Force
     file: solutions/brute-force.cs

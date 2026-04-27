@@ -1,4 +1,4 @@
-﻿---
+---
 name: multi-pass-construction
 display_name: Multi-Pass Construction
 category: pattern

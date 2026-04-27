@@ -1,4 +1,4 @@
-﻿---
+---
 name: "Math Functions"
 slug: math-functions
 category: math

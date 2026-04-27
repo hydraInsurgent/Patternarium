@@ -7,7 +7,7 @@ patterns: [Two Pointers]
 constructs: [char-methods, linq]
 ds-used: [string, array]
 algorithms: []
-tags: [palindrome, alphanumeric-filter, two-pointer]
+concepts: [palindrome]
 approaches:
   - name: Inward Two Pointer
     file: solutions/inward-two-pointer.cs

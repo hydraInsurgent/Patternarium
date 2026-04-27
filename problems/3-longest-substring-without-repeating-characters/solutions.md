@@ -1,44 +1,68 @@
-﻿---
+---
 problem: 3
 problem-title: Longest Substring Without Repeating Characters
 difficulty: Medium
 category: solutions
-patterns: [Sliding Window, HashMap, Presence Array]
-constructs: [hashset, dictionary, span]
-ds-used: [string, hashmap, hashset, array]
+patterns:
+  - Sliding Window
+  - HashMap
+  - Presence Array
+constructs:
+  - hashset
+  - dictionary
+  - span
+ds-used:
+  - string
+  - hashmap
+  - hashset
+  - array
 algorithms: []
-tags: [sliding-window, window-boundary, duplicate-detection]
+concepts: []
 approaches:
   - name: Brute Force with HashSet
     file: solutions/brute-force.cs
-    patterns: [Sliding Window]
+    patterns:
+      - Sliding Window
     variation: Brute Force
-    constructs: [hashset]
-    ds-used: [string, hashset]
+    constructs:
+      - hashset
+    ds-used:
+      - string
+      - hashset
     ds-notes:
-      hashset: "presence check in brute force window"
-    time: "O(n^2)"
-    space: "O(n)"
+      hashset: presence check in brute force window
+    time: O(n^2)
+    space: O(n)
   - name: Sliding Window with HashMap
     file: solutions/sliding-window-hashmap.cs
-    patterns: [Sliding Window, HashMap]
+    patterns:
+      - Sliding Window
+      - HashMap
     variation: Last Seen Index
-    constructs: [dictionary]
-    ds-used: [string, hashmap]
+    constructs:
+      - dictionary
+    ds-used:
+      - string
+      - hashmap
     ds-notes:
-      hashmap: "char -> last seen index for window boundary jump"
-    time: "O(n)"
-    space: "O(n)"
+      hashmap: char -> last seen index for window boundary jump
+    time: O(n)
+    space: O(n)
   - name: Sliding Window with ASCII Array (Span<int>)
     file: solutions/sliding-window-span.cs
-    patterns: [Sliding Window, Presence Array]
+    patterns:
+      - Sliding Window
+      - Presence Array
     variation: ASCII Span Array
-    constructs: [span]
-    ds-used: [string, array]
+    constructs:
+      - span
+    ds-used:
+      - string
+      - array
     ds-notes:
-      array: "Span<int> stack-allocated ASCII index array; fixed size independent of input"
-    time: "O(n)"
-    space: "O(1)"
+      array: Span<int> stack-allocated ASCII index array; fixed size independent of input
+    time: O(n)
+    space: O(1)
 ---
 
 # Longest Substring Without Repeating Characters - Solutions

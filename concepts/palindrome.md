@@ -77,7 +77,7 @@ isPalindrome(s, left, right):
 ```dataview
 TABLE problem-title AS "Problem", problem AS "#", difficulty
 FROM "problems"
-FLATTEN tags AS tag
-WHERE tag = "palindrome"
+FLATTEN concepts AS concept
+WHERE concept = "palindrome"
 SORT problem asc
 ```

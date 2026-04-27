@@ -7,7 +7,7 @@ patterns: [Two Pointers]
 constructs: []
 ds-used: [array]
 algorithms: []
-tags: [two-pointers, greedy, array]
+concepts: []
 techniques: [running-max, constraint-ceiling-pruning]
 approaches:
   - name: Brute Force - Two Nested Loops

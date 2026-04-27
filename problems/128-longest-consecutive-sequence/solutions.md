@@ -7,7 +7,7 @@ patterns: [Linear Scan, HashMap, Presence Array]
 constructs: [hashset, array-sort]
 ds-used: [array, hashset]
 algorithms: []
-tags: [consecutive-sequence, sequence-start, existence-lookup]
+concepts: []
 approaches:
   - name: Sort + Linear Scan
     file: solutions/sort-linear-scan.cs

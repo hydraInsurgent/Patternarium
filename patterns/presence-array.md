@@ -1,4 +1,4 @@
-﻿---
+---
 name: presence-array
 display_name: Presence Array
 category: pattern
