@@ -57,7 +57,8 @@
       "Bash(echo *)",
       "Bash(mkdir *)",
       "Bash(cat *)",
-      "WebFetch(domain:claude.ai)"
+      "WebFetch(domain:claude.ai)",
+      "Bash(gh --version)"
     ],
     "additionalDirectories": [
       "/tmp"

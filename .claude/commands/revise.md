@@ -16,8 +16,10 @@ If the user specifies a problem (e.g., `/revise 121` or `/revise two-pointers`):
 
 ## Step 2 - Load the problem
 
-- Read `problems/<slug>/problem.md` - statement section only
-- Do NOT read `solutions.md`, `notes.md`, or any `.cs` files
+- Read the folder note: `problems/<slug>/<slug>.md`
+- **Stop at the `<!-- /revise boundary -->` HTML comment** - everything below that line is hidden during cold re-solve (Knowledge Links, etc.)
+- Above the boundary you'll find: title, difficulty, source, ## Statement, ## Examples, ## Constraints (and any extra problem-specific sections like Key Observations).
+- Do NOT read `solutions.md` or any `.cs` files
 - Present the problem statement and constraints cleanly
 - Do not mention patterns, techniques, or anything from the saved session
 - Ask: "How would you approach this?"
@@ -36,8 +38,8 @@ One difference from a new session: **do not run `/save-problem` automatically at
 Triggered when the user reaches a working solution and completes reflection.
 
 Read the saved files now:
-- `problems/<slug>/solutions.md` - approaches, patterns, techniques, reflection
-- `problems/<slug>/notes.md` - mistakes, insights, mantras
+- `problems/<slug>/solutions.md` - approaches with mistakes inline, patterns, techniques, reflection (insights and mantras are part of Reflection)
+- `problems/<slug>/<slug>.md` - the full folder note (you can read everything now, including below the boundary - Knowledge Links and Related Problems)
 
 Show a structured comparison:
 
@@ -68,8 +70,7 @@ Then ask: "What do you want to do with this?"
 Based on the comparison and user's answer:
 
 **If a new insight emerged:**
-- Update `problems/<slug>/notes.md` - add to Key Insights
-- Update `problems/<slug>/solutions.md` - add to Reflection if meaningfully different
+- Update `problems/<slug>/solutions.md` `## Reflection` - add to `**Notes Insights:**` or as a session-specific field
 
 **If a LESSONS.md mistake was not repeated:**
 - Move that entry to `## Graduated` in `LESSONS.md`
@@ -86,14 +87,21 @@ Based on the comparison and user's answer:
 - No file changes needed
 - Confirm: "Clean revision - nothing new to update."
 
-## Step 6 - Clear active files
+## Step 6 - Update folder note tracking
 
-After updates are done, ask: "Ready to clear the active files?"
+After updates are done, update the folder note YAML frontmatter:
+- Increment `times-revised` by 1
+- Set `last-revised` to today's date (YYYY-MM-DD)
+- Update `status` if pattern recall improved significantly (e.g., from `needs-revision` back to `solved`)
+
+## Step 7 - Clear active files
+
+Ask: "Ready to clear the active files?"
 If yes, clear both `active-problem.md` and `active-solution.cs` to empty.
 
 ## Rules
 
-- Never load saved solutions or notes before the compare phase
+- Never load saved solutions before the compare phase. The folder note above the `<!-- /revise boundary -->` marker is OK to read - that's the statement. Below the boundary (Knowledge Links, Related Problems) is OFF-LIMITS until compare phase.
 - Do not tell the user which pattern to use - let them discover it
 - The compare phase is always shown, even if nothing changed
 - LESSONS.md graduation requires the mistake to have been genuinely not repeated - not just not triggered by this problem

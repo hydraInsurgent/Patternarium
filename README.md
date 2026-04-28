@@ -108,9 +108,8 @@ Patternarium/
 
     problems/                  # Solved problems archive
         1-two-sum/
-            problem.md         # Problem statement + YAML metadata
-            solutions.md       # Approaches, patterns, reflection
-            notes.md           # Mistakes and key insights
+            1-two-sum.md       # Folder note: YAML metadata, problem statement, Knowledge Links
+            solutions.md       # Approaches (with mistakes inline), patterns, techniques, reflection
             solutions/
                 brute-force.cs
                 hashmap.cs

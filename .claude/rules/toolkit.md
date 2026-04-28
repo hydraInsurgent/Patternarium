@@ -51,7 +51,7 @@ Not every conversation is a problem-solving session. Detect the type and respond
 
 - If `active-problem.md` or `active-solution.cs` already exists, ask: "There is an unfinished session for [Problem Name]. (a) Save it with /save-problem, (b) Pause it with /pause-problem, (c) Discard and start fresh, (d) Resume it"
 - If active files are empty but `workbench/sessions/` has folders, surface them: "You have paused sessions: [list names]. Resume one with /resume-problem, or start fresh."
-- Create `active-problem.md` at repo root. Write `## Problem` (name, difficulty, tags) and `## Statement` (full problem as pasted)
+- Create `active-problem.md` at repo root. Write `## Problem` (name, difficulty) and `## Statement` (full problem as pasted)
 - Restate problem simply
 - Highlight input, output, constraints
 - Ask: "Which list is this problem from? (e.g., blind-75, or press enter to skip)"
@@ -190,7 +190,7 @@ Commands are assistive shortcuts, not required steps. Normal conversation flow h
 | `/next-approach` | Force introduction of an alternative approach |
 | `/reflect` | Trigger reflection questions |
 | `/pattern` | Show the pattern(s) used in the current problem |
-| `/save-problem` | Save current problem, solutions, and notes to repo |
+| `/save-problem` | Save current problem and solutions to repo |
 | `/review` | Pick a past problem and test pattern recall without notes |
 | `/revise` | Cold re-solve a saved problem from scratch, then compare against saved solution and update vault |
 | `/dry-run` | Instrument current solution and run it step-by-step in the terminal |
@@ -270,7 +270,7 @@ The user can change mode at any time:
 - Record `**Time Started:**` on each Approach block when it begins
 - When an approach reaches `solved` or `stuck`, compute elapsed time and set `**Time Taken:**` on that block
 - When the problem is fully closed (after `/save-problem` or reflection), compute total elapsed time and set `**Time Taken:**` at the Problem level
-- Use PowerShell `Get-Date -Format "yyyy-MM-dd HH:mm"` to get the current time when needed - never guess or approximate
+- Use the Bash command `date +"%Y-%m-%d %H:%M"` to get the current time when needed - never guess or approximate
 - All timing writes are silent
 
 ### Hint Escalation Engine
@@ -316,7 +316,6 @@ When a new error category is found that does not fit the above, add it here and 
 - `/review` sessions do not create an active problem file
 - See `docs/active-problem-spec.md` for the full format spec
 - `active-problem.md` tracks the learning journey (thinking, hints, bugs, patterns, reflection). It does not contain solution code - that lives in `active-solution.cs`
-- Tags are AI-inferred from the patterns and data structures used in the session
 - If active-problem.md contains `## Import Notes`, the session originated from `/import-chat`. When continuing such a session (either in the same conversation or via `/resume-problem`), check for a matching analysis file in `reference-chats/analysis/` and read it for the full thinking journey and open questions - the active file alone does not capture all the session context
 
 ### Approach Status Lifecycle

@@ -11,7 +11,7 @@ Pick a past problem from `master-index.json` and test the user's recall.
 
 ## How to run the review
 
-1. State the problem name and constraints (read from `problems/<slug>/problem.md`)
+1. State the problem name and constraints (read from the folder note `problems/<slug>/<slug>.md`, reading up to the `<!-- /revise boundary -->` comment)
 2. Ask: "Can you solve this using [pattern]? Try without looking at your notes."
 3. Follow the normal workflow from Phase 2 onward (explore thinking, guide, etc.)
 4. After the user solves it (or gives up), compare with their original solution
@@ -20,5 +20,5 @@ Pick a past problem from `master-index.json` and test the user's recall.
 ## After the review
 
 - If the user solved it cleanly: reinforce the pattern, note the retention win
-- If the user struggled: identify what was forgotten, suggest reviewing `patterns/<pattern>.md` and their `problems/<slug>/notes.md`
+- If the user struggled: identify what was forgotten, suggest reviewing `patterns/<pattern>.md` and their `problems/<slug>/solutions.md` (mistakes inline per approach, insights and mantras under `## Reflection`)
 - Update `LESSONS.md` if a recurring gap is revealed

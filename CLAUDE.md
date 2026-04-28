@@ -53,7 +53,7 @@ Every folder in this repo has a distinct purpose. This is the complete inventory
 | `constructs/` | C#-specific language features and APIs (Dictionary, Stack, Array.Sort, Span, etc.) | When a C# language tool is used in a solution |
 | `techniques/` | Reusable optimization and implementation moves (running max, constraint-ceiling pruning, etc.) - the tools patterns are built from | When an optimization or implementation move is identified that applies across problems |
 | `concepts/` | Mathematical and logical ideas problems are built on (palindrome, anagram, GCD, etc.) | When a foundational concept is explored during a session |
-| `problems/` | One folder per solved problem - statement, solutions, notes, pattern links | After every completed problem session via `/save-problem` |
+| `problems/` | One folder per solved problem - folder note (statement + Knowledge Links + Related Problems) and solutions | After every completed problem session via `/save-problem` |
 | `workbench/` | Problem lists, backlog, goals, session logs - planning and tracking layer | During session planning; backlog and list management |
 | `docs/` | System design documents - file formats, templates, philosophy, specs | When the system structure changes |
 | `master-index.json` | Maps problem numbers to patterns, constructs, and DS used - the cross-reference layer | After every solved problem |
@@ -61,7 +61,7 @@ Every folder in this repo has a distinct purpose. This is the complete inventory
 **The four layers of the knowledge system:**
 1. **Tools** - data structures, algorithms, constructs (the building blocks)
 2. **Thinking** - patterns, concepts (the strategies), techniques (the implementation moves)
-3. **Evidence** - problems, solutions, notes (the practice record)
+3. **Evidence** - problems, solutions (the practice record)
 
 Techniques sit between tools and thinking: patterns are strategies assembled from techniques; techniques are the atomic optimization moves that recur across many patterns.
 

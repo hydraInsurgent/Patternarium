@@ -1,7 +1,7 @@
 #:package YamlDotNet@16.3.0
 
 // Rebuild-Index.cs
-// Regenerates master-index.json from YAML frontmatter in problem.md and solutions.md.
+// Regenerates master-index.json from YAML frontmatter in each problem's folder note (<slug>.md) and solutions/solutions.md.
 // Usage: dotnet run scripts/Rebuild-Index.cs
 //        dotnet run scripts/Rebuild-Index.cs -- --verbose
 
@@ -92,16 +92,21 @@ void AddToIndex(Dictionary<string, SortedSet<int>> index, string key, int num)
 
 foreach (var problemDir in Directory.GetDirectories(problemsRoot).Order())
 {
-    var pFront = ParseFrontmatter(Path.Combine(problemDir, "problem.md"));
-    var sFront = ParseFrontmatter(Path.Combine(problemDir, "solutions.md"));
+    // Folder note is named the same as the directory: problems/<slug>/<slug>.md
+    var folderName = Path.GetFileName(problemDir);
+    var pFront = ParseFrontmatter(Path.Combine(problemDir, $"{folderName}.md"));
+    // solutions.md now lives inside the solutions/ folder as its folder note
+    var sFront = ParseFrontmatter(Path.Combine(problemDir, "solutions", "solutions.md"));
 
-    if (!pFront.TryGetValue("number", out var numObj) || numObj is null) continue;
+    // Folder note uses 'problem' as the number field (formerly 'number' in problem.md)
+    if (!pFront.TryGetValue("problem", out var numObj) || numObj is null) continue;
     if (!int.TryParse(numObj.ToString(), out int number) || number == 0) continue;
 
     var title      = pFront.GetValueOrDefault("title")?.ToString() ?? "";
     var slug       = pFront.GetValueOrDefault("slug")?.ToString() ?? "";
-    var difficulty = pFront.GetValueOrDefault("difficulty")?.ToString() ?? "";
     var lists      = ToArr(pFront.GetValueOrDefault("lists"));
+    // Difficulty lives in solutions.md frontmatter (folder note has it only as body prose)
+    var difficulty = sFront.GetValueOrDefault("difficulty")?.ToString() ?? "";
 
     var patterns   = ToArr(sFront.GetValueOrDefault("patterns"));
     var constructs = ToArr(sFront.GetValueOrDefault("constructs"));

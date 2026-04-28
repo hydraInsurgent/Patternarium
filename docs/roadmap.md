@@ -16,6 +16,7 @@ What is currently being worked on:
 | Item | Status |
 |------|--------|
 | Vault revision - technique tagging + pattern restructuring | Layer 1 done; full plan in `docs/vault-revision-plan.md` |
+| Folder note migration - consolidate problem folders into named hub files | Phase 1 ready to start; full plan in `docs/folder-note-plan.md` |
 
 ---
 

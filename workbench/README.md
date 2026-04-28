@@ -23,4 +23,4 @@ The workbench points into the library. It never duplicates it.
 
 ## How Lists Work
 
-Each problem's `problem.md` has a `lists:` field in its YAML frontmatter. `/save-problem` reads that field and updates the relevant list file automatically. To add a new list, just reference it when pasting a problem - the file gets created on first use.
+Each problem's folder note (`<slug>.md`) has a `lists:` field in its YAML frontmatter. `/save-problem` reads that field and updates the relevant list file automatically. To add a new list, just reference it when pasting a problem - the file gets created on first use.

@@ -15,7 +15,6 @@ During a problem session, two files live at repo root:
 ## Problem
 - **Name:** [problem name]
 - **Difficulty:** Easy | Medium | Hard
-- **Tags:** [comma-separated tags]
 - **Source:** [optional, e.g. LeetCode #13]
 - **Status:** in-progress
 - **Date Started:** [YYYY-MM-DD]
@@ -135,11 +134,12 @@ Only approaches with `**Status:** solved` are persisted by `/save-problem`.
 
 | Section | Becomes |
 |---------|---------|
-| `## Problem` + `## Statement` | `problems/<slug>/problem.md` (YAML frontmatter: title, number, slug, category, difficulty, source, status, lists, tags) |
+| `## Problem` + `## Statement` | `problems/<slug>/<slug>.md` folder note (YAML frontmatter: title, category, problem, slug, status, first-solved, times-revised, last-revised, lists; body has Difficulty/Source bold lines, Statement/Examples/Constraints, then `<!-- /revise boundary -->`, then a Knowledge Links callout and Related Problems) |
 | Each solved approach block from `active-solution.cs` | `problems/<slug>/solutions/<approach>.cs` (prettified by AI) |
-| Approaches + Patterns + Reflection | `problems/<slug>/solutions.md` (YAML frontmatter with patterns/constructs/ds-used/algorithms/approaches + markdown body with links and reflection) |
-| `#### Bugs` + `## Reflection` | `problems/<slug>/notes.md` (grouped by approach name) |
-| `## Connections` | `problems/<slug>/notes.md` `## Connected Problems` section (fallback when no analysis file exists) |
+| Approaches + Patterns + Reflection | `problems/<slug>/solutions.md` (YAML frontmatter with patterns/constructs/ds-used/algorithms/approaches + markdown body with links and reflection; mistakes are inline per approach as `**Mistakes:**`; Insights and Mantras live under `## Reflection`) |
+| `#### Bugs` | `solutions.md` `**Mistakes:**` field inline within the corresponding approach block |
+| `## Reflection` (insights and mantras) | `solutions.md` `## Reflection` section |
+| `## Connections` | Folder note (`<slug>.md`) Related Problems list, written as wikilinks/markdown links inside the Knowledge Links callout area |
 | `## Import Notes` -> `### Constructs Identified` | `solutions.md` frontmatter `constructs:` field (fallback when approach blocks have no `## Constructs` subsection) |
 | `## Import Notes` -> `### Remaining Approaches` | `solutions.md` not-yet-explored placeholder blocks |
 | `lists:` field in frontmatter | Updates `workbench/lists/<name>.md` - marks problem as solved, adds pattern and link |
@@ -238,4 +238,3 @@ Cleared state for `active-solution.cs`: empty file
 - If `/save-problem` is run without an active file, fall back to reconstructing from conversation history
 - AI never modifies user code in `active-solution.cs` - it can only read it for debugging and append new blank template blocks
 - `/save-problem` does not clear active files immediately - AI suggests cleanup after the user reviews
-- Tags in active-problem.md are AI-inferred from the patterns and data structures used in the session

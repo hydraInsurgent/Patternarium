@@ -99,32 +99,35 @@ For non-LeetCode sources, use a source prefix: `hr-<name>` (HackerRank), `cf-<na
 
 ```
 problems/1-two-sum/
-    problem.md          <- problem statement + constraints (spoiler-free)
-    solutions.md        <- learning journey: approaches, patterns, reflection
-    notes.md            <- mistakes made, insights, mantras
+    1-two-sum.md        <- folder note: YAML metadata, problem statement, Knowledge Links, Related Problems
+    solutions.md        <- learning journey: approaches, patterns, reflection (mistakes inline per approach)
     solutions/
         brute-force.cs
         hashmap.cs
         two-pointer.cs
 ```
 
-### problem.md
+### Folder Note (`<slug>.md`)
 
-YAML frontmatter for queryable metadata. Tags are inline at the bottom to avoid spoiling the solution approach.
+The folder note holds queryable YAML metadata, the spoiler-free problem statement, a collapsible Knowledge Links callout, and a Related Problems list. The `<!-- /revise boundary -->` HTML comment separates the always-shown problem statement from the post-solve knowledge layer.
 
 ```markdown
 ---
 title: Two Sum
-number: 1
+category: problem-hub
+problem: 1
 slug: two-sum
-category: DSA-Practice
-difficulty: Easy
-source: LeetCode
 status: solved
+first-solved: 2025-01-12
+times-revised: 0
+last-revised:
 lists: [blind-75]
 ---
 
 # Two Sum
+
+**Difficulty:** Easy
+**Source:** LeetCode
 
 ## Statement
 [Problem statement as-is from source]
@@ -135,17 +138,23 @@ lists: [blind-75]
 ## Constraints
 [Constraints from the problem]
 
----
+<!-- /revise boundary -->
 
-## Solutions
+> [!info]- Knowledge Links
+> **Patterns:** [HashMap - Complement Lookup](../../patterns/hashmap.md#variation-complement-lookup)
+> **Concepts:** [Complement](../../concepts/complement.md)
+> **Techniques:** [Running Max](../../techniques/running-max.md)
+> **Data Structures:** [HashMap](../../data-structures/hashmap.md), [Array](../../data-structures/array.md)
 
-- [Solution approaches & learning journey](solutions.md)
-- [Mistakes & key insights](notes.md)
+## Related Problems
+- [[15-3sum|3Sum]] - extends complement lookup to triples
 ```
 
-- `number` and `slug` are derived from the folder name
+- `problem` and `slug` are derived from the folder name (the YAML field is named `problem`, holding the number)
 - `lists` from what was set at session start; write `lists: []` if none specified
-- `tags` are AI-inferred from the patterns and data structures used during the session
+- `first-solved` is set on initial save; `times-revised` and `last-revised` are managed by `/revise`
+- The Knowledge Links callout uses markdown links to patterns, concepts, techniques, and data-structures encountered in the session
+- Related Problems are written as wikilinks (or markdown links) - one per line, with a one-sentence connection
 
 ### solutions.md
 
@@ -195,6 +204,8 @@ approaches:
 
 **Thinking:** [Paraphrase of user's stated approach - no AI additions]
 
+**Mistakes:** [Bug description and root cause from this approach - omit if no bugs were encountered]
+
 ---
 
 ### Approach 2: HashMap
@@ -204,6 +215,8 @@ approaches:
 **Key Condition:** [The specific formula, invariant, or condition that defines this approach.]
 
 **Thinking:** [Paraphrase of user's stated approach - no AI additions]
+
+**Mistakes:** [Bug description and root cause - omit if no bugs were encountered]
 
 ---
 
@@ -222,6 +235,12 @@ approaches:
 - **Key insight:** [required - from user's session]
 - **Future strategy:** [required - from user's session]
 - **[session-specific field]:** [optional - captures what user actually said]
+
+### Insights
+- [insight from session]
+
+### Mantras
+- "memorable one-liner"
 ```
 
 - `concepts` lists concept slugs (e.g. `palindrome`, `anagram`, `xor`) that the problem is built on. Used by concept Seen In queries. Leave empty if no named concept applies.
@@ -231,32 +250,9 @@ Use `---` separators between approaches only. Patterns and Reflection flow witho
 
 Reflection has two required fields (`Key insight`, `Future strategy`) plus any session-specific fields that capture what the user actually said. Labels should match the session context.
 
-### notes.md
+### Connected / Related Problems
 
-Quick reference for review. Mistakes grouped by approach name, no links. Skip sections and subheadings that have no content.
-
-```markdown
-# Two Sum - Notes
-
-## Mistakes Made
-
-### Approach 2 - HashMap
-- [bug description and root cause]
-
-## Key Insights
-- [insight from session]
-
-## Mantras
-- "memorable one-liner"
-
-## Patterns Used
-- **Pattern Name** (Approach N)
-
-## Connected Problems
-- **[Number] - [Problem Name]** - one sentence on why these are connected (shared technique, prerequisite, or direct contrast)
-```
-
-Skip `## Connected Problems` if no meaningful connections exist. Do not invent connections - only write entries that came from the session or the analysis file.
+Connected problems live in the folder note (`<slug>.md`) under `## Related Problems`, written as wikilinks (preferred) or markdown links - one entry per line with a one-sentence connection. Skip the section if no meaningful connections exist. Do not invent connections - only write entries that came from the session or the analysis file.
 
 ### Solution .cs files
 
@@ -688,13 +684,13 @@ Different ways to verify or compute it, each with a brief pseudocode or descript
 ```dataview
 TABLE title AS "Problem", number AS "#", difficulty
 FROM "problems"
-FLATTEN tags AS tag
-WHERE tag = "concept-name"
+FLATTEN concepts AS concept
+WHERE concept = "concept-name"
 SORT number asc
 ```
 ```
 
-- `slug` = the primary tag value used in `tags` arrays in problem frontmatter. The Seen In query matches on this exact value. `slug`, `name`, and the first entry in `tags` must all be the same string
+- `slug` = the value used in the `concepts` array in `solutions.md` frontmatter. The Seen In query matches on this exact value. `slug` and `name` must be the same string
 
 ### How Concepts Are Tracked
 
