@@ -18,7 +18,7 @@ Progress is tracked per data structure as the percentage of problem-solving tech
 | Data Structure | Progress | Notes |
 |----------------|----------|-------|
 | [Array](../data-structures/array.md) | 58% (7/12) | Linear Scan, Preprocessing, HashMap, Odd One Out, Two Pointers, Prefix/Suffix Decomposition, Multi-Pass Construction done |
-| [String](../data-structures/string.md) | 60% (6/10) | Linear Scan, Two Pointers, Sliding Window, Preprocessing, HashMap, Chunked Iteration done |
+| [String](../data-structures/string.md) | 73% (8/11) | Linear Scan, Two Pointers, Sliding Window, Preprocessing, HashMap, Chunked Iteration, Center Expansion, DP done |
 | [HashMap](../data-structures/hashmap.md) | 43% (3/7) | Complement Lookup, Frequency Count, Last Seen Index done |
 | [HashSet](../data-structures/hashset.md) | 33% (2/6) | Duplicate Detection, Existence Check done |
 | [Linked List](../data-structures/linked-list.md) | 25% (2/8) | In-place Reversal, Recursion done |

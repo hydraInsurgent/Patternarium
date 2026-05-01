@@ -825,6 +825,69 @@
           ]
         }
       }
+    },
+    "647": {
+      "title": "Palindromic Substrings",
+      "slug": "647-palindromic-substrings",
+      "difficulty": "Medium",
+      "patterns": [
+        "Center Expansion",
+        "DP Tabulation"
+      ],
+      "constructs": [
+        "string-substring",
+        "string-reverse"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "string"
+      ],
+      "techniques": [
+        "gap-based-fill-order"
+      ],
+      "concepts": [
+        "palindrome"
+      ],
+      "lists": [],
+      "ds-notes": {
+        "string": "2D dp table dp[i,j] stores whether s[i..j] is a palindrome"
+      },
+      "approaches": {
+        "center-expansion.cs": {
+          "patterns": [
+            "Center Expansion"
+          ],
+          "variation": "Count Palindromic Substrings",
+          "ds-used": [
+            "string"
+          ]
+        },
+        "brute-force-reversal.cs": {
+          "ds-used": [
+            "string"
+          ]
+        },
+        "brute-force-gap-based.cs": {
+          "ds-used": [
+            "string"
+          ],
+          "techniques": [
+            "gap-based-fill-order"
+          ]
+        },
+        "dp-tabulation.cs": {
+          "patterns": [
+            "DP Tabulation"
+          ],
+          "variation": "2D String Palindrome Table",
+          "ds-used": [
+            "string"
+          ],
+          "techniques": [
+            "gap-based-fill-order"
+          ]
+        }
+      }
     }
   },
   "by-pattern": {
@@ -879,6 +942,12 @@
     "Sliding Window": [
       "3",
       "424"
+    ],
+    "Center Expansion": [
+      "647"
+    ],
+    "DP Tabulation": [
+      "647"
     ]
   },
   "by-ds": {
@@ -910,7 +979,8 @@
       "20",
       "125",
       "242",
-      "424"
+      "424",
+      "647"
     ],
     "hashset": [
       "3",
@@ -963,6 +1033,12 @@
     "span": [
       "3",
       "242"
+    ],
+    "string-substring": [
+      "647"
+    ],
+    "string-reverse": [
+      "647"
     ]
   },
   "by-algorithm": {},
@@ -975,12 +1051,16 @@
     ],
     "trailing-pointer": [
       "206"
+    ],
+    "gap-based-fill-order": [
+      "647"
     ]
   },
   "by-concept": {
     "palindrome": [
       "5",
-      "125"
+      "125",
+      "647"
     ],
     "anagram": [
       "242"

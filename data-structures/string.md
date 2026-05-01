@@ -2,7 +2,7 @@
 name: "String"
 slug: string
 status: explored
-progress: 60
+progress: 73
 ---
 
 # String
@@ -48,7 +48,7 @@ An array of characters with one key difference: immutable. Every "change" create
 
 ## Coverage
 
-**Progress: 6 / 10 techniques explored (60%)**
+**Progress: 8 / 11 techniques explored (73%)**
 
 Linked rows have a pattern file. Plain text rows are placeholders until the pattern file is created.
 
@@ -63,7 +63,8 @@ Linked rows have a pattern file. Plain text rows are placeholders until the patt
 | Prefix Sum | not started | - |
 | Pattern Matching (KMP, Z-Algorithm) | not started | - |
 | Trie | not started | - |
-| Dynamic Programming | not started | - (edit distance, LCS, palindrome partitioning) |
+| [Center Expansion](../patterns/center-expansion.md) | explored | [647 - Palindromic Substrings](../problems/647-palindromic-substrings/647-palindromic-substrings.md) |
+| [Dynamic Programming](../patterns/dp-tabulation.md) | explored | [647 - Palindromic Substrings](../problems/647-palindromic-substrings/647-palindromic-substrings.md) |
 
 ---
 
