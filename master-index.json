@@ -334,6 +334,62 @@
         }
       }
     },
+    "1470": {
+      "title": "Shuffle the Array",
+      "slug": "shuffle-the-array",
+      "difficulty": "Easy",
+      "patterns": [],
+      "constructs": [],
+      "algorithms": [],
+      "ds-used": [
+        "array"
+      ],
+      "techniques": [
+        "index-mapping"
+      ],
+      "concepts": [],
+      "lists": [
+        "leetcode-quests"
+      ],
+      "approaches": {
+        "interleaved-index-mapping.cs": {
+          "ds-used": [
+            "array"
+          ],
+          "techniques": [
+            "index-mapping"
+          ]
+        }
+      }
+    },
+    "1929": {
+      "title": "Concatenation of Array",
+      "slug": "concatenation-of-array",
+      "difficulty": "Easy",
+      "patterns": [],
+      "constructs": [],
+      "algorithms": [],
+      "ds-used": [
+        "array"
+      ],
+      "techniques": [
+        "index-mapping"
+      ],
+      "concepts": [],
+      "lists": [
+        "leetcode-quests"
+      ],
+      "approaches": {
+        "single-pass-dual-write.cs": {
+          "ds-used": [
+            "array"
+          ],
+          "techniques": [
+            "index-mapping"
+          ]
+        }
+      }
+    },
     "20": {
       "title": "Valid Parentheses",
       "slug": "valid-parentheses",
@@ -792,6 +848,36 @@
         }
       }
     },
+    "485": {
+      "title": "Max Consecutive Ones",
+      "slug": "max-consecutive-ones",
+      "difficulty": "Easy",
+      "patterns": [],
+      "constructs": [
+        "math-functions"
+      ],
+      "algorithms": [],
+      "ds-used": [
+        "array"
+      ],
+      "techniques": [
+        "running-max-with-reset"
+      ],
+      "concepts": [],
+      "lists": [
+        "leetcode-quests"
+      ],
+      "approaches": {
+        "running-count-with-reset-on-break.cs": {
+          "ds-used": [
+            "array"
+          ],
+          "techniques": [
+            "running-max-with-reset"
+          ]
+        }
+      }
+    },
     "5": {
       "title": "Longest Palindromic Substring",
       "slug": "longest-palindromic-substring",
@@ -962,7 +1048,10 @@
       "217",
       "238",
       "242",
-      "268"
+      "268",
+      "485",
+      "1470",
+      "1929"
     ],
     "hashmap": [
       "1",
@@ -1010,7 +1099,8 @@
     ],
     "math-functions": [
       "121",
-      "424"
+      "424",
+      "485"
     ],
     "char-methods": [
       "125"
@@ -1049,8 +1139,15 @@
     "constraint-ceiling-pruning": [
       "11"
     ],
+    "index-mapping": [
+      "1470",
+      "1929"
+    ],
     "trailing-pointer": [
       "206"
+    ],
+    "running-max-with-reset": [
+      "485"
     ],
     "gap-based-fill-order": [
       "647"

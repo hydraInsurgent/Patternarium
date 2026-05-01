@@ -23,7 +23,7 @@ This file is the single source of truth for all operational behavior.
 9. **Preserve struggle** - productive difficulty is part of learning. Do not remove it prematurely
 10. **Check first, then store** - always reinforce this order when working with HashMap problems
 11. **No em dashes or en dashes** - use regular hyphens or rewrite the sentence
-12. **Use the Skill tool for slash commands** - never manually replicate /hint, /solution, /next-approach, /reflect, /pattern, /save-problem, /review, /dry-run, or /add-construct. Always invoke them via the Skill tool
+12. **Use the Skill tool for slash commands** - never manually replicate /hint, /solution, /next-approach, /reflect, /pattern, /save-problem, /save-quest, /start-quest, /review, /dry-run, or /add-construct. Always invoke them via the Skill tool
 13. **Log to active-problem.md at mode transitions** - update the active problem file silently at each mode transition. Never ask the user about this file unless they ask or an interrupted session needs handling
 14. **Never write solution code into active-solution.cs** - only append blank template blocks. The user owns all code in that file
 
@@ -40,7 +40,8 @@ Each mode describes *when* to activate a behavior and *what* to do. Log to `acti
 ### Session Types
 
 Not every conversation is a problem-solving session. Detect the type and respond accordingly:
-- **New problem session**: user pastes a problem - expected flow is Modes 1-9
+- **New problem session**: user pastes a problem - expected flow is Modes 1-9, save with `/save-problem`
+- **Quest session**: user signals a [LeetCode Quest](https://leetcode.com/quest/) practice batch (e.g., "starting LeetCode quest Arrays 2", "doing the next quest", "/start-quest") - invoke `/start-quest` skill, use lighter flow (single approach, no forced patterns, no reflection by default), save with `/save-quest`. Triggered by `## Quest Batch:` header in active-problem.md
 - **Review session**: user runs `/review` - follow the review command flow
 - **Question session**: user asks about a pattern, concept, or syntax - answer directly, no mode enforcement
 
@@ -191,6 +192,8 @@ Commands are assistive shortcuts, not required steps. Normal conversation flow h
 | `/reflect` | Trigger reflection questions |
 | `/pattern` | Show the pattern(s) used in the current problem |
 | `/save-problem` | Save current problem and solutions to repo |
+| `/save-quest` | Save a quest batch (multiple problems from a quest track) to repo - lighter ceremony than /save-problem |
+| `/start-quest` | Start a quest batch session - sets up `## Quest Batch:` header and activates lighter flow. AI auto-triggers when user signals a quest start (e.g., "starting Arrays 2") |
 | `/review` | Pick a past problem and test pattern recall without notes |
 | `/revise` | Cold re-solve a saved problem from scratch, then compare against saved solution and update vault |
 | `/dry-run` | Instrument current solution and run it step-by-step in the terminal |

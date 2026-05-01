@@ -38,6 +38,7 @@ for (int i = 0; i < n; i++)
 
 ## Related
 - [Monotonic Running Max](monotonic-running-max.md) - intentionally stale running max when only improvement matters
+- [Running Max with Reset](running-max-with-reset.md) - reset to zero on a break condition; used for streak/run-length problems
 
 ## Seen In
 
