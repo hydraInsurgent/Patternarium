@@ -38,6 +38,9 @@
 - **Sliding window inner loop: use while(invalid), not if(valid)** - the shrink condition checks when the window is invalid. Inverting it (shrinking when valid) drifts the indices and causes crashes. Check the exact polarity before coding. (Longest Repeating Character Replacement, Approach 2)
 - **Every traversal pointer must advance in the loop** - forgetting right++ in a while(right < n) sliding window creates an infinite loop. Each outer-loop pointer must have a guaranteed increment path. (Longest Repeating Character Replacement, Approach 2)
 
+- **In-place pointer rewrite is a one-way rewrite, not a two-way swap** - framing linked list reversal as a "swap" locked the mental model into 2 variables + a temp. Correct frame: one field (`curr.next`) is overwritten in one direction. Three distinct pointers are needed - trailing (where you came from), current (where you are), lookahead (where you're going). The list gives current and lookahead for free; the trailing pointer (`last`/`prev`) is the only one to manufacture. (Reverse Linked List, Approach 1)
+- **`while (next != null)` skips the last node when next is assigned inside the loop** - if `next` is initialized before the loop and the guard is `next != null`, a single-node list immediately falls through (next = null before loop entry) and returns null instead of the node. Always guard on `while (head != null)` so the condition checks the node being processed, not the lookahead. (Reverse Linked List, Approach 1)
+
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->
 

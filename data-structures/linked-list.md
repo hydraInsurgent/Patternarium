@@ -1,8 +1,8 @@
 ﻿---
 name: "Linked List"
 slug: linked-list
-status: stub
-progress: 0
+status: explored
+progress: 25
 ---
 
 # Linked List
@@ -53,7 +53,7 @@ A chain of boxes, each box holding a value and a string tied to the next box. Yo
 
 ## Coverage
 
-**Progress: 0 / 8 techniques explored (0%)**
+**Progress: 2 / 8 techniques explored (25%)**
 
 | Technique | Status | Problems Solved |
 |-----------|--------|-----------------|
@@ -61,10 +61,10 @@ A chain of boxes, each box holding a value and a string tied to the next box. Yo
 | Pointer Manipulation | not started | - (insert, delete, rewire nodes) |
 | Two Pointers - Fast and Slow | not started | - (cycle detection, find middle) |
 | Two Pointers - n-th From End | not started | - (remove nth node from end) |
-| In-place Reversal | not started | - (reverse full list or subrange) |
+| In-place Reversal | solved | [206 - Reverse Linked List](../problems/206-reverse-linked-list/206-reverse-linked-list.md) |
 | Merge | not started | - (merge two sorted lists) |
 | Dummy Head | not started | - (simplify edge cases at head) |
-| Recursion | not started | - (reverse recursively, merge recursively) |
+| Recursion | solved | [206 - Reverse Linked List](../problems/206-reverse-linked-list/206-reverse-linked-list.md) (Approach 2) |
 
 ---
 

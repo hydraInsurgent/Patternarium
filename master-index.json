@@ -387,6 +387,50 @@
         }
       }
     },
+    "206": {
+      "title": "Reverse Linked List",
+      "slug": "206-reverse-linked-list",
+      "difficulty": "Easy",
+      "patterns": [
+        "In-Place Linked List Reversal"
+      ],
+      "constructs": [],
+      "algorithms": [],
+      "ds-used": [
+        "linked-list"
+      ],
+      "techniques": [
+        "trailing-pointer"
+      ],
+      "concepts": [],
+      "lists": [],
+      "approaches": {
+        "iterative-three-pointer-reversal.cs": {
+          "patterns": [
+            "In-Place Linked List Reversal"
+          ],
+          "variation": "Three-Pointer Reversal",
+          "ds-used": [
+            "linked-list"
+          ],
+          "techniques": [
+            "trailing-pointer"
+          ]
+        },
+        "recursive-tail-recursion.cs": {
+          "patterns": [
+            "In-Place Linked List Reversal"
+          ],
+          "variation": "Three-Pointer Reversal",
+          "ds-used": [
+            "linked-list"
+          ],
+          "techniques": [
+            "trailing-pointer"
+          ]
+        }
+      }
+    },
     "217": {
       "title": "Contains Duplicate",
       "slug": "contains-duplicate",
@@ -820,6 +864,9 @@
     "Reverse Order Matching": [
       "20"
     ],
+    "In-Place Linked List Reversal": [
+      "206"
+    ],
     "Prefix/Suffix Decomposition": [
       "238"
     ],
@@ -872,6 +919,9 @@
     ],
     "stack": [
       "20"
+    ],
+    "linked-list": [
+      "206"
     ]
   },
   "by-construct": {
@@ -922,6 +972,9 @@
     ],
     "constraint-ceiling-pruning": [
       "11"
+    ],
+    "trailing-pointer": [
+      "206"
     ]
   },
   "by-concept": {

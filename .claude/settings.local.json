@@ -58,10 +58,16 @@
       "Bash(mkdir *)",
       "Bash(cat *)",
       "WebFetch(domain:claude.ai)",
-      "Bash(gh --version)"
+      "Bash(gh --version)",
+      "Read(//home/manu/windows-claude-backup/**)",
+      "Read(//home/manu/.claude/projects/-home-manu-Personal-Code-Depth-Projects-Tasklog-Business/memory/**)",
+      "Bash(file \"/home/manu/Personal/Code/Depth Projects/Patternarium/active-solution.cs\" \"/home/manu/Personal/Code/Depth Projects/Patternarium/active-problem.md\" \"/home/manu/Personal/Code/Depth Projects/Patternarium/master-index.json\" \"/home/manu/Personal/Code/Depth Projects/Patternarium/scripts/\"*.sh)",
+      "Bash(xargs file *)",
+      "Read(//home/manu/.claude/**)"
     ],
     "additionalDirectories": [
-      "/tmp"
+      "/tmp",
+      "/home/manu/.claude/projects/-home-manu-Personal-Code-Depth-Projects-Tasklog-Business/memory"
     ]
   },
   "defaultMode": "dontAsk"
