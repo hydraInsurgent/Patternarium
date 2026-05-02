@@ -10,6 +10,10 @@
 - **Window state must update before validity check** - adding s[r] to the freq map and updating maxFreq must happen before checking if the window is valid. The window must be fully formed first. (Longest Repeating Character Replacement, Approach 2)
 - **Monotonic tracking variable: never decrement on shrink** - when a running max tracks only increases (e.g., maxFreq), decrementing it when an element exits breaks correctness on ties. Let it stay stale - any window size it allows was already achievable when the variable was genuinely that high. (Longest Repeating Character Replacement, Approach 2)
 
+- **Two-input complexity: O(m + n), not O(n)** - shorthanding two independent input sizes as one variable misses information. The two lists may have different lengths; both contribute to the work. The simplification only holds when m == n. (Merge Two Sorted Lists, Approach 1)
+- **Splicing means reuse, not allocate** - when a problem statement says "splicing" or "in-place", the output reuses existing nodes. Allocating new nodes signals a misread of the constraint. The "splice" word is the trigger to look for in-place pointer rewiring. (Merge Two Sorted Lists, Approach 1)
+- **`ref` to a field is ONE storage slot, not a moving cursor** - in recursion, passing `ref tail.next` makes every frame's parameter alias the same slot (the original field). Every write hits the same location; the last write wins. The dry run reveals it: the variable walks through correct values transiently, but the field stops at one final value. To build a chain across frames, the helper must write into the field via `out tail.next` directly, and a separate value-typed local advances between frames. (Merge Two Sorted Lists, Approach 2)
+
 
 ## Code Mistakes
 <!-- Bugs caused by implementation errors, not conceptual gaps -->
@@ -44,6 +48,10 @@
 
 - **In-place pointer rewrite is a one-way rewrite, not a two-way swap** - framing linked list reversal as a "swap" locked the mental model into 2 variables + a temp. Correct frame: one field (`curr.next`) is overwritten in one direction. Three distinct pointers are needed - trailing (where you came from), current (where you are), lookahead (where you're going). The list gives current and lookahead for free; the trailing pointer (`last`/`prev`) is the only one to manufacture. (Reverse Linked List, Approach 1)
 - **`while (next != null)` skips the last node when next is assigned inside the loop** - if `next` is initialized before the loop and the guard is `next != null`, a single-node list immediately falls through (next = null before loop entry) and returns null instead of the node. Always guard on `while (head != null)` so the condition checks the node being processed, not the lookahead. (Reverse Linked List, Approach 1)
+
+- **C# `out` vs `ref` - match the keyword to actual usage** - `out` forbids reading the parameter before assigning to it; the method MUST assign before returning. `ref` allows both read and write, with the caller's value flowing in. If the helper reads the parameter first (e.g. `if (list1 == null)`), it must be `ref`, not `out`. Marking it `out` triggers "use of unassigned out parameter" at compile time. (Merge Two Sorted Lists, Approach 1)
+- **Reference type passed by value doesn't propagate reassignment** - in C#, when you pass a reference type (like `ListNode`) to a method, the *reference itself* is passed by value. Reassigning the parameter (`list1 = list1.next`) inside the helper updates only the local copy of the reference, not the caller's variable. To make the advance visible to the caller, mark it `ref`. (Merge Two Sorted Lists, Approach 1)
+- **Don't conflate two distinct moves when fixing a bug** - dropping a buggy `tail = tail.next` line accidentally removed the (different) wiring step that connects new picks to the previous tail's `.next`. The cursor advance and the chain-wiring move look similar but do different things. Identify each move's purpose separately before deleting. (Merge Two Sorted Lists, Approach 2)
 
 ## Pattern Misidentifications
 <!-- Times the wrong pattern was chosen, or a pattern was missed -->

@@ -101,7 +101,7 @@ Never skip levels. Never jump to solution while a hint will do.
 - Encourage dry run (see `docs/dry-run-template.md` for format). Two options: (a) conversational dry run in chat - AI narrates execution step by step and asks the user to predict each next step; (b) terminal dry run via `/dry-run` if implementation exists - produces a narrative flow trace with phase labels, not a variable table
 - Ask: "What information was lost at this step?"
 - Guide to the fix, do not apply it
-- When bug is identified, append description and root cause to `#### Bugs` in the current approach block of `active-problem.md`
+- Do not write bugs to `active-problem.md` mid-session. The `#### Bugs` field is filled at `/save-problem` time by deriving from session context (conversation, code, comments). See `.claude/commands/save-problem.md` for that step.
 
 ### Mode 6 - Solution Reveal
 **Trigger:** User explicitly asks OR fully stuck after all hints
@@ -348,9 +348,13 @@ When a new error category is found that does not fit the above, add it here and 
   }
   ```
 - The method signature matches the problem (AI fills in return type, method name, and parameters from the problem statement)
-- The user writes the implementation. AI fills in the header comments (`// Approach:`, `// Time:`, `// Space:`, `// Key Idea:`) before pattern extraction (Mode 8), based on answers the user gave verbally during the session - never ask the user to fill these in
+- The user writes the implementation. AI fills in the header comments (`// Approach:`, `// Time:`, `// Space:`, `// Key Idea:`) before pattern extraction (Mode 8) **only on the working snapshot (the keeper)**, based on answers the user gave verbally during the session - never ask the user to fill these in. Broken snapshots get at most a one-line `// Note:` and are otherwise left alone, since they will be trimmed at `/save-problem`.
 - When debugging (Mode 5), AI reads `active-solution.cs` to understand the user's code but never modifies it
 - If `active-solution.cs` has content when a new problem is pasted, handle it together with the interrupted session check for `active-problem.md`
+- **Same approach, multiple snapshots is the design.** The user intentionally keeps multiple versions of the same approach in `active-solution.cs` as **snapshots** while iterating - some working, some broken, some partial refactors (V1, V2, V3, V4...). This is the workflow, not clutter. Do not auto-trim mid-session, do not auto-diagnose snapshots, and do not auto-write anything to `active-problem.md` because of them. Read them silently for context.
+- **Working = keeper; broken = lesson source.** At `/save-problem`, the working snapshot is the keeper by default - AI does not need to run a questionnaire unless the working version is ambiguous. Broken snapshots are not persisted as code; they feed into bug derivation (`#### Bugs` -> `solutions.md` `**Mistakes:**`) and LESSONS.md. So the broken versions are kept around for **lessons and `/review`**, not as solution code.
+- **Only fill metadata headers on the keeper.** `// Approach:`, `// Time:`, `// Space:`, `// Key Idea:` are filled in only on the working snapshot (the keeper), not on broken snapshots. Broken snapshots can keep a one-line `// Note:` or the user's own label, but AI does not waste effort filling complexity or key-idea fields for code that will be trimmed at save.
+- **Bugs are NOT logged to `#### Bugs` mid-session.** That field is filled by `/save-problem` at save time, deriving from conversation history, in-file code comments, and the `/import-chat` analysis file (if any). During the session, just help the user fix the bug - do not write to `active-problem.md` for it.
 
 ### Active File Cleanup
 - Active files are never deleted - they are cleared to empty when the user is ready

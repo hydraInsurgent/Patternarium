@@ -111,7 +111,7 @@ Logging is event-based, not phase-based. Write when the event happens, regardles
 | All approaches done, problem closed | Set `**Time Taken:**` at Problem level (compute from Problem Time Started) |
 | A hint is given | Append to `#### Hints Given` in current approach |
 | User says "I'm stuck" or solution is revealed for them | Set current approach `**Status:** stuck` |
-| A bug is identified | Append to `#### Bugs` in current approach |
+| A bug is identified | _Not written mid-session._ `#### Bugs` is filled by `/save-problem` from conversation history, code comments, and `/import-chat` analysis. |
 | A solution is reached or revealed | Write `#### Solution` (complexity + key idea, no code) + set `**Status:** solved` |
 | User says "start coding" or approach is clear | Append blank template block to `active-solution.cs` |
 | A new alternative approach begins | Start new `### Approach N` block in `active-problem.md`; append new template block to `active-solution.cs` |
@@ -195,6 +195,8 @@ public class Solution2
 
 **AI writes:** Only the blank template block (separator, empty metadata fields, class with method signature). Always append to the bottom - never prepend.
 **User writes:** Everything else (approach name, complexity, key idea, implementation)
+
+**Snapshots within an approach:** During a session the user may keep multiple **snapshots** of the same approach in the file (V1, V2, V3...) - some working, some broken. This is the intended workflow, not clutter. AI does not auto-trim, auto-diagnose, or auto-write `#### Bugs` because of these snapshots. Consolidation to one keeper block per approach happens at `/save-problem` time (Step 3b), where AI walks the user through the snapshots and asks which is the keeper.
 
 ### Dry Run Template in active-solution.cs
 

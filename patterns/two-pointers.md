@@ -11,7 +11,9 @@ variations:
     ds: [string]
   - name: Converging/Diverging
     ds: [array]
-ds-primary: [array, string]
+  - name: Parallel Merge
+    ds: [linked-list, array]
+ds-primary: [array, string, linked-list]
 ---
 
 # Two Pointers Pattern
@@ -242,6 +244,79 @@ while (left < right)
 
 ---
 
+## Variation: Parallel Merge
+
+**When to reach for this:**
+- Two sorted sequences need to merge into one sorted output
+- One pointer per sequence, advanced by comparison rather than by position
+- Linked lists where the merge can splice existing nodes without allocation
+- Arrays where the merge step of merge sort applies
+- Generally: any problem of the form "produce sorted output from two pre-sorted inputs"
+
+**Mental Trigger:**
+> "Two sorted sequences in, one sorted sequence out - which head is smaller right now?"
+> "Can I walk both with one pointer each and pick the smaller current value at every step?"
+> "Do I need to allocate new storage, or can I reroute existing pointers in place?"
+
+**Template (linked list, iterative):**
+```csharp
+// Seed the head from whichever input has the smaller first node
+ListNode mergedList = null;
+if (list1 == null) mergedList = list2;
+else if (list2 == null) mergedList = list1;
+else if (list1.val <= list2.val) { mergedList = list1; list1 = list1.next; }
+else { mergedList = list2; list2 = list2.next; }
+
+ListNode tail = mergedList;
+
+// Advance whichever pointer has the smaller head; splice that node onto tail
+while (list1 != null && list2 != null)
+{
+    if (list1.val <= list2.val) { tail.next = list1; list1 = list1.next; }
+    else                         { tail.next = list2; list2 = list2.next; }
+    tail = tail.next;
+}
+
+// Append whatever remains (one of the two will already be null)
+tail.next = (list1 != null) ? list1 : list2;
+return mergedList;
+```
+
+**Recursive form:** the same compare-and-pick logic, but each recursive frame contributes one node and one `.next` link. The frame that picks the smaller node returns it, and the parent frame wires that returned node into its own `.next`. Recursive form is O(m + n) space due to the call stack.
+
+**Tradeoffs:**
+
+| | Iterative | Recursive |
+|--|--|--|
+| Time | O(m + n) | O(m + n) |
+| Space | O(1) | O(m + n) - call stack |
+| When to prefer | Default for production | Cleaner for the merge step of recursive algorithms (e.g. merge sort) |
+| Risk | Verbose null handling without a dummy head | Stack overflow on long lists |
+
+**Dummy-head simplification:**
+```csharp
+ListNode dummy = new ListNode();
+ListNode tail = dummy;
+while (list1 != null && list2 != null) { ... }
+tail.next = list1 ?? list2;
+return dummy.next;
+```
+The dummy node collapses pre-loop initialization into a single line and removes the four null-case branches. The trade-off is one extra allocation of a sentinel node; the chain itself still uses existing nodes.
+
+**Common Mistakes:**
+- **Allocating new nodes** - reading "splicing" in the problem statement without registering it. The output reuses existing nodes; only `.next` pointers are rewritten. Allocating new ones is correct but wastes O(m + n) space.
+- **Using one variable as both head and cursor** - the cursor advances each iteration, which loses the head reference. Two separate variables required: a frozen head for return, a moving tail.
+- **`ref` to a field as a moving cursor (recursive form)** - `ref tail.next` aliases ONE storage slot, not a position that advances through the chain. Every recursive frame writes to the same slot; the last write wins. To build a chain across frames, write into the field via `out tail.next` (so each call writes into the actual previous-tail's next field), and pass a value-typed `tail` local that advances between frames.
+- **Pre-loop null deref on inputs** - comparing `list1.val <= list2.val` before checking either is null crashes when one (or both) inputs are empty. Either guard the seeding step explicitly, or use the dummy-head form which sidesteps this.
+- **Two-input complexity shorthand** - O(n) is wrong when the two inputs have independent sizes. The correct form is O(m + n).
+- **C# parameter passing for the helper** - if a helper picks the smaller head and advances the source, the source pointers need `ref` (read AND write); the picked-node output needs `out` (pure write). Marking everything `out` fails to compile because `out` forbids reading before assigning, and the helper reads the source pointers first thing.
+
+**Solved Problems:**
+- **Merge Two Sorted Lists** (problems/21-merge-two-sorted-lists/solutions/iterative-splicing.cs) - iterative two-pointer splicing on linked lists
+- **Merge Two Sorted Lists** (problems/21-merge-two-sorted-lists/solutions/recursive-splicing.cs) - same pattern, recursion replaces the loop
+
+---
+
 ## Try Next
 
 - Two Sum II - Input Already Sorted (Sorted Pair)
@@ -251,6 +326,9 @@ while (left < right)
 - Remove Duplicates from Sorted Array (Sorted Pair)
 - Valid Palindrome II - can remove one character (Symmetry Check)
 - Longest Palindromic Substring - expand outward from center (Expand Around Center) ✓ solved
+- Merge Two Sorted Lists - one pointer per list, pick smaller (Parallel Merge) ✓ solved
+- Merge k Sorted Lists - generalizes Parallel Merge with a min-heap over the heads (Parallel Merge variant)
+- Merge Sorted Array (LC 88) - same pattern on arrays instead of linked lists (Parallel Merge)
 
 ## Solved Problems
 

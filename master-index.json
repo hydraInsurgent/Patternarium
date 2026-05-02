@@ -487,6 +487,53 @@
         }
       }
     },
+    "21": {
+      "title": "Merge Two Sorted Lists",
+      "slug": "21-merge-two-sorted-lists",
+      "difficulty": "Easy",
+      "patterns": [
+        "Two Pointers"
+      ],
+      "constructs": [],
+      "algorithms": [],
+      "ds-used": [
+        "linked-list"
+      ],
+      "techniques": [
+        "head-tail-tracking"
+      ],
+      "concepts": [],
+      "lists": [
+        "blind-75",
+        "phased-75"
+      ],
+      "approaches": {
+        "iterative-splicing.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "Parallel Merge",
+          "ds-used": [
+            "linked-list"
+          ],
+          "techniques": [
+            "head-tail-tracking"
+          ]
+        },
+        "recursive-splicing.cs": {
+          "patterns": [
+            "Two Pointers"
+          ],
+          "variation": "Parallel Merge",
+          "ds-used": [
+            "linked-list"
+          ],
+          "techniques": [
+            "head-tail-tracking"
+          ]
+        }
+      }
+    },
     "217": {
       "title": "Contains Duplicate",
       "slug": "contains-duplicate",
@@ -988,6 +1035,7 @@
       "1",
       "5",
       "11",
+      "21",
       "125",
       "238"
     ],
@@ -1080,6 +1128,7 @@
       "20"
     ],
     "linked-list": [
+      "21",
       "206"
     ]
   },
@@ -1145,6 +1194,9 @@
     ],
     "trailing-pointer": [
       "206"
+    ],
+    "head-tail-tracking": [
+      "21"
     ],
     "running-max-with-reset": [
       "485"

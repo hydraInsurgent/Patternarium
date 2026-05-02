@@ -1,6 +1,6 @@
 # Phased 75
 
-**Progress: 10 / 75** | Easy: 6/19 | Med: 4/49 | Hard: 0/7
+**Progress: 11 / 75** | Easy: 7/19 | Med: 4/49 | Hard: 0/7
 
 ## Phase 1 - Foundation (Problems 1-20)
 
@@ -33,7 +33,7 @@
 |------|---------|-----------|--------|---------|------|
 | 11 | Container With Most Water | Med | not started | - | - |
 | 206 | Reverse Linked List | Easy | not started | - | - |
-| 21 | Merge Two Sorted Lists | Easy | not started | - | - |
+| 21 | Merge Two Sorted Lists | Easy | solved | Two Pointers - Parallel Merge | [→](../../problems/21-merge-two-sorted-lists/21-merge-two-sorted-lists.md) |
 | 141 | Linked List Cycle | Easy | not started | - | - |
 | 23 | Merge k Sorted Lists | Hard | not started | - | - |
 

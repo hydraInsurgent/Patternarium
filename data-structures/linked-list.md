@@ -2,7 +2,7 @@
 name: "Linked List"
 slug: linked-list
 status: explored
-progress: 25
+progress: 38
 ---
 
 # Linked List
@@ -53,7 +53,7 @@ A chain of boxes, each box holding a value and a string tied to the next box. Yo
 
 ## Coverage
 
-**Progress: 2 / 8 techniques explored (25%)**
+**Progress: 3 / 8 techniques explored (38%)**
 
 | Technique | Status | Problems Solved |
 |-----------|--------|-----------------|
@@ -62,9 +62,9 @@ A chain of boxes, each box holding a value and a string tied to the next box. Yo
 | Two Pointers - Fast and Slow | not started | - (cycle detection, find middle) |
 | Two Pointers - n-th From End | not started | - (remove nth node from end) |
 | In-place Reversal | solved | [206 - Reverse Linked List](../problems/206-reverse-linked-list/206-reverse-linked-list.md) |
-| Merge | not started | - (merge two sorted lists) |
+| Merge | solved | [21 - Merge Two Sorted Lists](../problems/21-merge-two-sorted-lists/21-merge-two-sorted-lists.md) |
 | Dummy Head | not started | - (simplify edge cases at head) |
-| Recursion | solved | [206 - Reverse Linked List](../problems/206-reverse-linked-list/206-reverse-linked-list.md) (Approach 2) |
+| Recursion | solved | [206 - Reverse Linked List](../problems/206-reverse-linked-list/206-reverse-linked-list.md) (Approach 2), [21 - Merge Two Sorted Lists](../problems/21-merge-two-sorted-lists/21-merge-two-sorted-lists.md) (Approach 2) |
 
 ---
 

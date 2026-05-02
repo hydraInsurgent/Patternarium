@@ -204,7 +204,7 @@ Write silently - do not narrate what you are writing.
 
 ### Step 6 - Format active-solution.cs
 
-If `active-solution.cs` has raw unlabeled code, or has labeled blocks (`// Approach 1 - Brute Force`), reformat each block to the standard template:
+If `active-solution.cs` has raw unlabeled code, or has labeled blocks (`// Approach 1 - Brute Force`), reformat to the standard template:
 
 ```csharp
 // ==== Approach N ====
@@ -221,6 +221,14 @@ public class SolutionN
     }
 }
 ```
+
+**Preserve labeled snapshots as the user wrote them.** When the file contains several labeled versions of the same approach (V1, V2, V3...), keep them. These are intentional **snapshots** the user accumulates while iterating - some working, some broken. Consolidation to one working block per approach happens at `/save-problem` time, not at import time. Reformat each block's separator to the `// ==== Approach N: ... - VX (working|broken|...) ====` form, but leave the snapshots themselves intact.
+
+**Only fill metadata on the working snapshot.** Fill `// Approach:` and `// Key Idea:` only on the snapshot the chat identifies as the working one. For broken snapshots, leave those fields as `?` (or omit them) and add a one-line `// Note:` capturing the user's own label or the chat's diagnosis. `// Time:` and `// Space:` always stay `?` until the user confirms live - even on the working snapshot.
+
+A new `// ==== Approach N ====` block is added only when a genuinely different approach (e.g. iterative -> recursive) was discussed in the chat and code was written for it.
+
+**Do not auto-write bug entries from the snapshots themselves.** `#### Bugs` is filled at `/save-problem` time, not at import time. Read the snapshots silently for context - do not narrate diagnoses or write bug entries during import.
 
 - Fill `// Approach:`, `// Key Idea:` from what was said in the chat
 - Leave `// Time:` and `// Space:` as `?` - these must be confirmed live

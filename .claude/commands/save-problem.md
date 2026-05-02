@@ -19,6 +19,43 @@ Two-tier folder note pattern: both folders have a folder note named the same as 
 
 Read both `active-problem.md` and `active-solution.cs` from repo root. If either file does not exist, fall back to reconstructing from conversation history and warn the user: "Active file(s) missing - reconstructing from our conversation. Some details may be incomplete."
 
+### Step 1b - Derive bugs (save-time only)
+
+`#### Bugs` is **not** populated during the session - it is filled here. Read the following sources and identify bugs per approach:
+- Conversation history (live discussion of bugs while the user was solving)
+- In-file code comments inside `active-solution.cs` (e.g. `// V1 missed null case`, `// fails on []`)
+- `reference-chats/analysis/<slug>-analysis.md` `## Mistakes and Lessons` table (if `/import-chat` was used)
+
+For each candidate bug, write the description and root cause as one bullet under `#### Bugs` of the corresponding approach block in `active-problem.md`. Then surface the rollup to the user:
+
+> "Bugs I identified for this session: [list]. Confirm or edit before I save."
+
+Do not invent bugs that have no source. If no bugs surface from any source, leave `#### Bugs` empty for that approach. Do not pad with stylistic critiques.
+
+### Step 1c - Read and route the analysis file (end-to-end)
+
+If `/import-chat` was used, glob `reference-chats/analysis/*.md` for the file whose frontmatter `slug` matches this problem. Read it in full. The analysis file is a first-class input to save - every section has a destination, and each downstream step is responsible for its row:
+
+| Analysis Section | Feeds Into | Used By Step |
+|------------------|------------|--------------|
+| `## Thinking Journey` | enriches per-approach `**Thinking:**` in solutions.md if active-problem.md thinking is sparse; informs `## Reflection` if reflection has gaps | Step 5 |
+| `## Core Formula / Key Condition` | per-approach `**Key Condition:**` field in solutions.md (when an approach has a central formula or invariant) | Step 5 |
+| `## Approaches` | cross-reference active-problem.md approach blocks; surface gaps if analysis has richer detail than the live session captured | Step 5 |
+| `## Mistakes and Lessons` | candidate bugs (Step 1b); LESSONS.md entries (Step 9) | Steps 1b, 9 |
+| `## Key Insights for Pattern Library` | technique / construct / concept candidates worth capturing as files | Step 4b |
+| `## Constructs Used` | `constructs:` field in solutions.md frontmatter (fallback when active-problem.md lacks a `## Constructs` subsection per approach) | Step 5 |
+| `## Pattern Signals` | pattern file `**When to reach for this:**` enrichment | Step 10 |
+| `## Connections to Other Problems` | folder note Related Problems (when `## Connections` in active-problem.md is sparse) | Step 3 |
+| `## Session Checklist` | verify completion before save | Step 10b |
+
+After parsing, build a single rollup of NEW candidates (anything in the analysis that is not already reflected in active-problem.md) and surface it together with the Step 1b bug rollup, in one confirmation:
+
+> "Bugs I identified: [list]. Analysis also flagged these candidates that aren't logged yet: [techniques: ..., constructs: ..., concepts: ..., connections: ...]. Confirm before I save."
+
+Apply confirmed additions to active-problem.md (so they flow through Steps 3-10 naturally), then proceed.
+
+If no analysis file exists for this problem, this step is skipped silently.
+
 ### Step 2 - Confirm problem slug
 
 Derive the folder name from the source and problem name in kebab-case:
@@ -99,6 +136,17 @@ lists: [blind-75]
 - If a knowledge layer category has no entries, write `> _none_` for that subsection.
 - Statement / Examples / Constraints are above the `/revise boundary` so they show during cold re-solve. Knowledge Links are below so they don't spoil.
 
+### Step 3b - Consolidate snapshots in active-solution.cs
+
+`active-solution.cs` typically has multiple **snapshots** of the same approach (V1, V2, V3...) that accumulated during the session - some working, some broken. **Default rule: the working snapshot is the keeper; broken snapshots are not persisted as code, but they feed into Step 1b (bug derivation) and Step 9 (LESSONS.md).** No questionnaire is needed unless the working version is ambiguous.
+
+For each approach group:
+1. Identify the working snapshot. Signals: user's own comments labelling it (`// working`, `// final clean code`), absence of `// broken` / `// missed null case` style notes, code that compiles and matches the problem's I/O. If multiple candidates look working, ask: "Multiple working snapshots for [approach name] - which is the keeper?"
+2. Trim the file in place: keep only the working snapshot, remove the others. Broken snapshots have already informed Step 1b; they do not need to remain in the file.
+3. Confirm the kept block has filled `// Approach:`, `// Time:`, `// Space:`, `// Key Idea:` headers. If any are still `?`, ask the user to fill them now. Headers are confirmed **only on the keeper** - never spend effort filling metadata for the broken snapshots that are about to be trimmed.
+
+If only one snapshot exists for an approach, no consolidation is needed - just verify the headers.
+
 ### Step 4 - Write solution .cs files
 
 Parse `active-solution.cs` for each `// ==== Approach N ====` block:
@@ -118,7 +166,12 @@ Approaches with status "in-progress" or "stuck" in `active-problem.md` are skipp
 
 ### Step 4b - Ensure pattern, technique, concept files exist
 
-For each pattern, technique, and concept named in `active-problem.md`:
+Sources to scan:
+1. `active-problem.md` - patterns/techniques/concepts named directly in the session
+2. **`reference-chats/analysis/<slug>-analysis.md` `## Key Insights for Pattern Library`** (if `/import-chat` was used) - technique, construct, or concept candidates surfaced during analysis but not yet logged. Before creating files for these, surface them to the user: "Analysis flagged these as worth capturing: [list]. Add them?"
+3. `active-solution.cs` - look at the user's code for techniques implied by the implementation (e.g. `mergedList` + moving `tail` -> head-tail-tracking)
+
+For each accepted pattern, technique, and concept:
 - Check if the file exists in `patterns/`, `techniques/`, or `concepts/`. If not, create from the template in `docs/pattern-system.md`.
 - For patterns, also confirm the `## Variation:` heading exists. If not, add the variation section.
 - Tell the user: "Creating new <type> file: `<path>` - you may want to review it after save."

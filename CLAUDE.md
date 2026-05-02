@@ -24,6 +24,7 @@ A learner who is fresh into DSA. I understand basic programming but have not yet
 - No em dashes or en dashes - use regular hyphens or rewrite the sentence
 - Keep explanations simple and conversational
 - Use dry run examples to make abstract ideas concrete
+- Never chain independent bash commands with `;` or `&&` in a single Bash call - run them as separate parallel Bash tool calls so each one matches its own allowlist pattern (e.g. `Bash(ls *)`) and does not trigger an unnecessary permission prompt
 
 ## Key Documents
 
